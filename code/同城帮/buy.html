@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/main.css" />
+		<link rel="stylesheet" type="text/css" href="css/star.css" />
+		<link rel="stylesheet" type="text/css" href="css/buy.css" />
+		<script type="text/javascript" src="js/jquery-3.0.0.js" ></script>
+		<script type="text/javascript" src="js/buy.js" ></script>
+	</head>
+
+	<body>
+		<!--top-->
+		<div id="top">
+			<div class="top con1">
+				<div class="top-l fl">
+					<span class="top-add">北京</span>
+					<a href="#" class="fir">[切换城市]</a>
+					<a href="#" class="sec">同城帮首页</a>
+				</div>
+				<div class="top-r fr">
+					<ul>
+
+						<li><a href="#">登录</a></li>
+						<li><a href="#">注册 </a></li>
+						<li><a href="#">我的订单</a></li>
+						<li><a href="#" class="tel">客服电话：4000-399-360 </a>
+						</li>
+						<li class="ser">
+							<a href="#">客户服务</a>
+							<i></i>
+							<div class="down">
+								<a href="#">帮助中心</a>
+								<a href="#">二手机咨询</a>
+								<a href="#">维修付款</a>
+							</div>
+						</li>
+						<li><a href="#">论坛</a></li>
+						<li><a href="#" class="aa-last">投诉建议</a></li>
+					</ul>
+				</div>
+
+			</div>
+		</div>
+		<!--header-->
+		<div id="header">
+			<div class="con header con1">
+				<div class="logo-l fl">
+					<img src="img/logo2.png">
+				</div>
+				<div class="header-r  fr">
+					<div class="zindex">
+						<img src="img/buy1.png" />
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--order-->
+		<div id="order">
+			<div class="con1 order ">
+
+			</div>
+			<div class="orderspan con"><span class="orange">告别胡乱加价</span><span>360担保</span><span>支持上门服务</span><span>支持退款</span></div>
+		</div>
+		<h4 class="con1 sure">确认订单信息</h4> 
+
+		<table border="1" cellspacing="0" cellpadding="0" class="con1">
+			<tbody>
+				<tr class="tr0">
+					<th>店铺:<a href="#" class="color">联金诚...</a>卖家:<a href="#" class="color">联金诚</a><i></i></th>
+					<th>单价（元）</th>
+					<th>数量</th>
+					<th>服务方式</th>
+					<th>合计（元）</th>
+				</tr>
+				<tr class="trr">
+					<td class="tr1"><img src="img/order1.jpg" class="fl" />
+						<div class="fl">
+							<p class="fl"><a href="#" class="color">硬件数据恢复</a></p>
+							<div class="p2"><i></i><s></s></div>
+					</td>
+					</div>
+
+					<td class="price1">
+						<p id="price">优惠价：200.00</p>
+						<del>门店价：250.00</del>
+					</td>
+					<td class="number">
+						<img src="img/jian.png" class="fl" id="cut"/>
+						<input type="text" id="inNum" value="1" class="inNum fl"/>
+						<img src="img/jia.png" class="fl" id="add"/>
+						<div id="noZero">
+							购买数量在1到1000之间
+						</div>
+					</td>
+					<td >
+						<select name="" class="price3" id="price3">
+						<option value="0" >请选择&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+						<option id="doorService" value="1">上门服务￥30.00</option>
+						<option id="store" value="2">到店维修</option>
+						</select>
+						<p class="storeAdd">店址：西直门内大街前桃园1号楼4门底商
+							<a href="#" class="color">[地图]</a>
+						</p>
+					</td>
+					<td class="price2">
+						<b id="sum">200.00</b>
+						<p>在线支付专享</p>
+					</td>
+				</tr> 
+				<tr>
+					<td colspan="5"  class="phonenum"><span ><small>*</small>您的手机号码：</span>
+						<input type="text" name="" id="phoneNum"  placeholder="请填写11位常用的手机号" />
+						<span class="phone1">请输入正确填写11位手机号</span>
+						<p>购买成功后您将收到服务激活码短信，凭此联系商家进行消费</p>
+					</td>
+				</tr>
+				<tr > 
+					<td colspan="5" class="pay"><span class="fl"><small>*</small>支付方式：</span>
+						<ul class="fl" id="pay">
+							<li class="li1 sel">
+								<dl class="dl1">
+									<dt>
+										<b >在线支付到360</b><img src="img/save.png"/>
+										<span class="lan">360推荐</span>
+									</dt>
+									<dd class="a60">360担保，7天内无效可申请退款</dd>
+									<i></i>   
+								</dl>
+							</li>
+							<li class="li2 unsel"><b>免费登记，当面付款</b><i></i></li>
+						</ul>
+					</td>
+				</tr>
+				<tr >
+					<td colspan="5" class="danxuan"><label>
+					<input type="radio" name="" id="" value=" " />支付宝
+					<input type="radio" name="" id="" value="" />网银支付
+					<input type="radio" name="" id="" value="" /> 银联快捷支付 
+					<input type="radio" name="" id="" value="" />手机支付宝 
+					<input type="radio" name="" id="" value="" /> 微信支付
+				</label></td>
+				</tr>
+				<tr>
+					<td colspan="5" class="sub "><input type="button" class="submit fl"/><a href="#" class="red shenngming fl">360同城帮声明："修不好，全额退款！"</a></td>
+				</tr>
+
+			</tbody>
+		</table>
+		<!--底部-->
+		<div id="foot" class="bgfa foot1">   
+			<ul class="foot">
+				<li>
+					<dl>
+						<dt class="dt1"><h2>购物指南</h2></dt>
+						<dd><a href="#">购物流程</a><a href="#">用户注册</a><a href="#">帮助文档</a></dd>
+					</dl>
+				</li>
+				<li>
+					<dl>
+						<dt class="dt2"><h2>支付方式</h2></dt>
+						<dd><a href="#">在线支付</a><a href="#">当面付款</a></dd>
+					</dl>
+				</li>
+				<li>
+					<dl>
+						<dt class="dt3"><h2>售后服务</h2></dt>
+						<dd><a href="#">投诉建议</a></dd>
+					</dl>
+				</li>
+				<li>
+					<dl>
+						<dt class="dt4"><h2>特色保障</h2></dt>
+						<dd><a href="#">360担保支付</a></dd>
+					</dl>
+				</li>
+				<li>
+					<dl>
+						<dt class="dt5"><h2>商家合作</h2></dt>
+						<dd><a href="#">加盟同城帮</a></dd>
+					</dl>
+				</li>
+			</ul>
+		</div>
+		<div id="footer" class="bgfa">
+			<div class="footer-top footer">
+				客服电话：4000-399-360 <a href="#">投诉建议</a> <a href="#">网站地图</a>
+			</div>
+			<div class="footer">
+				<td></td>
+				Copyright © 2005-2016 360.CN All Rights Reserved 360安全中心
+			</div>
+			<div class="footer">
+				<a href="#">京ICP备08010314号-19</a> 京公网安备110000000006号
+			</div>
+		</div>
+	</body>
+
+</html>

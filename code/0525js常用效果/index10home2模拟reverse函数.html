@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>自定义一个函数模拟实现reverse()效果，参数为原数组。</title>
+		<script type="text/javascript">
+			var arr1=[1,'a',5,'d',43,'c',23,65];
+			document.write("原有数组："+arr1+'<br />');
+			reverse(arr1);
+			function reverse (arr) {
+				for (var i=0;i<parseInt(arr.length/2);i++) {
+					var temp=arr[i];
+					arr[i]=arr[arr.length-i-1];
+					arr[arr.length-i-1]=temp;
+				}
+			}
+			
+			document.write("反转后的数组："+arr1);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

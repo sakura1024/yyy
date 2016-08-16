@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>正则</title>
+		<!--
+			1.创建正则对象  2种
+			2.定义规则：[] {} + * ?  \d  \w
+			3.方法:test()  exec()
+			4.String: search  replace  match  ...
+		-->
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			var str = "abcbc 3abc4,5abc ab"
+			var reg = /(abc)/g; //abcbc
+//				var result = reg.exec(str); //结果本身就是一个数组
+			//使用exec方法
+			var arr = new Array();
+			var count = 0;
+			while (true) {
+				var result = reg.exec(str); //结果本身就是一个数组
+				if (result == null) {
+					break;
+				}
+				arr[count++] = result+" "+result.index;
+			}
+			alert(arr+" "+arr.length);
+			/*exec():找到字符串中第一个匹配的就结束了。
+			//如果正则添加(),而且有可能多个（1,2,3,4个），每个（）就称作子表达式
+			 步骤:
+			  1.默认第一次匹配正则，如果可以找到则就算找到result，没有()到此
+			    匹配过程就结束。
+			  2.如果有（）有表达式，取第一个子表达式进行字符串的匹配。
+			  3.
+			/*
+			 * 特点:
+			 * exec方法：默认只匹配第一个，但是如果想继续向后匹配，
+			 * 注意：正则必须是g，全局匹配
+			 * 检索完之后还可以向后执行，只要执行完毕之后都是从当前位置向后
+			 * 继续执行。
+			 * 结果: abc 0,abc 7, abc 13
+			 * 
+			 */
+		</script>
+		
+	</body>
+	
+			
+
+</html>

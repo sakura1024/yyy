@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#div1{
+				width: 100px;
+				height: 20px;
+				display: inline-block;
+				border: 1px solid black;
+			}
+			#inner{
+				width: 0;
+				height: 20px;
+			}
+		</style>
+		<script type="text/javascript">
+			/*
+												 
+			* 1.获取div1 inner对象  获取width									 
+			* 2.span 对象 innerHTML									 
+			* 3.									
+			* 									
+			* */									
+			var count = 0;
+			var timer = null;
+
+			function test() {
+				var oInner = document.getElementById('inner');
+				var oSpan = document.getElementById('persent');
+				count++;
+				if (count > 100) {
+					clearTimeout(timer);
+				} else {
+					oInner.style.width = oInner.offsetWidth + 1 + 'px';
+					oSpan.innerHTML = count + "%";
+					timer = setTimeout(test, 20);
+					oInner.style.backgroundColor='green';
+				}
+			}
+		</script>
+
+	</head>
+
+	<body>
+		<div id="div1">
+			<div id="inner">
+
+			</div>
+		</div>
+		<span id="persent">
+			0%
+		</span><br /><br />
+		<button onclick="test()">下载</button>
+	</body>
+
+</html>

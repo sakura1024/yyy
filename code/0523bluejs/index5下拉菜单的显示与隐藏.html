@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#div1{
+				
+				width: 200px;
+				height: 200px;
+				background: lightpink;
+			}
+			a:hover{
+				color: red;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload=function  () {
+				var oBtn=document.getElementsByTagName('button')[0];   //不要忘记下标
+				var oDiv=document.getElementById('div1');
+				
+				oBtn.onclick=function () {
+					if (oDiv.style.display=="block") {            //获取行内样式display  如果为block 则改为none；反之改为block
+						oDiv.style.display="none";					//无论display:none;是否放在行内  都是只要点击一次按钮即可显示正确结果；
+					} else{											//这是因为无论是否放在行内  display不等于block  if语句直接转向else语句 
+						oDiv.style.display="block";
+					}
+				}
+				/*
+				oBtn.onclick=function () {
+					if (oDiv.style.display=="none") {      //现在display:none;  放在行内  则按钮只要点击一次则可直接显示；
+						oDiv.style.display="block";			//当display:none;没有放在行内是  点击一次按钮没有效果  需要点击第二次才会有效果
+					} else{
+						oDiv.style.display="none";
+					}
+				}
+				*/
+			}
+		</script>
+	</head>
+	<body>
+		<button>显示</button>
+		<div id="div1" style="display: none;">
+			<ul>
+				<li><a href="#">1</a></li>
+				<li><a href="#">2</a></li>
+				<li><a href="#">3</a></li>
+				<li><a href="#">4</a></li>
+				<li><a href="#">5</a></li>
+			</ul>
+		</div>
+	</body>
+</html>

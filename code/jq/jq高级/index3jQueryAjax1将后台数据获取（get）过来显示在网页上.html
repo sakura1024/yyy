@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery-3.0.0.js" ></script>
+		<script type="text/javascript">
+			$(function(){
+				var url="http://localhost:9270/yyy";    //localhost:+端口号+表名称
+				$('input').click(function(ev){
+					//以异步获取指定url上的数据
+					$.get(url,function(data,status,obj){
+						//Object {readyState: 4, responseText: "[{"name":"小明","age":29,"id":"6ca9bf2ebc83a89d"},{"…49e78529b06"},{"age":20,"id":"0f255cc6e9500857"}]", responseJSON: Array[5], status: 200, statusText: "OK"}
+						console.log("-------------obj---------------------------")
+						
+						console.log("接收的obj：");
+						console.log(obj);
+						console.log("接收的obj对象中的responseText属性值：");
+						console.log(obj.responseText);
+						console.log("objText的数据类型："+(typeof obj.responseText));    //typeof  :string
+						//JSON.parse(obj.responseText)  ---->字符串转换为json对象格式
+						console.log("字符串转换为json对象格式:")
+						var objJson=JSON.parse(obj.responseText)
+						console.log(objJson);
+						console.log("遍历数组输出数组对象中的属性名对应的属性值:")
+						for (var i = 0; i < objJson.length; i++) {
+							//console.log(objJson[i])
+							console.log(objJson[i].name+","+objJson[i].href);
+						}
+						
+						console.log("--------------------data------------------------")
+						console.log($.type(data));  //数组
+						console.log(data);    //该data就是JSON.parse(obj.responseText)
+						var oUl=$('<ul>');
+						for (var i = 0; i < data.length; i++) {
+							var oLi=$('<li><a href="'+data[i].href+'">'+data[i].name+'</a></li>');
+							$(oUl).append(oLi);
+						}
+						$('body').append(oUl);
+					});
+				});
+			})
+		</script>
+	</head>
+	<body>
+		<input type="button" name="" id="" value="获取json数据" />
+	</body>
+</html>

@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>命名空间</title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+		
+//			function sayHello() {
+//				return "hello everybody";
+//			}
+//			var sayHello = function() {
+//				return "hello everyone";
+//			}
+//			alert(sayHello());
+			
+			//命名空间的创建  函数创建
+			//namespace.hello.
+			var nameSpace=nameSpace || {};  //理解成：包 
+			
+			nameSpace.Hello=function(){
+				this.name="everybody";
+			}
+			
+			nameSpace.Hello.prototype.sayHello=function(_name){
+				return "hello"+(_name || this.name);
+			}
+			
+			//创建对象
+			var h=new nameSpace.Hello();
+			
+			alert(h.sayHello("everyone"));
+			
+			var h1=new nameSpace.Hello();
+			
+			
+			
+			nameSpace.Student=function(){
+				this.name="zhangsan";
+				this.age=20;
+			}
+			nameSpace.Student.prototype.study=function(course){
+				alert(this.name+"正在学习"+course);
+			}
+			
+			//创建另一命名空间
+			var nameSpace1= nameSpace1 || {};
+			
+			nameSpace1.Student=function(){
+				this.score=100;
+			}
+			
+			
+			var stu=new nameSpace.Student();
+			stu.study();
+			
+			//创建第二个学生时
+			var stu1=new  nameSpace1.Student();
+			stu1.study();
+		</script>
+	</body>
+
+</html>
+
+
+ 
+

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 100px;
+				height: 100px;
+				background: plum;
+				text-align: center;
+				line-height: 100px;
+				margin: 100px auto;
+				/*给谁添加过渡效果，就给谁添加transition*/
+				transition: all 1s ease-in-out; 
+				color: white;
+			}
+			div:hover{
+				transform: rotate(720deg) scale(2,2) skew(30deg,20deg);
+				/*transform:matrix(0.866,0.5,-0.5,0.866,0,0);*/
+
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div">
+			点我
+		</div>
+	</body>
+</html>

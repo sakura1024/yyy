@@ -1,0 +1,1332 @@
+/*top*/
+
+.top {
+	width: 1328px;
+	height: 29px;
+	line-height: 29px;
+	background: #F8F8F8;
+	margin: 0 auto;
+	border-bottom: 1px solid #EEEEEE;
+}
+
+.top .top-center {
+	width: 1190px;
+	height: 29px;
+	margin: 0 auto;
+}
+
+.top ul li {
+	float: left;
+}
+
+.top .login li:last-child {
+	margin-left: 20px;
+}
+
+.top .login li a:hover {
+	color: red;
+}
+.top .top-menu{
+	height: 29px;
+}
+.top .top-menu li {
+	height: 29px;
+	padding: 0 12px;
+	text-align: center;
+}
+.myorder{
+	padding:0;
+}
+.myorder-con{
+	/*visibility: hidden;*/
+	/*display: block;*/
+	
+}
+.myorder-con dt,.myorder-con dd{
+	width: 85px;
+	height: 25px;
+	text-align: center;
+	background: red;
+}
+.li-border{
+	/*border: 1px solid #E4E4E4;*/
+}
+ .li-border:hover{
+	padding: 0;
+	/*border: 1px solid #EEE;
+	border-bottom: white;*/
+}
+.top .top-menu i {
+	display: inline-block;
+	width: 5px;
+	height: 3px;
+	margin-left: 5px;
+	margin-bottom: 2px;
+	background: url(../img/header_v3.fw.png)-8px -13px;
+}
+.top .top-menu .xinlang{
+	display: inline-block;
+	width: 18px;
+	height: 13px;
+	margin-top: 9px;
+	background: url(../img/header_v3.fw.png)-40px -51px;
+}
+
+.top .top-menu .phone {
+	display: inline-block;
+	width: 11px;
+	height: 17px;
+	margin-top: 8px;
+	background: url(../img/header_v3.fw.png)-8px -49px;
+}
+
+.top .top-menu .weixin {
+	display: inline-block;
+	width: 18px;
+	height: 13px;
+	margin-top: 7px;
+	background: url(../img/header_v3.fw.png)-63px -49px;
+}
+.top .top-menu li:hover{
+	background: yellow;
+}
+
+/*--hover事件--*/
+.myorder:hover{
+	
+}
+
+/*header*/
+
+.header {
+	width: 1190px;
+	height: 99px;
+	margin: 0 auto;
+	background: url(../img/logo0127.png) no-repeat;
+	overflow: hidden;
+	position: relative;
+}
+
+.header .add {
+	width: 65px;
+	height: 37px;
+	font-size: 13px;
+	margin-left: 171px;
+	margin-top: 36px;
+}
+
+.header .add i {
+	display: inline-block;
+	width: 5px;
+	height: 3px;
+	margin-left: 6px;
+	margin-bottom: 4px;
+	background: url(../img/header_v3.fw.png)-8px -13px;
+}
+
+.header .add dt:hover i {
+	display: inline-block;
+	width: 5px;
+	height: 3px;
+	margin-left: 6px;
+	margin-bottom: 4px;
+	background: url(../img/header_v3.fw.png)-16px -13px;
+}
+
+.header .add dd {
+	font-size: 10px;
+	margin-top: 7px;
+	padding: 2px 2px;
+	text-align: center;
+	background: #F3F3F3;
+	border-radius: 3px;
+}
+
+.header .add dd a {
+	color: #999999;
+}
+
+.header .search {
+	width: 422px;
+	height: 34px;
+	border: 3px solid #FF8800;
+	margin-top: 30px;
+	margin-left: 62px;
+}
+
+.header .btn {
+	width: 67px;
+	height: 40px;
+	margin-top: 30px;
+	background: #FF8800;
+	border: 0 none;
+}
+
+.btn i {
+	display: inline-block;
+	width: 20px;
+	height: 16px;
+	background: url(../img/header_v3.fw.png) -7px -27px;
+}
+
+.header .high-se {
+	display: inline-block;
+	width: 59px;
+	height: 11px;
+	font-size: 12px;
+	margin-top: 43px;
+	margin-left: 6px;
+}
+
+.header .high-se a {
+	color: #999999;
+}
+
+.header .high-se i {
+	display: inline-block;
+	width: 5px;
+	height: 3px;
+	margin-top: 6px;
+	background: url(../img/header_v3.fw.png)-8px -13px;
+}
+
+.header>img {
+	margin-top: 3px;
+}
+
+.header .tel {
+	position: absolute;
+	right: 101px;
+	top: 41px;
+	font-size: 11px;
+}
+
+.header .tel-num {
+	position: absolute;
+	right: 101px;
+	top: 61px;
+	font-size: 11px;
+	color: #FF6627;
+	font-weight: bolder;
+}
+
+
+/*nav*/
+
+.nav {
+	width: 1328px;
+	height: 32px;
+	margin: 0 auto;
+	border-bottom: 3px solid #38C249;
+}
+
+.nav-menu {
+	width: 1190px;
+	height: 32px;
+	margin: 0 auto;
+}
+
+.nav-menu li {
+	position: relative;
+	float: left;
+	padding: 6px 16px 7px;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.nav-menu li:last-child {
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+.nav-menu li a {
+	color: #2B8F08;
+}
+
+.nav-menu li i {
+	display: inline-block;
+	width: 5px;
+	height: 3px;
+	margin-left: 4px;
+	margin-bottom: 4px;
+	background: url(../img/sprite.fw.png) -4px -8px;
+}
+
+.nav-menu .act {
+	background: #4ECE5A;
+}
+
+.nav-menu .act a {
+	color: white;
+}
+
+.nav-menu li:hover {
+	background: #F0F1F3;
+}
+
+.nav-menu li:hover i {
+	background: url(../img/sprite.fw.png) -4px -17px;
+}
+
+.nav-menu li img {
+	top: -9px;
+	left: 52px;
+}
+
+.nav-menu li .img1 {
+	top: -9px;
+	left: 36px;
+}
+
+
+/*banner*/
+
+.banner {
+	width: 1328px;
+	height: 420px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin: 0 auto;
+	background: url(../img/1.jpeg) center;
+	position: relative;
+}
+
+.banner .sub-nav {
+	width: 84px;
+	height: 420px;
+	background: pink;
+	margin-left: 70px;
+	position: relative;
+}
+
+.banner .sub-nav li {
+	height: 49px;
+	padding-top: 10px;
+	background: #38414C;
+	border-bottom: 1px dashed #202020;
+	text-align: center;
+}
+
+.banner .sub-nav li a {
+	color: white;
+}
+
+.banner .sub-nav li i {
+	display: block;
+	width: 20px;
+	height: 20px;
+	margin: 0px 32px 4px;
+}
+
+.banner .sub-nav .travel {
+	background: url(../img/catalog_icon.fw.png) 0 0px;
+}
+
+.banner .sub-nav .air {
+	background: url(../img/catalog_icon.fw.png) -20px 0px;
+}
+
+.banner .sub-nav .hotel {
+	background: url(../img/catalog_icon.fw.png) -40px 0px;
+}
+
+.banner .sub-nav .free {
+	background: url(../img/catalog_icon.fw.png) -60px 0px;
+}
+
+.banner .sub-nav .train {
+	background: url(../img/catalog_icon.fw.png) -80px 0px;
+}
+
+.banner .sub-nav .boat {
+	background: url(../img/catalog_icon.fw.png) -100px 0px;
+}
+
+.banner .sub-nav .ticket {
+	background: url(../img/catalog_icon.fw.png) -120px 0px;
+}
+
+.sub-nav-list {
+	visibility: hidden;
+	width: 141px;
+	height: 420px;
+	background: white;
+	margin-left: 0px;
+	position: absolute;
+	left: 84px;
+	top: 0;
+}
+
+.sub-nav li:hover {
+	background: white;
+	width: 86px;
+	border-bottom: 1px solid white;
+	left: -2px;
+}
+
+.sub-nav li:hover a {
+	color: #2EA536;
+}
+
+.sub-nav li:hover .sub-nav-list {
+	visibility: visible;
+	top: 0px;
+}
+
+.banner .sub-nav li:hover i {
+	background-position-y: -25px;
+}
+
+
+/*banner-middle*/
+
+.ban-middle {
+	width: 706px;
+	height: 147px;
+	position: absolute;
+	bottom: 10px;
+	left: 310px;
+}
+
+.ban-m-list {
+	width: 706px;
+	height: 18px;
+	margin-bottom: 7px;
+}
+
+.ban-m-list li {
+	float: left;
+	width: 116px;
+	text-align: center;
+	padding-top: 4px;
+	padding-bottom: 3px;
+	margin-right: 2px;
+	font-size: 11px;
+	background: white;
+	opacity: 0.5;
+}
+
+.ban-m-list li:last-child {
+	margin-right: 0;
+}
+
+.ban-m-list a {
+	color: black;
+}
+
+.ban-m-list li:hover {
+	background: black;
+	opacity: 0.8;
+}
+
+.ban-m-list li:hover a {
+	color: white;
+}
+
+.ban-m-img {
+	width: 704px;
+	height: 122px;
+}
+
+.ban-m-img li {
+	float: left;
+	width: 97px;
+	height: 122px;
+	overflow: hidden;
+	cursor: pointer;
+}
+
+.banner .ban-m-img .niuren {
+	background: url(../img/nrzx2.jpg);
+}
+
+.banner .ban-m-img .haidao {
+	background: url(../img/island1.jpg);
+}
+
+.banner .ban-m-img .temai {
+	background: url(../img/Temai2.jpg);
+}
+
+.banner .ban-m-img .youlun {
+	background: url(../img/youlun1.jpg);
+}
+
+.banner .ban-m-img .zijia {
+	background: url(../img/zijia0419.jpg);
+}
+
+.banner .ban-m-img .tuijian {
+	background: url(../img/lytj0421.jpg);
+}
+
+.banner .ban-m-img .shoufu {
+	background: url(../img/sfcf_0407.jpg);
+}
+
+.banner .ban-m-img .niuren:hover {
+	width: 122px;
+	background: url(../img/nrzx2.jpg) -97px;
+}
+
+.banner .ban-m-img .haidao:hover {
+	width: 122px;
+	background: url(../img/island1.jpg) -97px;
+}
+
+.banner .ban-m-img .temai:hover {
+	width: 122px;
+	background: url(../img/Temai2.jpg) -97px;
+}
+
+.banner .ban-m-img .youlun:hover {
+	width: 122px;
+	background: url(../img/youlun1.jpg) -97px;
+}
+
+.banner .ban-m-img .zijia:hover {
+	width: 122px;
+	background: url(../img/zijia0419.jpg) -97px;
+}
+
+.banner .ban-m-img .tuijian:hover {
+	width: 122px;
+	background: url(../img/lytj0421.jpg) -97px;
+}
+
+.banner .ban-m-img .shoufu:hover {
+	width: 122px;
+	background: url(../img/sfcf_0407.jpg) -97px;
+}
+
+
+/*ban-right*/
+
+.banner .ban-right {
+	width: 230px;
+	height: 420px;
+	margin-right: 70px;
+	background: white;
+}
+
+.ban-r-fir {
+	width: 197px;
+	height: 63px;
+	padding: 14px 24px 13px 9px;
+	background: url(../img/manyi.png) 9px 14px no-repeat;
+}
+
+.ban-r-fir p {
+	padding: 10px 0;
+	float: right;
+	font-size: 11px;
+	color: #999999;
+	line-height: 10px;
+	margin-right: -3px;
+}
+
+.ban-r-mangu {
+	width: 230px;
+	height: 82px;
+	border-bottom: 1px solid #ECECEC;
+}
+
+.ban-r-mangu p {
+	line-height: 23px;
+	font-size: 12px;
+	margin-left: 10px;
+	color: #404040;
+}
+
+.ban-r-mangu span {
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-top: 10px;
+	font-size: 10px;
+	color: #999999;
+}
+
+.ban-r-sun {
+	width: 230px;
+	height: 80px;
+	margin-top: 0px;
+}
+
+.ban-r-hot {
+	width: 230px;
+	height: 77px;
+	background: url(../img/index_icon.png) 0px -176px;
+}
+
+.ban-r-hot p {
+	font-size: 12px;
+	color: #B0B0B0;
+	text-align: center;
+	margin-top: -2px;
+}
+
+.ban-r-hot li {
+	width: 100px;
+	height: 20px;
+	font-size: 12px;
+	line-height: 20px;
+	margin-left: 10px;
+	text-align: center;
+	margin-top: 7px;
+	border: 1px solid #E5E5E5;
+	border-radius: 10px;
+}
+
+.niu {
+	width: 230px;
+	height: 90px;
+	background: url(../img/niu.jpeg) no-repeat 0 11px;
+}
+
+
+/*content*/
+
+.content {
+	width: 1190px;
+	height: 2000px;
+	margin: 0 auto;
+}
+
+
+/*content-left*/
+
+.content-left {
+	width: 950px;
+	height: 2000px;
+}
+
+.content-left dl:hover {
+	cursor: pointer;
+	box-shadow: 0 0 5px pink;
+}
+
+
+/*超值特卖sale*/
+
+.sale {
+	width: 950px;
+	height: 30px;
+	margin-top: 27px;
+	border-bottom: 3px solid #ECEEF4;
+	margin-bottom: 15px;
+}
+
+.sale li {
+	width: 82px;
+	height: 30px;
+	line-height: 30px;
+	float: left;
+	text-align: center;
+	margin-right: 29px;
+	font-size: 16px;
+}
+
+.sale li:hover {
+	font-weight: bold;
+	border-bottom: 3px solid #22C231;
+}
+
+.sale li:hover a {
+	color: #22C231;
+}
+
+
+/*超值特卖sale-img*/
+
+.sale-img {
+	width: 950px;
+	height: 125px;
+}
+
+.sale-img li {
+	float: left;
+	width: 224px;
+	height: 125px;
+	margin-right: 17px;
+}
+
+.sale-img li:last-child {
+	margin-right: 0;
+}
+
+.sale-img li img {
+	width: 224px;
+	height: 125px;
+}
+
+
+/*hot*/
+
+.content-left .hot {
+	width: 950px;
+	height: 30px;
+	line-height: 30px;
+	margin-top: 27px;
+	border-bottom: 3px solid #E15B39;
+}
+
+.content-left h4 {
+	width: 214px;
+	height: 30px;
+	margin-left: 10px;
+}
+
+.content-left .hot-list {
+	width: 616px;
+	height: 30px;
+	margin-left: -5px;
+}
+
+.hot-list li {
+	float: left;
+	margin-right: 20px;
+	font-size: 14px;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+
+/*跑男*/
+
+.paonan {
+	width: 950px;
+	height: 410px;
+	background: url(../img/paonan2.jpg);
+}
+
+.pao-fir {
+	width: 225px;
+	height: 176px;
+	padding-top: 210px;
+	padding-bottom: 24px;
+}
+
+.paonan .chufa {
+	width: 205px;
+	height: 176px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.paonan .chufa li {
+	width: 205px;
+	height: 29px;
+	line-height: 29px;
+	margin-bottom: 6px;
+	background: white;
+	border-radius: 10px;
+	font-size: 13px;
+	position: relative;
+	text-indent: 10px;
+}
+
+.paonan .chufa li:last-child {
+	height: 71px;
+	text-indent: 0;
+	margin-bottom: 0px;
+	border-radius: 0;
+}
+
+.paonan .chufa li:last-child img {
+	width: 205px;
+}
+
+.paonan .chufa li i {
+	display: inline-block;
+	width: 36px;
+	height: 16px;
+	position: absolute;
+	top: 7px;
+	left: 160px;
+	background: url(../img/catalog_icon.fw.png) -146px 0;
+}
+
+
+/*右边风景*/
+
+.sence {
+	width: 233px;
+	height: 374px;
+	margin-top: 18px;
+	margin-right: 7px;
+}
+
+.sence dl {
+	width: 233px;
+	height: 180px;
+	margin-bottom: 7px;
+	background: white;
+}
+
+.sence dt {
+	width: 233px;
+	height: 130px;
+}
+
+.sence dl img {
+	width: 215px;
+	height: 120px;
+	margin-top: 10px;
+	margin-left: 9px;
+}
+
+.sence dd {
+	width: 215px;
+	height: 35px;
+	line-height: 35px;
+	margin-left: 9px;
+	font-size: 11px;
+	color: #999999;
+}
+
+.sence dd .before {
+	color: #FF6600;
+}
+
+.sence dd b {
+	font-size: 16px;
+}
+
+
+/*出境长线标题*/
+
+.content-left .chujing {
+	border-bottom: 3px solid #ECEEF4;
+}
+
+.content-left .chujing li:hover {
+	border-bottom: 3px solid #517AC0;
+}
+
+.content-left .chujing .more {
+	font-size: 12px;
+	color: #999999;
+}
+
+
+/*出境长线内容*/
+
+.long {
+	width: 950px;
+	height: 368px;
+	margin-top: 15px;
+}
+
+.sub-ad {
+	width: 217px;
+	height: 368px;
+}
+
+.sub-top {
+	width: 207px;
+	height: 105px;
+	padding-left: 10px;
+}
+
+.sub-top h6 {
+	height: 26px;
+	line-height: 22px;
+}
+
+.sub-top .short {
+	margin-right: 50px;
+}
+
+.interest li {
+	height: 25px;
+	line-height: 25px;
+	list-style: square inside;
+	font-size: 10px;
+	color: #C0C0C0;
+}
+
+.interest li a {
+	font-size: 13px;
+	color: #333333;
+}
+
+.sub-bottom img {
+	width: 217px;
+	height: 250px;
+}
+
+.sma-img img {
+	height: 205px;
+}
+
+
+/*出境短线*/
+
+.navte img {
+	width: 217px;
+	height: 217px;
+}
+
+
+/*国内旅游*/
+
+.small img {
+	width: 217px;
+	height: 135px;
+}
+
+.long-sence {
+	width: 225px;
+	height: 368px;
+	margin-top: 0;
+	margin-right: 18px;
+	margin-left: 7px;
+}
+
+.long-sence1 {
+	margin-right: 0;
+}
+
+.long-sence dl {
+	width: 225px;
+	height: 162px;
+	padding-bottom: 10px;
+	margin-bottom: 15px;
+}
+
+.long-sence dt img {
+	width: 225px;
+	height: 127px;
+	padding: 0;
+	margin: 0;
+}
+
+
+/*邮轮签证*/
+
+.long2 {
+	height: 185px;
+}
+
+.long2 .sub-ad,
+.long2 .sence {
+	height: 185px;
+}
+
+.sub-boat {
+	height: 48px;
+	padding-bottom: 5px;
+}
+
+.short-boat {
+	margin-right: 66px;
+}
+
+.sub-ad .earth img {
+	width: 225px;
+	height: 105px;
+}
+
+
+/*酒店精选le*/
+
+.le img {
+	margin-left: -15px;
+}
+
+
+/*游记攻略*/
+
+.hot i {
+	margin-bottom: -5px;
+}
+
+.hot .book {
+	display: inline-block;
+	width: 26px;
+	height: 17px;
+	margin-left: 40px;
+	background: url(../img/index_icon.png) -22px -121px;
+}
+
+.hot .bell {
+	display: inline-block;
+	width: 19px;
+	height: 17px;
+	background: url(../img/index_icon.png) 0 -121px;
+}
+
+.content-left .travelogue {
+	margin-top: 15px;
+	height: 32px;
+	margin-bottom: 10px;
+}
+
+.travelogue li {
+	float: left;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-right: 15px;
+	width: 85px;
+	height: 32px;
+	text-align: center;
+	line-height: 32px;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.travelogue li a {
+	color: #666;
+}
+
+.travelogue li:hover {
+	background: #2e9900;
+}
+
+.travelogue li:hover a {
+	color: white;
+}
+
+.travelogue-con {
+	width: 950px;
+	height: 320px;
+}
+
+.travelogue-con-l {
+	width: 225px;
+	height: 320px;
+	margin-right: 15px;
+}
+
+.travelogue-con-l img {
+	width: 225px;
+	height: 320px;
+}
+
+.travelogue-con-m {
+	width: 225px;
+	height: 320px;
+	margin-right: 15px;
+}
+
+.travelogue-con-m a {
+	display: inline-block;
+	width: 225px;
+	height: 152px;
+	margin-bottom: 15px;
+}
+
+.travelogue-con-m img {
+	width: 225px;
+	height: 152px;
+}
+
+.no {
+	margin-right: 0;
+	margin-bottom: 0;
+}
+
+
+/*-------------------------------content大右边*/
+
+.content-right {
+	width: 225px;
+	height: 1000px;
+}
+
+.content-right .hot {
+	margin-bottom: 31px;
+}
+
+.content-right .hot h4 {
+	width: 225px;
+	height: 30px;
+	line-height: 30px;
+	margin-top: 27px;
+	margin-bottom: 15px;
+	color: #222222;
+	border-bottom: 3px solid #ECEEF4;
+}
+
+.content-right .hot .discover {
+	width: 211px;
+	height: 125px;
+	padding-left: 7px;
+	padding-right: 7px;
+}
+
+.discover li {
+	line-height: 25px;
+}
+
+.discover li a {
+	color: #666666;
+}
+
+
+/*sper*/
+
+.content-right .super {
+	width: 225px;
+	height: 487px;
+	background: #F6F6F6;
+	margin-bottom: 15px;
+}
+
+.super img {
+	border-bottom: 1px dashed #E3E4E8;
+}
+
+.content-right .bank {
+	width: 225px;
+	height: 570px;
+	background: #F6F6F6;
+	margin-bottom: 15px;
+}
+
+.content-right .tops {
+	width: 215px;
+	height: 466px;
+	padding-left: 10px;
+	padding-top: 20px;
+	background: #F6F6F6;
+	margin-bottom: 15px;
+}
+
+.content-right .tops-list {
+	width: 205px;
+	height: 37px;
+	border-bottom: 2px solid #EDEEF3;
+	margin-bottom: 15px;
+}
+
+.content-right .tops-list li {
+	float: left;
+	width: 65px;
+	height: 37px;
+	font-size: 12px;
+	line-height: 37px;
+	text-align: center;
+	color: #666666;
+	font-weight: bold;
+}
+
+.content-right .tops-list .huo,
+.content-right .tops-list li:hover {
+	color: #4ecf5b;
+	border-bottom: 2px solid #4ECF5B;
+}
+
+
+/*tops-con*/
+
+.tops-con {
+	width: 205px;
+	height: 376px;
+	background: white;
+}
+
+.near-con li {
+	width: 195px;
+	height: 60px;
+	margin-bottom: 15px;
+}
+
+.near-con li a {
+	display: block;
+}
+
+.near-con li img {
+	width: 60px;
+	height: 60px;
+	margin-right: 10px;
+}
+
+.near-con h6,
+.near-con p {
+	width: 124px;
+	height: 20px;
+	line-height: 20px;
+	font-size: 12px;
+	text-overflow: ellipsis;
+	/*包括以下两个,三个一起用才有省略号*/
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.near-con p {
+	color: #999999;
+}
+
+
+/*主题活动topic*/
+
+.topic {
+	width: 225px;
+	height: 519px;
+	background: #F6F6F6;
+	margin-bottom: 15px;
+}
+
+.topic-con {
+	width: 205px;
+	height: 509px;
+	padding: 0 10px 10px;
+}
+
+.topic h6 {
+	width: 205px;
+	height: 34px;
+	line-height: 34px;
+	padding: 10px 0px;
+}
+
+.topic-con li {
+	width: 205px;
+	height: 75px;
+	background: white;
+	border-bottom: 1px dashed #E3E4E8;
+}
+
+.topic-con li:last-child {
+	border: 0 none;
+}
+
+.zhouad {
+	width: 225px;
+	height: 165px;
+	margin-bottom: 15px;
+}
+
+.footprint {
+	width: 205px;
+	height: 257px;
+	padding: 15px 10px 10px;
+	background: #F6F6F6;
+	margin-bottom: 15px;
+}
+
+.footprint span {
+	display: inline-block;
+	width: 14px;
+	height: 14px;
+	background: white;
+	text-align: center;
+	color: #727272;
+	border: 1px solid #E5E5E5;
+	border-radius: 3px;
+	margin-left: 5px;
+}
+
+.footprint-con {
+	width: 205px;
+	height: 200px;
+	background: url(../img/footprint_bg.png) no-repeat;
+	padding-top: 12px;
+	margin-top: 8px;
+	margin-left: 5px;
+}
+
+.footprint-con li {
+	width: 203px;
+	height: 60px;
+	padding-left: 2px;
+	background: white;
+	margin-bottom: 20px;
+}
+
+.footprint-con li:last-child {
+	margin-bottom: 0;
+}
+
+.footprint-con li .ft-con p:first-child {
+	width: 136px;
+	height: 30px;
+	overflow: hidden;
+	padding-top: 2px;
+	font-size: 12px;
+}
+
+.ft-con .price {
+	height: 28px;
+	line-height: 31px;
+}
+
+.footprint-con img {
+	width: 57px;
+	height: 57px;
+	margin-top: 2px;
+	margin-left: 10px;
+}
+
+
+/*热门目的地*/
+
+.top-destination {
+	width: 205px;
+	height: 119px;
+}
+
+.destination {
+	margin-top: 15px;
+}
+
+.destination li {
+	float: left;
+	width: 60px;
+	height: 83px;
+	margin-right: 12px;
+}
+
+.destination li:last-child {
+	margin-right: 0;
+}
+
+.destination a {
+	display: block;
+	width: 60px;
+	height: 60px;
+}
+
+.destination img {
+	width: 50px;
+	height: 50px;
+	padding: 3px;
+	border-radius: 50%;
+	background: white;
+}
+
+.destination p {
+	text-align: center;
+	margin-top: 10px;
+}
+
+
+/*首航*/
+
+.first-flight {
+	width: 225px;
+	height: 190px;
+	margin-bottom: 15px;
+	background: #f6f6f6;
+}
+
+.first-flight a {
+	display: inline-block;
+	width: 111px;
+	height: 190px;
+}
+
+
+/*广告*/
+
+.advertisement a {
+	display: inline-block;
+	width: 225px;
+	height: 75px;
+	margin-bottom: 15px;
+}
+
+.content-right img:hover {
+	opacity: 0.7;
+}

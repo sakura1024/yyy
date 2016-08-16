@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+		/****************** 封装数据模型 ****************/
+		
+		//地区的构造函数
+		function Region (regionName) {
+			this.regionName = regionName;
+			//学校数组
+			this.schools = new Array();
+		}
+
+		//学校的构造函数
+		function School (schoolName) {
+			this.schoolName = schoolName;
+			//班级数组
+			this.classes = new Array();
+		}
+
+		//班级的构造函数
+		function Class (className) {
+			this.className = className;
+			//学生数组
+			this.students = new Array();
+		}
+
+		//学生的构造函数
+		function Student (studentName) {
+			this.studentName = studentName;
+		}
+
+		
+
+		//分析字面量对象
+		var rootObj = {
+			//地区数组
+			regions : [
+				//地区对象
+				{
+					regionName : "北京地区",
+					//学校数组
+					schools : [
+						{
+							schoolName : "北京一中",
+							//班级数组
+							classes : [
+								{
+									className : "H5-1604",
+									//学生数组
+									students : [
+										{
+											studentName : "丁丁"
+										},
+										{
+											studentName : "马丹丹"
+										}
+									]
+								},
+								{
+									className : "iOS-1602",
+									//学生数组
+									students : [
+										{
+											studentName : "丁环宇"
+										},
+										{
+											studentName : "张俊"
+										}
+									]
+								}
+							]
+						},
+						{
+							schoolName : "北京二中",
+							//班级数组
+							classes : [
+								{
+									className : "H5-1605",
+									//学生数组
+									students : [
+										{
+											studentName : "刘升升"
+										},
+										{
+											studentName : "张三三"
+										}
+									]
+								},
+								{
+									className : "iOS-1603",
+									//学生数组
+									students : [
+										{
+											studentName : "丁丁"
+										},
+										{
+											studentName : "肖小军"
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+
+		
+			//找名为丁丁的学生并输出他的全部全信息
+			//创建一个数组用来放所有的地区
+			
+			//创建一个地区对象
+			
+			//获取地区数组
+			var aRegions=rootObj.regions;
+			for (var i = 0; i < aRegions.length; i++) {
+				//获取该地区的学校数组
+				var aSchools=aRegions[i].schools;
+				for (var j = 0; j < aSchools.length; j++) {
+					//获取该学校的班级数组
+					var aClass=aSchools[j].classes;
+					for (var a = 0; a < aClass.length;a++) {
+						//获取该班级的学生数组
+						var aStudents=aClass[a].students;
+						for (var b = 0; b < aStudents.length; b++) {
+							//获取该学生的姓名
+							if(aStudents[b].studentName=="丁丁"){
+								console.log("地区："+aRegions[i].regionName)
+								console.log("学校："+aSchools[j].schoolName)
+								console.log("班级："+aClass[a].className)
+								console.log("学生："+aStudents[b].studentName)
+								console.log("\n");
+								break;
+							}
+						}
+					}
+				}
+			}
+		</script>
+	</body>
+
+</html>
+
+

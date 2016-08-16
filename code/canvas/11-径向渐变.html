@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<canvas id="demo" width="600" height="600"></canvas>
+
+	</body>
+	<script type="text/javascript">
+		var oDemo = document.getElementById('demo');
+		oDemo.style.border = "1px solid #ccc"
+		//得到画布控制权
+		var ctx = oDemo.getContext('2d');
+		
+		
+		//开始横纵坐标，开始半径，结束横纵坐标，结束半径
+		var obj=ctx.createRadialGradient(200,200,50,400,400,200);
+		obj.addColorStop(0,'red');
+		obj.addColorStop(1,'yellow');
+		
+		
+		ctx.fillRect(400,400,200,200);
+		
+		//将渐变背景给画布填充样式
+		ctx.fillStyle=obj;
+		ctx.arc(200,200,200,0,360*Math.PI/180,false);
+		ctx.fill();
+		</script>
+		
+</html>

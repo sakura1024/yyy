@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#div1{
+				width: 200px;
+				height: 200px;
+				background: red;
+				overflow: hidden;
+				/*position: absolute;*/
+			}
+			#div2{
+				width: 100px;
+				height: 100px;
+				background: yellow;
+				margin: 50px;
+				overflow: hidden;
+			}
+			
+			#div3{
+				width: 50px;
+				height: 50px;
+				background: purple;
+				margin: 10px;
+			}
+			
+		</style>
+		<script type="text/javascript" src="js/jquery-3.0.0.js" ></script>
+		<script type="text/javascript">
+			$(function(){
+				/*
+				 * obj.offsetParent()  找到obj有定位的最近的父级
+				 * 当obj的父级都没有定位时，则认定body为obj的offsetParent
+				 * */
+				
+				//此时body变为黑色 -->div3此时offsetParent()其实是body
+				$('#div3').offsetParent().css('backgroundColor','black'); 
+				
+				
+				document.getElementById('div1').style.position="absolute";
+				//此时div1变为粉色 -->div3此时offsetParent()其实是div1
+				$('#div3').offsetParent().css('backgroundColor','pink'); 
+				
+				//此时div2变为蓝色 -->div3此时offsetParent()其实是div2
+				document.getElementById('div2').style.position="absolute";
+				$('#div3').offsetParent().css('backgroundColor','blue'); 
+			})
+		</script>
+	</head>
+	<body>
+		<div id="div1">
+			<div id="div2">
+				<div id="div3">
+					
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

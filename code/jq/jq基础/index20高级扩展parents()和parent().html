@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			b,
+			span,
+			p,
+			#div0,
+			.div,
+			#div4,
+			body {
+				padding: .5em;
+				border: 1px solid #ccc;
+			}
+			
+			b {
+				color: blue;
+			}
+			
+			strong {
+				color: red;
+			}
+		</style>
+		
+		<script type="text/javascript" src="js/jquery-3.0.0.js"></script>
+		<script type="text/javascript">
+			/*
+			 
+			 * obj.parents():获取当前节点的所有祖先元素，直到html
+			 * obj.parents(selector)：获取当前节点的所有祖先元素，参数是筛选功能
+			 * obj.parent():obj只找到直系父级
+			 * 
+			 * obj.closest(selector)：获取最近的指定的祖先元素节点（包括当前元素自身），参数是筛选功能     只能找到一个元素
+			 * */
+		</script>
+		<script>
+			$(function() {
+				$('#btn1').click(function() {
+					$("b").parent().css('color', 'pink');
+					$(this).off();  //点击事件只执行一次
+				})
+				$('#btn2').one('click',function(){    //one()   事件只执行一次
+					$("b").parents().css('color', 'red');
+				})
+				$('#btn3').click(function() {
+					$("b").parents('.div').css('color', 'plum');
+					$(this).off(); 
+				})
+				$('#btn4').one('click',function(){    //one()   事件只执行一次
+					$("a").closest('.div').css('color', 'blueviolet');
+				})
+				$('#btn5').one('click',function(){    //one()   事件只执行一次
+					$("a").closest('a').css('color', 'red');
+				})
+			})
+		</script>
+	</head>
+
+	<body>
+		<input type="button" name="" id="btn2" value="b元素的所有父级字色变红parents()" />
+		<input type="button" name="" id="btn3" value="b元素的所有父级中.div字色变紫parent('.div')" />
+		<input type="button" name="" id="btn1" value="b元素的直系父级字色变粉parent()" /><br /><br />
+		<input type="button" name="" id="btn4" value="a元素的最近的指定的祖先元素节点（包括当前元素自身）.closest('.div')." /><br /><br />
+		<input type="button" name="" id="btn5" value="a元素的最近的指定的祖先元素节点（包括当前元素自身）.closest('a')." /><br /><br />
+		
+
+		<div id="div0">
+			<div id="">
+				我是div0
+			</div>
+		</div><br />
+		<div id="div4">我是div4
+			<div class="div">我是div1.div
+				<div class="div">我是div2.div
+					<p>我是段落p
+						<span>我是b元素的直系父级<b>b<a href="#">link</a></b></span>
+					</p>
+				</div>
+			</div>
+		</div>
+
+	</body>
+
+</html>
+
+
+
+

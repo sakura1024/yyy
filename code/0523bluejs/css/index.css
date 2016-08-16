@@ -1,0 +1,10 @@
+body{
+	background: black;
+}
+input{
+	background: lightgray;
+	color: white;
+	font-weight: bold;
+	padding: 5px 10px;
+	border: 0 none;
+}

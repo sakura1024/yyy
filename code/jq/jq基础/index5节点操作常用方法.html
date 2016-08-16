@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery-3.0.0.js" ></script>
+		<script type="text/javascript">
+			$(function(){
+				
+				
+				//Dom操作样式时.css()始终都是为前面的节点设置的    （下面始终都是为b标签设置的css样式）
+				
+				//$('b').before($('span'));    //b的前面为span
+				//$('b').after($('span'));		//b的后面为span
+				
+				//b标签字色为红色
+				//$('b').insertBefore($('span')).css('color','red');     //b插入到span标签机之前
+				//$('b').before($('span')).css('color','red');           //b的前面为span
+				
+				
+				//$('b').insertAfter($('span')).css('color','red');
+				
+				
+				//为整个父级span添加字色为红色  包括后面的a标签
+				//$('span').prepend($('b')).css('color','red'); //span为父元素  b为span的首个孩子
+				//$('span').append($('b')).css('color','red');     //span为父元素  b为span的最后一个孩子
+				
+				
+				$('span').appendTo($('b')).css('color','red');  
+			})
+		</script>
+	</head>
+	<body>
+		<b>bbbbbbbbbbb</b>
+		<span>span<a >链接</a></span>
+		
+	</body>
+</html>

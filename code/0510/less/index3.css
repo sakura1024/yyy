@@ -1,0 +1,36 @@
+.home {
+  width: 1000px;
+  background: plum;
+}
+.home .head {
+  width: 80%;
+  height: 300px;
+  background: pink;
+  margin: 0 auto;
+}
+.home .content {
+  width: 80%;
+  height: 300px;
+  margin: 0 auto;
+}
+.home .content .content_left {
+  float: left;
+  width: 70%;
+  height: 300px;
+  background: yellow;
+}
+.home .content .content_right {
+  float: left;
+  width: 30%;
+  height: 300px;
+  background: yellow;
+}
+.home .content .content_right .top {
+  height: 80%;
+  background: red;
+}
+.home .content .content_right .bottom {
+  height: 20%;
+  background: lightblue;
+}
+/*# sourceMappingURL=my.css.map */

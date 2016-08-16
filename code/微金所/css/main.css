@@ -1,0 +1,68 @@
+	/*公共样式*/
+
+body {
+	font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
+}
+
+@font-face {
+	font-family: 'zsn';
+	src: url(../fonts/glyphicons-halflings-regular.eot),
+	 url(../fonts/glyphicons-halflings-regular.svg),
+	  url(../fonts/glyphicons-halflings-regular.ttf),
+	   url(../fonts/glyphicons-halflings-regular.woff),  
+	   url(../fonts/glyphicons-halflings-regular.woff);
+	
+	
+	
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+	font-family: 'zsn';
+}
+
+@font-face {
+	font-family: MiFie-Web-Font;
+	src: url(/fonts/MiFie-Web-Font.eot?9syq0k);
+	src: url(/fonts/MiFie-Web-Font.eot?9syq0k#iefix) format('embedded-opentype'), 
+	url(/fonts/MiFie-Web-Font.ttf?9syq0k) format('truetype'),
+	url(/fonts/MiFie-Web-Font.woff?9syq0k) format('woff'), 
+	url(/fonts/MiFie-Web-Font.svg?9syq0k#MiFie-Web-Font) format('svg');
+	}
+	/*
+ 
+ * 
+ * 1.边框都按下边框
+ * 2.尽可能使用直接子代选择器
+ * 
+ * 
+ * 
+ * */
+	/*header*/
+	#header {
+		height: 200px;
+		background: #FFFFFF;
+	}
+	#header .topbar {
+		height: 40px;
+		border-bottom: 1px solid #C0C0C0;
+	}
+	#header .topbar .container {
+		background: #f40;
+		height: 40px;
+	}
+	/*
+ 
+ * 测试样式
+ * 
+ * 
+ * */
+	section {
+		height: 200px;
+	}
+	section:nth-child(odd) {
+		background: pink;
+	}
+	section:nth-child(even) {
+		background: lightgrey;
+	}

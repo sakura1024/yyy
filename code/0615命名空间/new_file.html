@@ -1,0 +1,79 @@
+宋如宁(001C423363C2对话) 16:39:28
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>命名空间</title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			//			var config={
+			//				front: {},
+			//				after:{
+			//					data:{},
+			//					module:{
+			//						color:{},
+			//						image:{},
+			//						search:{}
+			//					}
+			//				}
+			//			};
+			//			
+			//命名空间生成  namespace.config.after.module.images=""
+			//div.style["backgoundColor"]="red"
+			/*
+			 * namespace.config
+			 * namespace.after
+			 */
+			
+			var namespace = {
+				create: function(s) {
+					var arr = s.split(".");
+					var namespace = window;
+					for (var i = 0; i < arr.length; i++) {
+						if (typeof namespace[arr[i]] == 'undefined') {
+							namespace[arr[i]] = {}; //namespace.config
+						}
+						namespace = namespace[arr[i]];
+						//      			 alert(namespace);
+					}
+				},
+				//移除命名空间最后一个
+				remove:function(s){
+					var arr = s.split(".");
+					var namespace = window;
+					var k=arr.length;
+					for(var i=0;i<k;i++){
+						if(typeof namespace[arr[i]]=='undefined')
+						{
+							return;
+						}else if(k==i+1){
+							delete namespace[arr[i]];
+							return;
+						}else{
+							namespace=namespace[arr[i]];
+						}
+					}
+				}
+				
+			};
+			namespace.create("config.aftera.module.color");
+//			config.before={};
+			config.aftera.module.color.colorA="blue";
+			config.aftera.module.color.changeColor = function(color) {
+				document.body.style.backgroundColor = color || this.colorA;
+			};
+		
+			
+			config.aftera.module.color.changeColor();
+			
+			//删除命名空间
+			namespace.remove("config.aftera.module.color");
+			
+			config.aftera.module.color.changeColor("pink");
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div {
+				width: 500px;
+				margin: 50px auto;
+			}
+			span{
+				margin-left: 5px;
+			}
+		</style>
+		<script type="text/javascript">
+			function tel() {
+				var str = document.getElementById('tel');
+				var reg = /^1[358]\d{9}$/g;
+				var oSpan = document.getElementById('tel1');
+				var error1 = "请输入有效的手机号"
+				common(str, reg, oSpan, error1);
+			}
+
+			function img() {
+				var str = document.getElementById('img');
+				var reg = /^.+(\.jpg|\.png)$/g;
+				var oSpan = document.getElementById('img1');
+				var error1 = "请输入有效的验证码"
+				common(str, reg, oSpan, error1);
+			}
+
+			function birth() {
+				var str = document.getElementById('birth');
+				var reg = /^\d{4}-(0?[1-9]|1[0-2])-([1-9]|[0-2]\d|30|31)$/
+				var oSpan = document.getElementById('birth1');
+				var error1 = "请输入有效的生日"
+				common(str, reg, oSpan, error1);
+			}
+
+			function mes() {
+				var str = document.getElementById('message');
+				var reg = /^\d{6}$/g;
+				var oSpan = document.getElementById('message1');
+				var error1 = "短信验证码错误";
+				common(str, reg, oSpan, error1);
+			}
+
+			function pas1() {
+				var str = document.getElementById('pass');
+				var reg = /^\w{6,18}$/g;
+				var oSpan = document.getElementById('pass1');
+				var error1 = "请输入有效的密码"
+				common(str, reg, oSpan, error1);
+			}
+
+			function pas2() {
+				var str1 = document.getElementById('pass');
+				var str = document.getElementById('password');
+				//var reg = /^1[358]\d{9}$/g;
+				if (str.value !== str1.value) {
+					str.style.backgroundColor = "#FCCCFF";
+					str.style.border = "2px solid #F832D3";
+					document.getElementById('password1').innerHTML = "两次密码不一致";
+				} else {
+					str.style.backgroundColor = "";
+					str.style.border = "";
+					var oPass1=document.getElementById('password1')
+					oPass1.innerHTML = "√";
+					oPass1.style.color="green";
+					oPass1.style.fontWeight="bold";
+				}
+			}
+
+			function common(str, reg, oSpan, error1) {
+				if (reg.test(str.value) == ""&&reg.test(str.value) == false) {
+					str.style.backgroundColor = "#FCCCFF";
+					str.style.border = "2px solid #F832D3";
+					oSpan.innerHTML = error1;
+				} else {
+					str.style.backgroundColor = "";
+					str.style.border = "";
+					oSpan.innerHTML = "√";
+					oSpan.style.color="green";
+					oSpan.style.fontWeight="bold";
+				}
+			}
+		</script>
+	</head>
+
+	<body>
+		<div id="div">
+			<p>手机号码</p>
+			<input type="tel" name="" id="tel" onblur="tel()" /><span id="tel1"></span>
+			<p>图片验证</p>
+			<input type="text" name="" id="img" onblur="img()" /><span id="img1"></span>
+			<p>生日</p>
+			<input type="date" name="" id="birth" onblur="birth()" /><span id="birth1"></span>
+			<p>短信验证码</p>
+			<input type="text" name="" id="message" onblur="mes()" /><span id="message1"></span>
+			<p>密码</p>
+			<input type="password" name="" id="pass" onblur="pas1()" /><span id="pass1"></span>
+			<p>确认密码</p>
+			<input type="password" name="" id="password" onblur="pas2()" /><span id="password1"></span>
+		</div>
+	</body>
+
+</html>

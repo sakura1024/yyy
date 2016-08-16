@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+		<!--
+			除了 AngularJS 内置的指令外，我们还可以创建自定义指令。
+			你可以使用 .directive 函数来添加自定义的指令。
+			要调用自定义指令，HTML 元素上需要添加自定义指令名。
+			使用驼峰法来命名一个指令， runoobDirective, 但在使用它时需要以 - 分割, runoob-directive:
+		-->
+	</head>
+
+	<body ng-app="myApp">
+		<!---->
+		<my-directive></my-directive>
+		<script>
+			var app=angular.module("myApp",[]);
+			//注意第一个参数采用驼峰命名，但是在17行调用时，却又变为小写
+			app.directive("myDirective",function(){
+				return {
+					template :"<h1>自定义指令</h1>"
+				};
+			});
+		</script>
+
+	</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script> 
+	</head>
+	<body ng-app="myApp">
+		<div ng-controller="myCtrl">
+			<input type="text" ng-model="name"/>
+			<p>{{name}}</p>
+		</div>
+		<div ng-app="myApp" ng-controller="myCtrl1">
+			<input type="text" ng-model="name"/>
+			<p>{{name}}</p>
+		</div>
+		<div ng-app="myApp" ng-controller="myCtrl2">
+			<ul>
+				<!--下面两行语句等价-->
+				<!--<li ng-repeat="x in name">{{x.name+" "+lastname}}</li>-->
+				<li ng-repeat="x in name">{{x.name}} {{lastname}}</li>
+			</ul>
+		</div>
+		<script type="text/javascript">
+			var app=angular.module('myApp',[]);
+			app.controller("myCtrl",function($scope){
+				$scope.name="youyuanyuan"
+			})
+			app.controller("myCtrl1",function($scope){
+				$scope.name="zhengshaonong"
+			})
+			app.controller("myCtrl2",function($scope,$rootScope){
+				$scope.name=[{name:"zsn"},{name:"yyy"}]
+				$rootScope.lastname="zheng";
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>遮罩层</title>
+		<style type="text/css">
+			div {
+				width: 100px;
+				height: 100px;
+				background: rgba(0, 0, 0, 0.5)
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--每点击一次，使用的都是同一个div
+			能实现资源的最大利用
+			节省性能
+		-->
+		<button onclick="createMask()">显示遮罩层</button>
+	</body>
+	<script type="text/javascript">
+		//创建Div
+		var createDiv = function() {
+			this.div = function() {
+				document.createElement('div');
+			}
+		}
+
+		//将div给遮罩层对象
+		function createMask() {
+			var mask = createDiv().div();
+			showMask(mask);
+		}
+
+		//显示遮罩层
+		function showMask(obj) {
+			document.body.appendChild(obj);
+		}
+	</script>
+
+</html>

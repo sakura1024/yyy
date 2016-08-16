@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<style type="text/css">
+			#box {
+				width: 100%;
+				height: 100%;
+				position: relative;
+			}
+			
+			#move {
+				width: 300px;
+				height: 300px;
+				background: #FF4400;
+				position: absolute;
+			}
+			/*此时设置的为跟随光标触摸进行变化的小盒子*/
+			
+			#spirit {
+				width: 50px;
+				height: 50px;
+				background: green;
+				position: absolute;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="box">
+			<div id="move">
+
+			</div>
+
+		</div>
+	</body>
+
+</html>
+<script type="text/javascript">
+	var oBox = document.getElementById('box');
+	var oMove = document.getElementById('move');
+
+	//监听事件
+	oBox.addEventListener('touchstart', touchStart);
+	oBox.addEventListener('touchmove', touchMove);
+	oBox.addEventListener('touchend', touchEnd);
+
+	//获取oMOve的宽高
+	var oMoveWH = {
+		x: parseInt(getStyle(oMove, 'width')),
+		y: parseInt(getStyle(oMove, 'height'))
+	}
+
+	//全局变量
+	//获取oDiv的非行内样式：宽和高
+	var oDivWH = {};
+	var oDiv;
+	var i = 0;
+
+	function touchStart(e) {
+		var touch = e.touches[0];
+		//触摸点的坐标
+		var position1 = {
+				x: touch.pageX,
+				y: touch.pageY
+			}
+			//生成触摸时的绿色盒子
+		oDiv = document.createElement('div');
+		oDiv.setAttribute("id", "spirit");
+		oDiv.innerHTML = ++i;
+
+		oMove.appendChild(oDiv);
+		//获取oDiv的非行内样式：宽和高
+		oDivWH = {
+			x: parseInt(getStyle(oDiv, 'width')),
+			y: parseInt(getStyle(oDiv, 'height'))
+		}
+		oDiv.style.left = parseInt(position1.x - oDivWH.x) + "px";
+		oDiv.style.top = parseInt(position1.y - oDivWH.y) + "px";
+
+	}
+
+	function touchMove(e) {
+		var touch = e.touches[0];
+		var position2 = {
+			x: touch.pageX,
+			y: touch.pageY
+		}
+		oDiv.style.left = position2.x - oDivWH.x + "px";
+		oDiv.style.top = position2.y - oDivWH.y + "px";
+	}
+
+	function touchEnd(e) {
+		oMove.removeChild(oDiv);
+	}
+
+	//获取非行内样
+	function getStyle(obj, name) {
+		if(obj.currentStyle) {
+			return obj.currentStyle[name];
+		} else {
+			return getComputedStyle(obj, null)[name];
+		}
+	}
+</script>

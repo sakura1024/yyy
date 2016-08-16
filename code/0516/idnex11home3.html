@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>求2-100之内的素数（质数）。 也叫质数. 是除了1和其本身,不能被其他正整数整除的正整数.2,3,5,7,11,13,17,19,23.....
+		</title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			document.write("2-100之内的素数（质数）:<br>");
+			for (var i = 2; i < =100; i++) {
+				for (var j = 2; j < i; j++) {
+					if (i % j == 0) { //如果能够被j整除，跳出循环
+					break;
+					}
+				}
+				if(i==j){
+					document.write(i+" ");
+				}
+			}
+		</script>
+	</body>
+
+</html>

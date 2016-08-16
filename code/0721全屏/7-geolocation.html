@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="">
+			点击一下，尝试定位，可以吗？
+		</div>
+		<input type="button" name="btn" id="btn" value="定位" />
+		<div id="div">
+			
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+	var oBtn=document.getElementById('btn');
+	var oDiv=document.getElementById('div');
+	oBtn.onclick=getLocation;
+	function getLocation(){
+		if (navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition(function(position){
+				oDiv.innerHTML="纬度"+position.coords.latitude+"<br/>经度"+position.coords.longitude;
+			});//参数为成功时的回调函数
+		} else{
+			alert("您的浏览器不支持定位，请升级！")
+		}
+	}
+	/*function showLocation(position){
+		oDiv.innerHTML="纬度"+position.coords.latitude+"<br/>经度"+position.coords.longitude;
+	}*/
+</script>

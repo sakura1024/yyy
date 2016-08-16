@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>date应用倒计时:到0之后自动停止计时</title>
+		<style type="text/css">
+			#changeNum{
+				width: 100px;
+				height: 100px;
+				margin: 100px auto;
+				font-size: 80px;
+				color: red;
+				font-weight: bolder;
+			}
+		</style>
+		<script type="text/javascript">
+			var time = 9;
+			var timer = null;
+			function down() {
+				var oDiv = document.getElementById('changeNum');
+				var oImg=oDiv.getElementsByTagName('img')[0];
+				oImg.src="img/images/"+time+".png";
+				//oDiv.innerHTML = time;
+				time--;
+				//定时器调用的函数内部   判断是否满足条件   如果满足则停止计时器
+				if (time < 0) {
+					clearInterval(timer);
+				}
+			}
+			timer = setInterval(down, 1000);
+		</script>
+	</head>
+
+	<body>
+		<input type="button" id="" value="倒计时" onclick="" />
+		<div id="changeNum">
+			<img src=""/>
+		</div>
+	</body>
+
+</html>

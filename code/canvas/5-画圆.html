@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#demo{
+				border: 1px solid #ccc;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="demo" width="600" height="800"></canvas>
+	</body>
+	<script type="text/javascript">
+		var oDemo=document.getElementById('demo');
+		//得到画布控制权
+		var ctx=oDemo.getContext('2d');
+		
+		
+		//画圆(x,y,半径，开始角度，结束角度，是否逆时针)
+		ctx.beginPath();
+		ctx.arc(100,100,50,0,360*Math.PI/180,false);
+		ctx.stroke();
+		ctx.fillStyle="rgba(255,0,0,0.4)";
+		ctx.fill();
+		
+		//顺时针画四分之一圆
+		ctx.beginPath();
+		ctx.moveTo(300,300);
+		ctx.arc(300,300,50,0,90*Math.PI/180,false);
+		ctx.stroke();
+		ctx.fillStyle="rgba(255,0,0,0.4)";
+		ctx.fill();
+		
+		
+		//顺时针画四分之三圆
+		ctx.beginPath();
+		ctx.moveTo(400,400);
+		ctx.arc(400,400,50,0,270*Math.PI/180,false);
+		ctx.stroke();
+		ctx.fillStyle="rgba(255,0,0,0.4)";
+		ctx.fill();
+		
+		
+		//逆时针画四分之三圆
+		ctx.beginPath();
+		ctx.moveTo(500,500);
+		ctx.arc(500,500,50,270*Math.PI/180,0,true);
+		ctx.lineTo(500,500);
+		ctx.stroke();
+		ctx.fillStyle="rgba(255,0,0,0.4)";
+		ctx.fill();
+
+		
+		
+		//逆时针画四分之三圆
+		ctx.beginPath();
+		ctx.moveTo(300,600);
+		ctx.arc(300,600,50,0,90*Math.PI/180,true);
+		ctx.stroke();
+		ctx.fillStyle="rgba(255,0,0,0.4)";
+		ctx.fill();
+	</script>
+</html>

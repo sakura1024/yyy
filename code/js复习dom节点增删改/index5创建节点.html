@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			li{
+				border: 1px dashed  #ccc;
+				margin-bottom: 5px;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload=function(){
+				var oBtn=document.getElementById('btn');
+				var oBtn2=document.getElementById('btn2');
+				var oBtn3=document.getElementById('btn3');
+				var oUl=document.getElementById('ul')
+				oBtn.onclick=function(){
+					var oTxt=document.getElementById('txt');
+					var li=document.createElement('li');
+					var aLi=document.getElementsByTagName('li');
+					li.innerHTML="我是新创建的第"+(aLi.length+1)+"个li标签"+"<br/>"+oTxt.value;
+					oUl.appendChild(li);
+				}
+				oBtn2.onclick=function(){
+					var aLi=document.getElementsByTagName('li');
+					oUl.removeChild(aLi[0]);//永远删除ul当前子节点的第一个
+				}
+				oBtn3.onclick=function(){
+					var aLi=document.getElementsByTagName('li');
+					var oTxt=document.getElementById('txt');
+					var li=document.createElement('li');
+					li.innerHTML="我是新创建的第"+(aLi.length+1)+"个li标签"+"<br/>"+oTxt.value;
+					if (aLi.length>0) {
+						oUl.insertBefore(li,aLi[0]);//倒叙插入节点
+					} else{
+						oUl.appendChild(li);
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<input type="text" name="" id="txt" value="" />
+		<input type="button" name="btn" id="btn" value="创建li" />
+		<input type="button" name="btn2" id="btn2" value="删除li" />
+		<input type="button" id="btn3" value="倒叙插入节点" />
+		<ul id="ul">
+		</ul>
+	</body>
+</html>

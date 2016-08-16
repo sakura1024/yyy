@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery-3.0.0.js" ></script>
+		<style type="text/css">
+			li{	
+				float: left;
+				list-style: none;
+				width: 50px;
+				height: 100px;
+				background: blue;
+				border-right: 1px solid black;
+			}
+		</style>
+		<script type="text/javascript">
+			$(function(){
+				$('li').hover(function(){
+					$(this).append("<p>一段文字描述</p>");
+					$(this).css({
+						
+						'color':'white'
+					}).animate({width:"100px"})
+				},function(){
+					$(this).html("菜单"+($(this).index()+1));
+					$(this).css({
+						
+						'color':'black'
+					}).animate({width:"50px"})
+					
+					
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<ul>
+			<li>菜单1</li>
+			<li>菜单2</li>
+			<li>菜单3</li>
+			<li>菜单4</li>
+			<li>菜单5</li>
+		</ul>
+	</body>
+</html>

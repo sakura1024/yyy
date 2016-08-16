@@ -1,0 +1,337 @@
+.box {
+	width: 819px;
+	height: 399px;
+	margin: 0 auto;
+	background: #fff url(../img/top.jpg);
+}
+
+/*top*/
+
+#top {
+	width: 819px;
+	height: 16px;
+	background: #E1E1E1;
+	margin: 0 auto;
+}
+
+/*header*/
+
+#header {
+	height: 81px;
+}
+
+#header img {
+	margin-top: 18px;
+	margin-left: 17px;
+}
+
+.header-r {
+	margin-right: 20px;
+	margin-top: 9px;
+}
+
+.header-r li {
+	float: left;
+	margin-left: 5px;
+}
+
+
+.header-r li a:hover{
+	color: #D91F20;
+}
+
+/*nav*/
+
+#nav {
+	height: 35px;
+	background: url(../img/nav.jpg);
+	border-top: 1px solid #E1E1E1;
+	margin-bottom: 10px;
+}
+
+.nav-menu {
+	padding-left: 10px;
+}
+
+.nav-menu li {
+	float: left;
+}
+
+.nav-menu li a {
+	display: inline-block;
+	line-height: 30px;
+	padding-left: 23px;
+	padding-right: 23px;
+}
+
+.nav-menu li .active,
+.nav-menu li a:hover {
+	line-height: 32px;
+	padding-left: 23px;
+	padding-right: 23px;
+	margin-top: -2px;
+	background: url(../img/nav-ho.jpg) repeat-x;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+
+
+/*banner*/
+
+#banner {
+	height: 246px;
+	margin-bottom: 10px;
+}
+
+
+/*content*/
+
+#content {
+	height: 551px;
+}
+
+.con-l {
+	width: 225px;
+	height: 540px;
+}
+
+.con-l-top {
+	width: 223px;
+	height: 221px;
+	border: 1px solid #DE6A6A;
+	margin-bottom: 11px;
+}
+
+.con-l-top .note {
+	width: 221px;
+	height: 26px;
+	border: 1px solid #EA9793;
+	background: url(../img/tit.jpg)repeat-x;
+	color: white;
+}
+
+.con-l-top .note img {
+	margin: 11px 4px 0px 9px;
+}
+
+.con-l-top h6 {
+	display: inline-block;
+	margin-right: 9px;
+	line-height: 26px;
+}
+
+.con-l-top span {
+	font-size: 5px;
+	margin-top: 8px;
+}
+
+.con-l-top a {
+	font-size: 5px;
+	margin-right: 10px;
+	color: #005308;
+	margin-top: 8px;
+}
+
+.con-l-top a:hover{
+	color: white;
+}
+.news {
+	width: 221px;
+	height: 186px;
+	border-left: 1px solid #EA9793;
+	border-bottom: 1px solid #EA9793;
+	border-top: 1px solid #D85855;
+	border-right: 1px solid #D85855;
+	padding-top: 5px;
+}
+
+.news li {
+	text-indent: 2em;
+	height: 43px;
+	line-height: 20px;
+	font-size: 10px;
+	border-bottom: 1px dashed #797979;
+}
+
+.news li:last-child {
+	border: 0 none;
+}
+
+.news1 {
+	padding-top: 2px;
+}
+
+.news1 li {
+	height: 21px;
+	background: url(../img/news.jpg) repeat-x;
+	border: 0 none;
+}
+
+.news1 li a {
+	margin: 0;
+	padding: 0;
+	font-size: 10px;
+	color: #C22418;
+}
+
+.news1 li img {
+	margin-top: 8px;
+	margin-right: 30px;
+}
+
+.con-l-bottom {
+	width: auto;
+}
+
+.con-r {
+	width: 558px;
+	height: 539px;
+}
+
+.con-r .company {
+	width: 556px;
+	height: 165px;
+}
+
+.company img {
+	margin-right: 4px;
+}
+
+.con-r .darkred {
+	color: #BD2E26;
+}
+
+.con-r .xu {
+	left: 135px;
+	top: 27px;
+	width: 420px;
+}
+
+.con-r .more {
+	margin-top: -4px;
+}
+
+.con-r .more:hover{
+	color: red;
+}
+.con-r-con {
+	margin-top: 5px;
+}
+
+.con-r-con p {
+	text-indent: 2em;
+	line-height: 20px;
+	font-size: 10px;
+	margin-left: 5px;
+}
+
+.con-r-bottom {
+	width: 556px;
+	height: 336px;
+	margin-bottom: 12px;
+}
+
+.con-r-pro {
+	width: 549px;
+	height: 151px;
+	border: 1px solid #E8E8E8;
+	border-top: 0 none;
+	margin: 0 auto;
+	margin-bottom: 13px;
+}
+
+.con-r-pro dl {
+	margin-left: 14px;
+	margin-top: 12px;
+}
+
+.con-r-pro dd {
+	margin-top: 10px;
+	text-align: center;
+}
+
+.con-r-news {
+	width: 551px;
+	height: 167px;
+	margin: 0 auto;
+}
+
+.con-r-news-l {
+	width: 270px;
+	height: 166px;
+	border: 1px solid #F2F2F2;
+	background: url(../img/newee.jpg) repeat-x;
+}
+
+.notes {
+	width: 268px;
+	height: 22px;
+	line-height: 24px;
+	border: 1px solid #F6F6F6;
+}
+
+.notes h6,
+.notes span {
+	color: #A04447;
+	margin-left: 5px;
+}
+
+.notes img {
+	margin-top: 6px;
+	margin-left: 5px;
+}
+
+.notes a {
+	margin-right: 10px;
+}
+
+.notes a:hover{
+	color: red;
+}
+
+.note-botom {
+	width: 268px;
+	height: 140px;
+	border: 1px solid #E8E6E9;
+}
+
+.note-botom li {
+	line-height: 23px;
+	font-size: 11px;
+	list-style: square inside;
+	margin-left: 10px;
+}
+
+.note-botom li a:hover{
+	color: red;
+}
+.note-botom li span {
+	margin-right: 10px;
+}
+
+
+/*footer*/
+
+#footer {
+	width: 819px;
+	height: 68px;
+	margin: 0 auto;
+	background: #fff url(../img/footer.jpg) repeat-x;
+	border-top: 6px solid #820000;
+}
+
+#footer span:first-child {
+	margin-left: 66px;
+}
+
+#footer span {
+	display: inline-block;
+	margin-right: 15px;
+	margin-top: 14px;
+	font-size: 10px;
+}
+
+#footer p {
+	text-align: center;
+	margin-top: 14px;
+}

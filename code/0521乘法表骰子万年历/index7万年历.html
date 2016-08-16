@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			var monthDay = 0;
+			var flag = 0;
+			var sumDay=1;
+			var week=0;
+			window.onload = function() {
+				var oBtn = document.getElementById('btn');
+				oBtn.onclick = function() {
+					var oYear = parseInt(document.getElementById('year').value);
+					var oMonth = parseInt(document.getElementById('month').value);
+					//到2016年的天数
+					for (var i=1900;i<oYear;i++) {
+						year(i);
+						if (flag==1) {
+							sumDay=sumDay+366;
+						} else{
+							sumDay=sumDay+365;
+						}
+					}
+					//输入的是5  到4月底的天数
+					for (var j=1;j<oMonth;j++) {
+						year(oYear);
+						month(j,flag);
+						sumDay=sumDay+monthDay;
+					}
+					alert(sumDay);
+					week=sumDay%7;
+					alert(week);
+					
+				}
+			}
+
+			function year(Year) {
+				//判断闰年  能够被4整除但是不能够被100整除  或者能够被400整除
+				if ((Year % 4 == 0 && Year % 100 != 0) || Year % 400 == 0) { //是闰年 2月29天
+					flag = 1; //flag==1 闰年
+				}
+				else{
+					flag=0;
+				}
+			}
+
+			function month(month, f) {
+				switch (month) {
+					case 1:
+					case 3:
+					case 5:
+					case 7:
+					case 8:
+					case 10:
+					case 12:
+						monthDay = 31;
+						break;
+					case 4:
+					case 6:
+					case 9:
+					case 11:
+						monthDay = 30;break;
+					case 2:
+						if (flag == 1) {
+							monthDay = 29;
+						} else {
+							monthDay = 28;
+						}
+						break;
+				}
+			}
+		</script>
+	</head>
+
+	<body>
+		<p>请输入年份:</p>
+		<input type="text" id="year" />
+		<p>请输入月份:</p>
+		<input type="text" id="month" />
+		<input type="button" name="btn" id="btn" value="判断是否为闰年" />
+	</body>
+
+</html>

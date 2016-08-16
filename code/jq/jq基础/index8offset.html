@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery-3.0.0.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$("button").click(function() {
+					//index - 可选。接受选择器的 index 位置 
+					//oldvalue - 可选。接受选择器的当前坐标。 
+					$("p").offset(function(m,c) {   //设置 p 元素的 offset 坐标
+						newPos = new Object();
+						newPos.left = c.left + 100;   
+						newPos.top = c.top + 100;
+						return newPos;
+					});
+					//$(selector).offset()
+					//始终是对象距离可视窗的左边距和到可视窗的上边距
+					console.log("对象距离可视窗的左边距："+$('p').offset().left)
+					console.log("对象距离可视窗的上边距："+$('p').offset().top)
+				});
+			});
+		</script>
+	</head>
+
+	<body>
+		<div id="btn">
+			<p>这是一个段落。</p>
+		<button>设置 p 元素的 offset 坐标</button>
+		</div>
+	</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>date应用倒计时</title>
+		<style type="text/css">
+			#changeNum{
+				width: 100px;
+				height: 100px;
+				margin: 100px auto;
+				font-size: 80px;
+				color: red;
+				font-weight: bolder;
+			}
+		</style>
+		<script type="text/javascript">
+			var time = 5;
+			var timer = null;
+
+			function down() {
+				var oDiv = document.getElementById('changeNum');
+				oDiv.innerHTML = time;
+				time--;
+			}
+
+			function start() {
+				timer = setInterval(down, 1000);
+			}
+
+			function end() {
+				if (time < 0) {
+					clearInterval(timer);
+				}
+			}
+		</script>
+	</head>
+
+	<body>
+		<input type="button" id="" value="倒计时" onclick="start()" />
+		<input type="button" id="" value="停止计时" onclick="end()" />
+		<div id="changeNum"></div>
+	</body>
+
+</html>

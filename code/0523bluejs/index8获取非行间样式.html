@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>获取非行间样式</title>
+		<style type="text/css">
+			#div1{
+				width: 100px;
+				height: 100px;
+				background-color: pink;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload=function(){
+				var oDiv=document.getElementById('div1');
+				if (oDiv.currentStyle) {
+					alert(oDiv.currentStyle.width);                    //兼容IE
+				} else{
+					alert(getComputedStyle(oDiv,false).backgroundColor); //兼容高版本浏览器
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="div1">
+			
+		</div>
+	</body>
+</html>

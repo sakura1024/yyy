@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#div1 {
+				width: 100px;
+				height: 100px;
+				background: red;
+				position: absolute;
+			}
+		</style>
+		<script type="text/javascript" src="js/jquery-3.0.0.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				var disX = 0;
+				var disY = 0;
+				$('#div1').mousedown(function(ev) {
+					disX = ev.pageX - $(this).offset().left;
+					disX = ev.pageY - $(this).offset().top;
+
+					$(document).mousemove(function(ev) {
+						$('#div1').css('left', ev.pageX - disX);
+						$('#div1').css('top', ev.pageY - disY);
+						
+					})
+					
+					$(document).mouseup(function(ev) {
+							$(document).off();  //off()所在函数内的所有事件均只执行一次就结束
+					})
+					/*$(document).one('mouseup',function(ev){
+						
+					})*/
+					
+					
+					return false;   //取消默认事件  取消冒泡事件   
+				})
+
+			})
+		</script>
+	</head>
+
+	<body>
+		<div id="div1">
+
+		</div>
+	</body>
+
+</html>

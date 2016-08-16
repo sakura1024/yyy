@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			span {
+				display: inline-block;
+				width: 50px;
+				height: 20px;
+				border: 1px solid black;
+				font-size: 20px;
+				font-weight: bold;
+				color: darkslateblue;
+				text-align: center;
+				line-height: 20px;
+				margin-left: 10px;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function() {
+				var arr = ['a', 'e', 'z', 't', 'y', 'p', 'x'];
+				var oSpan = document.getElementById('yan');
+				var oBtn = document.getElementById('btn');
+				//span点击的时候  刷新验证码  即初始化验证码
+				oSpan.onclick = init;
+				//按钮点击的时候,验证输入的验证码是否正确
+				oBtn.onclick = judge;
+				//页面加载完毕时，立即初始化span标签的内容
+				init();
+				//随机获取验证码 并且显示生成的4位验证码
+				function getCode(len) {
+					var code = "";
+					for (var i = 0; i < len; i++) {
+						//随机产生验证码数组的下标
+						ran = parseInt(Math.random() * 7);
+						//根据下标去验证码数组取验证码
+						code = code + arr[ran];
+					}
+					//返回随机生成验证码
+					return code;
+				}
+				//初始化span标签里的验证码
+				function init() {
+					
+					oSpan.innerHTML = getCode(4);
+				}
+				//判断验证码和span标签里初始化的span标签里的验证码是否一致
+				function judge() {
+					var oTxt = document.getElementById('txt').value;
+					if (oTxt == "") {
+						alert("验证码不能为空！");
+					} else if (oTxt == oSpan.innerHTML) {
+						alert("验证成功！");
+					} else if (oTxt != oSpan.innerHTML) {
+						alert("验证码输入不正确！");
+					}
+				}
+			}
+		</script>
+	</head>
+
+	<body>
+		验证码：<input type="text" id="txt" /><span id="yan"></span>
+		<button id="btn">测试验证码</button>
+	</body>
+
+</html>

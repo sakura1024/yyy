@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>命名空间</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//JSON 
+			var nameSpace=nameSpace || {};
+			nameSpace.Hello={
+				name:"everybody",
+				sayHello:function(_name){
+					return "hello  "+(_name|| this.name);
+				}
+			};
+			
+			//如何调用sayHello()
+			alert(nameSpace.Hello.sayHello());
+			
+			//闭包   想将私有属性传递出来
+			var nameSpace1= nameSpace1 || {};
+			
+			nameSpace1.Hello=(function(){
+				//公有的
+				name="everybody";
+				//私有的
+				var money=1000;
+				//待返回对象
+				var myFunc={};
+				
+				myFunc.sayHello=function(_name){
+					return "hello "+(_name || name)+",钱:"+money;
+				};
+				
+				return myFunc;
+			})();
+			
+			//调用
+			alert("--->"+nameSpace1.Hello.sayHello());
+		</script>
+	</body>
+</html>

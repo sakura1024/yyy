@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<textarea name="" rows="10" cols="50" id="txt"></textarea><br />
+		<input type="button"  id="add" value="添加留言"/>
+		<input type="button" id="delete" value="删除留言" />
+		<!--<table border="" cellspacing="" cellpadding="" id="tab">
+		</table>-->
+		<div id="div">
+			
+		</div>
+	</body>
+			
+</html>
+<script type="text/javascript">
+	var oAdd=document.getElementById('add');
+	var oDelete=document.getElementById('delete');
+	var oTab=document.getElementById('tab');
+	var oTxt=document.getElementById('txt')
+	var oDiv=document.getElementById('div');
+	//添加留言
+	oAdd.onclick=function(){
+		if(window.localStorage){
+			var time=new Date();
+			localStorage.setItem(time,oTxt.value);
+			alert("数据已保存");
+		}
+		//创建表格显示添加的信息
+//		 tab();
+		tab1();
+	}
+	
+	//删除留言
+	oDelete.onclick=function(){
+		if(window.localStorage){
+			localStorage.clear();  //本地删除内容方法
+		}
+		oDiv.innerHTML="";  //删除显示在页面的记录
+	}
+	
+	//创建表格
+	/*
+	 
+	 * 该方法不适合：操作结果每添加一条记录都会讲原有的记录重新添加到表格中
+	 * 
+	 * */
+	function tab(){
+	
+		//遍历storage里面所有的键值对
+		for (var i = 0; i < localStorage.length; i++) {
+			
+			var tr=document.createElement('tr');
+			
+			var td=document.createElement('td');
+			td.innerHTML=localStorage.key(i);
+			tr.appendChild(td);
+			
+			var td=document.createElement('td');
+			td.innerHTML=localStorage.getItem(localStorage.key(i));
+			tr.appendChild(td);
+			
+			oTab.appendChild(tr);
+		}
+	}
+	
+	
+	//创建表格
+	function tab1(){
+		var result="<table border='1'>";
+		//遍历storage里面所有的键值对
+		for (var i = 0; i < localStorage.length; i++) {
+			//获取每条记录的键名
+			var key=localStorage.key(i);
+			//获取每条记录的键值
+			var value=localStorage.getItem(key);
+			result+="<tr><td>"+key+"</td><td>"+value+"</td></tr>";
+			
+		}
+		result+="</table>"
+		oDiv.innerHTML=result;
+	}
+</script>

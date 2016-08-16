@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			#div1 {
+				width: 200px;
+				height: 200px;
+				/*border: 1px solid  black;*/
+				margin: 20px;
+				background: red;
+				overflow: hidden;
+				position: absolute;
+			}
+			
+			#div2 {
+				width: 100px;
+				height: 100px;
+				/*border: 1px solid  black;*/
+				margin: 30px;
+				background: yellow;
+			}
+		</style>
+		<script type="text/javascript" src="js/jquery-3.0.0.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				/*
+				console.log('div1:' + document.getElementById('div1').offsetLeft + 'px');
+				//div1没有绝对定位时，div2左边距参照的是可视窗口--->50px
+				//div1有绝对定位时，div2左边距参照的是div1---->30px
+				console.log('div2:' + document.getElementById('div2').offsetLeft + 'px');
+				*/
+				
+				/*
+				 
+				 *$('#div2').offset()里面存放的是对象
+				 * {
+				 * 	left:..px,
+				 * 	top:..px
+				 * }
+				 * */
+				//无论div1是否有绝对定位   div的offset().left始终都是50px
+				//--->结论：jQ中的obj.offset().left始终都是距离可视窗的左边距
+				//--->结论：jQ中的obj.offset().top始终都是距离可视窗的上边距
+				console.log('div2:left  '+$('#div2').offset().left);
+				console.log('div2:top  '+$('#div2').offset().top);
+			})
+		</script>
+	</head>
+
+	<body>
+		<div id="div1">
+			<div id="div2">
+
+			</div>
+		</div>
+	</body>
+
+</html>

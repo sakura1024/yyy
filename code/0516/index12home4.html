@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>输出从1900年到2014年之间所有闰年。每输出5个换行</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//求闰年的方法：能被400整除 或者  能被4整除 但不能被100整除
+			document.write("1900年到2016年之间所有闰年:<br />")
+			var n=0;
+			for (var i=1900;i<=2016;i++) {
+				if ((i%400==0)||(i%4==0&&i%100!=0)) {
+					n++;
+					document.write(i+" ");
+					if (n%5==0) {
+						document.write("<br />");
+						
+					}
+				} 
+			}
+		</script>
+	</body>
+</html>

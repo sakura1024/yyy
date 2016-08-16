@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			
+				function pay(){
+					//获取选择是星期几
+					var week = document.getElementById('week').value;
+					var name;
+					var money=0;
+					var sumMoney=0;
+					switch (week) {
+						case "1":
+							name = "红烧肉1";
+							money = 11;
+							break;
+						case "2":
+							name = "红烧肉2";
+							money = 12;
+							break;
+						case "3":
+							name = "红烧肉3";
+							money = 13;
+							break;
+						case "4":
+							name = "红烧肉4";
+							money = 14;
+							break;
+						case "5":
+							name = "红烧肉5";
+							money = 15;
+							break;
+						case "6":
+							name = "红烧肉6";
+							money = 16;
+							break;
+						case "7":
+							name = "红烧肉7";
+							money = 17;
+							break;
+						default:
+							break;
+					}
+					//获取份数
+					var num=document.getElementById('number').value;
+					//计算总金额
+					sumMoney=money*parseInt(num);
+					//支付金额
+					var payMoney=document.getElementById('money').value;
+					if(payMoney<sumMoney){
+						alert("金额不足");
+				}else{
+					alert("付款成功，应收金额："+sumMoney+"元，  "+"支付金额"+payMoney+"元，  "+"找回金额："+(payMoney-sumMoney)+"元  ");
+				}
+				
+			}		
+			
+		</script>
+	</head>
+
+	<body>
+		<!--点餐 选择今天是周几 输入份数 输入支付金额 金额不足 重新输入 否则 付款成功-->
+		<form>
+			请选择：
+			<select id="week">
+				<option value="1">星期1</option>
+				<option value="2">星期2</option>
+				<option value="3">星期3</option>
+				<option value="4">星期4</option>
+				<option value="5">星期5</option>
+				<option value="6">星期6</option>
+				<option value="7">星期7</option>
+			</select>
+		</form>
+		<br> 份数：
+		<input type="text" id="number">
+		<br>
+		<br> 付款金额：
+		<input type="text" id="money">
+		<br>
+		<br>
+		<input type="button" value="支付" onclick="pay()" />
+					
+	</body>
+
+</html>

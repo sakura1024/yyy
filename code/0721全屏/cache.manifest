@@ -1,0 +1,13 @@
+CACHE MANIFEST
+#version 1.0.0   
+
+
+CACHE:
+img/a1_r11_c11.jpg
+3-离线缓存.html
+cache.manifest
+1-全屏和退出全屏.html
+
+
+NETWORK:
+*

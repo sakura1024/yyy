@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+	</body>  &qu
+</html>
+<script type="text/javascript">
+	var str="<>\&";
+	escapeHtml(str);
+	function escapeHtml(str) {
+		return str.replace(/[<> &]/g, function(match) {
+			switch(match) {
+				case "<":
+					return "&lt;";
+				case ">":
+					return  "&gt;";
+				case "&":  
+					return "&amp;";
+				case " ":
+					return "&quot;";
+			}
+		})
+	}
+	console.log(str);
+	
+</script>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<video width="400" height="300" id="video">
+			<source src="mov_bbb.mp4"></source>
+		</video>
+		<div class="controls">
+			<input type="button" id="play" value="播放" onclick="play()" />
+			<input type="button" id="pause" value="暂停" onclick="pause()" />
+			<input type="button" id="mute" value="静音" onclick="mute()" />
+			<input type="button" id="fullScreen" value="全屏" onclick="fullScreen()" />
+			<span>进度条</span>
+			<progress value="0" id="progress"></progress>
+			<span>音量</span>
+			<input type="range" max="100" min="0" name="" id="ran" value="50" onchange="setVolume()" />
+		</div>
+	</body>
+
+</html>
+<script type="text/javascript">
+	var oVideo = document.getElementById('video');
+	var oPlay = document.getElementById('play');
+	var oPause = document.getElementById('pause');
+	var oMute = document.getElementById('mute');
+	var oFullScreen = document.getElementById('fullScreen');
+	var oProgress = document.getElementById('progress');
+	var oRan = document.getElementById('ran');
+
+	//静音前原始音量
+	var oldVol;
+
+	//全屏
+	function fullScreen() {
+		oVideo.webkitRequestFullScreen();      //谷歌全屏
+	}
+
+	//播放
+	function play() {
+		oVideo.play();    //播放
+		oPlay.disabled = true;
+		oPause.disabled = false;
+		progress();        //调用进度条函数
+	}
+
+	//暂停
+	function pause() {
+		oVideo.pause();      //暂停
+		oPlay.disabled = false;    //按钮可用
+		oPause.disabled = true;   //按钮不可用
+	}
+
+	//静音
+	function mute() {
+		if(oVideo.muted == false) { //不是静音
+			vol = oRan.value; //保存原有音量值
+			oRan.value = 0; //当前音量条值设为0
+			oVideo.muted = true; //视频静音属性设为真
+		} else { //是静音
+			oRan.value = vol; //音量条值为静音前的值
+			oVideo.muted = false; //视频音量属性设为假
+		}
+	}
+
+	//音量条改变
+	function setVolume() {
+		//视频的声音直接等于input标签的值    video标签自带的声音范围为[0,1],
+		//而input标签的value值设置的为[0,100],所以为了满足video自带的音量范围应该input标签的value除以100
+		oVideo.volume = oRan.value / 100;
+
+	}
+
+	function progress() {
+		setInterval(function() {
+			oProgress.max = oVideo.duration;
+			oProgress.value = oVideo.currentTime;
+		}, 10)
+
+	}
+</script>

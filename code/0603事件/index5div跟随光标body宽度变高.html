@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div {
+				width: 100px;
+				height: 100px;
+				background: pink;
+				position: absolute;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function() {
+				//注意document.onmousemove
+				document.onmousemove = function(ev) {
+					var oDiv = document.getElementById('div');
+					var oEvent = ev || event;
+					var oScrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+					//注意单位
+					oDiv.style.top = oScrollTop + oEvent.clientY + 'px';
+					oDiv.style.left = oEvent.clientX + 'px';
+				}
+			}
+		</script>
+	</head>
+
+	<body style="height: 2000px;">
+		<div id="div">
+
+		</div>
+	</body>
+
+</html>

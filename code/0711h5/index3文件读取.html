@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<input type="file" name="" id="file" value="" multiple="multiple" />
+		<input type="button" name="" id="" value="读取文件名称" onclick="showFileName()" />
+		<input type="button" name="" id="" value="读取文件最后修改时间" onclick="showFileTime()" />
+		<input type="button" name="" id="" value="读取文件文本" onclick="showAsText()" />
+		<input type="button" name="" id="" value="读取文件图像" onclick="showAsDataUrl()" />
+		<div id="showDiv"></div>
+	</body>
+
+</html>
+<script type="text/javascript">
+	/*file.name // 获取文件名
+			file.lastModifiedDate // 获取最近修改时间
+			file.size // 获取文件大小（单位KB）
+			file.type // 获取文件类型（如：text/plain、image/png）*/
+			
+		var showDiv = document.getElementById('showDiv');
+	function showFileName() {
+		var afile = document.getElementById('file').files; //是一个数组
+		for (var i = 0; i < afile.length; i++) {
+			showDiv.innerHTML += afile[i].name;
+		}
+	}
+
+	function showFileTime() {
+		var afile = document.getElementById('file').files; //是一个数组
+		for (var i = 0; i < afile.length; i++) {
+			showDiv.innerHTML += afile[i].lastModifiedDate;
+		}
+	}
+
+	function showAsText() {
+		var afile = document.getElementById('file').files; //是一个数组
+		for (var i = 0; i < afile.length; i++) {
+			var reader = new FileReader(); //实例化了一个新的filderreader
+			reader.readAsText(afile[i]);
+			reader.onload=function(e){
+				console.log(e);
+				showDiv.innerText+=e.target.result;
+			}
+
+		}
+	}
+	
+	
+	function showAsDataUrl() {
+		var afile = document.getElementById('file').files; //是一个数组
+		for (var i = 0; i < afile.length; i++) {
+			var reader = new FileReader(); //实例化了一个新的filderreader
+			reader.readAsDataURL(afile[i]);
+			reader.onload=function(e){
+				showDiv.innerHTML+="<img src='"+e.target.result+"' />";
+			}
+
+		}
+	}
+</script>
+
+
+<!--reader.addEventListener('load', function() {
+				this.result; // 读取出来的结果
+			});
+			showDiv.innerHTML += reader.readAsText(afile[i]) + "<br/>"; // 以文本的形式读取   读取当前的文件<!---->-->

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>味库</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var products={
+    "status": 1,
+    "info": "success",
+    "result": {
+        "count": 11,
+        "list": [
+            {
+                "id": "4338",
+                "type": "2",
+                "templateId": "1",
+                "title": "亲子水饺套餐",
+                "image": "http://u1.wecook.cn/images/20151222/5678fed57bdfd.jpg-p375",
+                "image_big": "http://u1.wecook.cn/images/20151222/5678fed57bdfd.jpg-p750422",
+                "state": 1,
+                "sales": 14,
+                "sales_in_month": 14,
+                "price": 59,
+                "grade": 5,
+                "url": "wecook://dishes/dish/detail?id=4338",
+                "stock": -1,
+                "tags": [
+                    {
+                        "text": "套餐",
+                        "color": "#FFFFFF",
+                        "bg_color": "#47C6FF"
+                    }
+                ],
+                "price_normal": 83.2,
+                "restaurant": {
+                    "id": "125",
+                    "title": "饺来饺去",
+                    "icon": "http://u1.wecook.cn/images/20151016/562083c9da92b.jpg-r30",
+                    "provide_max": 528
+                }
+            },
+            {
+                "id": "1993",
+                "type": "2",
+                "templateId": "1",
+                "title": "提神套餐|3菜",
+                "image": "http://u1.wecook.cn/images/20150905/55ea9bc0c116e.jpg-p375",
+                "image_big": "http://u1.wecook.cn/images/20150905/55ea9bc0c116e.jpg-p750422",
+                "state": 1,
+                "sales": 9,
+                "sales_in_month": 9,
+                "price": 122,
+                "grade": 0,
+                "url": "wecook://dishes/dish/detail?id=1993",
+                "stock": -1,
+                "tags": [
+                    {
+                        "text": "套餐",
+                        "color": "#FFFFFF",
+                        "bg_color": "#47C6FF"
+                    }
+                ],
+                "restaurant": {
+                    "id": "60",
+                    "title": "俏江南餐厅",
+                    "icon": "http://u1.wecook.cn/images/20150905/55eab4e4284a5.jpg-r30",
+                    "provide_max": 9565
+                }
+            },
+            {
+                "id": "2297",
+                "type": "2",
+                "templateId": "1",
+                "title": "周四|保护视力",
+                "image": "http://u1.wecook.cn/images/20150818/55d2a4e2a00be.jpg-p375",
+                "image_big": "http://u1.wecook.cn/images/20150818/55d2a4e2a00be.jpg-p750422",
+                "state": 1,
+                "sales": 40,
+                "sales_in_month": 40,
+                "price": 40,
+                "grade": 5,
+                "url": "wecook://dishes/dish/detail?id=2297",
+                "stock": -1,
+                "tags": [
+                    {
+                        "text": "套餐",
+                        "color": "#FFFFFF",
+                        "bg_color": "#47C6FF"
+                    }
+                ],
+                "restaurant": {
+                    "id": "30",
+                    "title": "净菜厨坊",
+                    "icon": "http://u1.wecook.cn/images/20150819/55d3f78c31b97.jpg-r30",
+                    "provide_max": 184
+                }
+            }
+        ]
+    }
+} 
+          //步骤一：分析模板
+           function Restaurant(){}
+           
+		   function Product(){}  //title  price  restaurant sales  image
+		   //步骤二：获取商品集合
+		   var productList=products.result.list;
+		   //创建节点div
+		   
+		   for(var i=0;i<productList.length;i++){
+		   	 var divNode=document.createElement("div");
+		   	 var product=new Product();
+		   	 product.image=productList[i].image;
+		   	 //创建商品图片节点
+		   	 var proImage=document.createElement("img");
+		   	 proImage.src=product.image;
+		   	 //添加到div中
+		   	 divNode.appendChild(proImage);
+		   	 //饭店
+		   	 product.restaurant=productList[i].restaurant;
+		   	 //获取饭店图片
+		   	 var resImage=document.createElement("img");
+		   	 resImage.src=product.restaurant.icon;
+		   	 //添加到div中
+		   	 divNode.appendChild(resImage);
+		   	 //剩下price  title  sales
+		   	 //创建p
+		   	 var p=document.createElement("p");
+		   	 //连续创建3个span
+		   	 var priceSpan=document.createElement("span");
+		   	 product.price=productList[i].price;;
+		   	 priceSpan.innerHTML=product.price;
+		   	 p.appendChild(priceSpan);
+		   	 //添加到div中
+		   	 divNode.appendChild(p);
+		   	 //添加到body
+		   	 document.body.appendChild(divNode);
+		   }
+		  
+		  
+		  //
+		</script>
+	</body>
+</html>

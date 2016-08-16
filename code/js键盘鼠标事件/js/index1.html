@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html onclick="alert('html')">
+	<head>
+		<meta charset="utf-8" />
+		<title>事件冒泡</title>
+		<style type="text/css">
+			div{
+				padding: 50px;
+			}
+		</style>
+	</head>
+	<body onclick="alert('body')">
+		<h4>从内往外冒泡：请家长</h4>
+		<div class="" style="background: red;" onclick="alert(this.style.background)">
+			<div class="" style="background: yellow;" onclick="alert(this.style.background)">
+				<div class="" style="background: pink;"onclick="alert(this.style.background)" >
+					
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

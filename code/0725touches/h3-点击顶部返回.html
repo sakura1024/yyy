@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			a {
+				text-decoration: none;
+			}
+			
+			#box {
+				width: 100%;
+				height: 500px;
+				position: relative;
+				overflow: hidden;
+				background: lightpink;
+			}
+			
+			#box ul {
+				width: 50%;
+				height: 3000px;
+				position: absolute;
+				background: yellow;
+				left: 87px;
+				/*transition: 5s;*/
+			}
+			
+			#box ul li {
+				list-style: none;
+				line-height: 30px;
+				width: 100%;
+				text-align: center;
+			}
+			
+			#top {
+				width: 40px;
+				height: 40px;
+				line-height: 40px;
+				text-align: center;
+				border-radius: 20px;
+				position: absolute;
+				background: lightpink;
+				right: 13px;
+				bottom: 30px;
+				display: none;
+				transition: 10s;
+			}
+		</style>
+		<div id="box">
+			<ul id="move">
+				<li>
+					<a href="#">top</a>
+				</li>
+				<li>
+					<a href="#">社会</a>
+				</li>
+				<li>
+					<a href="#">娱乐</a>
+				</li>
+				<li>
+					<a href="#">女人</a>
+				</li>
+				<li>
+					<a href="#">军事</a>
+				</li>
+				<li>
+					<a href="#">社会</a>
+				</li>
+				<li>
+					<a href="#">娱乐</a>
+				</li>
+				<li>
+					<a href="#">女人</a>
+				</li>
+				<li>
+					<a href="#">军事</a>
+				</li>
+				<li>
+					<a href="#">社会</a>
+				</li>
+				<li>
+					<a href="#">娱乐</a>
+				</li>
+				<li>
+					<a href="#">女人</a>
+				</li>
+				<li>
+					<a href="#">军事</a>
+				</li>
+				<li>
+					<a href="#">社会</a>
+				</li>
+				<li>
+					<a href="#">娱乐</a>
+				</li>
+				<li>
+					<a href="#">军事</a>
+				</li>
+				<li>
+					<a href="#">社会</a>
+				</li>
+				<li>
+					<a href="#">娱乐</a>
+				</li>
+				<li>
+					<a href="#">女人</a>
+				</li>
+				<li>
+					<a href="#">军事</a>
+				</li>
+				<li>
+					<a href="#">社会</a>
+				</li>
+				<li>
+					<a href="#">娱乐</a>
+				</li>
+				<li>
+					<a href="#">女人</a>
+				</li>
+				<li>
+					<a href="#">00</a>
+				</li>
+				<li>
+					<a href="#">军事</a>
+				</li>
+				<li>
+					<a href="#">社会</a>
+				</li>
+				<li>
+					<a href="#">娱乐</a>
+				</li>
+				<li>
+					<a href="#">女人</a>
+				</li>
+				<li>
+					<a href="#">军事</a>
+				</li>
+				<li>
+					<a href="#">社会</a>
+				</li>
+				<li>
+					<a href="#">娱乐</a>
+				</li>
+				<li>
+					<a href="#">女人</a>
+				</li>
+				<li>
+					<a href="#">军事</a>
+				</li>
+				<li>
+					<a href="#">社会</a>
+				</li>
+				<li>
+					<a href="#">娱乐</a>
+				</li>
+				<li>
+					<a href="#">女人</a>
+				</li>
+				<li>
+					<a href="#">军事</a>
+				</li>
+				<li>
+					<a href="#">社会</a>
+				</li>
+				<li>
+					<a href="#">娱乐</a>
+				</li>
+				<li>
+					<a href="#">军事</a>
+				</li>
+				<li>
+					<a href="#">社会</a>
+				</li>
+				<li>
+					<a href="#">娱乐</a>
+				</li>
+				<li>
+					<a href="#">女人</a>
+				</li>
+				<li>
+					<a href="#">军事</a>
+				</li>
+				<li>
+					<a href="#">社会</a>
+				</li>
+				<li>
+					<a href="#">娱乐</a>
+				</li>
+				<li>
+					<a href="#">女人</a>
+				</li>
+				<li>
+					<a href="#">00</a>
+				</li>
+				<li>
+					<a href="#">军事</a>
+				</li>
+				<li>
+					<a href="#">社会</a>
+				</li>
+				<li>
+					<a href="#">娱乐</a>
+				</li>
+				<li>
+					<a href="#">女人</a>
+				</li>
+				<li>
+					<a href="#">军事</a>
+				</li>
+				<li>
+					<a href="#">社会</a>
+				</li>
+				<li>
+					<a href="#">娱乐</a>
+				</li>
+				<li>
+					<a href="#">女人</a>
+				</li>
+				<li>
+					<a href="#">军事</a>
+				</li>
+				<li>
+					<a href="#">社会</a>
+				</li>
+				<li>
+					<a href="#">娱乐</a>
+				</li>
+				<li>
+					<a href="#">女人</a>
+				</li>
+				<li>
+					<a href="#">军事</a>
+				</li>
+				<li>
+					<a href="#">社会</a>
+				</li>
+				<li>
+					<a href="#">娱乐</a>
+				</li>
+				<li>
+					<a href="#">军事</a>
+				</li>
+				<li>
+					<a href="#">社会</a>
+				</li>
+				<li>
+					<a href="#">娱乐</a>
+				</li>
+				<li>
+					<a href="#">女人</a>
+				</li>
+				<li>
+					<a href="#">军事</a>
+				</li>
+				<li>
+					<a href="#">社会</a>
+				</li>
+				<li>
+					<a href="#">娱乐</a>
+				</li>
+				<li>
+					<a href="#">女人</a>
+				</li>
+				<li>
+					<a href="#">00</a>
+				</li>
+				<li>
+					<a href="#">军事</a>
+				</li>
+				<li>
+					<a href="#">社会</a>
+				</li>
+				<li>
+					<a href="#">娱乐</a>
+				</li>
+				<li>
+					<a href="#">女人</a>
+				</li>
+				<li>
+					<a href="#">军事</a>
+				</li>
+				<li>
+					<a href="#">社会</a>
+				</li>
+				<li>
+					<a href="#">娱乐</a>
+				</li>
+				<li>
+					<a href="#">女人</a>
+				</li>
+				<li>
+					<a href="#">军事</a>
+				</li>
+				<li>
+					<a href="#">社会</a>
+				</li>
+				<li>
+					<a href="#">娱乐</a>
+				</li>
+				<li>
+					<a href="#">女人</a>
+				</li>
+				<li>
+					<a href="#">军事</a>
+				</li>
+				<li>
+					<a href="#">社会</a>
+				</li>
+				<li>
+					<a href="#">娱乐</a>
+				</li>
+				<li>
+					<a href="#">军事</a>
+				</li>
+				<li>
+					<a href="#">社会</a>
+				</li>
+				<li>
+					<a href="#">娱乐</a>
+				</li>
+				<li>
+					<a href="#">女人</a>
+				</li>
+				<li>
+					<a href="#">军事</a>
+				</li>
+				<li>
+					<a href="#">社会</a>
+				</li>
+				<li>
+					<a href="#">娱乐</a>
+				</li>
+				<li>
+					<a href="#">女人</a>
+				</li>
+				<li>
+					<a href="#">00</a>
+				</li>
+			</ul>
+			<div id="top">
+				top
+			</div>
+		</div>
+		</body>
+
+</html>
+<script type="text/javascript">
+	var oBox = document.getElementById('box');
+	var oMove = document.getElementById('move');
+	var backTop = document.getElementById('top');
+
+	//设置监听事件
+	oMove.addEventListener('touchstart', toucheStart);
+	oMove.addEventListener('touchmove', toucheMove);
+	oMove.addEventListener('touchend', toucheEnd);
+
+	//设置全局变量
+	var startY;
+
+	//初始时，oMove绝对定位的topzhi
+	var oTop = 0;
+
+	//移动的距离
+	var disY;
+
+	function toucheStart(e) {
+		var touch = e.touches[0];
+		startY = touch.pageY; //获取刚开始触摸点的页面纵坐标
+		console.log("startY" + startY)
+	}
+
+	function toucheMove(e) {
+
+		e.preventDefault();
+		var touch = e.touches[0];
+		endY = touch.pageY;
+		disY = endY - startY; //获取移动的距离=现在页面的纵坐标-开始时的页面纵坐标
+		oMove.style.top = oTop + disY + "px"; //oMove的top值=原来的top值+移动的距离
+		//判断下拉的距离是否大于0px，则仍吸附于0px
+		if(oMove.offsetTop > 0) {
+			oMove.style.transition = "1s";
+			oMove.style.top = "0px";
+		} else if(oMove.offsetTop < -2500) { //判断下拉的距离是否小于-2500px，则仍吸附于底部
+			oMove.style.transition = "1s";
+			oMove.style.top = "-2500px";
+		}
+		
+	}
+
+	function toucheEnd(e) {
+		console.log("oMove.offsetTop" + oMove.offsetTop)
+		console.log("endY"+endY);
+		console.log("disY" + disY)
+		//返回顶部按钮
+		if(oMove.offsetTop < -500) {
+			backTop.style.display = "block";
+			backTop.style.background = "lightgrey";
+		} else {
+			backTop.style.display = "none";
+
+		}
+		oTop = parseInt(oMove.style.top); //设置top值,以备下次使用
+	}
+		//oTop的点击事件  返回顶部
+		backTop.onclick = function() {
+
+			oMove.style.top = 0 + "px";
+			oMove.style.transition = "2s";
+			oTop=0;
+			
+
+		}
+</script>

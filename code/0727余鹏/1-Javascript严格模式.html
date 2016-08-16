@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			'use strict';
+			//1.字符串的length不可写
+			var str="yztc1605";
+             //str.length=20;
+			//2.eval,arguments不能作为函数名字
+			function sum(a,b){
+			//3.函数不能有重复参数	
+			}
+			//4.全局变量必须显示声明
+			var x=100;
+			console.log(x);	
+			//5.禁止this指向全局变量
+			function student(name,address,age){
+				this.name=name;
+				this.address=address;
+				this.age=age;
+				console.log(this); //非严格模式，this指向的student
+			}
+			var stu=new student('tc','wumei',0);
+			console.log(this);  //
+			//非严格模式下 此时如果去掉new 
+			
+			//严格模式下，this不能指向全局变量
+			console.log(stu.name);
+			//6.禁止删除变量  
+			var a=100;
+			console.log(delete a);  //非严格模式下不会报错，只会显示false，严格模式下会报错
+			console.log(a);  //无论是否严格模式下，都不可以删除 但是严格模式下回报错，非严格模式下不会报错
+			//属性可以删除，变量不可以删除
+			/*
+			 * configurable: false   不可以配置  （所以变量不可以删除）
+			 * */
+			console.log(Object.getOwnPropertyDescriptor(window,'a'));
+			
+			
+			/*
+			 * 非严格模式下，输出a=200;
+			 * 严格模式下，输出a=1
+			 * */
+			var a=1;
+			//创建eval作用域
+			//var a=200,只在eval作用域内生效
+			eval('var a=200');  //把字符串当代码执行
+			//等价于  var a=200
+			console.log(a);
+	</script>
+	</body>
+</html>

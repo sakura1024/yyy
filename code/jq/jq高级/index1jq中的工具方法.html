@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>$.type()</title>
+		<script type="text/javascript" src="js/jquery-3.0.0.js"></script>
+		<script type="text/javascript">
+			/*
+			 *$():---> $().html()  $().css()  $().val().....只能给JQ对象用
+			 *$:--->$.xxx()  $.yyy()  $.zzz()......不仅可以给JQ对象用，也可以给原生JS用
+			 * 
+			 * ----------------typeof与$.type()区别-----------------------
+			 * $.type()比typeof更强大，判断的数据类型更细致
+			 * 可以从对象object中区别出array，date，regexp等数据类型
+			 * 
+			 * --------------$.trim()--------------
+			 * $.trim(str)：去掉原有字符串中的空格
+			 * 参数为要去空格的字符串
+			 * 
+			 * 
+			 * --------------$.inArray(char,arr)--------------
+			 * $.inArray(char,arr) 给出数组某个元素char，找到该元素在数组arr中的下标
+			 * 该函数类似于字符串中的indexof：根据字符找在字符串中的位置
+			 * 
+			 * 
+			 * --------------$.parseJSON(str)-----------
+			 * 将str字符串转换为对象
+			 * 
+			 * 
+			 * 
+			 *  --------------$.noConflict()-----------
+			 * 注释：防止冲突
+			 * 
+			 * */
+
+			/*--------------typeof和$.type()--------------*/
+			var date = new Date();
+			var arr = new Array();
+			var reg = new RegExp();
+
+			console.log(typeof date); //object
+			console.log(typeof arr); //object
+			console.log(typeof reg); //object
+			console.log("----------------");
+			console.log($.type(date)); //date
+			console.log($.type(arr)); //array
+			console.log($.type(reg)); //regexp
+
+			/*--------------$.trim()--------------*/
+
+			var str = "   hello  ";
+			var str1 = "   hello world  ";
+			console.log("------$.trim()----------");
+			console.log('未去空格str：(' + str + ')');
+			console.log('已去空格str：(' + $.trim(str) + ')');
+			console.log('未去空格str1：(' + str1 + ')');
+			console.log('已去空格str1：(' + $.trim(str1) + ')');
+			console.log('结论：$.trim()只去掉字符串开始和结尾的空格，不会去掉字符串中间的空格')
+
+			/*--------------$.inArray(char,arr)--------------*/
+			var arr = ['a', 'b', 'c'];
+			console.log(arr);
+			console.log("b在数组中的下标：" + $.inArray('b', arr)) //1
+			console.log("w在数组中的下标：" + $.inArray('w', arr)) //-1
+
+			/*--------------$.parseJSON()-----------*/
+			var obj = '{"name":"yyy","age":"25"}';
+			console.log($.parseJSON(obj));  //字符串转换为对象
+
+
+
+			/*--------------$.noConflict()-----------*/
+			var yyy = $.noConflict(); //注意：必须在重新定义$之前做该操作
+			var $ = 10;
+			/*此时
+			 * $(function(){
+				$('body').css('background','pink')
+			});
+			$=10jQuery中的$已经起冲突，会报错
+			*/
+			yyy(function() {
+				yyy('body').css('background', 'pink')
+			});
+		</script>
+	</head>
+
+	<body>
+
+	</body>
+
+</html>

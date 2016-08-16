@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--
+			三类锚点：
+			  	a锚点：属性既可以用"id"
+			  		也可以用"name"
+				其他标签的锚点：属性只可以用"id"		
+		-->
+			<style type="text/css">
+				span{
+					display: block;
+					height: 1000px;
+					border: 1px solid black;
+				}
+			</style>
+	</head>
+	<body>
+		<a href="#chart2">第二章</a>
+		<a href="#chapter3">第三章</a>  
+		<a href="#chapter4">第四章</a>  
+		
+		<span id="span">
+			
+		</span>
+		<!--锚点一-->
+		<a id="chart2">第二章</a>
+		<span id="span">
+			
+		</span>
+		<!--锚点二-->
+		<a name="chapter3">第三章</a>  
+		<span id="span">
+			
+		</span>
+		<!--锚点三-->
+		<p id="chapter4">第四章</p>  
+		<span id="span">
+			
+		</span>
+	</body>
+</html>

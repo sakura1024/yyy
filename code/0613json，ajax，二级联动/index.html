@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<title>Document</title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			var products = {
+				status: 1,
+				info: "success",
+				result: {
+					count: 11,
+					list: [{
+						id: "4338",
+						type: "2",
+						templateId: "1",
+						title: "亲子水饺套餐",
+						image: "http://u1.wecook.cn/images/20151222/5678fed57bdfd.jpg-p375",
+						image_big: "http://u1.wecook.cn/images/20151222/5678fed57bdfd.jpg-p750422",
+						state: 1,
+						sales: 14,
+						sales_in_month: 14,
+						price: 59,
+						grade: 5,
+						url: "wecook://dishes/dish/detail?id=4338",
+						stock: -1,
+						tags: [{
+							text: "套餐",
+							color: "#FFFFFF",
+							bg_color: "#47C6FF"
+						}],
+						price_normal: 83.2,
+						restaurant: {
+							id: "125",
+							title: "饺来饺去",
+							icon: "http://u1.wecook.cn/images/20151016/562083c9da92b.jpg-r30",
+							provide_max: 528
+						}
+					}, {
+						id: "1993",
+						type: "2",
+						templateId: "1",
+						title: "提神套餐|3菜",
+						image: "http://u1.wecook.cn/images/20150905/55ea9bc0c116e.jpg-p375",
+						image_big: "http://u1.wecook.cn/images/20150905/55ea9bc0c116e.jpg-p750422",
+						state: 1,
+						sales: 9,
+						sales_in_month: 9,
+						price: 122,
+						grade: 0,
+						url: "wecook://dishes/dish/detail?id=1993",
+						stock: -1,
+						tags: [{
+							text: "套餐",
+							color: "#FFFFFF",
+							bg_color: "#47C6FF"
+						}],
+						price_normal: 83.4,
+						restaurant: {
+							id: "60",
+							title: "俏江南餐厅",
+							icon: "http://u1.wecook.cn/images/20150905/55eab4e4284a5.jpg-r30",
+							provide_max: 9565
+						}
+					}]
+				}
+			}
+			function Tags(text,color,bg_color){
+				this.text=text;
+				this.color=color;
+				this.bg_color=bg_color;
+			}
+			function Restaurant(id,title,icon,provide_max){
+				this.id=id;
+				this.title=title;
+				this.icon=icon;
+				this.provide_max=provide_max;
+			}
+			function Product(title,imageprice,grade,url,tags,restaurant){
+				this.id=id;
+				this.type=type;
+			}
+		</script>
+	</body>
+
+</html>

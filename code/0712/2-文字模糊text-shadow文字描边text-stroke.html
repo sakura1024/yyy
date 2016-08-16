@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			h1 {
+				text-align: center;
+				color: rgba(0, 0, 0, 1);
+				/*黑色*/
+				border: 1px solid black;
+				font-size: 100px;
+			}
+			
+			h1:hover {
+				/*color:transparent;*/
+				
+				/*文字模糊
+				 * 文字颜色为透明，在设置文字阴影，阴影中的颜色用rgba设置（透明度一定要设置）
+				 * 
+				 * 文字描边时，若想用镂空字体，注意文字大小要足够大，文字颜色要透明
+				 * */
+				animation: move 5s;
+			}
+			
+			@keyframes move{
+				0%{
+					/*文字模糊*/
+					color:transparent;
+					text-shadow: 0px 0px 23px rgba(255,0,0,0.5);  /*红色0.5透明度;*/
+				}
+				30%{
+					/*color:transparent;*/
+					text-shadow: none;
+				}
+				50%{
+					/*文字描边*/
+					-webkit-text-stroke: 2px red;
+				}
+				80%{
+					/*浮雕文字*/
+					color: white;
+					text-shadow: 2px 2px 3px black;
+				}
+			}
+</style>
+	</head>
+
+	<body>
+		<h1>秒味课堂</h1>
+	</body>
+
+</html>

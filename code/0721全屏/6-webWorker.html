@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<p>计数:<output id="result"></output></p>
+		<input type="button" id="start" value="开始计数" />
+		<input type="button" id="end" value="结束计数" />
+	</body>
+
+</html>
+<script type="text/javascript">
+	var oResult = document.getElementById('result');
+	var oStart = document.getElementById('start');
+	var oEnd = document.getElementById('end');
+
+	//开始判断浏览器是否支持Worker对象
+	if(typeof(Worker) != "undefined") {
+		alert("您的浏览器支持worker！");
+		console.log(Worker);
+		//操作worker
+		var w; //变量声明，存储worker实例化对象
+		oStart.onclick = function() {
+			if(typeof w=="undefined"){
+				w = new Worker("js/webworker.js");
+			}
+			//接收信息   (新的worker对象进行响应信息操作)
+			w.onmessage = function(event) {
+				var ev = window.event || event;
+				console.log(ev);
+				//通过解析信息事件，来获得后台js文件中发送回来的信息，从而得到相应数据
+				//把相应或得到的数据，体现在output中
+				oResult.innerHTML = ev.data;
+			}
+		}
+		oEnd.onclick = function() {
+			w.terminate(); //终止
+		}
+
+	} else {
+		alert("对不起，请升级！")
+	}
+</script>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			.tx {
+				width: 50px;
+				height: 10px;
+			}
+		</style>
+		<script type="text/javascript" src="js/angular.js"></script>
+		<script type="text/javascript">
+			angular.module('app', [])
+				.controller('UserCtrl', function($scope) {
+					$scope.user = {
+						showicon: false,
+						icon: "img/logo.gif",
+						uname: 'admin',
+						pw: '123456',
+						zw: '0',
+						sex: '0',
+						aihao: [1, 4]
+					};
+					$scope.ischecked = function(n) {
+						var isok = false;
+						for (var i = 0; i < $scope.user.aihao.length; i++) {
+							if (n == $scope.user.aihao[i]) {
+								isok = true;
+								break;
+							}
+						}
+						return isok;
+					}
+				})
+		</script>
+	</head>
+
+	<body ng-app="app">
+		<div ng-controller="UserCtrl">
+			<form action="" method="post" name="f">
+				<fieldset id="">
+					<legend>基本信息</legend>
+					<img ng-src="{{user.icon}}" ng-class="{'tx':user.showicon}" />
+
+					<input type="text" name="" id="" placeholder="用户名" ng-model="user.uname" />
+					<input type="password" naem="" placeholder="密码" ng-model="user.pw" />
+					<p>职位：</p>
+					<select>
+						<option>--请选择--</option>
+						<option value="1" ng-selected="user.zw==0">java工程师</option>
+						<option value="2" ng-selected="user.zw==1">web前端工程师</option>
+					</select><br /><br />
+					<fieldset id="">
+						<legend>性别：</legend>
+						<input type="radio" name="sex" ng-checked="user.sex=='0'" />男
+						<input type="radio" name="sex" ng-checked="user.sex=='1'" />女
+
+					</fieldset>
+
+					<fieldset id="">
+						<legend>爱好</legend>
+						<div>
+							<input ng-checked="ischecked(1)" type="checkbox" name="ai" id="" value="1" />篮球
+							<input ng-checked="ischecked(2)" type="checkbox" name="ai" id="" value="2" />足球
+							<input ng-checked="ischecked(3)" type="checkbox" name="ai" id="" value="3" />排球
+							<input ng-checked="ischecked(4)" type="checkbox" name="ai" id="" value="4" />游泳
+						</div>
+					</fieldset>
+			</fieldset>
+			</form>
+			<input type="submit" value="提交" />
+		</div>
+	</body>
+
+</html>

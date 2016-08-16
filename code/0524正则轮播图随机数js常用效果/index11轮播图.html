@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			#wrap {
+				width: 940px;
+				height: 220px;
+				overflow: hidden;
+				position: relative;
+				background: red;
+			}
+			
+			#slider {
+				width: 700px;
+				position: absolute;
+				top: 0;
+				left: 120px;
+			}
+			
+			img {
+				float: left;
+				border: 0 none;
+			}
+			
+			button {
+				display: inline-block;
+				width: 120px;
+				height: 220px;
+				background: lightgrey;
+				color: white;
+				font-weight: bolder;
+				font-size: larger;
+				border: 0 none;
+			}
+			
+			#prev {
+				position: absolute;
+				left: 0;
+				top: 0;
+				opacity: 0.8;
+			}
+			
+			#next {
+				position: absolute;
+				right: 0;
+				top: 0;
+				opacity: 0.9;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function() {
+				var oPrev = document.getElementById('prev');
+				var oNext = document.getElementById('next');
+				oPrev.onclick = prev;
+				oNext.onclick = next;
+				init();
+				//初始化图片src
+				function init() {
+					var oImg = document.getElementsByTagName('img');
+					for (var i = 0; i < oImg.length; i++) {
+						oImg[i].src = 'img/' + (i + 1) + '.jpg';
+					}
+				}
+
+				function next() {
+					var oSlider = document.getElementById('slider');
+					var top = getStyle(oSlider, 'top');
+					if (top == '-660px') {
+						oSlider.style.top = '0px';
+					} else {
+						//alert(top)
+						oSlider.style.top = parseInt(top) - 220 + 'px';
+					}
+				}
+
+				function prev() {
+					var oSlider = document.getElementById('slider');
+					var top = getStyle(oSlider, 'top');
+					if (top == '0px') {
+						oSlider.style.top = '-660px';
+					} else {
+						oSlider.style.top = parseInt(top) + 220 + 'px';
+					}
+				}
+				//获取非行内样式
+				function getStyle(obj, name) {
+					if (obj.currentStyle) {
+						return obj.currentStyle[name];
+					} else {
+						return getComputedStyle(obj, false)[name];
+					}
+				}
+			}
+		</script>
+	</head>
+
+	<body>
+		<div id="wrap">
+			<button id="prev"><</button>
+			<div id="slider">
+
+				<a href="#"><img src="img/1.jpg" /></a>
+				<a href="#"><img src="" /></a>
+				<a href="#"><img src="" /></a>
+				<a href="#"><img src="" /></a>
+
+			</div>
+			<button id="next">></button>
+		</div><br/>
+
+	</body>
+
+</html>

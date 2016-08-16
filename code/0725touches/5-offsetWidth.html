@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			#div {
+				width: 100px;
+				height: 100px;
+				padding: 30px;
+				border: 30px;
+				margin: 50px;
+				background: black;
+			}
+		</style>
+	</head>
+
+	<body style="height: 10000px;"> 
+		<div id="div">
+		</div>
+	</body>
+
+</html>
+<script type="text/javascript">
+	window.onscroll = function() {
+		var oDiv = document.getElementById('div');
+		console.log("oDiv.offsetWidth" + oDiv.offsetWidth);
+		console.log("oDiv.clientWidth" + oDiv.clientWidth);
+		console.log("oDiv.clientWidth" + document.body.scrollWidth);
+	}
+</script>

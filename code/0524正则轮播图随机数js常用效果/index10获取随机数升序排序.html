@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>获取随机数20—50之间的随机数 不重复的放到数组中10个  并且排序  升序</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		/* 知识点：
+		  * 数组
+		  * 获取随机数 
+		  * 不重复
+		  * 排序
+		  * 冒泡排序：
+		  * 1)相邻元素两两进行比较，小的往上走，大的往下走   也就是交换位置  2 6 4 3 7 9
+		  * 2)sort();改变了原有数组
+		  * 
+		  * */
+			var arr=new Array(10);
+			for(var i=0;i<arr.length;i++){
+				arr[i]=parseInt(Math.random()*31+20);
+				for (var j=0;j<i;j++) {
+					if (arr[j]==arr[i]) {
+						i--;
+						break;
+					} 	
+				}
+			}
+			arr.sort(sortNumber);
+			function sortNumber(a,b){      //升序的话  a-b  降序b-a
+				return b-a;
+			}
+			document.write(arr);
+		</script>
+	</body>
+</html>

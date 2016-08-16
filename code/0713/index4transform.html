@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin:0;
+				padding:0;
+			}
+			
+			div{
+				width:100px;
+				height: 100px;
+				background: pink;
+				margin:50px 50px;
+				color: white;
+				font-weight: bold;
+				text-align: center;
+				line-height: 100px;
+				float: left;
+			}
+			div:first-child{
+				transition: all linear 1s;
+			}
+			div:first-child:hover{
+				/*transform:转换
+				 * 1.translate(100px,100px)
+				 * 		(水平平移距离，垂直平移距离)
+				 * 		参数可以是一个（第一个），也可以是两个;
+				 * 		参数可正，可负;
+				 * 2.scale(x,y) 定义 2D 缩放转换，改变元素的宽度和高度。 
+				 * 	 scaleY(n) 定义 2D 缩放转换，改变元素的高度。 
+				 * 
+				 * translate(x,y) 定义 2D 转换，沿着 X 和 Y 轴移动元素。 
+					translateX(n) 定义 2D 转换，沿着 X 轴移动元素。 
+					translateY(n) 定义 2D 转换，沿着 Y 轴移动元素。 
+					scale(x,y) 定义 2D 缩放转换，改变元素的宽度和高度。 
+					scaleX(n) 定义 2D 缩放转换，改变元素的宽度。 
+					scaleY(n) 定义 2D 缩放转换，改变元素的高度。 
+					rotate(angle) 定义 2D 旋转，在参数中规定角度。 (可正可负，正值顺时针，负值逆时针，旋转中心点为元素自身中心点)
+					skew(x-angle,y-angle) 定义 2D 倾斜转换，沿着 X 和 Y 轴。 
+					skewX(angle) 定义 2D 倾斜转换，沿着 X 轴。 
+					skewY(angle) 定义 2D 倾斜转换，沿着 Y 轴。 
+
+				 * 
+				 * 水平平移100px*/
+				transform: translate(100px,100px);
+				background: plum;
+				
+			}
+			div:nth-child(2){
+				transition: all linear 1s;
+			}
+			div:nth-child(2):hover{
+				transform: scale(2,2);
+				background: plum;
+			}
+			
+			div:nth-child(3){
+				transition: all linear 1s;
+			}
+			div:nth-child(3):hover{
+				transform: skewX(20deg);
+				/*transform: skewY(20deg);*/
+				background: plum;
+			}
+			div:nth-child(4){
+				border-radius: 50px;
+				transition: all linear 1s;
+			}
+			div:nth-child(4):hover{
+				transform: rotate(760deg) scale(2,2);;   
+				background: plum;
+			}
+		</style>
+	</head>
+	<body>
+		<div >
+			平移
+		</div>
+		<div >
+			缩放
+		</div>
+		<div >
+			倾斜
+		</div>
+		<div >
+			旋转
+		</div>
+	</body>
+</html>

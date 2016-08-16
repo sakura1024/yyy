@@ -1,0 +1,159 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+body {
+	font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
+	color: #333;
+}
+section{
+	display: flex;
+}
+a{
+	text-decoration: none;
+	color: #333;
+	
+}
+li{
+	list-style: none;
+}
+dl{
+	padding: 0;
+	margin: 0;
+}
+h1,h2,h3,h4,h5,h6,p{
+	margin: 0;
+}
+em{
+	font-style: normal;
+}
+section{
+	display: flex;
+}
+@font-face {font-family: "iconfont";
+  src: url('../iconfont/iconfont.eot?t=1470828262'); /* IE9*/
+  src: url('../iconfont/iconfont.eot?t=1470828262#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('../iconfont/iconfont.woff?t=1470828262') format('woff'), /* chrome, firefox */
+  url('../iconfont/iconfont.ttf?t=1470828262') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('../iconfont/iconfont.svg?t=1470828262#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont {
+  font-family:"iconfont" !important;
+  font-size:16px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+.icon-sousuo:before { content: "\e600"; }
+.icon-youjiantou:before { content: "\e602"; }
+.icon-shouye:before { content: "\e603"; }
+.icon-location:before { content: "\e607"; color: #f00;}
+.icon-dragdown:before { content: "\e606"; }
+.icon-luntan:before { content: "\e604"; }
+.icon-wo:before { content: "\e605"; }
+.icon-jiahao-copy:before { content: "\e601"; }
+
+.icon-dragdown{
+	text-indent: 4rem;
+}
+
+/*login*/
+#login{
+	background: #D8343F;
+	height: 10.35rem;
+	flex-direction: column;
+	
+}
+#login .logo{
+	width: 4.43rem;
+	height: 1.65rem;
+	margin: 0.95rem auto 0.76rem;
+	
+}
+#login #loginInfo{
+	width: 5rem;
+	height: 4.5rem;
+	margin: 0 auto;
+	background: rgba(255,255,255,0.6);
+	padding: 0.23rem 0.13rem;
+	border-radius: 5px;
+} 			
+#login .info{
+	width: 100%;
+	height: 2.45rem;
+	background: white;
+	border-radius: 10px;
+    border: 1px solid #DDD;
+}
+#login .info div{
+	padding: 0.11rem 0.19rem;
+	
+}
+#login input,#login select{
+	width: 4.29rem;
+	height: 0.59rem;
+	border: 0 none;
+	border: 1px solid #ddd;
+    background: #fff;
+    color: #999;
+    padding: 6px;
+    border-radius: 3px;
+}
+#login .info select{
+	height: 0.62rem;
+	font-weight: bold;
+}
+#loginInfo .denglu{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 4.29rem;
+	height: 0.75rem;
+	background: #D8343F;
+	color: white;
+	font-weight: bold;
+	font-size: 0.28rem;
+	border: 0 none;
+	border-radius: 5px;
+	margin: 0.11rem auto 0.35rem;
+}
+#loginInfo p{
+	color: white;
+	text-indent: 0.2rem;
+}
+#loginInfo span{
+	color: #d73333;
+}
+/*bottomNav*/
+.bottomNav{
+	width: 100%;
+	display: flex;
+}
+.bottomNav .container{
+	padding: 0;
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	font-size: 0.17rem;
+	align-items: center;
+}
+.bottomNav a{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	width: 0.53rem;
+	height: 0.82rem;
+	color: #656668;
+}
+.bottomNav i{
+	font-size: 0.31rem;
+	width: 100%;
+	text-align: center;
+}
+.bottomNav span{
+	width: 100%;
+	text-align: center;
+}

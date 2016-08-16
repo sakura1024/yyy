@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>临时会话保存</title>
+		<style type="text/css">
+			div {
+				width: 100px;
+				height: 30px;
+				border: 1px solid black;
+			}
+		</style>
+	</head>
+
+	<body>
+		<input type="text" name="" id="text" value="" />
+		<input type="button" name="" id="set" value="保存数据" />
+		<input type="button" name="" id="get" value="读取数据" />
+		<div id="div">
+		</div>
+	</body>
+
+</html>
+<script type="text/javascript">
+		//获取操作的元素
+		function $(id) {
+			return document.getElementById(id);
+		}
+		
+		//执行事件，保存数据
+		$('set').onclick = function() {
+
+			//获取文本的值
+			var textValue = $('text').value;
+
+			//h5的属性localStorage,先进行是否支持h5 localStorage该属性，若支持，在执行
+			if(window.sessionStorage) {
+				//调用setItem方法，来进行键值对的设置
+				//
+				sessionStorage.setItem("item1", textValue);
+			}
+		}
+		
+		//读取数据，显示在div中
+		$('get').onclick=function(){
+			if (window.sessionStorage) {
+				$('div').innerHTML=sessionStorage.getItem('item1');
+			} 
+		}
+</script>

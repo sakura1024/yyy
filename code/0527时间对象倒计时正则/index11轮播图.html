@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#div1 {
+				width: 700px;
+				margin: 30px auto;
+				position: relative;
+			}
+			
+			ul {
+				width: 150px;
+				margin: 10px auto;
+			}
+			
+			li {
+				list-style: none;
+				float: left;
+				width: 15px;
+				height: 15px;
+				background: #ccc;
+				border-radius: 7px;
+				text-align: center;
+				line-height: 15px;
+				margin-right: 15px;
+				color: white;
+			}
+			
+			.active {
+				background: pink;
+			}
+			
+			span {
+				position: absolute;
+				top: 0;
+				display: inline-block;
+				width: 100px;
+				height: 220px;
+				background: lightgray;
+				font-size: 70px;
+				font-weight: bold;
+				color: gray;
+				text-align: center;
+				line-height: 220px;
+				opacity: 0.7;
+				cursor: pointer;
+			}
+			
+			#prev {
+				left: 0;
+			}
+			
+			#next {
+				right: 0;
+			}
+		</style>
+		<script type="text/javascript">
+			var timer = null;
+			var count = 1;
+		
+			window.onload = function() {
+				var oDiv = document.getElementById('div1');
+				oDiv.onmouseover = function() {
+					clearInterval(timer);
+				}
+				oDiv.onmouseout = function() {
+					timer = setInterval(ChangePic, 1000);
+				}
+				timer = setInterval(ChangePic, 1000);
+			}
+
+			function ChangePic() {
+				count++;
+				
+				if (count == 5) {
+					count = 1;
+				}
+				var oImg = document.getElementById('img');
+				oImg.src = "img/" + count + ".jpg";
+				Changecircle();
+
+			}
+
+			function Prev() {
+				count--;
+				if (count==0) {
+					count=4;
+				} 
+				var oImg = document.getElementById('img');
+				oImg.src = "img/" + count + ".jpg";
+				Changecircle();
+			}
+
+			function Next() {
+				count++;
+				if (count==5) {
+					count=1;
+				} 
+				var oImg = document.getElementById('img');
+				oImg.src = "img/" + count + ".jpg";
+				Changecircle();
+			}
+
+			function Changecircle() {
+				var aLi = document.getElementsByTagName('li');
+				for (var i = 0; i < aLi.length; i++) {
+					//把所有的背景色都改为#ccc
+					aLi[i].style.backgroundColor = "#ccc";
+				}
+				//改变当前图片对应颜色
+				aLi[count - 1].style.backgroundColor = "pink";
+			}
+		</script>
+	</head>
+
+	<body>
+		<div id="div1">
+			<img src="img/1.jpg" id="img" />
+			<ul>
+				<li class="active">1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+			</ul>
+			<span id="prev" onclick="Prev()">&lt;</span>
+			<span id="next" onclick="Next()">&gt</span>
+		</div>
+	</body>
+
+</html>

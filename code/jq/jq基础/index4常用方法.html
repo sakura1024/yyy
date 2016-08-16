@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery-3.0.0.js" ></script>
+		<script type="text/javascript">
+			$(function(){
+				//filter(); 过滤函数
+				console.log($('.div').filter('[title=hello]').html());
+				
+				//如果代码中没有设置title属性值时，取得title值则为undefined，
+				//即使html中已经设置好了title值为hello，也是undefined
+				//console.log($('.div').attr('title'));   、、undefined
+				
+				console.log($('.div').attr('title','456'));
+				console.log($('.div').attr('title'));
+				
+			})
+		</script>
+	</head>
+	<body>
+		<div id="div1" class="div">
+			divvvvv
+		</div>
+		<div id="div2" title="hello" class="div">
+			div2
+		</div>
+	</body>
+</html>

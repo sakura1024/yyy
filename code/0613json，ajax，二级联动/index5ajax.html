@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			var xmlhttp;
+			if (window.XMLHttpRequest) { // code for IE7+, Firefox, Chrome, Opera, Safari
+				xmlhttp = new XMLHttpRequest();
+			} else { // code for IE6, IE5
+				xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+			xmlhttp.open("GET", "city.json", true);
+			xmlhttp.send();
+			var obj;
+			xmlhttp.onreadystatechange = function() {
+					if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+						//接收相应回来的数据
+						var tempText = xmlhttp.responseText;
+						//console.log(tempText);
+						//将字符串转为对象
+						obj = JSON.parse(tempText);
+						var aProvince = obj.城市代码;
+						//获取省的下拉列表对象
+						var oProvince = document.getElementById('province');
+						for (var i = 0; i < aProvince.length; i++) {
+							var tempPro = aProvince[i];
+							//创建option节点
+							var oOption = document.createElement('option');
+							oOption.innerHTML = tempPro.省;
+							oProvince.appendChild(oOption);
+						}
+					} else {}
+				}
+				//定义onchange事件
+			function changeCity(obj1) {
+				//alert(obj.value);
+				var oCity = document.getElementById('city');
+				var aProvince = obj.城市代码;
+				//清除上一次选中内容
+				//oCity.options.length
+				while (oCity.options.length) {
+					oCity.removeChild(oCity.lastChild);
+				}
+				for (var i = 0; i < aProvince.length; i++) {
+					var tempPro = aProvince[i].省;
+					//获取当前点击的省的名字
+					var selectPro = obj1.value;
+					if (selectPro == tempPro) {
+						//取出所有该省下的城市
+						var aCity = aProvince[i].市;
+						for (var i = 0; i < aCity.length; i++) {
+							var oPtion = document.createElement('option');
+							oPtion.innerHTML = aCity[i].市名;
+							//添加到select
+							oCity.appendChild(oPtion);
+						}
+						//break;
+						return;
+					} else {}
+				}
+			}
+		</script>
+	</head>
+
+	<body>
+		<select id="province" onchange="changeCity(this)">
+			<option value="0">请选择</option>
+		</select>
+		<select id="city">
+			<option value="0">请选择</option>
+		</select>
+	</body>
+
+</html>

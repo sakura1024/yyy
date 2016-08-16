@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>siblings()</title>
+		<script type="text/javascript" src="js/jquery-3.0.0.js" ></script>
+		<script type="text/javascript">
+		/*
+		 
+		 * .siblings()所有的兄弟元素
+		 * .siblings(selector)  参数是筛选功能   获取当前元素所有的兄弟元素,满足筛选条件的
+		 * 
+		 * 
+		 * 同理
+		 * nextAll()  :获取当前元素下面的所有兄弟元素  参数是筛选功能
+		 * prevAll()  :获取当前元素上面的所有兄弟元素  参数是筛选功能
+		 * 
+		 * 
+		 * .parentsUntil() 获得当前匹配元素集合中每个元素的祖先元素，直到遇到匹配选择器的元素为止。  参数是筛选功能
+		 * .prevUntil() 获得每个元素之前所有的同辈元素，直到遇到匹配选择器的元素为止。  参数是筛选功能
+		 * .nextUntil() 获得每个元素之后所有的同辈元素，直到遇到匹配选择器的元素为止。   参数是筛选功能
+		 * */
+			$(function(){
+				$('#btn1').one('click',function(){
+					$('span').siblings().css('color','red');
+				})
+				$('#btn2').one('click',function(){
+					$('span').siblings('input').css('color','blue');
+					
+				})
+				$('#btn3').one('click',function(){
+					$('span').prevAll().css('color','green');
+				})
+				$('#btn4').one('click',function(){
+					$('span').nextAll('a').css('color','pink')
+				})
+				$('#btn5').one('click',function(){
+					$('span').nextUntil('a').css('background-color','palevioletred') //到a标签的时候结束  a标签不会变黑色
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<input type="button" id="btn1" value="span的所有兄弟节点字色为红色.siblings()" />
+		<input type="button" id="btn2" value="span的所有兄弟节点中的input标签字色为蓝色.siblings('p')" /><br /><br />
+		<input type="button" id="btn3" value="span的上面的所有的兄弟节点中的标签字色为绿色.prevAll()" />
+		<input type="button" id="btn4" value="span的下面的所有兄弟节点中的a标签字色为粉色.nextAll('a')" />
+		<input type="button" id="btn5" value="span的下面的所有兄弟节点中的直到a标签时其前面的背景色均为紫色.nextUntil('a')" />
+		<div>div</div>
+		<div>div</div>
+		<span>span</span>
+		<p>p</p>
+		<p>p</p>
+		<p>p</p>
+		<p>p</p>
+		<a href="#">link</a><br />
+		<b>b</b>
+		<p>p</p>
+	</body>
+</html>

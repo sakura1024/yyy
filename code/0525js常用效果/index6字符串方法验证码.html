@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#code{
+				display: inline-block;
+				border: 1px solid black;
+				background: #ccc;
+				font-weight: bold;
+				font-size: 25px;
+				cursor: pointer;
+				padding: 5px;
+			}
+		</style>
+		<script type="text/javascript">
+		/*
+		 * 使用到的string方法
+		 * String.fromCharCode(num1,num2) 可接受一个或多个指定的 Unicode 值，然后返回一个字符串。   注意对象为静态对象  String
+		 * code.toLowerCase() 方法用于把字符串转换为小写。
+		 * 
+		 * 
+		 * **/
+			function getCode(len){
+				var code='';
+				var arr=['q','a','c','t','u','w'];  //验证码就是字母 数字（大小写）
+				for (var i=0;i<len;i++) {
+					//48-57(0-9)    65-90(A-Z)  97-122(a-z)
+					var ran=parseInt(Math.random()*(122-48+1)+48);
+					if (ran>57&&ran<65||ran>90&&ran<97) {
+						i--;
+						continue;
+					} 
+					//如何将ran转成字符    fromCharCode()
+					var c=String.fromCharCode(ran);
+					code=code+c;
+				}
+				return code;
+			}
+			//初始化函数
+			function init(){
+				code=getCode(4);
+				document.getElementById('code').innerHTML=code;
+			}
+			//验证函数
+			function check () {
+				var oTxt=document.getElementById('recode').value;
+				//文本框输入的内容与span标签初始化的内容判断是否相等
+				if (oTxt.toLowerCase()==code.toLowerCase()) {
+					alert('验证码输入成功')
+				} else{
+					alert('验证码输入有误')
+				}
+				
+			}
+		</script>
+	</head>
+
+	<body onload="init()">
+		<input type="text" id="recode"/>&nbsp;<span id="code" onclick="init()"></span>
+		<input type="button" value="验证" onclick="check()" />
+	</body>
+
+</html>

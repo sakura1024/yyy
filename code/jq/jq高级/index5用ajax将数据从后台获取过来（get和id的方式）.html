@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#tanchuang {
+				width: 300px;
+				height: 300x;
+				background: plum;
+				display: none;
+			}
+			.drow{
+				width: 200px;
+				height: 200px;
+				margin: 7px auto;
+				background: pink;
+			}
+		</style>
+		<script type="text/javascript" src="js/jquery-3.0.0.js"></script>
+		<script type="text/javascript">
+		/*
+		 
+		 * href与id相结合作为url从后台获取数据
+		 * */
+			$(function() {
+				var url = "http://localhost:9270/yyy";
+				$('input').click(function() {
+					$.get(url, function(data) {
+						var oTab = $('table');
+						var oTbody = $('<tbody>');
+						//console.log($.type(data)) //数组
+						console.log("后台数据的长度："+data.length);
+						for (var i = 0; i < data.length; i++) {
+							//注意：此时a标签的href属性：http://localhost:9270/yyy/id   注意最后这个id时生成某条记录时对应的id
+							//ex:   http://localhost:9270/yyy/1feec64cb530886b
+							var oTr = $('<tr><td><a href="http://localhost:9270/yyy/' +
+								data[i].id + '">删除</a></td><td><a href="http://localhost:9270/yyy/' +
+								data[i].id + '">查看</a></td><td>' + data[i].name + '</td><td>' + data[i].href + '</td></tr>');
+							oTbody.append(oTr);
+						}
+						oTab.append(oTbody);
+						//下面的样式  注意一定要在选择器里标签都创建完之后才可以设置
+						$('tbody tr:even').css('background-color', 'pink');
+						/*注意对a的操作只能常见完毕后立即操作，如果放在get()之外去操作的话，则不能再对a操作
+						 
+						 * 原因，get()函数第二个参数，只有url发送成功之后，才会回调function函数，对表格、a标签进行创建
+						 * 假如将对a的操作放在get()函数之外，当回调函数还没完成，已经开始加载下面对a标签的操作，
+						 * 此时还没有a标签，所以a标签的操作没有添加上
+						 * 
+						 * ajax异步操作，响应时间（回调函数）比网页加载速度慢
+						 * */
+						
+						//点击查看链接时，弹出弹框
+						$('tr a:odd').each(function(index) {
+
+							//给选中的a标签注册监听器
+							$(this).click(function(e) {
+								//console.log(index + $(this).attr('href'));
+								//index对应的那个a标签
+								//参数为：index对应的那个a标签的href
+								tanChuang($(this).attr('href'));
+								$(this).attr('href', $(this).attr('href'))
+								e.preventDefault(); //取消默认跳转事件
+							});
+						});
+						
+						
+						//点击删除链接时，从后台和前台均删除该记录
+						$('tr a:even').each(function(index) {
+
+							//给选中的a标签注册监听器
+							$(this).click(function(e) {
+								//console.log(index + $(this).attr('href'));
+								//index对应的那个a标签
+								//参数为：index对应的那个a标签的href
+								
+								//利用ajax中的delete从后台删除数据
+								/*
+								 
+								 * $(this).parent().next().children('a').attr('href')与下面代码等价
+								 * $(this).attr('href')
+								 * */
+								console.log($(this).attr('href'));
+								$.ajax($(this).attr('href'),{
+									type:"delete",
+									success:function(data){
+										alert("后台数据删除成功");
+									}
+								})
+								$(this).parent().parent().remove();
+								e.preventDefault(); //取消默认跳转事件
+							});
+						});
+					});
+
+					function tanChuang(url) {
+						//弹窗显示出来
+						var cssMap = {
+							'display': 'block',
+							'position': 'absolute',
+							'left': '500px',
+							'top':' 200px'
+						}
+						//为弹窗设置样式
+						var tc=$('#tanchuang').css(cssMap);
+						
+						//取数据
+						$.get(url,function(data){    //回调函数中的data时对应a标签的那条记录的数据
+							//把数据添加到弹窗上
+							tc.children().each(function(index){      //遍历弹窗上的两个孩子div，并为孩子div添加相应的节点
+								//$(this)  弹窗中index对应的index
+								if(index==0){
+									$(this).html(data.name);     //注意这与$(this).append(data.name+"<br/>")的区别：html这种点击时直接将原来div上的内容覆盖，append是在原来的基础上累加的哦
+								}else if(index==1){
+									$(this).html(data.href);
+								}
+								
+							});
+						});
+
+						//渲染到页面上
+					}
+
+				});
+			})
+		</script>
+	</head>
+
+	<body>
+     <h1>看看是不是可以在修改下a标签的url那</h1>
+		<input type="button" name="" id="" value="将数据从后台获取到" /><br /><br />
+		<table border="1" cellspacing="0" cellpadding="10"></table>
+		<div id="tanchuang">
+			<div class="drow">
+				
+			</div>
+			<div class="drow">
+				
+			</div>
+		</div>
+	</body>
+
+</html>

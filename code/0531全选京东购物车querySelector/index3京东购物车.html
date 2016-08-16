@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			span{
+				margin: 0;
+			}
+			table{
+				width: 800px;
+				margin: 20px auto;
+				height: ;
+				border-collapse: collapse;  /*去除单元格之间的空隙*/
+				/*border="" cellspacing="" cellpadding=""*/
+			}
+			td{
+				text-align: center;
+			}
+			#title{
+				background: lightgray;
+				
+			}
+			#title th{
+				padding: 10px 0;
+			}
+			.oper{
+				display: inline-block;
+				width: 20px;
+				height: 20px;
+				text-align: center;
+				line-height: 20px;
+				border: 1px solid #ccc;
+				cursor: pointer;
+			}
+			img{
+				width: 50px;
+				height: 50px;
+				
+			}
+			.showNum{
+				display: inline-block;
+				width: 50px;
+				height: 20px;
+				border: 1px solid #ccc;
+			}
+			#sum{
+				width: 100px;
+				height: 20px;
+				border: 1px solid pink;
+			}
+		</style>
+		<script src="js/index购物车.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<form action="" method="get">
+			<table >
+				<tr id="title">
+					<th><input type="checkbox" name="choseAll" id="choseall" value="" />全选</th>
+					<th>商品</th>
+					<th>单价</th>
+					<th>数量</th>
+					<th>小计（元）</th>
+					<th>操作</th>
+				</tr>
+				<tr>
+					<td><input type="checkbox" name="chooseOne"  /><img src="img/1.jpg"/></td>
+					<td>曼秀雷敦</td>
+					<td class="price">31.9</td>
+					<td>
+						<span class="oper">-</span>
+						<span class="showNum">1</span>
+						<span class="oper">+</span>
+					</td>
+					<td class="stotle">31.9</td>
+					<td><a href="#">删除</a></td>
+				</tr>
+			
+				<tr>
+					<td><input type="checkbox" name="chooseOne"  /><img src="img/1.jpg"/></td>
+					<td>曼秀雷敦</td>
+					<td class="price">21.9</td>
+					<td>
+						<span class="oper">-</span>
+						<span class="showNum">1</span>
+						<span class="oper">+</span>
+					</td>
+					<td class="stotle">21.9</td>
+					<td><a href="#">删除</a></td>
+				</tr>
+				<tr><td>总计：</td><td id="sum">id="sum"</td></tr>
+			</table>
+		</form>
+	</body>
+</html>

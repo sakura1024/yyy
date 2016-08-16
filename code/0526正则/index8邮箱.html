@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			/*
+			 * 字母数字组合@字母和数字组合（至少2位）.com
+			 * 
+			 * */
+			function onfocus1(){
+				var email=document.getElementById('email');
+				email.style.color='blue';
+				email.style.bgColor='red';
+				email.style.boxShadow='1px 2px 3px black';
+			}
+			function check(){
+				var emial=document.getElementById('email').value;
+				//1311543277@qq.com
+				//. --->正则中表示任意字符
+				var reg=/^([0-9a-zA-Z]+)@([0-9a-zA-Z]{2,})(\.com)$/i;
+				var result=reg.test(emial);
+				var oTip=document.getElementById('tip');
+				oTip.style.display='inline-block';
+				if (result) {
+					//输入正确√
+					oTip.innerHTML="√";
+					oTip.style.color='green';
+					oTip.style.fontWeight="bold";
+				} else{
+					//输入错误
+					oTip.innerHTML="请输入正确邮箱";
+					oTip.style.color='red';
+					oTip.style.fontWeight="bold";
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<input type="text" name="email" id="email" onblur="check()" onfocus="onfocus1()"/>
+		<span id="tip" style="display: none;"></span>
+		<br /><br /><br />
+		<input type="button" name="" id="" value="验证邮箱" onclick="check()" />
+	
+	
+	</body>
+</html>

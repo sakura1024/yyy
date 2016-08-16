@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//用户名 6-18字符  \w 字符
+			 var reg=/^\w{6,18}$/g;
+			//手机号码 13 14 15 18开头的11位    [3458]:只代表任选其一
+			var phone=/^1[3458]\d{9}$/g;
+			//邮编
+			var post=/^\d{6}$/g;
+			//头像  图片只能是jpg，png格式   形如：***.jpg
+			var file1=/^.+\.(jpg|png)$/g;
+			//身份证号码15位或18位     ???
+			var card=/^\d{15}|\d{17}[0-9xX]$/g;
+			//年龄 18-99   ????
+			var age=/^1[89]|[2-9]\d$/g;
+			//中文名字  中文正则
+			var name=/^[\u4e00-\u9fa5]$/
+		</script>
+	</body>
+</html>

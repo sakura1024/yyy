@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>通过更改src来更改图片</title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			#div1 {
+				position: relative;
+				width: 700px;
+				height: 220px;
+				margin: 0 auto;
+			}
+			
+			img {
+				position: absolute;
+				width: 700px;
+				height: 220px;
+			}
+			
+			
+			
+			#next {
+				right: 0;
+			}
+			
+			ul {
+				position: absolute;
+				left: 100px;
+				top: -40px;
+				width: 500px;
+			}
+			
+			li {
+				list-style: none;
+				float: left;
+				/*width: 30px;
+				height: 15px;*/
+				padding: 5px 7px;
+				line-height: 15px;
+				text-align: center;
+				margin-right: 10px;
+				background: lightgrey;
+				cursor: pointer;
+				color: white;
+			}
+			
+			.active {
+				background: pink;
+			}
+		</style>
+		<script type="text/javascript">
+			
+			var count = 1;
+			var timer = null;
+			timer = setInterval(next, 1000);
+			window.onload = function() {
+				var oDiv = document.getElementById('div1');
+				var aLi = document.getElementsByTagName('li');
+				for (var i = 0; i < aLi.length; i++) {
+					aLi[i].index=i;
+					aLi[i].onclick = function() {
+						var oImg = document.getElementsByTagName('img')[0];
+						oImg.src="img/" + (this.index+1) + ".png";
+//						circle();
+						for (var j = 0; j < aLi.length; j++) {
+							aLi[j].style.background = "lightgrey";
+						}
+						aLi[this.index].style.background="pink";
+						
+					};
+				}
+				oDiv.onmouseover = function() {
+					clearInterval(timer);
+				}
+				oDiv.onmouseout = function() {
+					timer = setInterval(next, 1000);
+				}
+			}
+
+			
+
+			function next() {
+				count++;
+				if (count == 5) {
+					count = 1;
+				}
+				changeSrc ();
+				circle();
+			}
+			function circle() {
+				var aLi = document.getElementsByTagName('li');
+				for (var j = 0; j < aLi.length; j++) {
+					aLi[j].style.background = "lightgrey";
+				}
+				aLi[count - 1].style.background = "pink";
+			}
+			//根据count改变src
+			function changeSrc () {
+				var oImg = document.getElementsByTagName('img')[0];
+				oImg.src = "img/" + count + ".png";
+			}
+		</script>
+	</head>
+
+	<body style="padding-top: 100px;">
+		<div id="div1">
+			<img src="img/1.png" />
+			<ul>
+				<li class="active">魅力女装</li>
+				<li>时尚包包</li>
+				<li>潮流美鞋</li>
+				<li>必备小物</li>
+			</ul>
+		</div>
+
+	</body>
+
+</html>

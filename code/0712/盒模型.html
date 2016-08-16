@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			li {
+				list-style: none;
+				float: left;
+			}
+			/*
+		 
+		 * 1.box-sizing: border-box;
+		 * 	   此时元素的宽度150px 中包含边框
+		 *   即使后面又添加了新的border，元素的整体宽度不变
+		 * 
+		 * 2.box-sizing: content-box;
+		 * 	  此时元素的宽度150px 中不包含边框
+		 *  后面又添加了新的border，元素的整体宽度变大
+		 * 
+		 * */
+			
+			img {
+				margin-left: 10px;
+				width: 150px;
+				height: 126px;
+				background: red;
+			}
+			
+			.img1 {
+				box-sizing: border-box;
+			}
+			.img2{
+				box-sizing: content-box;
+			}
+			
+			img:hover {
+				border: 10px solid black;
+				box-shadow: 1px 2px 5px black;
+			}
+		</style>
+	</head>
+
+	<body>
+		<ul>
+			<li>border-box<img src="img/c1_r8_c57.jpg" class="img1" /></li>
+			<li>content-box<img src="img/c1_r8_c57.jpg" class="img2" /></li>
+		</ul>
+	</body>
+
+</html>

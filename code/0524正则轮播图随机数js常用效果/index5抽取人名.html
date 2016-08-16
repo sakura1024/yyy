@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>抽取人名</title>
+		<style type="text/css">
+			#div1 {
+				width: 100px;
+				height: 100px;
+				background: pink;
+			}
+		</style>
+		<script type="text/javascript">
+			var userName = ['郑少农', '尤圆圆', '赵亮', '樊虎', '胡张栓'];
+		function guess() {
+			var nameDiv = document.getElementById('div1');	
+				//产生随机数，抽取人名
+				var nameRan = parseInt(Math.random() * 5);
+				nameDiv.innerHTML = userName[nameRan];
+			}
+		</script>
+	</head>
+
+	<body>
+		<div id="div1">
+		</div>
+		<button onclick="guess()">抽取人名</button>
+
+	</body>
+
+</html>

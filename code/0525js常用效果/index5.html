@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload = function() {
+				var oBtn = document.getElementById('btn');
+				var oTxt=document.getElementById('txt');
+				oTxt.onkeyup=change;
+				oBtn.onclick = calculate;
+			}
+
+			function calculate() {
+				var oDiv = document.getElementById('result');
+				//获取文本域
+				var oTxt = document.getElementById('txt').value;
+				var num = 0;
+				var lowNum = 0;
+				var upNum = 0;
+				var other = 0;
+				for (var i = 0; i < oTxt.length; i++) {
+					var c = oTxt.charAt(i);
+					if (c >= '0' && c <= '9') {
+						num++;
+					} else if (c >= 'a' && c <= 'z') {
+						lowNum++;
+					} else if (c >= 'A' && c <= 'Z') {
+						upNum++;
+					} else {
+						other++;
+					}
+				}
+				oDiv.innerHTML = "小写字母：" + lowNum + ",大写字母：" + upNum + ',数字：' + num + ',其他字符：' + other;
+			}
+			//定义键盘抬起时 要做的动作
+			function change() {
+				var oTxt=document.getElementById('txt');
+				//获取span对象
+					oSpan=document.getElementById('count');
+				if (oTxt.value.length>100) {
+					oSpan.innerHTML="数字已达到100，不能再输入";
+					//限制超过100字符之后  不让再继续输入
+					oTxt.value=oTxt.value.substr(0,100);
+					oSpan.style.color='red';
+					
+				} else{
+					var len=oTxt.value.length;
+					oSpan.innerHTML="剩余字数为"+(100-len);
+				}
+				
+			}
+		</script>
+	</head>
+
+	<body>
+
+		<textarea id="txt" rows="7" cols="50"></textarea><span id="count">剩余字数为100</span>
+		<br />
+		<br />
+		<br />
+		<button id='btn'>计算</button>
+		<div id="result">
+
+		</div>
+	</body>
+
+</html>

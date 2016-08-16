@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0;
+			}
+			.d4{
+				width: 499px;
+				height:300px;
+				background: yellow;
+			}
+			ul,span{
+				display: none;
+			}
+			.d4:hover span,.d4:hover+ul{
+				color: red;
+				display: block;
+				background: blue;
+			}
+			.d1{
+				background: red;
+				width: 500px;
+				height: 500px;
+				padding: 50px;
+				opacity: 0.3;
+			}
+			.d5{
+				background: yellow;
+				width: 100px;
+				height: 100px;
+				margin: 20px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="d4">
+			<img src="img/r1_r11_c12.png"/>
+			<span>百度一下</span>
+		</div>
+		<ul>
+			<li>我是后来的兄弟元素</li>
+		</ul>
+		<div class="d1">
+			<div class="d5">
+				
+			</div>
+		</div>
+	</body>
+</html>

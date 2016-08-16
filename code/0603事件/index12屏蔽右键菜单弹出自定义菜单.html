@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			/*#div2 {
+				width: 100px;
+				height: 100px;
+				background: pink;
+			}*/
+			
+			#div {
+				width: 200px;
+				position: absolute;
+				border: 1px solid #ccc;
+				display: none;
+			}
+			
+			ul {
+				padding: 0px 10px;
+			}
+			
+			ul li {
+				list-style: none;
+				padding: 5px;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function() {
+//				var oDiv2=document.getElementById('div2');
+				
+//				oDiv2.oncontextmenu = function(ev) {
+				document.oncontextmenu = function(ev) {
+					var oEvent = ev || event;
+					var oDiv = document.getElementById('div');
+					oDiv.style.display = "block";
+					var pos = getPos(oEvent);
+					//注意加单位！！！！
+					oDiv.style.left = pos.x + 'px';
+					oDiv.style.top = pos.y + 'px';
+					return false;
+				}
+
+				function getPos(ev) {
+					var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+					var scrollLeft = document.documentElement.scrollLeft || document.body.scrollLeft;
+					return {
+						x: scrollLeft + ev.clientX,
+						y: scrollTop + ev.clientY
+					}
+				}
+				document.onclick = function() {
+					var oDiv = document.getElementById('div');
+					oDiv.style.display = "none";
+				}
+			}
+		</script>
+	</head>
+
+	<body>
+		<!--<div id="div2">
+
+		</div>-->
+		<div id="div">
+			<ul>
+				<li>返回</li>
+				<li>前进</li>
+				<li>重新加载</li>
+				<li>另存为</li>
+				<li>打印</li>
+				<li>查看网页源代码</li>
+				<li>检查</li>
+
+			</ul>
+		</div>
+	</body>
+
+</html>

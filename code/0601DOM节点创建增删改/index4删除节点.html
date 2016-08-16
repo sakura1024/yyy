@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload=function(){
+				var oBtn=document.getElementById('btn');
+				var aDiv=document.getElementsByTagName('div');
+				oBtn.onclick=function(){
+					document.body.removeChild(aDiv[0]);
+				}
+				//添加div
+				var oBtn1=document.getElementById('btn1');
+				oBtn1.onclick=function(){
+					var aDiv=document.getElementsByTagName('div');
+					var oDiv=document.createElement('div');
+					oDiv.innerHTML=aDiv.length+1;
+					//document.body.appendChild(oDiv);
+					document.body.insertBefore(oDiv,aDiv[3])
+				
+				}
+				
+			}
+		</script>
+	</head>
+	<body>
+		<div>1</div>
+		<div>2</div>
+		<div>3</div>
+		<div>4</div>
+		<div>5</div>
+		<div>6</div>
+			<input type="button" name="btn" id="btn" value="删除div" />
+			<input type="button" name="btn" id="btn1" value="添加div" />
+		
+	</body>
+</html>

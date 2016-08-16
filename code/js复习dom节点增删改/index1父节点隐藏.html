@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload=function  () {
+				var oUl=document.getElementById('ul');
+				var aA=document.getElementsByTagName('a');
+				for (var i = 0; i < aA.length; i++) {
+					aA[i].onclick=function(){
+						this.parentNode.style.display="none";
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<ul id="ul">
+			<li>1<a href="#">隐藏</a></li>
+			<li>2<a href="#">隐藏</a></li>
+			<li>3<a href="#">隐藏</a></li>
+			<li>4<a href="#">隐藏</a></li>
+			<li>5<a href="#">隐藏</a></li>
+			<li>6<a href="#">隐藏</a></li>
+			<li>7<a href="#">隐藏</a></li>
+			<li>8<a href="#">隐藏</a></li>
+		</ul>
+	</body>
+</html>

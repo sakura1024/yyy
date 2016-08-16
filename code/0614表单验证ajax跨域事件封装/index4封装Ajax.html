@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>封装Ajax</title>
+		<script type="text/javascript" src="index4AJAX封装.js"></script>
+		<script type="text/javascript">
+			window.onload = function() {
+				//method, ulr, async, secFn, failFn, data
+				var method = "GET";
+				//var url = "http://10.0.161.235:8080/MyAjaxProject/MyTestServlet";
+				var url="car.json";
+				var asyc = true;
+
+				function secF(text) {
+					//alert("成功：" + text);
+					///
+					var jsonObj = JSON.parse(text);
+					//将获取到的books数组对象放到abook中
+					var aBook = jsonObj.books;
+					var oTable = document.createElement('table');
+					var oTbody = document.createElement('tbody');
+					for (var i = 0; i < aBook.length; i++) {
+						var oTr = document.createElement('tr');
+						var oTd = document.createElement('td');
+						//注意图片的获取方式（aBook[i].image里面放的是图片的链接，即图片的src）
+						var oImage = document.createElement('img');
+						oImage.src = aBook[i].image;
+						oImage.style.width = "40px";
+						oImage.style.height = "40px";
+						oImage.title = aBook[i].name + " " + aBook[i].price + " " + aBook[i].author;
+						oTd.appendChild(oImage);
+						oTr.appendChild(oTd);
+						var oTd = document.createElement('td');
+						oTd.innerHTML = aBook[i].name;
+						oTr.appendChild(oTd);
+						var oTd = document.createElement('td');
+						oTd.innerHTML = aBook[i].price;
+						oTr.appendChild(oTd);
+						var oTd = document.createElement('td');
+						oTd.innerHTML = aBook[i].author;
+						oTr.appendChild(oTd);
+						oTbody.appendChild(oTr);
+					}
+					oTable.appendChild(oTbody);
+					var oBody = document.getElementsByTagName('body')[0];
+					oBody.appendChild(oTable);
+					var aTd = document.getElementsByTagName('td');
+					for (var i = 0; i < aTd.length; i++) {
+						aTd.index = i;
+						aTd[i].onclick = function() {
+							var str = "";
+							this.style.cursor = "pointer";
+							aaTd = this.parentNode.children;
+							for (var j = 0; j < aaTd.length; j++) {
+								str = str + aaTd[j].innerHTML + " ";
+							}
+							//创建一个div
+							var oDiv = document.createElement('div');
+							oDiv.style.border = "1px solid #ccc";
+							oDiv.style.marginTop = "20px";
+							oDiv.style.display = "none";
+							oDiv.innerHTML = str;
+							oDiv.style.display = "block";
+							oBody.appendChild(oDiv);
+						}
+					}
+				}
+
+				function failFn(text) {
+					alert("失败：" + text);
+				}
+				ajaxFn(method, url, asyc, secF, failFn);
+			}
+		</script>
+	</head>
+
+	<body>
+	</body>
+
+</html>

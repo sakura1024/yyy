@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload = function() {
+				var oBtn1 = document.getElementById('btn1');
+				var oBtn2 = document.getElementById('btn2');
+				var oTxt = document.getElementById('txt1');
+				
+				oBtn2.onclick = function() {
+					c = 0; //不要忘记将c=0  否则当停止计时器，假设c=6,没有重新赋值c=0  那么下一次点击开始计时时 c=6,从6开始计时
+					oTxt.value = c;
+					clearTimeout(t);
+				}
+			}
+			var c = 0;
+			var t;
+			function jishi1() {
+				var oTxt = document.getElementById('txt1');
+					oTxt.value = c;
+					c = c + 1;
+					//t = setTimeout(jishi1, 1000);
+					t = setTimeout("jishi1()", 1000);  //与上面一句代码等价
+				}
+				
+		</script>
+	</head>
+
+	<body>
+		<input type="button" name="btn1" id="btn1" value="开始计时" onclick="jishi1()"/>
+		<input type="text" id="txt1" value="32" />
+		<input type="button" name="btn2" id="btn2" value="停止计时" />
+	</body>
+
+</html>

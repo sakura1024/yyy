@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload = function() {
+				var oTxt = document.getElementById('txt');
+				oTxt.onkeydown = function(ev) {
+					var oEvent = ev || event;
+					//0:48   9:57
+					// 让文本框只能输入数字
+					if ((oEvent.keyCode < 48 || oEvent.keyCode > 57) && oEvent.keyCode != 8 && oEvent.keyCode != 32 && oEvent.keyCode != 13 && oEvent.keyCode != 9&& oEvent.keyCode != 37&& oEvent.keyCode != 39) {
+						return false; //阻止文本框什么都能输入的默认事件 
+					}
+				}
+			}
+		</script>
+	</head>
+
+	<body>
+		<input type="text" name="xt" id="txt" value="" />
+
+	</body>
+
+</html>

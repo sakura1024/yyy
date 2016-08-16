@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>jq方法函数化</title>
+		<script type="text/javascript" src="js/jquery-3.0.0.js" ></script>
+		<script type="text/javascript">
+			$(function(){
+				$('#div1').click(function(){
+					//alert($(this).html());
+					$(this).css('background','red');
+					//$(this).backgroundColor='red'  错误的
+				});
+				//注意children后面必须有括号  才表示找到所有子节点的
+				$('ul').children().css('background','yellow');
+				//第一个为粉色
+				$('dd:first').css('background','pink');
+				//下标为2的背景色为红色
+				$('dd:eq(2)').css('background','red');
+				//偶数行背景色为绿色
+				$('dd:odd').css('background','green');
+				
+			})
+			
+		</script>
+	</head>
+	<body>
+		<div id="div1">
+			div
+		</div>
+		<ul>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		<dl>
+			<dt></dt>
+			<dd>1</dd>
+			<dd>2</dd>
+			<dd>3</dd>
+			<dd>4</dd>
+			<dd>5</dd>
+			<dd>6</dd>
+		</dl>
+	</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			a{
+				text-decoration: none;
+			}
+			.box{
+				width: 139px;
+				height: 34px;
+				border: 1px solid #DFDFDF;
+				background: #F9F9F9;
+				margin: 20px auto;
+			}
+			.box-top{
+				width: 139px;
+				height: 34px;
+				background: url(img/02_r2_c2.png) no-repeat 19px 10px;
+				position: relative;
+			}
+			.box-top a{
+				display: inline-block;
+				font-size: 12px;
+				color: #666666;
+				margin-left: 43px;
+				margin-top: 11px;
+				margin-right: 21px;
+			}
+			.box-top span{
+				display: inline-block;
+				width: 16px;
+				height: 14px;
+				background: #C81623;
+				border-radius: 7px 7px 7px 0;
+				font-size: 8px;
+				color: white;
+				text-align: center;
+				line-height: 14px;
+				position: absolute;
+				top: -3px;
+				right: 19px;
+			}
+			.box-bottom{
+				visibility: hidden;
+				width: 308px;
+				height: 70px;
+				margin-left: -1px;
+				border: 1px solid #DDDDDD;
+				margin-top: -1px;
+				background: url(img/_r2_c3.bmp) no-repeat 46px 13px;
+				position: absolute;
+				z-index: -10;
+			}
+			.box-bottom p{
+				font-size: 12px;
+				color: #999999;
+				margin-top: 29px;
+				margin-left: 101px;
+			}
+			.box-top a:hover{
+				color: #C81623;
+			}
+			.box:hover{
+				border-bottom:  none;
+				background: white;
+			}
+			.box:hover .box-bottom{
+				visibility: visible;
+			}
+		</style>
+	</head>  
+	<body style="height: 2000px;">
+		<div class="box">
+			<div class="box-top">
+				<a href="#">我的购物车</a>&gt;<span>0</span>
+			</div>
+			<div class="box-bottom">
+				<p>购物车中还没有商品，赶紧选购吧！</p>
+			</div>
+		</div>
+		
+	</body>
+</html>

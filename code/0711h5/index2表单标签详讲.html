@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<form action="index.html" method="get">
+			
+			<!--
+			默认样式是黑色，如果想改变默认样式，必须是16进制颜色表示方式
+		-->
+		<input type="color" name="" id="" value="#fff000" />
+		
+		<input type="number" name="" id="" value="5" max="10" min="-1" />
+		
+		
+		<input type="range" name="" id="" value="5"  max="10" min="3"/>
+		
+		<!--务必保证id和list进行关联（一致），绑定id-->
+		<input type="text" name="" id="" value="" list="data-list" placeholder="搜索框"/>
+		<datalist id="data-list">
+			<option value="百度"></option>
+			<option value="新浪"></option>
+			<option value="新浪加坡"></option>
+		</datalist>
+		
+		<!--自动获取焦点-->
+		<input type="text" name="" id="" value="" autofocus="autofocus"/>
+		
+		<!--根据正则校验文本格式-->根据正则校验文本格式
+		<input type="text" name="" id="" value="" pattern="\w{5}"/>
+		
+		上传一个文件
+		<input type="file" name="" id="" value=""  />
+		上传多个文件
+		<input type="file" name="" id="" value="" multiple="multiple" />
+		
+		require:<input type="text" name="" id="" value="" required="required"/>
+		<input type="submit" id="" name="" />
+		</form>
+	</body>
+</html>

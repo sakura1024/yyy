@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			a {
+				text-decoration: none;
+			}
+			
+			#box {
+				width: 100%;
+				height: 568px;
+			}
+			
+			#box ul {
+				width: 100%;
+				height: 30px;
+				line-height: 30px;
+				display: flex;
+				justify-content: space-between;
+				position: relative;
+			}
+			
+			#box ul li {
+				list-style: none;
+				width: 34%;
+				text-align: center;
+				background: #F5F5F4;
+				transition: 2s;
+				background: pink;
+			}
+			
+			
+		</style>
+		<div id="box">
+			<ul>
+				<li class="active">
+					<a href="#">军事</a>
+				</li>
+				<li>
+					<a href="#">社会</a>
+				</li>
+				<li>
+					<a href="#">娱乐</a>
+				</li>
+				<li>
+					<a href="#">女人</a>
+				</li>
+			</ul>
+
+		</div>
+		</body>
+
+</html>
+<script type="text/javascript">
+	var oBox = document.getElementById('box');
+	var aLi = document.getElementsByTagName('li');
+			
+	//先设置第一个li为选中样式
+	select1(aLi[0]);
+	
+	//点击时，更换
+	for(var i = 0; i < aLi.length; i++) {
+		aLi[i].onclick = function() {
+			for(var j = 0; j < aLi.length; j++) {
+				notSelect(aLi[j]);
+			}
+			select1(this);
+		}
+	}
+
+	//选中时，更换为选中的样式
+	function select1(obj) {
+		obj.style.background = "plum";
+	}
+
+	//未选中时，更换为未选中的样式
+	function notSelect(obj) {
+		obj.style.background = "pink";
+	}
+
+	//设置全局变量
+	var startPoint;
+	var endPoint;
+
+	//获得触摸点的横纵坐标
+	function getPoint(e) {
+		var touch = e.touches[0];
+		return {
+			x: touch.clientX,
+			y: touch.clientY
+		}
+	}
+
+	//获得两点之间的距离
+	function getDistace(point1, point2) {
+		var x1 = point1.x;
+		var x2 = point2.x;
+		var y1 = point1.y;
+		var y2 = point2.y;
+		return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+	}
+
+	//获得两点之间的角度，通过角度判断方向 返回方向值
+	function getDirection(point1, point2) {
+		var x1 = point1.x;
+		var x2 = point2.x;
+		var y1 = point1.y;
+		var y2 = point2.y;
+		//math.atan2(disY,disX)  得到的是弧度 范围（-PI/2,PI/2）
+		//弧度=角度*math.pI/180
+		//角度=弧度*180/math.pi
+		//弧度构成坐标，x轴0方向，顺时针为正，逆时针为负
+		var angle = Math.atan2(y2 - y1, x2 - x1) * 180 / Math.PI;
+		console.log(angle) //返回的弧度值
+			//对角度进行判定，并设置相对应的朝向问题，从而在空白盒子中，根据触摸两点构成角度数
+			//从而相对应的来显示朝向
+			//向右
+		if(angle < 45 && angle > -45) {
+			//遍历素有的aLi
+			//找到谁的aLi现在背景色现在为白色
+			for(var i = 0; i < aLi.length; i++) {
+				if(aLi[i].style.background == "plum") {
+					if(i > 0 && i < 4) {
+						//更换当前这个元素为未选中样式
+						notSelect(aLi[i]);
+						//更换当前元素的下个元素为选中样式
+						select1(aLi[i - 1]);
+
+					}
+					break;
+
+				}
+			}
+		}
+		//向左
+		if(angle >= 135 || angle < -135) {
+			for(var i = 0; i < aLi.length; i++) {
+				if(aLi[i].style.background == "plum") {
+					if(i < 3 && i >= 0) {
+					//i==0时,提取不到行内样式,此时只能提取非行内样式
+						//更换当前这个元素为未选中样式
+						notSelect(aLi[i]);
+						//更换当前元素的下个元素为选中样式
+						select1(aLi[i + 1]);
+
+					}
+					break;
+				}
+			}
+		}
+		/*if (angle<=-45&&angle>-135){
+			return "向上"
+		}
+		if (angle>=45&&angle<135){
+			return "向下"
+		}*/
+
+	}
+
+	//
+	oBox.addEventListener('touchstart', function(e) {
+		//获得开始触摸点坐标
+		startPoint = getPoint(e);
+	});
+	oBox.addEventListener('touchmove', function(e) {
+		endPoint = getPoint(e);
+	});
+	oBox.addEventListener('touchend', function() {
+		if(getDistace(startPoint, endPoint) >= 30) {
+
+		}
+		getDirection(startPoint, endPoint)
+	});
+</script>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#div1 {
+				width: 2px;
+				height: 20px;
+				background: plum;
+				color: white;
+				text-align: center;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<script type="text/javascript">
+			var count = 0;
+			var timer = null;
+			timer = setInterval(function() {
+				var oDiv = document.getElementById('div1');
+				oDiv.style.width = oDiv.offsetWidth + 5 + 'px';
+				//每次加5 
+				count += 5;
+				//设置到div上 
+				oDiv.innerHTML = count + '%' ;
+				//停止的判断条件 
+				if(count>=100)
+				{
+					clearInterval(timer);
+					//count=100;
+				}
+			}, 500);
+		</script>
+		<div id="div1">
+			
+		</div>
+
+	</body>
+
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#new {
+				width: 200px;
+				height: 200px;
+				margin: 20px;
+				border: 1px solid red;
+			}
+		</style>
+	</head>
+
+	<body>
+		<ul id="new">
+		</ul>
+	</body>
+	<script type="text/javascript">
+		window.onload = function() {
+			var oNew = document.getElementById('new');
+			//oNew.length
+			/*oNew.ondragstart = function(e) {
+				
+//				e.dataTransfer.setData("data", e.target.id);
+//				alert(e.dataTransfer)
+			}*/
+			oNew.ondragover = function(e) {
+				e.preventDefault();
+			}
+			oNew.ondrop = function(e) {
+				//e.dataTransfer来自拖放操作生成的 DataTransfer对象
+				/*
+				 * 
+				 * 
+				 * 使用FileReader对象,web应用程序可以异步的读取存储在用户计算机上的文件(或者原始数据缓冲)内容,
+				 * 可以使用File对象或者Blob对象来指定所要处理的文件或数据.
+				 * 其中File对象可以是来自用户在一个<input>元素上选择文件后返回的FileList对象,
+				 * 也可以来自拖放操作生成的 DataTransfer对象,
+				 * 还可以是来自在一个HTMLCanvasElement上执行mozGetAsFile()方法后的返回结果.
+				 
+				 * e.dataTransfer属性：files
+				 * e.dataTransfer方法:setData("text",this.id)
+				 * 					getData("text");
+				 * 
+				 * 
+				 * readAsDataURL()
+
+					开始读取指定的Blob对象或File对象中的内容. 当读取操作完成时,readyState属性的值会成为DONE,
+					如果设置了onloadend事件处理程序,则调用之.同时,result属性中将包含一个data: URL格式的字符串以表示所读取文件的内容.
+				 * 
+				 * 
+				 * 
+				 * readAsText()
+
+					开始读取指定的Blob对象或File对象中的内容. 当读取操作完成时,
+					readyState属性的值会成为DONE,如果设置了onloadend事件处理程序,则调用之.
+					同时,result属性中将包含一个字符串以表示所读取的文件内容.
+				 * *
+				 * */
+				var fs = e.dataTransfer.files;
+				for(var i = 0; i < fs.length; i++) {
+					var fd = new FileReader();
+					fd.readAsDataURL(fs[i]);
+					fd.onload = function() {
+						var oLi = document.createElement('li');
+						var oImg = document.createElement('img');
+						//result:读取到的文件内容.这个属性只在读取操作完成之后才有效,并且数据的格式取决于读取操作是由哪个方法发起的. 只读.
+
+						oImg.src = this.result;   						
+						oLi.appendChild(oImg);
+						oNew.appendChild(oLi);
+					}
+				}
+				e.preventDefault();
+			}
+		}
+	</script>
+
+</html>

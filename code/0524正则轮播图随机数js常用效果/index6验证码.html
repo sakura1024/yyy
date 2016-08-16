@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#code{
+				display: inline-block;
+				border: 1px solid black;
+				cursor: pointer;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload=function(){
+				//生成验证码
+				var aCode=['a','b','c','d','你','胡','萝','卜',1,2,5,7,9];
+				//获取span标签
+				var oCode=document.getElementById('code');
+				//获取按钮标签
+				var oBtn=document.getElementById('btn');
+				oCode.onclick=function  () {
+					init();
+				}
+				oBtn.onclick=function(){
+					check();
+				}
+				init();
+				//参数表示验证码的个数 返回值 产生验证码
+				function getCode(len){
+					var code='';
+					for(var i=0;i<len;i++){
+					var codeRan=parseInt(Math.random()*aCode.length);
+					code=code+aCode[codeRan];
+					
+					}
+					return code;
+				}
+					//验证码初始化  页面加载完 立即调用该函数
+				function init(){
+					
+					oCode.innerHTML=getCode(4);
+				}
+				//验证验证码是否正确
+				function check(){
+					var oTxt=document.getElementById('txt1');
+					if (oTxt.value=="") {
+						oTxt.value="验证码不能为空";
+						return;
+					} 
+					if(oTxt.value==oCode.innerHTML){
+						alert('验证码输入正确！');
+					}else{
+						alert("验证码输入有误，请重新输入");
+						init();
+					}
+				}
+			}
+		</script>
+	</head>
+	<body id="body">
+		验证码：<input type="text" id="txt1"/><span id="code"></span><br />
+		<button id="btn">测试验证码</button>
+		
+	</body>
+</html>

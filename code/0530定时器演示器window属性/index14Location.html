@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//http://127.0.0.1:8020/0530/index14Location.html
+			//主要操作地址栏 	url的路径部分    /0530/index14Location.html
+			var url=window.location.pathname;
+			document.write(url+'<br />');
+			//主要操作端口号  8020
+			var port=window.location.port;
+			document.write(port+'<br />');
+			//主要操作主机ip地址 127.0.0.1
+			var host=window.location.hostname;
+			document.write(host+'<br />');
+			//获取完整路径 http://127.0.0.1:8020/0530/index14Location.html
+			var href=window.location.href;
+			document.write(href+'<br />');
+			function reloadPage(){
+				window.location.reload();
+			}
+			function replacePage(){
+				window.location.replace("index.html")
+			}
+		</script>
+		<input type="text" name="" id="" value="" />
+		<button onclick='reloadPage()'>刷新</button>
+		<button onclick='replacePage()'>替换</button>
+	</body>
+</html>

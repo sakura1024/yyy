@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	String.prototype.trim1=function(){
+		return this.replace(/^\s+/,"").replace(/\s+$/,"");
+	}
+	var str="\n\t test string ";
+	console.log(str);
+	var str1=str.trim1();
+	console.log(str1);
+	//string对象自带的方法
+	var str2="\n\t test string111 ".trim();
+	console.log(str2);
+	document.write("aaaa")
+</script>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<style type="text/css">
+			input {
+				margin-right: 20px;
+			}
+			
+			span {
+				display: inline-block;
+				width: 60px;
+				height: 20px;
+				border: 1px solid #CCC;
+				vertical-align: middle;
+				margin-right: 10px;
+			}
+		</style>
+		<!--
+			/*
+             * 密码:6-18位
+             * 纯数字，纯字母，字母和数字（字母全部都是大写，小写）     弱
+             * 字母（大小写混合）和数字并且长度达到10以上     中
+             * 字母（大小写混合）和数字并且长度达到10以上  特殊字符    强
+             */
+		-->
+		<script type="text/javascript">
+			function check(){
+			var oTxt = document.getElementById('txt').value;
+			var lowReg = /^\d{6,18}|[a-z]]{6,18}|[A-Z]{6,18}|[a-zA-Z\d]{6,10}$/g;
+			var midReg = /^([a-z]+[A-Z]+\d+)|([a-z]+\d+[A-Z]+)|([A-Z]+\d+[a-z]+)|([A-Z]+\d+[a-z]+)|(\d+[a-z]+[A-Z]+)|(\d+[[A-Z]+[a-z]+)$/g;
+			var higReg = /^((([a-z]+[A-Z]+\d+)|([a-z]+\d+[A-Z]+)|([A-Z]+\d+[a-z]+)|([A-Z]+\d+[a-z]+)|(\d+[a-z]+[A-Z]+)|(\d+[[A-Z]+a-z]+))\W)|(\W(([a-z]+[A-Z]+\d+)|([a-z]+\d+[A-Z]+)|([A-Z]+\d+[a-z]+)|([A-Z]+\d+[a-z]+)|(\d+[a-z]+[A-Z]+)|(\d+[[A-Z]+a-z]+)))$/g;
+			if (lowReg.test(oTxt)) {
+				var oLspan = document.getElementById('low');
+				oLspan.style.backgroundColor = "green";
+			} else if (oTxt.length > 10 && oTxt.length <= 18 && midReg.test(oTxt)) {
+				var oMspan = document.getElementById('mid');
+				oMspan.style.backgroundColor = "yellow";
+			} else if (oTxt.length > 10 && oTxt.length <= 18 && higReg.test(oTxt)) {
+				var oHspan = document.getElementById('high');
+				oMspan.style.backgroundColor = "red";
+			}
+			}
+		</script>
+		<title></title>
+	</head>
+
+	<body>		
+		
+		<h1>有bug</h1>
+		密码：<input type="text" id="txt" onkeyup="check()" />
+		<span id="low"></span><span id="mid"></span><span id="high"></span>
+	</body>
+
+</html>

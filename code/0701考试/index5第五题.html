@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery-3.0.0.js" ></script>
+		<style type="text/css">
+			div{
+				/*display: none;*/
+				padding: 5px 7px;
+				color: white;
+				position: absolute;
+				left: 14px;
+				top:262px;
+				width: 173px;
+				height: 50px;
+			}
+		</style>
+		<script type="text/javascript">
+			/*
+			 
+			 * 
+			 * */
+			$(function(){
+				$('img').hover(function(){
+					$('div').css({
+						'display':'block',
+						'background-color':'#ff6700',
+					}).animate({
+						top:"200px",
+						});
+				},function(){
+					$('div').animate({
+						top:'270px',
+					},1000)
+					setTimeout(function(){
+						$('div').css('display','none');
+					},1000)
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<img src="img/5.1.bmp"/>
+		<div id="div1">
+			小巧便捷，链接方便，还有电量显示！总体很不错哦
+		</div>
+	</body>
+</html>

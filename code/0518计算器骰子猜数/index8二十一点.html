@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<script type="text/javascript">
+			//完善掷骰子游戏，每个人可以无限制的游戏，游戏结束的条件是充值金额输完了。
+			var oBtn=document.getElementById('btn');
+			
+			alert("欢迎进入21点游戏！");
+			var sumMoney = parseInt(prompt("请输入充值金额", "100"));
+			credit(sumMoney);
+			for (var i = 1;; i++) {
+				if (sumMoney <= 0) {
+					var need = prompt("金额已经不足（0），是否需要充值", "是");
+					if (need == "是") {
+						var sumMoney = prompt("请输入充值金额", "100");
+						var current = 0;
+						play();
+					} else {
+						alert("退出游戏！共玩游戏" + (i - 1) + "局");
+						break;
+					}
+				} else {
+					play();
+				}
+			}
+
+			function play() {
+				var current = 0;
+				//输入下注金额
+				var payMoney = prompt("请输入下注金额：", "50");
+				sumMoney = sumMoney - payMoney;
+				//产生敌人的随机数
+				var otherRan = parseInt(Math.random() * 21) + 1;
+				//产生自己的随机数
+				var myRan = parseInt(Math.random() * 10) + 1;
+				current = current + myRan;
+				//如果自己当前点数小于21，询问是否要牌
+				while (current < 21) {
+					var ans = prompt("您好，您当前的点数为：" + current + ",是否继续要牌", "是");
+					if (ans == "是") {
+						myRan = parseInt(Math.random() * 10) + 1;
+						current = current + myRan;
+					} else if (current < otherRan) {
+						alert("很遗憾，本局失败告终！您的点数：" + current + "，敌人的点数：" + otherRan + "<br/>" + "失败后总金额为：" + sumMoney);
+						break;
+					} else if (current == otherRan) {
+						alert("本局打平！您的点数：" + current + "，敌人的点数：" + otherRan);
+						break;
+					} else if (current > otherRan) {
+						sumMoney = sumMoney + payMoney * 2;
+						alert("恭喜您获胜了！！您的点数：" + current + "，敌人的点数：" + otherRan + "<br/>" + "获胜后总金额为：" + sumMoney);
+						break;
+					}
+				}
+				if (current > 21) {
+					alert("很遗憾，本局失败告终！您的点数：" + current + "，敌人的点数：" + otherRan + "<br/>" + "失败后总金额为：" + sumMoney);
+				} else if (current == otherRan) {
+					alert("本局打平！您的点数：" + current + "，敌人的点数：" + otherRan);
+				}
+			}
+			//判断充值金额是否满足条件
+			function credit(money) {
+				if (money < 100) {
+					var go = prompt("不好意充值金额最少为100哦，是否要继续充值玩耍？", "是");
+					if (go == "是") {
+						var sumMoney = parseInt(prompt("请输入充值金额", "100"));
+						credit(sumMoney);
+					} else {
+						alert("退出游戏！");
+					}
+				} else {
+					alert("祝您玩得愉快");
+				}
+			}
+		</script>
+		<title></title>
+	</head>
+
+	<body>
+		<input type="button" id="btn" value="要牌" />
+		<input type="text" name="txt1" id="txt1" />
+		
+	</body>
+
+</html>

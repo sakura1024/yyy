@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		document.write("<table>");
+		var color="";
+			for (var j = 0; j < 3; j++) {
+				if (j%2==0) {
+					color="pink";
+				} else{
+					color="gray";
+				}
+				document.write("<tr bgcolor='#D3D3D3'");
+				for (var i = 0; i < 2; i++) {
+					document.write("<td>第"+(j+1)+"行  第"+(i+1)+"列</td>");
+				}
+				document.write("<tr></tr>")
+			} 
+			document.write("</table>")
+		</script>
+	</body>
+</html>

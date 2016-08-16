@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+	</head>
+
+	<body ng-app="myApp">
+		<div ng-controller="myCtrl">
+			<input type="text" ng-model="name" />
+			<input type="text" ng-model="num" />
+			<p>{{"名称："+name+"，单价："+price+"，数量："+num}}</p>
+			<p>总价：{{ (price * num) | currency }}</p>
+		</div>
+		
+		<ul ng-controller="myCtrl">
+			<!--数组排序-->
+			<li ng-repeat="x in sum|orderBy">{{x}}</li>
+		</ul>
+		<ul ng-controller="myCtrl">
+			<!--对象排序-->
+			<li ng-repeat="x in info|orderBy:'age'">{{x.name+" "+x.age}}</li>
+		</ul>
+		<script type="text/javascript">
+			var app = angular.module('myApp', []);
+			app.controller("myCtrl", function($scope) {
+				$scope.name = "apple";
+				$scope.num = 10;
+				$scope.price = 20;
+				$scope.sum =[10,30,20];
+				$scope.info=[{name:"youyunayuan",age:20},
+							{name:"youqijia",age:30},
+							{name:"youlonglong",age:10},
+							{name:"zhengshaonong",age:5}];
+			})
+		</script>
+	</body>
+
+</html>

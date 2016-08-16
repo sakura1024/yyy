@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>animate()</title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			div{
+				width: 100px;
+				height: 100px;
+				background: pink;
+			}
+			#div3{
+				width: 0px;
+				height: 300px;
+				border-right: 1px solid black;
+				position: absolute;
+				left: 200px;
+				top:50px;
+			}
+		</style>
+		<script type="text/javascript" src="js/jquery-3.0.0.js" ></script>
+		<script type="text/javascript">
+		/*
+		 
+		 * .animate(styles,speed,easing,callback)
+		 * styles:必需，规定产生动画效果的 CSS 样式和值。
+		 * 注释：CSS 样式使用 DOM 名称（比如 "fontSize"）来设置，而非 CSS 名称（比如 "font-size"）。
+		 * 后面三个参数都为可选
+		 * speed：可选。规定动画的速度。 可能的值：毫秒 (ex:1000)  "slow"  "normal"  "fast"   默认：400
+		 * easing：运动的形式  swing(慢快慢)  linear(匀速) 
+		 * callback：回调函数 (animate 函数执行完之后，要执行的函数)。
+		 * 
+		 * 
+		 * 
+		 * */
+			$(function(){
+				$('#btn1').click(function(){
+					$('#div1').animate({height:"300px"});
+				})
+				
+				//重置按钮  链式操作
+				$('#btn2').click(function(){
+					$('#div1').animate({height:"100px"}).animate({width:"100px"});
+					$('#div2').animate({height:"100px"}).animate({width:"100px"});
+				})
+				
+				
+				//回调函数  先走高度  高度走完 走回调函数中的宽度操作
+				$('#btn3').click(function(){
+					$('#div2').animate({height:"300px"},function(){
+						$('#div2').animate({width:"300px"});
+					});
+				})
+				
+				//链式操作  先走高度 后走宽度（回调函数的功能其实有时可以用链式操作来完成）
+				$('#btn5').click(function(){
+					$('#div2').animate({height:"300px"}).animate({width:"300px"});
+				})
+				
+				$('#btn4').click(function(){
+					$('#div1').animate({width:"300px"},8000,'linear');
+					$('#div2').animate({width:"300px"},8000,'swing');
+				})
+				
+				
+				
+			})
+		</script>
+	</head>
+	<body>
+		<input type="button" id="btn1" value="div1高度匀速运动" />
+		<input type="button" id="btn2" value="div1,div2reset" />
+		<input type="button" id="btn3" value="div2高度匀速运动--宽度匀速运动" />
+		<input type="button" id="btn5" value="链式操作div2高度匀速运动--宽度匀速运动" />
+		<input type="button" id="btn4" value="div1宽度匀速 div2宽度缓冲运动" />
+		
+		<br /><br />
+		<div id="div1">
+			
+		</div><br /><br />
+		<div id="div2">
+			
+		</div>
+		<div id="div3">
+			
+		</div>
+		<br /><br />
+		
+	</body>
+</html>

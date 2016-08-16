@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#div1 {
+				width: 396px;
+				height: 330px;
+				margin: 0 auto;
+				position: relative;
+			}
+			
+			#img1 {
+				width: 383px;
+				height: 330px;
+			}
+			
+			#img1 {
+				width: 396px;
+				height: 330px;
+				margin: 0 auto;
+			}
+			
+			#div2 {
+				width: 385px;
+				height: 325px;
+				position: absolute;
+				top: 5px;
+				left: 4px;
+			}
+			
+			#inner {
+				width: 387px;
+				height: 336px;
+				position: absolute;
+				top: 6px;
+				left: 4px;
+			}
+			
+			p {
+				width: 120px;
+				height: 42px;
+				border: 1px solid white;
+				position: absolute;
+				left: 137px;
+				text-align: center;
+				line-height: 42px;
+				color: white;
+				font-weight: bold;
+				display: none;
+			}
+			#p1{
+				top: 80px;
+			}
+			#p2{
+				top: 160px;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function() {
+				var oImg = document.getElementById('img1');
+				var oDiv = document.getElementById('div2');
+//				var aP = document.getElementsByTagName('p');
+				oDiv.onmouseover = function() {
+					oDiv.style.background = 'rgba(30,30,30,0.4)';
+					var aP = document.getElementsByTagName('p');
+					for (var i = 0; i < aP.length; i++) {
+						aP[i].style.display = 'block';
+						aP[i].onmouseover=function(){
+							this.style.background='white';
+							this.style.color='black';
+						}
+						aP[i].onmouseout=function(){
+							this.style.background='';
+							this.style.border='1px solid white';
+							this.style.color="white";
+						}
+					}
+					aP[0].onmouseover=function(){
+						this.innerHTML="取消关注";
+						this.style.background='white';
+							this.style.color='black';
+					}
+					aP[0].onmouseout=function(){
+						this.innerHTML="已关注";
+						this.style.background='';
+							this.style.border='1px solid white';
+							this.style.color="white";
+					}
+					
+				}
+				oDiv.onmouseout = function() {
+					oDiv.style.background = 'rgba(255,255,255,0)';
+					var aP = document.getElementsByTagName('p');
+					for (var i = 0; i < aP.length; i++) {
+						aP[i].style.display = 'none';
+					}
+				}
+			}
+		</script>
+	</head>
+
+	<body>
+		<div id="div1">
+			<img src="img/5.png" id="img1" />
+			<div id="div2">
+				<div id="inner">
+					<p id="p1">已关注</p>
+					<p id="p2">去逛逛</p>
+				</div>
+			</div>
+			<img src="img/6.png" id="img2" />
+
+		</div>
+
+	</body>
+
+</html>

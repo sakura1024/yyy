@@ -1,0 +1,290 @@
+/*重置*/
+*{
+	margin: 0;
+	padding: 0;
+}
+li{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+	color: #333333;
+}
+.container{
+	width: 1176px;
+	margin: 0 auto;
+}
+.fl{
+	float: left;
+}
+.fr{
+	float: right;
+}
+/*header*/
+.header{
+	height: 83px;
+}
+.header-l{
+	width: 187px;
+	height: 83px;
+}
+.header-l img{
+	margin-top: 17px;
+}
+.header-l h4 a{
+	text-indent: 2000px;
+}
+.header-r{
+	width: 604px;
+	height: 83px;
+}
+.header-r ul li{
+	float: left;
+	line-height: 83px;
+	margin-left: 50px;
+}
+.header-r ul li:first-child{
+	margin-left: 0;
+}
+.header-r ul li a{
+	font-weight: 700;
+}
+/*content*/
+.content{
+	height: 985px;
+	background: #F8F8F8;
+}
+.con-left{
+	width: 174px;
+	height: 985px;
+	margin-right: 29px;
+}
+.con-left dl dt{
+	font-size: 18px;
+	color: #666666;
+	font-weight: 700;
+	margin-top: 41px;
+}
+.con-left dl dd{
+	height: 43px;
+	line-height: 43px;
+	border-top:1px dashed #D8D8D8;
+	border-bottom:1px dashed #D8D8D8;
+	font-size: 13px;
+	font-weight: 700;
+	margin-top: -1px;
+}
+.con-left dl dd:last-child{
+	border-bottom: 0 none;
+}
+.con-left dl .active,.con-left dl dd:hover{
+	border-top:1px solid #F3C8C6;
+	border-bottom:1px solid #F3C8C6;
+}
+
+.con-mid{
+	width: 714px;
+	height: 985px;
+}
+.con-mid h1{
+	margin-top: 44px;
+	color: #E10600;
+}
+.con-mid p{
+	text-indent: 35px;
+	line-height: 28px;
+	font-size: 12px;
+	margin-bottom: 34px;
+}
+.con-mid img{
+	width: 570px;
+	height: 269px;
+	margin-left: 74px;
+}
+.con-rig{
+	width: 223px;
+	height: 945px;
+	margin-top: 40px;
+}
+.con-rig .mb{
+	border: 1px solid #D6D6D6;
+	border-radius: 5px;
+	background: white;
+}
+.m-hot{
+	width: 221px;
+	height: 173px;
+}
+.m-hot h3{
+	margin: 21px 0px 9px 20px;
+	color: #E10600;
+}
+.m-hot img{
+	display: block;
+	margin: 0 auto;
+}
+.m-hot a{
+	display: inline-block;
+	margin: 13px 0px 0px 20px;
+	font-weight: 600;
+	color: #333333;
+}
+.m-center{
+	width: 185px;
+	height: 312px;
+	margin-top: 25px;
+	padding:0px 18px;
+}
+.m-center li{
+	height: 51px;
+	border-bottom: 1px solid #D8D8D8;
+	overflow: hidden;
+	word-break: break-word;
+}
+.m-center ul li:last-child{
+	border-bottom: 0;
+}
+.m-center ul li:first-child{
+	color: #E10600;
+	font-weight: 600;
+}
+.m-center li:first-child, li:last-child{
+	line-height: 51px;
+}
+.m-center li p{
+	color: #E50600;
+	font-size: 12px;
+	margin-top: 14px;
+}
+.m-center li a{
+	font-size: 12px;
+	color: #333333;
+}
+.m-latest{
+	width: 185px;
+	height: 59px;
+	background: white;
+	margin-top: 25px;
+}
+.m-latest{
+	padding: 0px 18px;
+}
+.m-latest li{
+	height: 40px;
+	margin-top: 8px;
+	border-bottom: 1px solid #D8D8D8;
+}
+.m-latest a{
+	color: #E10600;
+	font-weight: 600;
+}
+.m-weibo{
+	width: 185px;
+	height: 175px;
+	background: plum;
+	margin-top: 25px;
+	padding: 18px;
+}
+.m-weibo .wei-tit{
+	height: 26px;
+	border-bottom: 1px solid #D8D8D8;
+	padding-bottom: 3px;
+}
+.m-weibo .wei-tit p{
+	line-height: 26px;
+}
+.m-weibo .wei-tit img{
+	display: block;
+	margin-right: 10px;
+}
+.m-weibo .wei-songs{
+	margin-top: 15px;
+	height: 30px;
+	line-height: 30px;
+	vertical-align: middle;
+	margin-bottom: 8px;
+}
+.m-weibo .btn{
+	margin-bottom: 15px;
+}
+.m-weibo button{
+	padding: 3px 10px;
+	font-size: 10px;
+	color: white;
+	cursor: pointer;
+	background: #FFA00A;
+	border: 2px solid #FFB33B;
+	margin-right: 4px;
+	border-radius: 4px;
+}
+.m-weibo .link a{
+	color: #8766CC;
+	font-size: 13px;
+}
+.m-weibo .explain{
+	color: #666666;
+    font-size: 13px;
+    margin-top: 13px;
+}
+/*footer*/
+.footer{
+	height: 40px;
+	background: #666;
+	color: white;
+}
+.footer-con{
+	height: 40px;
+	font-size: 10px;
+}
+.fo-top{
+	height: 20px;
+}
+.footer .fo-top p{
+	height: 20px;
+	line-height: 20px;
+}
+.footer .fo-top ul li{
+	height: 15px;
+	margin-top: 3px;
+	padding-right: 5px;
+	margin-right: 5px;
+	float: left;
+	border-right: 1px solid white;
+}
+.footer .fo-top ul li:last-child{
+	margin-right: 0px;
+	float: left;
+	border: 0 none;
+}
+.footer .fo-top ul li a{
+	color: white;
+	display: block;
+	height: 15px;
+	line-height: 15px;
+}
+.footer .fo-top ul li a:last-child{
+	border-right: 0px;
+}
+.down{
+	height: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

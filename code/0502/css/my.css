@@ -1,0 +1,185 @@
+/*重置*/
+*{
+	margin: 0;
+	padding: 0;
+}
+.container{
+	width: 1140px;
+	margin: 0 auto;
+}
+.fl{
+	float: left;
+}
+.fr{
+	float: right;
+}
+a{
+	text-decoration: none;
+	color: #666666;
+}
+/*header*/
+#header{
+	height:37px;
+	background: #F7F7F7;
+}
+#header ul li{
+	float: left;
+	list-style: none;
+	line-height: 37px;
+	margin-left: 18px;
+}
+#header ul li img{
+	margin-top: 7px;
+}
+/*logo*/
+#logo{
+	height:93px;
+}
+#logo img:first-child{
+	margin-top: 20px;
+	margin-right: 38px;
+}
+#logo ul{
+	margin-top: 20px;
+}
+#logo ul li{
+	float: left;
+	list-style: none;
+	padding:0 21px;
+	font-size: 15px;
+	height: 73px;
+	line-height: 73px;
+}
+#logo ul li:last-child{
+	margin-right: 16px;
+}
+#logo ul li:hover{
+	background: #D40B07;
+}
+.logo-r{
+	height:93px;
+	position: relative;
+}
+#logo input{
+	width: 184px;
+	height: 26px;
+	border: 1px solid #EEEEEE;
+	margin-top: 35px;
+}
+#logo img:last-child{
+	position: absolute;
+	top: 36px;
+	right: 11px;
+}
+/*title*/
+#title{
+	height:59px;
+	border-top: 1px solid #DDDDDD;
+}
+#title img{
+	margin-top: 15px;
+	margin-right: 14px;
+}
+#title b{
+	color: red;
+	margin-right: 7px;
+}
+#title span{
+	font-size: 16px;
+	color: #333333;
+}
+/*banner*/
+#banner{
+	height:361px;
+	margin-bottom:30px;
+	background: lightblue;
+}
+/*content*/
+#content{
+	height:474px;
+	margin-bottom:60px;
+}
+.con-l{
+	float: left;
+	width: 358px;
+	height:472px;
+	border: 1px solid #CDCEC9;
+	margin-right: 30px;
+}
+.con-l:last-child{
+	margin-right: 0px;
+}
+.con-top{
+	width: 358px;
+	height: 97px;
+}
+.con-top h3{
+	padding-top: 25px;
+	padding-left: 20px;
+}
+.con-top h3 a{
+	font-size: 13px;
+}
+.con-top h3 img{
+	margin-left: 3px;
+	margin-right: 157px;
+}
+.con-top P{
+	font-size: 14px;
+	margin: 15px 0 0 22px;
+}
+.con-mid img{
+	margin-left: 21px;
+}
+.con-bot{
+	margin-left: 21px;
+	margin-top: 26px;
+}
+.con-bot li{
+	list-style: inside;
+	line-height: 31px;
+	color: #D06767;
+	font-size: 15px;
+}
+.con-bot li a{
+	color: #333333;
+}
+/*info*/
+#info{
+	height:214px;
+	background: #5D5D58;
+}
+#info dl{
+	float: left;
+	margin-right: 120px;
+	margin-top: 42px;
+}
+#info dt{
+	color: white;
+	font-size: 17px;
+}
+#info dl dd{
+	margin-top: 14px;
+	font-size: 14px;
+}
+#info dl dd a{
+	color: #FFFFFF;
+}
+/*footer*/
+#footer{
+	height:43px;
+	background: #4D4C49;
+}
+#footer ul li{
+	list-style: none;
+	float: left;
+	margin-right: 21px;
+	font-size: 13px;
+	line-height: 43px;
+}
+#footer ul li:last-child{
+	float: right;
+}
+#footer ul li a{
+	color: #CCCCCC;
+}

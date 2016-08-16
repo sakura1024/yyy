@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/main.css" />
+		<link rel="stylesheet" type="text/css" href="css/star.css" />
+		<script type="text/javascript" src="js/star.js"></script>
+		<script type="text/javascript" src="http://webapi.amap.com/maps?v=1.3&key=您申请的key值"></script>
+	</head>
+
+	<body>
+		<!--顶部-->
+		<div id="top">
+			<div class="top container">
+				<div class="top-l fl">
+					<span class="top-add">北京</span>
+					<a href="#" class="fir">[切换城市]</a>
+					<a href="#" class="sec">同城帮首页</a>
+				</div>
+				<div class="top-r fr">
+					<ul>
+
+						<li><a href="#">登录</a></li>
+						<li><a href="#">注册 </a></li>
+						<li><a href="#">我的订单</a></li>
+						<li><a href="#" class="tel">客服电话：4000-399-360 </a>
+						</li>
+						<li class="ser">
+							<a href="#">客户服务</a>
+							<i></i>
+							<div class="down">
+								<a href="#">帮助中心</a>
+								<a href="#">二手机咨询</a>
+								<a href="#">维修付款</a>
+							</div>
+						</li>
+						<li><a href="#">论坛</a></li>
+						<li><a href="#" class="aa-last">投诉建议</a></li>
+					</ul>
+				</div>
+
+			</div>
+		</div>
+		<!--头部-->
+		<div id="header">
+			<div class="con header">
+				<div class="logo-l fl">
+					<img src="img/logo2.png" />
+				</div>
+				<div class="header-r fr">
+					<ul>
+						<li><a href="#" class="ac">全部</a></li>
+						<li><a href="#">台式机</a></li>
+						<li><a href="#">笔记本</a></li>
+						<li><a href="#">手机平板</a></li>
+						<li><a href="#">办公设备</a></li>
+						<li><a href="#">服务器</a></li>
+					</ul>
+					<form class="search">
+						<input type="text" id="text" placeholder="输入您的电脑/手机问题，为您找到最优质的维修商" class="text fl" />
+						<input type="button" name="" id="" value="搜索" class="btn fl" />
+						<i></i>
+					</form>
+				</div>
+			</div>
+		</div>
+		<!--上面维修主题-->
+		<div id="main">
+			<div class="con main">
+				<dl>
+					<dt><img src="img/header.png"/></dt>
+					<dd class="ddfir ">
+						<div class="main-top">
+							<b>鑫隆电脑维修</b><i></i><s></s>
+						</div>
+						<div class="main-sec">
+							<span><i class="i1"></i>360担保交易</span><span><i class="i2"></i>无效退款 </span><span class="i3"><i></i>先行赔付</span>
+						</div>
+						<p>联系人：谢仁峰 &nbsp;&nbsp; 电话： <span id="phNum" class="red">131****120</span> <a href="javascript:;" id="seePhone">查看完整号码&gt</a></p>
+						<p>商家地址：北京丰台区看丹桥看丹路29号《鑫隆电脑诊所》<a href="#" id="createMap">地图</a></p>
+						<div id="zhe">
+							<!--相对于dd定位-->
+
+						</div>
+						<div id="containerMap">
+							<h4>地图模式</h4>
+							<div id="map">
+
+							</div>
+							<!--关闭按钮-->
+							<input type="button" name="close" id="close"  value="X" />
+							<div class="repair-bottom">
+								<input type="button" name="" id="close1" value="关闭" />
+
+							</div>
+
+						</div>
+
+						<!--<div id="zhezhao" style="display: block; z-index: 1; width: 1349px; height: 2643px;">
+					
+				</div>-->
+
+					</dd>
+					<dd class="right">
+						<div class="main-r">
+							<span class="share"><i ></i>分享</span>
+							<span class="phone"><i ></i>发至手机</span>
+							<span class="jubao"><i></i>举报</span>
+						</div>
+						<div class="level">
+							店铺等级：<i></i>
+						</div>
+						<p>最近成交：<span class="qing">1048</span>次 评价：<b>1048 </b>条</p>
+						<p>营业时间： 08:00-22:00 周末正常营业</p>
+					</dd>
+				</dl>
+			</div>
+		</div>
+		<!--广告-->
+
+		<div id="ad">
+			<div class="con ad">
+				<i></i><b>店铺公告：</b>1.360鑫隆电脑维修、满300元送360智健
+			</div>
+		</div>
+		<!--公告下面-->
+		<div id="prolist">
+			<div class="prolist con">
+				<div class="prolist-l fl">
+					<!--商品列表-->
+
+					<div id="product">
+						<div class="product con">
+							<div class="pro-top" id="pro-top">
+								<ul class="pro-left fl">
+									<li class="liactive"><a href="#">商品列表</a></li>
+									<li><a href="#">交易评价 </a></li>
+									<li><a href="#">本店详情</a></li>
+									<li><a href="#"> 服务保障</a></li>
+								</ul>
+								<div class="pro-right fr">
+									<input type="text" id="" placeholder="搜索本店服务" value="" class="sertext fl" />
+									<input type="button" id="" value="" class="serbtn fl" />
+								</div>
+								<div class="prop-bot">
+
+							</div>
+							</div>
+							
+						</div>
+					</div>
+					<!--版本-->
+
+					<div id="version">
+						<div class="version con">
+							<ul>
+								<li><a href="#" class="ver-first">全部<span>(37)</span></a></li>
+								<li><a href="#">台式机<span>(8)</span></a></li>
+								<li><a href="#">笔记本<span>(4)</span></a></li>
+								<li><a href="#">手机平板<span>(8)</span></a></li>
+								<li><a href="#">数据恢复<span>(4)</span></a></li>
+								<li><a href="#">企业服务<span>(1)</span></a></li>
+								<li><a href="#">其它<span>(12)</span></a></li>
+							</ul>
+						</div>
+					</div>
+					<!--活动列表-->
+					<div id="active">
+						<ul class="active con">
+							<li>
+								<dl>
+									<dt><a href="#"><img src="img/41.jpg"/></a></dt>
+									<dd class="dd-sec"><a href="#" class="act-name">钢化膜活动</a>
+										<p><span>服务内容：</span>钢化膜活动</p>
+									</dd>
+									<dd class="f16 dd-third ">￥<span class="red bold ">69.90</span></dd>
+									<dd class="dd-four "><a href="#" class="buybtn bold cwhite">立即购买</a></dd>
+								</dl>
+							</li>
+							<li>
+								<dl>
+									<dt><a href="#"><img src="img/42.jpg"/></a></dt>
+									<dd class="dd-sec"><a href="#" class="act-name">钢化膜活动</a>
+										<p><span>服务内容：</span>Android手机和ios手机短信、通话记录丢失或删除，手机自带内存照片视频丢失或删除，手机应用如（微信、qq）语音聊天记录删除或<a href="#" class="mleft10 down-jiao disinbok">展开</a></p>
+									</dd>
+									<dd class="f16 dd-third ">￥<span class="red bold ">69.90</span></dd>
+									<dd class="dd-four "><a href="#" class="buybtn bold cwhite">立即购买</a></dd>
+								</dl>
+							</li>
+							<li>
+								<dl>
+									<dt><a href="#"><img src="img/43.jpg"/></a></dt>
+									<dd class="dd-sec"><a href="#" class="act-name">钢化膜活动</a>
+										<p><span>服务内容：</span>解决磁头烧坏、磁头老化、磁头芯片损坏、磁头偏移、盘片划伤、磁组变形、电机损坏，提供硬盘坏道、固件损坏、电路板烧毁 <a href="#" class="mleft10 down-jiao disinbok">展开</a></p>
+									</dd>
+									<dd class="f16 dd-third ">￥<span class="red bold ">69.90</span></dd>
+									<dd class="dd-four "><a href="#" class="buybtn bold cwhite">立即购买</a></dd>
+								</dl>
+							</li>
+							<li>
+								<dl>
+									<dt><a href="#"><img src="img/44.jpg"/></a></dt>
+									<dd class="dd-sec"><a href="#" class="act-name">钢化膜活动</a>
+										<p><span>服务内容：</span>针对于硬盘、u盘和手机卡的误删除、误格式化、误GHOST、误分区、分区丢失、分区无法打开、分区提示格式化、重装系统覆<a href="#" class="mleft10 down-jiao disinbok">展开</a></p>
+									</dd>
+									<dd class="f16 dd-third ">￥<span class="red bold ">69.90</span></dd>
+									<dd class="dd-four "><a href="#" class="buybtn bold cwhite">立即购买</a></dd>
+								</dl>
+							</li>
+							<li>
+								<dl>
+									<dt><a href="#"><img src="img/45.jpg"/></a></dt>
+									<dd class="dd-sec"><a href="#" class="act-name"><span class="red">【系统安装大优惠】</span>59元安装XP/Win7操作系统</a>
+										<p><span>服务内容：</span>服务内容：系统重装、更换系统，彻底告别电脑慢、玩游戏卡等软件问题，安装最新最稳定的XP/Win7操作系统（全品类笔记本电脑、台式机，不<a href="#" class="mleft10 down-jiao disinbok">展开</a></p>
+									</dd>
+									<dd class="f16 dd-third ">￥<span class="red bold ">69.90</span></dd>
+									<dd class="dd-four "><a href="#" class="buybtn bold cwhite">立即购买</a></dd>
+								</dl>
+							</li>
+							<li>
+								<dl>
+
+									<dt><a href="#"><img src="img/46.jpg"/></a></dt>
+									<dd class="dd-sec"><a href="#" class="act-name"><span class="red">【路由器上门安装调试活动】</span>家庭无线网络环境设置</a>
+										<p><span>服务内容：</span>路由器家庭网络安装调试维修，设置无线密码、个性化名称，上门快速解决断网、报错、网络不稳定、频繁掉线、网速变慢、延迟<a href="#" class="mleft10 down-jiao disinbok">展开</a></p>
+									</dd>
+									<dd class="f16 dd-third ">￥<span class="red bold ">69.90</span></dd>
+									<dd class="dd-four "><a href="#" class="buybtn bold cwhite">立即购买</a></dd>
+								</dl>
+							</li>
+							<li>
+								<dl>
+									<dt><a href="#"><img src="img/47.jpg"/></a></dt>
+									<dd class="dd-sec"><a href="#" class="act-name">钢化膜活动</a>
+										<p><span>服务内容：</span>服务内容：笔记本清洁除尘，解决您的电脑经常自动重启死机，cpu温度高，电脑热的问题。可以确保良好的散热和延长板卡的使用寿命。电脑<a href="#" class="mleft10 down-jiao disinbok">展开</a></p>
+									</dd>
+									<dd class="f16 dd-third ">￥<span class="red bold ">69.90</span></dd>
+									<dd class="dd-four "><a href="#" class="buybtn bold cwhite">立即购买</a></dd>
+								</dl>
+							</li>
+							<li>
+								<dl>
+									<dt><a href="#"><img src="img/48.jpg"/></a></dt>
+									<dd class="dd-sec"><a href="#" class="act-name">钢化膜活动</a>
+										<p><span>服务内容：电脑散热保养，笔记本清灰尘，解决您的电脑经常自动重启死机，cpu温度高，电脑热的问题。可以确保良好的散热和延长板卡的使用<a href="#" class="mleft10 down-jiao disinbok">展开</a></p></dd>
+								<dd class="f16 dd-third ">￥<span class="red bold ">69.90</span></dd>
+									<dd class="dd-four "><a href="#" class="buybtn bold cwhite">立即购买</a></dd>
+								</dl>
+							</li>
+							<li>
+								<dl>
+									<dt><a href="#"><img src="img/49.jpg"/></a></dt>
+									<dd class="dd-sec"><a href="#" class="act-name">钢化膜活动</a>
+										<p><span>服务内容：</span>安装苹果笔记本电脑双系统<a href="#" class="mleft10 down-jiao disinbok">展开</a></p>
+									</dd>
+									<dd class="f16 dd-third ">￥<span class="red bold ">69.90</span></dd>
+									<dd class="dd-four "><a href="#" class="buybtn bold cwhite">立即购买</a></dd>
+								</dl>
+							</li>
+							<li>
+								<dl>
+									<dt><a href="#"><img src="img/50.jpg"/></a></dt>
+									<dd class="dd-sec"><a href="#" class="act-name">钢化膜活动</a>
+										<p><span>服务内容：</span>出售全新品牌电脑、组装台式机、新旧笔记本<a href="#" class="mleft10 down-jiao disinbok">展开</a></p>
+									</dd>
+									<dd class="f16 dd-third ">￥<span class="red bold ">69.90</span></dd>
+									<dd class="dd-four "><a href="#" class="buybtn bold cwhite">立即购买</a></dd>
+								</dl>
+							</li>
+
+						</ul>
+						<ul class="active-bottom">
+							<li><a href="#" class="act-act">1</a></li>
+							<li><a href="#">2</a></li>
+							<li><a href="#">3</a></li>
+							<li><a href="#">4</a></li>
+							<li><a href="#">下一页&gt;&gt;</a></li>
+						</ul>
+
+					</div>
+					<!--用户评价-->
+					<h3 class="appraise">
+							用户评价
+						</h3>
+					<!--
+							5分
+
+
+						-->
+					<ul class="user">
+						<li>
+							<dl>
+								<dt><img src="img/user.jpg"/><p>小花</p></dt>
+								<dd>
+									<div class="dd-top">
+										<i class="fl"></i><span class="red fl score">5分</span><span class="fr mr10">订单号：150913222******6603</span>
+									</div>
+									<p class="descript">商家很负责，问题得到解决！ 服务很给力很专业！ 问题得到很好的解决，赞！</p>
+									<p class="p1">2015-09-13 22:27:18 | 电脑维修</p>
+								</dd>
+							</dl>
+						</li>
+						<li>
+							<dl>
+								<dt><img src="img/user.jpg"/><p>小花</p></dt>
+								<dd>
+									<div class="dd-top">
+										<i class="fl"></i><span class="red fl score">5分</span><span class="fr mr10">订单号：150913222******6603</span>
+									</div>
+									<p class="descript">商家很负责，问题得到解决！ 服务很给力很专业！ 问题得到很好的解决，赞！</p>
+									<p class="p1">2015-09-13 22:27:18 | 电脑维修</p>
+								</dd>
+							</dl>
+						</li>
+						<li>
+							<dl>
+								<dt><img src="img/user.jpg"/><p>小花</p></dt>
+								<dd>
+									<div class="dd-top">
+										<i class="fl"></i><span class="red fl score">5分</span><span class="fr mr10">订单号：150913222******6603</span>
+									</div>
+									<p class="descript">商家很负责，问题得到解决！ 服务很给力很专业！ 问题得到很好的解决，赞！</p>
+									<p class="p1">2015-09-13 22:27:18 | 电脑维修</p>
+								</dd>
+							</dl>
+						</li>
+						<li>
+							<dl>
+								<dt><img src="img/user.jpg"/><p>小花</p></dt>
+								<dd>
+									<div class="dd-top">
+										<i class="fl"></i><span class="red fl score">5分</span><span class="fr mr10">订单号：150913222******6603</span>
+									</div>
+									<p class="descript">商家很负责，问题得到解决！ 服务很给力很专业！ 问题得到很好的解决，赞！</p>
+									<p class="p1">2015-09-13 22:27:18 | 电脑维修</p>
+								</dd>
+							</dl>
+						</li>
+						<li>
+							<dl>
+								<dt><img src="img/user.jpg"/><p>小花</p></dt>
+								<dd>
+									<div class="dd-top">
+										<i class="fl"></i><span class="red fl score">5分</span><span class="fr mr10">订单号：150913222******6603</span>
+									</div>
+									<p class="descript">商家很负责，问题得到解决！ 服务很给力很专业！ 问题得到很好的解决，赞！</p>
+									<p class="p1">2015-09-13 22:27:18 | 电脑维修</p>
+								</dd>
+							</dl>
+						</li>
+						<li>
+							<dl>
+								<dt><img src="img/user.jpg"/><p>小花</p></dt>
+								<dd>
+									<div class="dd-top">
+										<i class="fl"></i><span class="red fl score">5分</span><span class="fr mr10">订单号：150913222******6603</span>
+									</div>
+									<p class="descript">商家很负责，问题得到解决！ 服务很给力很专业！ 问题得到很好的解决，赞！</p>
+									<p class="p1">2015-09-13 22:27:18 | 电脑维修</p>
+								</dd>
+							</dl>
+						</li>
+						<li>
+							<dl>
+								<dt><img src="img/user.jpg"/><p>小花</p></dt>
+								<dd>
+									<div class="dd-top">
+										<i class="fl"></i><span class="red fl score">5分</span><span class="fr mr10">订单号：150913222******6603</span>
+									</div>
+									<p class="descript">商家很负责，问题得到解决！ 服务很给力很专业！ 问题得到很好的解决，赞！</p>
+									<p class="p1">2015-09-13 22:27:18 | 电脑维修</p>
+								</dd>
+							</dl>
+						</li>
+						<li>
+							<dl>
+								<dt><img src="img/user.jpg"/><p>小花</p></dt>
+								<dd>
+									<div class="dd-top">
+										<i class="fl"></i><span class="red fl score">5分</span><span class="fr mr10">订单号：150913222******6603</span>
+									</div>
+									<p class="descript">商家很负责，问题得到解决！ 服务很给力很专业！ 问题得到很好的解决，赞！</p>
+									<p class="p1">2015-09-13 22:27:18 | 电脑维修</p>
+								</dd>
+							</dl>
+						</li>
+						<li>
+							<dl>
+								<dt><img src="img/user.jpg"/><p>小花</p></dt>
+								<dd>
+									<div class="dd-top">
+										<i class="fl"></i><span class="red fl score">5分</span><span class="fr mr10">订单号：150913222******6603</span>
+									</div>
+									<p class="descript">商家很负责，问题得到解决！ 服务很给力很专业！ 问题得到很好的解决，赞！</p>
+									<p class="p1">2015-09-13 22:27:18 | 电脑维修</p>
+								</dd>
+							</dl>
+						</li>
+						<li class="noborder">
+							<dl>
+								<dt><img src="img/user.jpg"/><p>小花</p></dt>
+								<dd>
+									<div class="dd-top">
+										<i class="fl"></i><span class="red fl score">5分</span><span class="fr mr10">订单号：150913222******6603</span>
+									</div>
+									<p class="descript">商家很负责，问题得到解决！ 服务很给力很专业！ 问题得到很好的解决，赞！</p>
+									<p class="p1">2015-09-13 22:27:18 | 电脑维修</p>
+								</dd>
+							</dl>
+						</li>
+						<ul class="active-bottom">
+							<li><a href="#" class="act-act">1</a></li>
+							<li><a href="#">2</a></li>
+							<li><a href="#">3</a></li>
+							<li><a href="#">4</a></li>
+							<li><a href="#">下一页&gt;&gt;</a></li>
+						</ul>
+					</ul>
+					<!--店铺详情-->
+					<h3 class="appraise">
+							店铺详情
+						</h3>
+					<ul class="store">
+						<li>
+							<dl>
+								<dt>主营</dt>
+								<dd>电脑维修、数据恢复、电脑清灰、电脑配件、手机及平板刷机、破权限</dd>
+							</dl>
+						</li>
+						<li>
+							<dl class="span">
+								<dt>服务区域</dt>
+								<dd>
+									<p><span>服务区域</span>
+										<td><span>看丹桥</span><span>科技园区</span><span>北大地</span><span>七里庄</span><span>丰台体育馆</span><span>花乡</span></p>
+									<p><span>世界公园</span><span>丰益桥</span><span>五里店</span><span>丽泽桥</span><span>丰台路</span><span>玉泉营</span><span>岳各庄</span></p>
+								</dd>
+							</dl>
+
+						</li>
+						<li>
+							<dl>
+								<dt>地址</dt>
+								<dd>北京丰台区看丹桥看丹路29号《鑫隆电脑诊所》 (<a href="#">查看地图</a>)</dd>
+							</dl>
+						</li>
+						<li>
+							<dl>
+								<li>
+									<dt>公告</dt>
+									<dd class="red">1.360鑫隆电脑维修、满300元送360智健</dd>
+							</dl>
+							</li>
+					</ul>
+					<h3 class="appraise">
+							服务保障
+						</h3>
+					<div class="service">
+						<img src="img/help.jpg" />
+					</div>
+				</div>
+				<div class="prolist-r fr">
+					<div class="wei">
+						<p>欢迎关注我的微店</p>
+						<img class="erweima" src="img/showqrcode.gif" />
+						<img class="map" src="img/1.bmp" />
+						<p><a href="#">查看大图</a></p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--底部1-->
+		<div id="foot" class="bgfa">
+			<ul class="foot">
+				<li>
+					<dl>
+						<dt class="dt1"><h2>购物指南</h2></dt>
+						<dd><a href="#">购物流程</a><a href="#">用户注册</a><a href="#">帮助文档</a></dd>
+					</dl>
+				</li>
+				<li>
+					<dl>
+						<dt class="dt2"><h2>支付方式</h2></dt>
+						<dd><a href="#">在线支付</a><a href="#">当面付款</a></dd>
+					</dl>
+				</li>
+				<li>
+					<dl>
+						<dt class="dt3"><h2>售后服务</h2></dt>
+						<dd><a href="#">投诉建议</a></dd>
+					</dl>
+				</li>
+				<li>
+					<dl>
+						<dt class="dt4"><h2>特色保障</h2></dt>
+						<dd><a href="#">360担保支付</a></dd>
+					</dl>
+				</li>
+				<li>
+					<dl>
+						<dt class="dt5"><h2>商家合作</h2></dt>
+						<dd><a href="#">加盟同城帮</a></dd>
+					</dl>
+				</li>
+			</ul>
+		</div>
+
+		<!--底部2-->
+		<div id="footer" class="bgfa">
+			<div class="footer-top footer">
+				客服电话：4000-399-360 <a href="#">投诉建议</a> <a href="#">网站地图</a>
+			</div>
+			<div class="footer">
+				Copyright © 2005-2016 360.CN All Rights Reserved 360安全中心
+			</div>
+			<div class="footer">
+				<a href="#">京ICP备08010314号-19</a> 京公网安备110000000006号
+			</div>
+		</div>
+
+	</body>
+
+</html>

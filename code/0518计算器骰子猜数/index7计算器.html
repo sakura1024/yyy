@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>简单计算器</title>
+		<script type="text/javascript">
+			window.onload = function() {
+				var oBtn = document.getElementById('btn');
+				oBtn.onclick = function() {
+					var oTxt1 = Number(document.getElementById('txt1').value);
+					var oTxt2 = Number(document.getElementById('txt2').value);
+					var oTxt3 = document.getElementById('txt3');
+					var oPerator = document.getElementById('operator').value;
+					//				var sum=0;
+					switch (oPerator) {
+						case "+":
+							oTxt3.value = oTxt1 + oTxt2;
+							break;
+						case "-":
+							oTxt3.value = oTxt1 - oTxt2;
+							break;
+						case "*":
+							oTxt3.value = oTxt1 * oTxt2;
+							break;
+						case "/":
+							oTxt3.value = oTxt1 / oTxt2;
+							break;
+						case "%":
+							oTxt3.value = oTxt1 % oTxt2;
+							break;
+						default:
+							break;
+					}
+				}
+			}
+		</script>
+	</head>
+
+	<body>
+		<input type="text" name="" id="txt1" placeholder="请输入第一个数值" />
+		<select id="operator">
+			<option value="+">+</option>
+			<option value="-">-</option>
+			<option value="*">*</option>
+			<option value="/">/</option>
+			<option value="%">%</option>
+		</select>
+		<input type="text" name="" id="txt2" placeholder="请输入第二个数值" />
+		<input type="button" id="btn" value="=" />
+		<input type="text" name="" id="txt3" />
+	</body>
+</html>

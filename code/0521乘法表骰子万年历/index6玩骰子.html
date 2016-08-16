@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<script type="text/javascript">
+			//完善掷骰子游戏，每个人可以无限制的游戏，游戏结束的条件是充值金额输完了。
+			alert("欢迎进入开心消消乐游戏！");
+			var sumMoney = parseInt(prompt("请输入充值金额", "100"));
+			credit(sumMoney);
+			for (var i = 1;; i++) {
+				if (sumMoney <= 0) {
+					var need = prompt("金额已经不足（0），是否需要充值", "是");
+					if (need == "是") {
+						var sumMoney = prompt("请输入充值金额", "100");
+						play();
+					} else {
+						alert("退出游戏！共玩游戏"+(i-1)+"局");
+						break;
+					}
+				} else {
+					play();
+				}
+			}
+			function play() {
+				//输入下注金额
+				var payMoney = prompt("请输入下注金额：", "50");
+				sumMoney = sumMoney - payMoney;
+				//产生随机数
+				var ran1 = parseInt(Math.random() * 6) + 1;
+				var ran2 = parseInt(Math.random() * 6) + 1;
+				var ran=ran1+ran2;
+				//猜大或猜小
+				var ans = prompt("请输入大或者小", "大");
+				if ((ans == "大" && ((ran >= 7 && ran <= 12)||ran1==ran2)) || (ans == "小" && (ran >= 2 && ran <= 6))) {
+					sumMoney = sumMoney + payMoney * 2;
+					alert("恭喜您获胜了！获胜后总金额为：" + sumMoney + "，骰子数为分别为：" + ran1+"、"+ran2+"、"+ran);
+				} else {
+					alert("很遗憾，本局失败！失败后总金额为：" + sumMoney + "，骰子数为分别为：" + ran1+"、"+ran2+"、"+ran);
+				}
+			}
+			//判断充值金额是否满足条件
+			function  credit(money){
+				if (money<100) {
+					var go=prompt("不好意充值金额最少为100哦，是否要继续充值玩耍？","是");
+					if (go=="是") {
+						var sumMoney = parseInt(prompt("请输入充值金额", "100"));
+						credit(sumMoney);
+					} else{
+						alert("退出游戏！");
+					}
+				} else{
+					alert("祝您玩得愉快");
+				}
+			}
+		</script>
+		<title></title>
+	</head>
+
+	<body>
+
+	</body>
+
+</html>

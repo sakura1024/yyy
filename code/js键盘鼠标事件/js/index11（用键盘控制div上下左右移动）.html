@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/index11.css"/>
+		<style type="text/css">
+			#div1{
+				width: 50px;
+				height: 50px;
+				position: absolute;
+			} 
+		</style>
+		<script type="text/javascript">
+			window.onload=function(){
+				document.onkeydown=function(ev){
+					var oEvent=ev||event;
+					var oDiv=document.getElementById('div1');	
+					switch(oEvent.keyCode){
+						case 37: oDiv.style.left=oDiv.offsetLeft-50+'px';break;    //左移动
+						case 38: oDiv.style.top=oDiv.offsetTop-50+'px';break;      //上移动
+						case 39: oDiv.style.left=oDiv.offsetLeft+50+'px';break;    //右移动
+						case 40: oDiv.style.top=oDiv.offsetTop+50+'px';break;      //下移动
+					}
+				}
+			} 
+		</script>
+	</head>
+	<body>
+		<h4>switch,keyCode控制鼠标上下左右移动</h4>
+		<h5>其实有个小bug，按住右键的时候 div会顿一下才会动起来（暂时还未解决）</h5>
+		<table border="" cellspacing="0" cellpadding="24px">
+			<tr><td></td><td></td><td></td><td></td><td></td></tr>
+			<tr><td></td><td></td><td></td><td></td><td></td></tr>
+			<tr><td></td><td></td><td></td><td></td><td></td></tr>
+			<tr><td></td><td></td><td></td><td></td><td></td></tr>
+			<tr><td></td><td></td><td></td><td></td><td></td></tr>
+			<tr><td></td><td></td><td></td><td></td><td></td></tr>
+			<tr><td></td><td></td><td></td><td></td><td></td></tr>
+			<tr><td></td><td></td><td></td><td></td><td></td></tr>
+		</table>
+		
+		<div id="div1">
+			<img src="img/index5.png"/>
+		</div>
+	</body>
+</html>

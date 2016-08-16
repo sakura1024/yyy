@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery-3.0.0.js"></script>
+		<style type="text/css">
+			div {
+				width: 50px;
+				position: absolute;
+				left: 0;
+				overflow: hidden;
+			}
+		</style>
+		<script type="text/javascript">
+			$(function() {
+				
+				setInterval(function() {
+					$('div').animate({left:'500px'})
+				}, 400)
+			})
+		</script>
+	</head>
+
+	<body>
+		<div id="div1">
+			<img src="img/3.bmp" />
+		</div>
+	</body>
+
+</html>

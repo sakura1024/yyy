@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			window.onload=function(){
+				document.onclick=function(ev){
+					//IE
+					//alert(event.clientX+','+event.clientY);
+				   	//FF
+					//alert(ev.clientX+','+ev.clientY);
+					//兼容鼠标坐标
+					var oEvent=ev||event;
+					alert(oEvent.clientX+','+oEvent.clientY);
+				}
+			}
+		</script>
+		<h4>鼠标坐标</h4>
+	</body>
+</html>

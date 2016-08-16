@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<style type="text/css">
+			#div1 {
+				width: 100px;
+				height: 100px;
+				background: pink;
+				float: left;
+				margin-right: 20px;
+			}
+			
+			#div2 {
+				display: none;
+				float: left;
+				width: 200px;
+				height: 200px;
+				background: lightgrey;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload=function(){
+				var oDiv1 = document.getElementById('div1');
+			var oDiv2 = document.getElementById('div2');
+			var timer;
+				oDiv1.onmouseover = function() {
+					//清除oDiv2离开时 oDiv2延时一秒消失的定时器
+					clearTimeout(timer);
+					oDiv2.style.display = "block";
+				}
+				oDiv1.onmouseout = function() {
+					//oDiv1鼠标离开之后  oDiv2延迟1秒钟再消失
+					timer=setTimeout(function(){
+						oDiv2.style.display = "none";
+					},1000);
+				}
+				oDiv2.onmouseover = function() {
+					//清除oDiv2离开时 oDiv2延时一秒消失的定时器
+					clearTimeout(timer);
+					oDiv2.style.display = "block";
+				}
+				oDiv2.onmouseout = function() {
+					//oDiv2鼠标离开之后  oDiv2延迟1秒钟再消失
+					timer=setTimeout(function(){
+						oDiv2.style.display = "none";
+					},1000);
+				}
+			}
+		</script>
+		<title>扣扣头像延时框</title>
+	</head>
+
+	<body>
+		<div id="div1">
+
+		</div>
+		<div id="div2">
+
+		</div>
+	</body>
+
+</html>

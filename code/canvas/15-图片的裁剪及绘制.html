@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>将图片放在画布canvas中</title>
+	</head>
+	<body>
+		<!--<img id="img" src="img/ui-bg_diagonals-thick_18_b81900_40x40.png"/>-->
+		<canvas id="demo" width="600" height="600"></canvas>
+	</body>
+	<script type="text/javascript">
+		var oDemo = document.getElementById('demo');
+		oDemo.style.border = "1px solid #ccc"
+		//得到画布控制权
+		var ctx = oDemo.getContext('2d');
+		var oImg=new Image();
+		oImg.src="img/23.jpg";
+		oImg.onload=function(){
+			//9个参数，分别代表图片对象，裁剪图片起始位置，裁剪图片的宽高，裁剪图片放在画布中的起始位置，裁剪图片在画布中所占的宽高
+			ctx.drawImage(oImg,0,0,80,80,100,100,80,80);
+		}
+	</script>
+</html>

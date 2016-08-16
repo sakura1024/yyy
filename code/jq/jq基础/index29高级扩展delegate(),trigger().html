@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>trigger()自动触发事件</title>
+		<style type="text/css">
+			div{
+				width: 100px;
+				height: 100px;
+				background: pink;
+			}
+		</style>
+		<script type="text/javascript" src="js/jquery-3.0.0.js" ></script>
+		<script type="text/javascript">
+		/*
+		  jQuery 事件 - trigger() 方法
+		 * trigger()自动触发事件
+		 * trigger() 所有匹配元素的指定事件
+		 * $(selector).trigger(event,[param1,param2,...])
+		 * event:必需  自动触发的事件
+		 * [param1,param2,...]可选。传递到事件处理程序的额外参数。 ----->暂时还不会使用
+		 * */
+			$(function(){
+				//自定义函数show的trigger
+				$('#div1').on('show',function(){
+					alert("我是自定义show的事件，通过trigger");
+				});
+				$('#div1').on('show',function(){
+					alert("我是自定义show的事件，通过trigger，第二次主动触发");
+				});
+				$('#div1').trigger('show');    //自动触发
+				
+				//系统自带事件click的trigger
+				//注意后面函数里面的参数
+				$('#div2').on('click',function(ev){
+					alert("我是div2自定义show的事件，通过trigger");
+				});
+				$('#div2').trigger('click');    //自动触发
+				
+			})
+		</script>
+	</head>
+	<body>
+		<div id="div1">
+			我带有自定义事件
+		</div><br /><br />
+		<div id="div2">
+			
+		</div>
+	</body>
+</html>

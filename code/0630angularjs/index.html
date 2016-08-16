@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html data-ng-app="toDoEvent">
+	<!--angular模块名称-->
+	<!--整个html被当做一个模块-->
+
+	<head>
+		<meta charset="utf-8" />
+		<title>我的第一个angularJS</title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+		<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.css" />
+		<script type="text/javascript" src="js/angular.js"></script>
+		<script type="text/javascript">
+			/*angular步骤：
+					 * 1.创建工程
+					 * 2.库文件、样式文件导入
+					 * 3.页面定义
+					 * 4.创建angular对象并制指定
+					 * 5.创建数据模型
+					 * 6.创建控制器
+					 * 7.渲染页面
+					 * 8.双向数据绑定
+					 * 9.创建和使用功能
+					 * 10.添加按钮的功能
+					 * 
+					 * 
+					 * angular特点：
+					 * 1、双向数据绑定
+					 * 2、没有DOM操作
+					 
+					 
+					 * <!--data-ng-app自定义属性一般会加上data-->
+					 * 
+					 * ---------------------------------------------
+					 * 创建一个angular对象
+					 * angular.module(模块名称,依赖的模块)
+					 * 
+					 * 
+					 * */
+			/*---------创建数据模型------------*/
+			var model = {
+					user: 'tom',
+					items: [{
+						action: "吃早餐",
+						done: true
+					}, {
+						action: "吃午餐",
+						done: false
+					}, {
+						action: "吃晚餐",
+						done: true
+					}, {
+						action: "吃夜宵",
+						done: false
+					}, {
+						action: "睡觉",
+						done: false
+					}, ]
+
+				}
+				//创建一个angular模块对象,参数（模块名称，依赖的模块）
+			var toDoEvent = angular.module('toDoEvent', []);
+
+			//创建一个控制器对象,参数(控制器名称，fn)   /*$scope表示就是模块的页面对象 */
+			toDoEvent.controller("ToDoCtrl", function($scope) {
+				//把数据模型对象送到页面$scope中的todo属性中
+				$scope.todo = model;
+
+				//计算完成任务个数的方法
+				$scope.calcComputeTaskCount = function() {
+					var count = 0;
+					//forEach(obj: Object, iterator: Function, context: Object): Object
+					angular.forEach($scope.todo.items, function(item) {
+						if (item.done) {
+							count++;
+						}
+					});
+					return count;
+				}
+
+				//设计一个警告方法
+				$scope.waringLevel = function() {
+					return $scope.calcComputeTaskCount() > 3 ? "label-success" : "label-warning"
+				}
+
+				//设计按钮添加任务的方法
+				$scope.addNewItem = function(actionText) {
+					$scope.todo.items.push({
+						action: actionText,
+						done: false
+					})
+				}
+			})
+		</script>
+	</head>
+
+	<body ng-controller="ToDoCtrl">
+		<!--定义控制器的作用范围：body-->
+		<div class="page-header">
+			<!--取模型的符号：{{}}-->
+			<h1>{{todo.user}}的任务列表
+				<!--ng-hide="":控制对象什么时候隐藏--><!--todo.items.length-->
+				<span class="label label-default" ng-hide="calcComputeTaskCount()==0" ng-class="waringLevel()">{{calcComputeTaskCount()}}</span>
+			</h1>
+		</div>
+		<div class="panel">
+			<div class="input-group">
+				<input class="form-control" type="text" ng-model="actionText" />
+				<span class="input-group-btn"><button class="btn btn-info" ng-click="addNewItem(actionText)">添加事项</button></span>
+			</div>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>描述</th>
+						<th>操作</th>
+						<th>是否完成</th>
+					</tr>
+				</thead>
+				<tbody>
+					<!--类似for(i in arr)-->
+					<!-- filter:{done:false}   过滤器  过滤出来done为false的-->
+					<!--orderBy-->
+					<tr ng-repeat="item in todo.items|filter:{done:false}|orderBy:'action'">
+						<!--迭代-->
+						<td>{{item.action}}</td>
+						<!--arr[i].action -->
+						<td>
+							<!--双向数据绑定：
+								当点击复选框时，数据模型里面的值直接一起变化
+								复选框选中时，值为true;
+								未选中时，值为false
+							 -->
+							<input type="checkbox" class="checkbox" ng-model="item.done" />
+						</td>
+						<td>{{item.done}}</td>
+					</tr>
+					<tr>
+						<td>---------------------------------------------------------------------</td>
+					</tr>
+					<!-- filter:{done:false}   过滤器  过滤出来done为true的-->
+					<tr ng-repeat="item in todo.items|filter:{done:true}|orderBy:'action'">
+						<!--迭代-->
+						<td>{{item.action}}</td>
+						<!--arr[i].action -->
+						<td>
+							<input type="checkbox" class="checkbox" ng-model="item.done" />
+						</td>
+						<td>{{item.done}}</td>
+					</tr>
+
+				</tbody>
+			</table>
+		</div>
+	</body>
+
+</html>

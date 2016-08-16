@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script type="text/javascript">
+			var isLogin = false; //全局变量 判断是否登录  登录为真  未登录为假
+			window.onload = function() {
+					//获取点击登陆的按钮
+					var oLogin = document.getElementById('login');
+					//获取点击加入购物车的按钮
+					var oaddCar = document.getElementById('addCar');
+					//获取立即购买的按钮
+					var oBuy = document.getElementById('buy');
+					//点击登陆
+					oLogin.onclick = loagin; //事件调用函数时，不加括号
+					//点击加入购物车
+					oaddCar.onclick = shopCar;
+					//点击立即购买按钮
+					oBuy.onclick=buy;
+				}
+				/*//法一
+					function verify(name,pass){
+						if (name.length>=6&&pass.length==6&&!isNaN(pass)) {
+							alert("登录成功");
+						} else{
+							alert("登录失败");
+						}
+					}
+					*/
+				//登录
+			function loagin() {
+				var oName = document.getElementById('name').value; //获取输入的姓名的值
+				var oPass = document.getElementById('pass').value; //获取输入的密码的值
+				verify1(oName, oPass); //调用登录验证函数
+			}
+			//文本框：用户名 密码  验证 (要求定义函数参数为：用户名 密码)
+			//验证：用户名长度必须大于六位  密码必须是数字 长度为6位。如果输入正确  登录成功  否则失败
+			//登陆验证函数
+			function verify1(name, pass) {
+				if (name.length >= 6 && name != "") {
+					if (pass.length == 6 && (!isNaN(pass) && pass != "")) {
+						//						isLogin = true;
+						alert("登录成功");
+						return true;
+					} else if (pass == "") {
+						alert("密码不能为空");
+						return false;
+					} else if (pass.length != 6) {
+						alert("密码输入错误,请输入6位");
+						return false;
+					} else if (isNaN(pass)) {
+						alert("密码输入错误,请输入数字");
+						return false;
+					}
+				} else if (name == "") {
+					alert("用户名不能为空");
+					return false;
+				} else {
+					alert("用户名输入错误，用户名长度必须大于六位");
+					return false;
+				}
+			}
+			//加入购物车函数
+			function shopCar() {
+				if (isLogin) { //如果已登陆，加入到购物车
+					alert("成功加入到购物车");
+				} else { //未登录，提示先登录 才可以加入到购物车
+					alert("对不起，您还未登陆！请先登录");
+					loagin();
+				}
+			}
+
+			function buy() {
+				isLogin=loagin();
+				if(isLogin){
+					alert("成功购买");
+				}else{
+					alert("对不起，您还未登陆！请先登录,再进行购买");
+					loagin();
+				}
+			}
+		</script>
+	</head>
+
+	<body>
+		<p>用户名：</p>
+		<input type="text" name="name" id="name" value="" />
+		<p>密&nbsp;&nbsp;码：</p>
+		<input type="password" name="" id="pass" /><br />
+		<input type="button" id="login" value="登录" />
+		<input type="button" id="addCar" value="加入购物车" />
+		<input type="button" id="buy" value="立即购买" />
+	</body>
+
+</html>

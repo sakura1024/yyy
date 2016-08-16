@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>打印输出0~200之间能被7整除但不能被4整除的所有整数；要求每行显示6个数据</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var n=0;
+			for (var i=0;i<200;i++) {
+				
+				if (i%7==0&&i%4!=0) {
+					n++;
+					document.write(i+" ");
+					if (n%6==0) {
+					document.write("<br />");
+				}
+				}
+			}
+		</script>
+	</body>
+</html>

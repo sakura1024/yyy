@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			div {
+				width: 100px;
+				height: 300px;
+				border: 1px solid red;
+				background: #ccc;
+				position: absolute;
+				top: 100px;
+			}
+			
+			span {
+				display: inline-block;
+				width: 20px;
+				height: 20px;
+				background: pink;
+				position: absolute;
+				right: 0;
+				top: 0;
+				text-align: center;
+				line-height: 20px;
+				border: 1px solid gray;
+				cursor: pointer;
+			}
+			
+			#div1 {
+				left: 0;
+			}
+			
+			#div2 {
+				right: 0;
+			}
+			
+			button {
+				display: block;
+				width: 50px;
+				height: 30px;
+				border: 1px solid #CCCCCC;
+				position: absolute;
+				bottom: 0;
+				right: 0;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onscroll = function() {
+				//页面滚动距离 兼容问题
+				var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+				//div距离页面实际高度=页面滚动距离+（可视区高度—div高度）/2   (注：不要)
+				var aDiv = document.getElementsByTagName('div');
+				for (var i = 0; i < aDiv.length; i++) {
+					aDiv[i].style.top = scrollTop + (document.documentElement.clientHeight - aDiv[i].offsetHeight) / 2 + 'px';
+				}
+				var oBtn = document.getElementById('btn');
+				oBtn.style.top = scrollTop + document.documentElement.clientHeight - oBtn.offsetHeight + 'px';
+				oBtn.onclick=function(){
+					document.body.scrollTop="0px";
+				}
+			}
+			window.onload = function() {
+				var aSpan = document.getElementsByTagName('span');
+				for (var i = 0; i < aSpan.length; i++) {
+					aSpan[i].index = i;
+					aSpan[i].onclick = function() {
+						var aDiv = document.getElementsByTagName('div');
+						aDiv[this.index].style.display = "none";
+					}
+				}
+			}
+		</script>
+	</head>
+
+	<body style="height: 5000px;">
+		<div id="div1">
+			<span id="close1">
+				×
+			</span>
+		</div>
+		<div id="div2">
+			<span id="close2">
+				×
+			</span>
+		</div>
+		<button id="btn">回到顶部</button>
+	</body>
+
+</html>

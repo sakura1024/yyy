@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>圆圆自己的验证码</title>
+		<style type="text/css">
+			span {
+				display: inline-block;
+				border: 1px solid black;
+				padding: 2px;
+				cursor: pointer;
+			}
+		</style>
+		<script type="text/javascript">
+			//.定义数组：存放验证码
+			var arr = ['a', 'b', 'c', 'd', '你', '胡', '萝', '卜', 1, 2, 5, 7, 9];
+			window.onload = function() {
+					var oBtn = document.getElementById('btn');
+					init();
+					oBtn.onclick = check;
+					oSpan.onclick = init;
+				}
+				//得到验证码函数
+			function getCode(len) {
+				var code = '';
+				for (var i = 0; i < len; i++) {
+					codeRan = parseInt(Math.random()* arr.length) ;
+					code = code + arr[codeRan];
+				}
+				return code;
+			}
+			//初始化验证码 页面已加载完成  即将验证码初始化到span标签中
+			function init() {
+				oSpan = document.getElementById('dentify');
+				oSpan.innerHTML = getCode(4);
+			}
+			//核对输入文本框的验证码和span标签里的验证码是否相同
+			function check() {
+				var oTxt = document.getElementById('txt1');
+				if (oTxt.value == "") {
+					oTxt.value = '验证码不能为空';
+					return;
+				} 
+				if (oTxt.value != oSpan.innerHTML) {
+					alert("输入错误，请重新输入");
+				} else if(oTxt.valuee == oSpan.innerHTML) {
+					alert("验证码输入正确");
+				}
+			}
+		</script>
+	</head>
+
+	<body>
+		验证码：<input type="text" id="txt1" /> <span id="dentify"></span>
+		<button id="btn">测试验证码</button>
+	</body>
+
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+function fun(x){
+	return function(){
+		console.log(x);  //子函数内部可以使用父函数的参数
+	}
+}
+var obj=fun(4);  //执行一次fun（x）函数，返回函数体  相当于obj=function(){console.log(4)}
+obj();  //注意不要在这传参，应该在上一行的fun（）中传参，与定义函数时一致   此时打印出4
+</script>

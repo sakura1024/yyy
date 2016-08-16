@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+		div{
+			width: 143px;
+			height: 220px;
+			margin: 300px auto;
+			position: relative;
+		}
+		img{
+			
+			/*
+			 transform-origin: left top; 
+			 
+			 transform-origin 属性允许您改变被转换元素的位置。
+
+			2D 转换元素能够改变元素 x 和 y 轴。3D 转换元素还能改变其 Y 轴。
+
+			为了更好地理解 transform-origin 属性，请查看这个演示。
+
+			 * 
+			 * */
+			transform-origin: left bottom; 
+			position: absolute;
+			left: 0;
+			top: 0px;
+		}
+		/*img{
+				transition: all 3s linear;
+			}*/
+			/*img:nth-child(1){
+				transition: all 3s linear ;
+			}
+			img:nth-child(2){
+				transition: all 3s linear ;
+			}
+			img:nth-child(3){
+				transition: all 3s linear ;
+			}
+			
+			img:nth-child(4){
+				transition: all 3s linear ;
+			}
+			img:nth-child(5){
+				transition: all 3s linear ;
+			}
+			img:nth-child(6){
+				transition: all 3s linear ;
+			}*/
+			/*div:hover img:first-child{
+				transform:rotate(350deg) ;
+			}*/
+			div img{
+				transition: all 3s linear ;
+			}
+			div:hover img:nth-child(2){
+				transform:rotate(60deg) ;
+			}
+			div:hover img:nth-child(3){
+				transform:rotate(120deg) ;
+			}
+			div:hover img:nth-child(4){
+				transform:rotate(180deg) ;
+			}
+			div:hover img:nth-child(5){
+				transform:rotate(240deg) ;
+			}
+			div:hover img:nth-child(6){
+				transform:rotate(300deg) ;
+			}
+			
+			/*img:last-child:hover{
+				transform:rotate(60deg) ;
+			}*/
+			/*img:nth-child(5):hover{
+				transform:rotate(120deg) ;
+			}
+			img:nth-child(4):hover{
+				transform:rotate(180deg) ;
+			}
+			img:nth-child(3):hover{
+				transform:rotate(240deg) ;
+			}
+			
+			img:nth-child(2):hover{
+				transform:rotate(300deg) ;
+			}
+			img:nth-child(1):hover{
+				
+			}*/
+			/*img:hover{
+				transform:rotate(60deg) ;
+			}*/
+			
+		</style>
+	</head>
+	<body>
+		<div>
+			<img src="img/u=2586565477,3767806990&fm=21&gp=0.jpg"/>
+		<img src="img/u=2586565477,3767806990&fm=21&gp=0.jpg"/>
+		<img src="img/u=2586565477,3767806990&fm=21&gp=0.jpg"/>
+		<img src="img/u=2586565477,3767806990&fm=21&gp=0.jpg"/>
+		<img src="img/u=2586565477,3767806990&fm=21&gp=0.jpg"/>
+		<img src="img/u=2586565477,3767806990&fm=21&gp=0.jpg"/>
+		</div>
+			
+		
+	</body>
+</html>

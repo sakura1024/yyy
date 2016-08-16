@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>text-shadow</title>
+		<style type="text/css">
+		/*
+		 
+		 * 想要使用文本中的省略号效果：
+		 * 必须结合overflow: hidden;和white-space: nowrap;一起使用
+		 * 否则没有效果
+		 * 
+		 * white-space: nowrap;段落中不换行
+		 * 
+		 * */
+			p{	
+				width: 100px;
+				overflow: hidden;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+				text-shadow: 1px 2px 3px black;
+				font-size:20px;
+			}
+		</style>
+	</head>
+	<body>
+		<p>北京欢迎您北京欢迎您北京欢迎您北京欢迎您北京欢迎您北京欢迎您北京欢迎您北京欢迎您北京欢迎您北京欢迎您北京欢迎您</p>
+	</body>
+</html>

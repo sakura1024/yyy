@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>通过更改src来更改图片</title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			#div1 {
+				position: relative;
+				width: 700px;
+				height: 220px;
+				margin: 0 auto;
+			}
+			
+			img {
+				position: absolute;
+				width: 700px;
+				height: 220px;
+			}
+			
+			span {
+				position: absolute;
+				top: 0;
+				display: block;
+				width: 100px;
+				height: 220px;
+				font-size: 70px;
+				font-weight: bold;
+				text-align: center;
+				line-height: 220px;
+				color: darkgray;
+				background: lightgrey;
+				opacity: 0.8;
+				cursor: pointer;
+			}
+			
+			#prev {
+				left: 0;
+			}
+			
+			#next {
+				right: 0;
+			}
+			
+			ul {
+				position: absolute;
+				left: 280px;
+				bottom: -40px;
+				width: 125px;
+			}
+			
+			li {
+				list-style: none;
+				float: left;
+				width: 15px;
+				height: 15px;
+				line-height: 15px;
+				text-align: center;
+				margin-right: 10px;
+				background: lightgrey;
+				border-radius: 8px;
+				cursor: pointer;
+				color: white;
+			}
+			
+			.active {
+				background: pink;
+			}
+		</style>
+		<script type="text/javascript">
+			/*
+															 
+			 * 得到图片
+			 * 点击上一张 下一张来改变图片的src
+			 * 注意有个全局变量count=1
+			 * 点击下一张时 全局变量+1 count=6,重置count=1 
+			 * 点击上一张时 全局变量—1 count=0,重置count=5
+			 * 点击下面的小点时，跳转到相应的页面
+			 * 点击小圆点时，遍历所有小圆点，所有小圆点均背景色改为lightgrey  之后点击的小圆点背景色改为pink
+			 * 定时器轮播时，下面的小点也相应的变化
+			 * 
+			 * **/
+			var count = 1;
+			var timer = null;
+			timer = setInterval(next, 1000);
+			window.onload = function() {
+				var oDiv = document.getElementById('div1');
+				var aLi = document.getElementsByTagName('li');
+				for (var i = 0; i < aLi.length; i++) {
+					aLi[i].index=i;
+					aLi[i].onclick = function() {
+						var oImg = document.getElementsByTagName('img')[0];
+						oImg.src="img/" + (this.index+1) + ".jpg";
+//						circle();
+						for (var j = 0; j < aLi.length; j++) {
+							aLi[j].style.background = "lightgrey";
+						}
+						aLi[this.index].style.background="pink";
+						
+					};
+				}
+				oDiv.onmouseover = function() {
+					clearInterval(timer);
+				}
+				oDiv.onmouseout = function() {
+					timer = setInterval(next, 1000);
+				}
+			}
+
+			
+
+			function prev() {
+				count--;
+				if (count == 0) {
+					count = 5;
+				}
+				changeSrc ();
+				circle();
+			}
+
+			function next() {
+				count++;
+				if (count == 6) {
+					count = 1;
+				}
+				changeSrc ();
+				circle();
+			}
+			function circle() {
+				var aLi = document.getElementsByTagName('li');
+				for (var j = 0; j < aLi.length; j++) {
+					aLi[j].style.background = "lightgrey";
+				}
+				aLi[count - 1].style.background = "pink";
+			}
+			//根据count改变src
+			function changeSrc () {
+				var oImg = document.getElementsByTagName('img')[0];
+				oImg.src = "img/" + count + ".jpg";
+			}
+		</script>
+	</head>
+
+	<body style="padding-top: 20px;">
+		<div id="div1">
+			<img src="img/1.jpg" />
+			<span class="span" id="prev" onclick="prev()">&lt</span>
+			<span class="span" id="next" onclick="next()">&gt</span>
+			<ul>
+				<li class="active">1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+				<li>5</li>
+			</ul>
+		</div>
+
+	</body>
+
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload=function(){
+				document.onkeydown=function(ev){               //按下键盘后的事件
+					var oEvent=ev||event;
+					alert(oEvent.keyCode);                   //获取用户按下键盘的哪个键 
+				}
+				document.onkeyup=function(ev){               //按下键盘后的事件
+					var oEvent=ev||event;
+					alert('oEvent.altKey');                    
+				}
+			}   
+		</script>
+	</head>
+	<body>
+		<h6>
+			
+		</h6>
+	</body>
+</html>

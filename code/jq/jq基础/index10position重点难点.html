@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			#div1 {
+				width: 200px;
+				height: 200px;
+				background: red;
+				margin: 50px;
+				overflow: hidden;
+			}
+			
+			#div2 {
+				width: 100px;
+				height: 100px;
+				background: pink;
+				margin: 20px;
+				overflow: hidden;
+			}
+			
+			#div3 {
+				width: 50px;
+				height: 50px;
+				background: plum;
+				margin: 20px;
+			}
+		</style>
+		<script type="text/javascript" src="js/jquery-3.0.0.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				/*  结论：position()
+				    obj.position()当obj对象有定位时，则直接取top，left
+				*   obj.position()当obj对象没有有定位，但父级B（不一定是最近的父级）有定位时，则obj到父级B的总距离-obj自己的margin
+				* 	obj.position()当obj对象没有有定位，但父级也都没有定位时，则obj到body的总距离-obj自己的margin
+				* */
+
+				//console.log($('#div1').offset().left);   获取到屏幕的左边距 （距离可视窗的左边距）
+				console.log($('#div1').position()); //Object {top: 0, left: 0}
+				console.log($('#div2').position()); //Object {top: 50, left: 50}
+				console.log($('#div3').position()); //Object {top: 70, left: 70}
+				console.log("----------------------")
+
+				$('#div1').css('position', 'absolute');
+				$('#div1').css('left', '30px');
+				$('#div1').css('top', "30px");
+
+				console.log($('#div1').position()); //Object {top: 30, left: 20}
+				console.log($('#div2').position()); //Object {top: 0, left: 0}
+				console.log($('#div3').position()); //Object {top: 20, left: 20}
+			})
+		</script>
+	</head>
+
+	<body>
+		<div id="div1">
+			<div id="div2">
+				<div id="div3">
+					div3
+				</div>div2
+			</div>div1
+		</div>
+	</body>
+
+</html>

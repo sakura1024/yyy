@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div,img{
+				width: 170px;
+				height: 189px;
+				position: absolute;
+				background: url(img/295fba4a9f70b3d1eca669cdc77366bc.gif);
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload=function(){
+				document.onmousemove=function(ev){
+					var oEvent=ev||evevt;
+					var pos=getPos(oEvent);  
+					var aDiv=document.getElementsByTagName('div');
+					
+					for (var i=aDiv.length-1;i>0;i--) {               //从最后一个div开始紧跟随着上个一div的坐标走，但是不包括第一个aDiv[0]
+						aDiv[i].style.left=aDiv[i-1].offsetLeft+'px';   
+						aDiv[i].style.top=aDiv[i-1].offsetTop+'px';
+					}
+					aDiv[0].style.left=pos.x+'px';              //第一个aDiv[0]进跟随着鼠标走
+					aDiv[0].style.top=pos.y+'px';
+				}
+				//封装函数 获取滚动距离
+				function getPos(ev){
+					var scrollLeft=document.documentElement.scrollLeft||document.body.scrollLeft;   //获取左滚动距离		
+					var scrollTop=document.documentElement.scrollTop||document.body.scrollTop;		//获取右滚动距离
+					return {x:ev.clientX+scrollLeft,y:ev.clientY+scrollTop}            //返回值采用json的方式
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<h4>老鹰捉小鸡</h4>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+</body>
+</html>

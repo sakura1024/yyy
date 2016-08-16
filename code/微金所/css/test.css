@@ -1,0 +1,173 @@
+@font-face {
+	font-family: 'yyy';
+	src: url('../fonts/MiFie-Web-Font.eot') format('embedded-opentype'), url('../fonts/MiFie-Web-Font.svg') format('svg'), url('../fonts/MiFie-Web-Font.ttf') format('truetype'), url('../fonts/MiFie-Web-Font.woff') format('woff');
+}
+
+
+/*Ã§Â±Â»Ã¥ÂÂÃ¤Â¸Â­Ã¥Å’â€¦Ã¥ÂÂ«icon-Ã¦Ë†â€“Ã§Â©ÂºÃ¦Â Â¼icon-*/
+
+[class^="icon-"],
+[class*=" icon-"] {
+	font-family: yyy;
+	font-style: normal;
+}
+
+.icon-uniE907:before {
+	content: "\e907";
+	font-size: 32px;
+}
+
+p{
+	margin-bottom: 0px;
+}
+
+
+
+
+
+
+
+#tab {
+	background: #F0F0F0;
+	padding: 20px 0px 20px;
+	font-size: 14px;
+	
+}
+#tab>.ul-wrapper{
+	overflow-x: scroll;
+}
+
+#tab .ul-wrapper ul {
+	padding-left: 20px;
+	
+}
+
+#tab .ul-wrapper .nav {
+	margin-bottom: 20px;
+}
+
+#tab .nav a {
+	color: #333;
+	/*background: #F0F0F0;*/
+}
+
+
+
+#tab>.ul-wrapper>.nav>.active>a {
+	background-color: transparent;
+	border-color: transparent;
+	border-bottom-color: #C9302C;
+	border-bottom-width: 5px;
+}
+
+#tab>.ul-wrapper>.nav>li>a:hover {
+	border-bottom-color: transparent;
+}
+
+#tab>.ul-wrapper>.nav>.active>a:hover {
+	border-bottom-color: #C9302C;
+}
+
+#tab>.ul-wrapper>.nav>li>a:focus {
+	border-bottom-color: #C9302C;
+	border-bottom-width: 5px;
+}
+
+#yyy {}
+
+#yyy .panel {
+	height: 150px;
+	border: 0 none;
+	box-shadow: 1px 2px 5px #c0c0c0;
+}
+
+#yyy .panel {
+	margin-bottom: 30px;
+	background: #e0e0e0;
+}
+#yyy .panel>*{
+	color: #576A7F;
+}
+#yyy .panel-heading{
+	background: #e0e0e0;
+}
+#yyy .active1 {
+	color: white;
+}
+
+#yyy .active1 .panel *{
+	background: #E61E25;
+	color: white;
+}
+
+#yyy .panel-heading {
+	height: 150px;
+	border: 0 none;
+	 margin-right: 120px; 
+	position: relative;
+}
+
+#yyy .panel-body {
+	width: 120px;
+	height: 150px;
+	border-left: 1px dashed #ccc;
+	position: relative;
+}
+
+#yyy .panel-body::before,
+#yyy .panel-body::after {
+	content: " ";
+	width: 16px;
+	height: 16px;
+	border-radius: 8px;
+	position: absolute;
+	background: #F0F0F0;
+	z-index: 11;
+}
+
+#yyy .panel-body::before {
+	left: -8px;
+	top: -8px;
+}
+
+#yyy .panel-body::after {
+	left: -8px;
+	bottom: -8px;
+	box-shadow: 0px 1px 1px #ccc inset;
+}
+
+.active1 .novice-icon::before{
+	content: "\e915";
+	position: absolute;
+	font-family: yyy;
+	color: #fff;
+	font-size: 36px;
+	font-weight: 100;
+	top: -8px;
+    left: 0px;
+}
+#yyy p{
+	text-align: center;
+}
+#yyy .topTools a{
+	background: transparent;
+	border-radius: 0;
+	width: 16px;
+	height: 17px;
+	padding: 1px;
+	font-size: 9px;
+}
+#yyy .topTools .bage-one{
+	color: #399;
+	border: 1px solid #399;
+}
+#yyy .topTools .bage-two{
+	color: #F56854;
+	border: 1px solid #F56854;
+}
+#yyy .panel-body .p2{
+	font-size: 30px;
+	color: #e61e25;
+	padding-top: 20px;
+	text-align: center;
+}

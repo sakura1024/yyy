@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			//1.随机生成5个20000-30000之间的汉字，打印生成的五个汉字组成的字符串
+			var arr=new Array(5);
+			var str=""
+			for(var i=0;i<arr.length;i++) {
+				arr[i]=parseInt(Math.random()*10001+20000);
+				str=str+String.fromCharCode(arr[i]);
+			}
+			document.write(str);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			//回车提交留言     ctrl+回车提交留言
+			window.onload = function() {
+				var oTxt = document.getElementById('txt');
+				var oTxt2 = document.getElementById('txt2');
+				oTxt.onkeydown = function(ev) {
+					var oEvent = ev || event;
+					//   ctrl+回车提交留言
+					if (oEvent.keyCode == 13&&oEvent.ctrlKey) {
+						oTxt2.value =oTxt2.value+oTxt.value+"\n";
+						oTxt.value="";
+					}
+				}
+			}
+		</script>
+	</head>
+
+	<body>
+		<input type="text" name="" id="txt" value="" /><br /><br />
+		<textarea name="" rows="20" cols="50" id="txt2"></textarea>
+	</body>
+
+</html>

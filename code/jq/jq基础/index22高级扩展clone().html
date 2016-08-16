@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			b{color: red;}
+		</style>
+		<script type="text/javascript" src="js/jquery-3.0.0.js" ></script>
+		<script type="text/javascript">
+		/*
+		 
+		 * clone()：无参数时，只是将当前元素复制了一份 但是没有复制当前元素的操作行为
+		 * clone(true)：有参数时，不只是复制了当前元素，并且将当前元素的操作行为一同复制过来
+		 * */
+			$(function(){
+				$('#b').click(function(){
+					alert(122);
+				})
+				$('#btn1').click(function(){
+					$('#b').clone().appendTo('#p1');   
+				})
+				$('#btn2').click(function(){
+					//$('b').last().remove();
+					$('#b').clone(true).appendTo('#p2');   
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<input type="button" name="btn1" id="btn1" value="clone()无参数：不克隆元素的操作行为" />
+		<input type="button" name="btn1" id="btn2" value="clone(true)有参数：克隆元素的操作行为" /><br /><br />
+		
+		<b id="b">我是克隆过来的</b>
+		<p id="p1">哈哈哈我是段落1</p>
+		<p id="p2">哈哈哈我是段落2</p>
+	</body>
+</html>

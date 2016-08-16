@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<style type="text/css">
+			#txt1 {
+				display: inline-block;
+				width: 400px;
+				height: 30px;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function() {
+				//完善掷骰子游戏，每个人可以无限制的游戏，游戏结束的条件是充值金额输完了。
+				alert("欢迎进入21点游戏！");
+				var sumMoney = parseInt(prompt("请输入充值金额", "100"));
+				credit(sumMoney);
+				for (var i = 1;; i++) {
+					if (sumMoney <= 0) {
+						var need = prompt("金额已经不足（0），是否需要充值", "是");
+						if (need == "是") {
+							//输入下注金额
+							var payMoney = prompt("请输入下注金额：", "50");
+							//总金额=总金额-下注金额
+							sumMoney = sumMoney - payMoney;
+							//产生敌人的随机数
+							var otherRan = parseInt(Math.random() * 21) + 1;
+							var current = 0;
+							//获取要牌按钮
+							var oYes = document.getElementById('yes');
+							//获取不要牌按钮
+							var oNo = document.getElementById('no');
+							//要牌事件
+							oYes.onclick = yes;
+							oNo.onclick = no;
+						} else {
+							alert("退出游戏！共玩游戏" + (i - 1) + "局");
+							break;
+						}
+					} else {
+						//输入下注金额
+						var payMoney = prompt("请输入下注金额：", "50");
+						//总金额=总金额-下注金额
+						sumMoney = sumMoney - payMoney;
+						//产生敌人的随机数
+						var otherRan = parseInt(Math.random() * 21) + 1;
+						var current = 0;
+						//获取要牌按钮
+						var oYes = document.getElementById('yes');
+						//获取不要牌按钮
+						var oNo = document.getElementById('no');
+						//要牌事件
+						oYes.onclick = yes;
+						oNo.onclick = no;
+					}
+				}
+
+				function yes() {
+					var oTxt = document.getElementById('txt1')
+						//产生随机数
+					var myRan = parseInt(Math.random() * 10) + 1;
+					//当前总点数
+					current = current + myRan;
+					//在oTxt中显示产生的随机数及当前总点数
+					oTxt.value = "这次产生的点数为：" + myRan + ",累加后的总点数：" + current;
+					if (current > 21) {
+						alert("很遗憾，本局失败告终！您的点数：" + current + "，敌人的点数：" + otherRan + "<br/>" + "失败后总金额为：" + sumMoney);
+					} else if (current == 21 && otherRan != 21) {
+						alert("恭喜您获胜了！您的点数：" + current + "，敌人的点数：" + otherRan);
+					} else if (current == 21 && otherRan == 21) {
+						alert("本局打平！您的点数：" + current + "，敌人的点数：" + otherRan);
+					}
+				}
+				/*不要牌事件:将自己的总点数与敌人的总点数作比较，点数大的一方赢，赢的一方：总金额为=总金额+下注金额的2倍*/
+				//不要牌事件    
+				function no() {
+					if (current < otherRan) {
+						alert("很遗憾，本局失败告终！您的点数：" + current + "，敌人的点数：" + otherRan + "\n" + "失败后总金额为：" + sumMoney);
+					} else if (current == otherRan) {
+						alert("本局打平！您的点数：" + current + "，敌人的点数：" + otherRan + "\n" + "平局后总金额为：" + sumMoney);
+					} else if (current > otherRan) {
+						sumMoney = sumMoney + payMoney * 2;
+						alert("恭喜您获胜了！！您的点数：" + current + "，敌人的点数：" + otherRan + "\n" + "获胜后总金额为：" + sumMoney);
+					}
+				}
+				//判断充值金额是否满足条件
+				function credit(money) {
+					if (money < 100) {
+						var go = prompt("不好意充值金额最少为100哦，是否要继续充值玩耍？", "是");
+						if (go == "是") {
+							var sumMoney = parseInt(prompt("请输入充值金额", "100"));
+							credit(sumMoney);
+						} else {
+							alert("退出游戏！");
+						}
+					} else {
+						alert("祝您玩得愉快");
+					}
+				}
+			}
+		</script>
+		<title></title>
+	</head>
+
+	<body>
+		<input type="button" id="yes" value="要牌" />
+		<input type="button" id="no" value="不要牌" />
+		<input type="text" name="txt1" id="txt1" value="当前点数" />
+		<!--用来放要的点数-->
+
+	</body>
+
+</html>

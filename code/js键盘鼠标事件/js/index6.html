@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>完美</title>
+		<style type="text/css">
+			#div1{
+				width: 200px;
+				height: 200px;
+				background: red;
+				position: absolute;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload=function(){
+				document.onmousemove=function(ev){
+					var oEvent=ev||event;
+					var oDiv=document.getElementById('div1');
+					var scrollTop=document.documentElement.scrollTop||document.body.scrollTop;   //获取滚动距离  
+					oDiv.style.left=oEvent.clientX+'px';                                         //将odiv的绝对定位的左边距为左光标的值
+					oDiv.style.top=scrollTop+oEvent.clientY+'px';                                //将odiv的绝对定位的上边距赋值为左光标的值+上边的滚动距离
+				}
+				
+			}
+		</script>
+	</head>
+	<body style="height: 9000px;">
+		<h4>鼠标跟随</h4>
+		<h5>无bug:解决方法：可视区据body上面的距离scrollTop+可视区光标坐标clientY</h5>
+		<h6>经验：只要涉及到clientX或者clientY的时候，一般都要加上scrollTop</h6>
+		<h6>滚动条的意义：可视区与页面顶部的距离</h6>
+		<div id="div1">
+			
+		</div>
+	</body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	<!--	<link rel="stylesheet" type="text/css" href="css/lunbo.css" />-->
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			body {
+				font: 12px/1.5 "Microsoft YaHei", "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+				color: #5A5A5A;
+				padding: 0;
+				margin: 0;
+			}
+			
+			a {
+				color: #5A5A5A;
+				text-decoration: none;
+			}
+			
+			li {
+				float: left;
+				list-style: none;
+			}
+			
+			.banner {
+				width: 600px;
+				height: 340px;
+				margin: 0 auto;
+				position: relative;
+				margin: 20px auto;
+				/*overflow: hidden;*/
+			}
+			
+			.banner ul {
+				width: 2400px;
+				height: 340px;
+				position: absolute;
+				left: 0;
+			}
+			
+			.banner li {
+				width: 600px;
+				height: 340px;
+			}
+			
+			.banner img {
+				width: 600px;
+				height: 340px;
+			}
+			
+			/*小圆点*/
+			.cercile{
+				/*clear: both;*/
+				background: black;
+				width: 100px;
+				text-align: center;
+				height: 20px;
+				position: absolute;
+				bottom: -30px;
+				
+			}
+			.cercile span{
+				display: inline-block;
+				width: 20px;
+				height: 20px;
+				border-radius: 12px;
+				background: #CCCCCC;
+			}
+			.yellow{
+				background: yellow;
+			}
+		</style>
+		<script type="text/javascript" src="js/jquery-3.0.0.js"></script>
+		<script type="text/javascript">
+			window.onload = function() {
+				var oUl = document.getElementById('lb');
+				var oImg=oUl.getElementsByTagName('img')[0];
+				/*function lunbo() {
+					if (oUl.offsetLeft <= -1800) {
+						oUl.style.left = "0px";
+					} else {
+						oUl.style.left = oUl.offsetLeft - 600 + "px";
+					}
+				}*/
+				var count=0;
+				function lunbo(){
+					if (count<=3) {
+						oImg.src="img/10"+(count+1)+".png";
+						count++;
+						ci();
+					} else{
+						count=0;
+					}
+				}
+				setInterval(lunbo,1000);
+				
+				function ci(){
+					var aspan=document.getElementsByTagName('span');
+				for (var i = 0; i < aspan.length; i++) {
+					if (count<=3&&count>=0) {
+						for (var i = 0; i < aspan.length; i++) {
+							aspan[i].className="";
+						}
+						aspan[count].className="yellow";
+					} 
+				}
+				}
+			}
+		</script>
+	</head>
+
+	<body>
+		<div class="banner">
+			<ul id="lb">
+				<li><img src="img/101.png" /></li>
+				<!--<li><img src="img/102.jpg" /></li>
+				<li><img src="img/103.jpg" /></li>
+				<li><img src="img/104.jpg" /></li>-->
+			</ul>
+			<div class="cercile">
+				<span class="yellow"></span>
+				<span></span>
+				<span></span>
+				<span></span>
+			</div>
+
+		</div>
+		</div>
+	</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>工厂方式</title>
+		<script type="text/javascript">
+			function CreatePerson(name,qq){                      //构造函数 ：构造一个对象
+				//系统偷偷地替咱们做
+				//var this=new object();
+				
+				//加工                                                                                   //添加属性和方法
+				this.name=name;                                   
+				this.qq=qq; 
+				
+				this.showName=function(){                        
+					alert('我的姓名：'+this.name);
+				}
+				this.showQQ=function(){                            
+					alert('我的QQ：'+this.qq);
+				}
+				
+				//系统偷偷替咱们做：                                                                                     //返回obj对象
+				//return this;
+			}
+			var obj1=new CreatePerson('blue','11311543277');           //调用构造函数  创建个人信息对象
+			obj1.showName();                                        //对用对象方法：显示对象姓名
+			var obj2=new CreatePerson('yuanyuan','11317893277');
+			obj2.showName();
+            alert(obj1.showName==obj2.showName)
+		</script>
+	</head>
+	<body>
+		<h6>工厂方式的问题：没有new；函数重复：资源浪费</h6>
+	</body>
+</html>

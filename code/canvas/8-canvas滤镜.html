@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<canvas id="demo" width="600" height="600"></canvas>
+
+	</body>
+	<script type="text/javascript">
+		var oDemo = document.getElementById('demo');
+		oDemo.style.border = "1px solid #ccc"
+		//得到画布控制权
+		var ctx = oDemo.getContext('2d');
+		
+		ctx.strokeRect(0,0,10,10);
+		
+		//滤镜  translate  平移
+		ctx.save();
+		ctx.fillStyle="rgba(255,0,0,0.4)";
+		ctx.translate(100,100);  //全局设置，会影响之后的所有画布的操作
+		ctx.fillRect(0,0,100,100);
+		ctx.restore();    //恢复到画布原来保存时的状态
+		
+        //scale缩放
+		ctx.save();
+		ctx.fillStyle="rgba(0,255,0,0.9)";
+		ctx.scale(0.5,0.5);  
+		ctx.fillRect(0,0,100,100);
+		ctx.restore();
+		
+		
+		 //rotate旋转
+		ctx.save();
+		ctx.fillStyle="rgba(250,255,0,1)";
+		ctx.rotate(45*Math.PI/180);  
+		ctx.fillRect(0,0,100,100);
+		ctx.restore();
+		
+		
+		//整合
+		ctx.save();
+		ctx.fillStyle="rgba(0,0,0,0.9)";
+		ctx.translate(100,100);
+		ctx.scale(0.5,0.5);
+		ctx.rotate(45*Math.PI/180); 
+		ctx.fillRect(0,0,100,100);
+		ctx.restore();
+		
+		
+		
+	</script>
+
+</html>

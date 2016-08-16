@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<style type="text/css">
+			#touch{
+				width: 100px;
+				height: 100px;
+				background: pink;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="touch">
+			
+		</div>
+	</body>
+</html>
+<script type="text/javascript"> 
+	var oTouch=document.getElementById("touch");
+	oTouch.addEventListener("touchstart",function(){
+		console.log("touchstart")
+	});
+	oTouch.addEventListener("touchmove",function(){
+		console.log("touchmove")
+	});
+	oTouch.addEventListener("touchend",function(){
+		console.log("touchend")
+	});
+</script>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function Student(){}
+			var stu1=new Student();
+			stu1.name="张三";
+			stu1.sex="男";
+			stu1.age=18;
+			
+			//function Friends(){}
+			var f1=new Student();
+			f1.name="娇娇";
+			f1.sex="女";
+			f1.age=20;
+			
+			var f2=new Student();
+			f2.name="静静";
+			f2.sex="女";
+			f2.age=25;
+			
+			var f3=new Student();
+			f3.name="慧慧";
+			f3.sex="女";
+			f3.age=23;
+			
+			stu1.friends=[f1,f2,f3];
+			
+			//将对象转为字符串
+			var jsonString=JSON.stringify(stu1);
+			alert(typeof jsonString);
+			document.write(jsonString);
+			
+			//将字符串转为对象
+			var jsonObj=JSON.parse(jsonString);
+			
+			//document.write();
+		</script>
+	</body>
+</html>

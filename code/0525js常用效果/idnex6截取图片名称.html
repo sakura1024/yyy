@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+		//练习2：点击文件上传按钮  弹出一个对话框  显示文件的名字（从全部路径中只拿到后面图片的名字）
+		//E:\自己练习\0520\img\1.jpg
+		// 类型只接收： jpg,png,bmp,gif
+			window.onload = function() {
+				
+				var oBtn = document.getElementById('btn');
+				oBtn.onclick = load;
+
+				function load() {
+					var oTxt = document.getElementById('txt').value;
+					//截取字符串
+					var starIndex=oTxt.lastIndexOf("\\");//从尾部开始检索斜杠\  转义字符要通过\来输出
+					//获取图片名称
+					var str=oTxt.substring(starIndex+1);//substring（a,b）获取字符串从下标a到下标b，但不包括b  长度为a-b
+					alert(str);
+					//获取文件的扩展名
+					var kName=str.substring(str.indexOf('.')+1);
+					if (kName=='jpg'||kName=='png'||kName=='bmp'||kName=='gif') {
+						alert('文件上传成功！');
+					} else{
+						//验证错误的 E:\自己练习\0520\img\1.jprg
+						alert('扩展名不对，文件上传失败！')
+					}
+				}
+			}
+		</script>
+	</head>
+
+	<body>
+		<input type="text" name="txt" id="txt" />
+		<button id="btn">上传图片</button>
+	</body>
+</html>

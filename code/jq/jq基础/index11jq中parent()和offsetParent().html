@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			li {
+				list-style: none;
+			}
+			
+			.ancestors * {
+				/* .ancestors里面的每个元素均执行以下样式*/
+				display: block;
+				border: 2px solid lightgrey;
+				color: lightgrey;
+				padding: 5px;
+				margin: 15px;
+			}
+			
+			#div1 {
+				position: relative;
+			}
+		</style>
+		<script type="text/javascript" src="js/jquery-3.0.0.js"></script>
+		<script type="text/javascript">
+			//结论：obj.parent()-->obj的直系父级
+			//结论：obj.offsetParent()-->obj的最近的有定位的父级
+
+			$(function() {
+				$('span').parent().css({
+					'color': 'red',
+					'border': '1px solid red'
+				})
+
+				$('b').offsetParent().css({
+					'color': 'red',
+					'border': '1px solid red'
+				})
+
+				$('input').click(function() {
+					$('#div1').css('position', 'static');
+					$('b').offsetParent().css({
+						'width':'600px',
+						'color': 'red',
+						'border': '5px solid plum'
+					})
+				})
+
+			})
+		</script>
+	</head>
+
+	<body>body
+		<div class="ancestors">
+			<div style="width:500px;">div (曾祖父)
+				<ul>ul (祖父)
+					<li>li (直接父)
+						<span>span</span>
+					</li>
+				</ul>
+			</div>
+
+			<div style="width:500px;" id="div1">div (祖父)
+				<p>p (直接父)
+					<b>bbbbbbb</b>
+				</p>
+			</div>
+		</div>
+		<input type="button" name="" id="" value="点击后，#div1定位取消,b的offsetParent()就为body了" />
+	</body>
+
+</html>

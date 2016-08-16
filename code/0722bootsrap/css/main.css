@@ -1,0 +1,32 @@
+.nimei{
+	min-height: 0.40rem;
+	color: white;
+	
+}
+.block{
+	height: 0.4rem;
+	background: pink;
+	border: 0.01rem solid white;
+	font-size: 0.12rem;
+	color: white;
+}
+.block1{
+	height: 0.9rem;
+	background: plum;
+	border: 0.01rem solid white;
+	color: white;
+}
+.block2{
+	height: 0.4rem;
+	border: 0.01rem solid white;
+	text-align: center;
+}
+.block2 i{
+	color: red;
+}
+.na{
+	
+}
+.block2 p{
+	text-align: center;
+}

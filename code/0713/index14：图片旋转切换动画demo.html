@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			
+			img{
+				transition: all 1s ease-in-out;
+			}
+			/*上面的图片绝对定位，本来浮在页面上，但是透明度为0，所以完全透明，完全显示下面的页面
+			 
+			 * 上面的图片刚开始x轴上平铺，y轴为0
+			 * */
+			.top{
+				position: absolute;
+				opacity: 0;
+				transform: scale(1,0);
+			}
+			/*hover时上面的图片透明度由0到1，y轴也平铺*/
+			.box:hover .top{
+				opacity: 1;
+				transform: scale(1,1);
+				
+			}
+			/*hover时上面的图片，先旋转360度，同时缩放到没有*/
+			.box:hover .bottom{
+				transform: rotate(360deg) scale(0, 0);
+				/*opacity: 0;*/
+			}
+			
+			
+		</style>
+	</head>
+
+	<body>
+		<div class="box">
+			<img src="img/ps6.jpg" class="top" />
+			<img src="img/ps4.jpg" class="bottom"/>
+		</div>
+		<!--<div id="testBox" class="demo anim_box">
+			<img class="anim_image anim_image_top" src="img/ps6.jpg" />
+			<img class="anim_image anim_image_bottom" src="img/ps4.jpg" />
+		</div>-->
+	</body>
+
+</html>

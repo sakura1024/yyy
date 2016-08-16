@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>网站标题飘动起来了吧哈哈哈哈哈哈</title>
+		<script type="text/javascript">
+				var dir = "left";
+
+			function scroll() {
+				// 获取title
+				var title = document.title;
+				if (dir == "left") {
+					// 获取title第一个汉字（数字、字母）。 
+					var firstch = title.charAt(0);
+					// 获取第二位到最后的信息
+					var leftstr = title.substring(1, title.length);
+					// 拼接输出信息 
+					document.title = leftstr + firstch;
+				} else if (dir == "right") {
+					var lastch = title.charAt(title.length - 1);
+					var leftstr = title.substring(0, title.length - 1);
+					document.title = lastch + leftstr;
+				} else {;
+				}
+			}
+
+			// 使用setInterval()方法执行 
+			setInterval("scroll()", 500);
+		</script>
+
+	</head>
+
+	<body>
+
+	</body>
+
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>event.data,event.type,event.target</title>
+		<style type="text/css">
+			#div1{
+				width: 100px;
+				height: 100px;
+				background: pink;
+			}
+			p,a,input{
+				background: pink;
+			}
+			div:not(#div1){
+				background: plum;
+				color: white;
+			}
+			li{
+				width: 100px;
+				height: 30px;
+				margin: 10px;
+				text-align: center;
+				background: pink;
+			}
+		</style>
+		<script type="text/javascript" src="js/jquery-3.0.0.js" ></script>
+		<script type="text/javascript">
+			$(function(){
+				/*
+				 
+				 * 选择器选择多个元素时，需要用逗号隔开
+				 * on()绑定多个事件时，事件之间空格隔开
+				 * ----------------on(events,[selector],[data],fn)------------------
+				 * on(events,[selector],[data],fn)
+				 * 注释：一个或多个元素绑定一个或多个事件
+				 * events：必需。绑定的事件
+				 * selector：可选。一个选择器字符串用于过滤器的触发事件的选择器元素的后代。
+				 * 			（如果选择的< null或省略，当它到达选定的元素，事件总是触发）。
+				 * data： 可选。当一个事件被触发时要传递event.data给事件处理函数
+				 * fn：  必需。当事件发生时运行的函数
+				 * 
+				 * ----------------bind(events[data],fn)------------------------
+				 * 与on()用法相似
+				 * 
+				 * 
+				 * ------------on()与bind()函数不同之处-----------------
+				 * on(events,[selector],[data],fn)
+				 * bind(events[data],fn)
+				 * 可以发现两者参数不同，on多个选择器参数
+				 * 作用不同之处：
+				 * 		js动态生成的标签，具有原来on绑定的事件，却不具有bind绑定的事件
+				 * 
+				 * */
+				//on(events,[data],fn)
+				$('#div1,p,a,input').on('click dblclick mouseover mouseout',{name:'zsn'},function(ev){
+					$('#div2').html("事件数据"+ev.data.name); //zsn
+					$('#div3').html("事件类型"+ev.type); 
+					$('#div4').html("事件源"+ev.target.nodeName); 
+				})
+				
+				//on(events,[selector],[data],fn)
+				$('ul').on('click mouseover mouseout','li',{name:'yyy'},function(ev){
+					$('#div2').html("事件数据"+ev.data.name); //zsn
+					$('#div3').html("事件类型"+ev.type); 
+					$('#div4').html("事件源"+ev.target.innerHTML); //事件源里面的内容
+				})
+				
+				
+				//bind(events,[data],fn)
+				$('ul li').bind('dblclick',function(){
+					alert('我是bind()绑定的事件')
+				})
+				//此时js动态添加的li元素具有上面on()绑定的事件,却不具有bind绑定的事件
+        		$('ul').append('<li>news li</li>');
+        		
+        		//-----------------------
+        		//$('li').clone(true).appendTo('ul');---->4个li全部克隆过来了
+        		
+        		$('#li').clone(true).appendTo('ul'); //--->//克隆过来的li无论是on()还是bind()绑定的事件都克隆过来了
+			})
+		</script>
+	</head>
+	<body>
+		<h5>#div1,p,a,input可进行click dblclick mouseover mouseout等事件</h1>
+		<h6>index30高级扩展on()和bind()函数区别以及event.data,event.type,event.target.html</h2>
+		<div id="div1">
+			我是一个div1
+		</div><br />
+		<p>我是一个段落</p><br />
+		<a href="#">我是一个连接</a>
+		<input type="button" name="btn" id="btn" value="我是一个按钮" /><br /><br />
+		<ul>
+			<li>0</li>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li id="li">4</li>
+		</ul>
+		<div id="div2"></div>
+		<div id="div3"></div>
+		<div id="div4"></div>
+	</body>
+</html>

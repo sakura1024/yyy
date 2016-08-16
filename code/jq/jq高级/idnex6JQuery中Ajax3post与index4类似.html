@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery-3.0.0.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				var baseUrl = 'http://localhost:9270/myzsn';
+				var obj = {
+					type: 'post',
+					/*
+					 * data:'$("form").serialize()', 
+					 * 如果将data属性直接添加在obj中，
+					 * 发送到后台的始终市空值
+					 * 因为js脚本自上而下加载，
+					 * 加载obj时，还没有发生点击事件（也就是说还没有向表单添加内容）
+					 * 加载到obj时，获取到的表单的内容全部为空
+					 * 所以发送到后台的始终市空值
+					 * 并且此时成功函数返回的值：Object {id: "31ba770a4dc0181b"}
+					 
+					 * 所以考虑应该时点击的时候，再从表单获取数据发送给后台
+					 * 即是点击事件时，动态的为对象obj添加data属性
+					 * 并且将表单数据的内容赋值给obj.data
+					 * 即obj.data=$("form").serialize();
+					 * 
+					 * 
+					 * *******************注意注意注意注意注意*****************************
+					 * form表单中一定要注意name属性值必须要与后台定义表格时里面的字段名一致!!!!!!
+					 * 
+					 * 
+					 * */
+					//data:'$("form").serialize()',
+					success: function(data) {
+						console.log(data);
+					}
+				}
+				$('#btn1').click(btnListener);
+
+				function btnListener(e) {
+					console.log('dddd')
+  					//$.ajax(baseUrl,$("form").serialize(), obj);
+					//为对象obj动态添加了一个data属性
+					console.log($('form').serialize());
+					obj.data=$("form").serialize();
+					$.ajax(baseUrl,obj);
+					e.preventDefault();	  //阻止button的默认提交事件
+				}
+
+			})
+		</script>
+	</head>
+
+	<body>
+		<form action="">
+			名称：<input type="text" name="name" id="" value="" /><br /><br />
+			<!-- name必须要与后台的name一致-->
+			链接：<input type="text" name="href" id="" value="" /><br />
+			<br />
+			<!-- name必须要与后台的name一致-->
+			<button id="btn1">点击</button>
+		</form>
+		
+	</body>
+
+</html>

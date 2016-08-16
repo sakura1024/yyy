@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#div1{
+				width: 100px;
+				height: 100px;
+				background: pink;
+			}
+			#div2{
+				width: 300px;
+				height: 300px;
+				border: 1px solid black;
+				position: absolute;
+				left: 8px;
+				top: 47px;
+			}
+		</style>
+	</head>
+	<script type="text/javascript" src="js/jquery-3.0.0.js" ></script>
+	<script type="text/javascript">
+	/*
+	 
+	 * stop() 方法停止当前正在运行的动画,其他动画仍继续运行。
+	 * $(selector).stop(stopAll,goToEnd)
+	 * $(selector).stop(true)   stopAll为true时，停止被选元素的所有加入队列的动画。 
+	 * $(selector).stop(true,true)  goToEnd为true时，停止被选元素的所有加入队列的动画，但允许完成当前动画。 
+	 * 
+	 * .finish()停止动画，并且所有动画效果立即到达指定值
+	 * 
+	 * */
+		$(function(){
+			
+			//开始运动
+			$('#btn1').click(function(){
+				$('#div1').animate({width:"300px"},4000).animate({height:"300px"},4000).animate({width:"100px"},4000).animate({height:"100px"},4000)
+			})
+			
+			//停止被选元素的所有加入队列的动画，但允许完成当前动画
+			$('#btn2').click(function(){
+				$('#div1').stop(true,true);
+			})
+			
+			//reset
+			$('#btn3').click(function(){
+				$('#div1').animate({width:"100px"}).animate({height:"100px"});
+			})
+			
+			
+			//停止被选元素的所有加入队列的动画
+			$('#btn4').click(function(){
+				$('#div1').stop(true);
+			})
+			
+			//停止被选元素当前运行的动画，其他后续动画仍会运行
+			$('#btn5').click(function(){
+				$('#div1').stop();
+			})
+			
+			//停止动画，并且所有动画效果立即到达指定值
+			$('#btn6').click(function(){
+				$('#div1').finish();
+			})
+		})
+	</script>
+	<body>
+		<input type="button" id="btn1" value="开始运动" />
+		<input type="button" id="btn2" value="停止被选元素的所有加入队列的动画，但允许完成当前动画。 " />
+		<input type="button" id="btn3" value="reset" />
+		<input type="button" id="btn4" value="停止被选元素的所有加入队列的动画。 " />
+		<input type="button" id="btn5" value="停止被选元素当前运行的动画，但其他后续动画仍会运行。 " />
+		<input type="button" name="btn5" id="btn6" value="停止动画，并且所有动画效果立即到达指定值" />
+		<br /><br />
+		
+		<div id="div2">
+			
+		</div>
+		<div id="div1">
+			
+		</div>
+	</body>
+</html>

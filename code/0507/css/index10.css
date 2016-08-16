@@ -1,0 +1,84 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+li{
+	list-style: none;
+	float: left;
+	text-align: center;
+}
+a{
+	text-decoration: none;
+	color: #666666;
+}
+.fl{
+	float: left;
+}
+.fr{
+	float: right;
+}
+.nav{
+	height: 30px;
+	line-height: 30px;
+	background: #F1F1F1;
+	border-top: 1px solid #AAAAAB;
+}
+.nav li{
+	width: 84px;
+	height: 30px;
+	padding-left: 9px;
+	border-left: 1px solid #F1F1F1;
+	border-right: 1px solid #F1F1F1;
+	margin-left: 70px;
+	position: relative;
+	font-size: 11px;
+	background: url(../img/down4.png) no-repeat 74px 13px;
+}
+.nav img{
+	width: 9px;
+	height: 5px;
+	margin-top: 12px;
+	margin-left: 6px;
+}
+.add-down{
+	visibility: hidden;
+	width: 311px;
+	height: 245px;
+	border: 1px solid #DDDDDD;
+	position: absolute;
+	margin-left: -10px;
+	margin-top: 30px;
+	z-index: -1;
+}
+.nav li:hover .add-down{
+	visibility: visible;
+}
+.nav li:hover {
+	background-color: white;
+	background-image: url(../img/jiantoushang.png);
+	background-repeat: no-repeat;
+	background-position: 74px 13px ;
+	border-left: 1px solid #DDDDDD;
+	
+	border-right: 1px solid #DDDDDD;
+	border-bottom: 1px solid white;
+}
+.nav ul:last-child li{
+	/*float: right;*/
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

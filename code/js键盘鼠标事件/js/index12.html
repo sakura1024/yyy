@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload=function(){
+				var oTxt1=document.getElementById('txt1');
+				var oBtn=document.getElementById('btn');
+				var oTxt2=document.getElementById('txt2');
+				//提交法一 ：点击按钮
+				oBtn.onclick=function(){
+					oTxt2.value=oTxt2.value+oTxt1.value+'\n';      //获取输入框的内容：一般用value   因为属于表单标签，里面有value属性
+					oTxt1.value='';
+				};
+				//提交法二：回车   提交
+				oTxt1.onkeydown=function(ev){
+					var oEvent=ev||event;
+					if(oEvent.keyCode==13){
+						oTxt2.value=oTxt2.value+oTxt1.value+'\n';       
+						oTxt1.value='';
+					}  
+				};
+			 
+				//提交法三：ctrl+回车   提交
+//				oTxt1.onkeydown=function(ev){
+//					var oEvent=ev||event;
+//					if (oEvent.keyCode==13&&oEvent.ctrlKey) {       //ctrlKey属性使用方法：oEvent.ctrlKey
+//						oTxt2.value=oTxt2.value+oTxt1.value+'\n';      
+//						oTxt1.value='';
+//					}
+//				};
+			}
+		</script>
+	</head>
+	<body>
+		<!--<h6>还有一些其他的键盘属性：ctrlKey、shiftKey、altKey</h6>
+		<h5>提交留言</h5>
+		<ul>
+			<li>回车 提交</li>
+			<li>ctrl+回车 提交</li>
+		</ul>-->
+		<h6>法2与法3不可以同时使用，否则无法生效，因为法3是&&，必须都满足时才可以使用</h6>
+		<input type="text" name="txt1" id="txt1" value="" />
+		<input type="button" name="btn" id="btn" value="发布" /><br /><br />
+		<textarea name="" rows="4" cols="10" id="txt2"></textarea>
+	</body>
+</html>

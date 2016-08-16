@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			var str="hello world,hello kittatady!";
+			//var reg=new RegExp("kitty",'g');
+			//var reg=new RegExp("ki[t]+y",'g');
+			//var reg=new RegExp("ki[t]+y",'g');
+			//var reg=new RegExp("ki[t]?y",'g');  //?:0个或多个
+			var reg=new RegExp("ki[ta]+y",'g');  //+:一个或多个 //kittatady true  //kitatay true  //kitatady false 
+			alert(reg.test(str));  //true false
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

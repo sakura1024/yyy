@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>单例模式</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var student={
+				name:"zhangsan",
+				age:20,
+				study:function(){
+					document.write(this.name+"正在学些...")
+				}
+			};
+			//第一次使用
+			var classes=[];
+			classes.push(student);
+			student.name="lisi";
+			student.age=18;
+			classes.push(student);
+			alert(classes.length);//2
+			alert(classes[0]===classes[1]);  //true  是存放在同一个空间的对象  
+			//打印数组对象
+			for (var i = 0; i < classes.length; i++) {
+				console.log(classes[i].name);   //全为lisi
+			}
+		</script>
+	</body>
+</html>

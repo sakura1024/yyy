@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>有如下字符串“11$12$3$8$9$10$30$50$60”,转成数组并对数组排序，然后求最大值，最小值，平均值</title>
+		<script type="text/javascript">
+			//有如下字符串“11$12$3$8$9$10$30$50$60”,转成数组并对数组排序，然后求最大值，最小值，平均值
+			//使用str.split(" ")  为改变原有数组
+			var str = "11$12$3$8$9$10$30$50$60"
+			document.write("原字符串:" + str + '<br /><br />');
+			//分割后的数组 (数组的内容其实是字符串)
+			var str1 = str.split("$")
+			document.write("分割后的数组:" + str1 + '<br /><br />');
+			//排序（调用函数后 数组的内容隐式转换为数值类型）
+			str1.sort(sortNumber); //
+			function sortNumber(a, b) {
+				return a-b;
+			}
+			document.write("排序后的数组（升序）:" + str1 + '<br /><br />');
+			//最大值  最小值
+			var max = str1[str1.length - 1];
+			var min = str1[0];
+			document.write('最大值：' + max + ",最小值：" + min + '<br /><br />');
+			var sum=0;
+			for(var i=0;i<str1.length;i++){
+				sum=sum+Number(str1[i]);
+			}
+			var ave=sum/str1.length;
+			document.write("数组的和为："+sum+",平均值为："+ave);
+		</script>
+	</head>
+
+	<body>
+	</body>
+
+</html>

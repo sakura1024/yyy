@@ -1,0 +1,25 @@
+<!DOCTYPE html onclick="alert('1')">
+<html onclick="alert(this.tagName)">
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			div{
+				padding: 100px;
+			}
+		</style>
+	</head>
+
+	<body onclick="alert(this.tagName)">
+		<div id="" style="background: pink;" onclick="alert(this.style.background)" >
+			<div id="" style="background: linen;" onclick="alert(this.style.background)">
+				<div id="" style="background: lightgrey;" onclick="alert(this.style.background)" >
+
+				</div>
+			</div>
+		</div>
+
+	</body>
+
+</html>

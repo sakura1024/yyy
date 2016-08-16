@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#div{
+				width: 200px;
+				height: 50px;
+				font-size: 30px;
+				font-weight: bold;
+				color: pink;
+			}
+		</style>
+		<script type="text/javascript">
+			/*
+												 
+									* 1.完成huo靠什么吃饭 文本框中姓名---》获取姓名中的每个字符的编码
+										2.求编码的累加和 然后对和进行去余
+										3.根据榆余数进行判断
+										  0：劳动
+										  1：要饭
+										  2.逗比
+										  3.才华
+										  4.颜值
+										  5.靠爹
+										  6.老婆
+										  7.嘴
+										  8.小三
+										  9.股票
+									 * */
+			window.onload = function() {
+				var oBtn=document.getElementById('btn');
+				var oDiv=document.getElementById('div');
+				oBtn.onclick=test;
+				function test() {
+					var oDiv=document.getElementById('div');
+					var oTxt = document.getElementById('txt').value;
+					if (oTxt == "") {
+						alert("输入不能为空！");
+					} else {
+					}
+					//字符编码累加和
+					var code = 0;
+					//遍历字符串中的字符是什么uniuecode编码用charcharCodeAt(i)
+					for (var i = 0; i < oTxt.length; i++) {
+						//code = code + oTxt[i].charCodeAt();
+						code = code + oTxt.charCodeAt(i);
+					}
+					//余数
+					var reste = code % 10;
+					var str = "";
+					switch (reste) {
+						case 0:
+							str = "颜值";
+							break;
+						case 1:
+							str = "干爹";
+							break;
+						case 2:
+							str = "文武双全";
+							break;
+						case 3:
+							str = "大长腿";
+							break;
+						case 4:
+							str = "该死的温柔";
+							break;
+						case 5:
+							str = "华佗在世";
+							break;
+						case 6:
+							str = "貌比潘安";
+							break;
+						case 7:
+							str = "医术高超";
+							break;
+						case 8:
+							str = "风流倜傥";
+							break;
+						case 9:
+							str = "华容月貌";
+							break;
+						default:
+							break;
+					}
+					oDiv.innerHTML=str;
+				}
+					var oTxt=document.getElementById('txt');
+					oTxt.onblur=test;
+				
+			}
+		</script>
+	</head>
+
+	<body>
+		<h1>看看你靠什么吃饭吧</h1>
+		<input type="text" name="txt" id="txt" value="" />
+		
+		<button class="btn" id="btn" >测试</button>
+		<div id="div">
+			
+		</div>
+	</body>
+
+</html>

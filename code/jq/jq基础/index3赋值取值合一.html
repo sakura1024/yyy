@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>取值赋值合一</title>
+		<script type="text/javascript" src="js/jquery-3.0.0.js" ></script>
+		<script type="text/javascript">
+		//取值赋值合一：
+		//例如：共用同一个函数html函数，同一个css函数
+		//根据函数内参数的个数  来判断时取值还是赋值
+		//一个参数的时候是取值，两个参数的时候是赋值
+		
+		$(function(){
+			//链式操作法 先赋值  后取值 
+			//alert($('#div1').html('hello').html());
+			//可以拆分成以下两句代码
+			$('#div1').html('hello');
+			console.log($('#div1').html());
+			
+			$('#div1').css('backgroundColor','red');
+			console.log($('#div1').css('backgroundColor'));
+			
+			//需要注意的是：当一组元素时，取值是取一组元素中的第一个  赋值是给所有元素都赋值
+			//赋值的时候却是全部赋值
+			
+			console.log($('li').html());
+			$('li').html('111');
+			
+			
+			console.log($('.div').filter('[title=hello]').html())
+		})
+		
+		
+		</script>
+	</head>
+	<body>
+		<div id="div1" class="div">
+			divvvvv
+		</div>
+		<ul>
+			<li>01</li>
+			<li>02</li>
+			<li>03</li>
+			<li>04</li>
+			<li>05</li>
+		</ul>
+		<div id="div2" title="hello" class="div">
+			div2
+		</div>
+	</body>
+</html>

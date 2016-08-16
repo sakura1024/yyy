@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#div1 {
+				width: 100px;
+				height: 100px;
+				background: pink;
+				position: absolute;
+				left: 0;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function() {
+				var ox = 0;
+				var oy = 0;
+				var oDiv = document.getElementById('div1');
+				oDiv.onmousedown = function(ev) {
+					var oEvent = ev || event;
+					ox = oEvent.clientX - oDiv.offsetLeft;
+					oy = oEvent.clientY - oDiv.offsetTop;
+					document.onmousemove = function(ev) {
+						var oEvent = ev || event;
+						var oDiv = document.getElementById('div1');
+						var oClientWidth = document.documentElement.clientWidth;
+						var oClientHeight = document.documentElement.clientHeight;
+						/*if (oDiv.offsetLeft < 0) {
+							oDiv.style.left = 0;
+						} else if (oDiv.offsetLeft >= oClientWidth) {
+							oDiv.style.left = oClientWidth + 'px';
+						} else {
+							oDiv.style.left = oEvent.clientX - ox + 'px';
+						}*/
+						var l = oEvent.clientX - ox;
+						var r = oEvent.clientY - oy;
+						if (l < 0) {
+							l = 0;
+						}else if(l>oClientWidth-oDiv.offsetWidth){
+							l=oClientWidth-oDiv.offsetWidth+'px';
+						}
+						if (r < 0) {
+							r = 0;
+						}else if(r>oClientHeight-oDiv.offsetHeight){
+							r=oClientHeight-oDiv.offsetHeight+'px';
+						}
+						oDiv.style.left = l + 'px';
+						oDiv.style.top = r + 'px';
+						/*
+						if (oDiv.offsetTop < 0) {
+							oDiv.style.top = 0;
+						} else if (oDiv.offsetTop >= oClientHeight) {
+							oDiv.style.height = oClientHeight + 'px';
+						} else {
+							oDiv.style.top = oEvent.clientY - oy + 'px';
+						}*/
+					}
+					document.onmouseup = function(ev) { ////document作用：超出可视区 比如地址栏时 仍旧可以松开鼠标起作用
+						document.onmousemove = function() { //document作用：超出div范围移动时 仍可以
+								return false;
+							}
+							//或者oDiv.onmousemove=null;
+						document.onmouseup = null; //不留垃圾  抬起之后  该函数也无用了
+					}
+					return false; //2012年时是用来阻止默认事件的  貌似现在没啥用了
+				}
+			}
+		</script>
+	</head>
+
+	<body>
+		<div id="div1">
+
+		</div>
+	</body>
+
+</html>

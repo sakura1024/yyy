@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>get(),text(),outerWidth()</title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#div1{
+				width: 100px;
+				height: 100px;
+				padding: 10px;
+				border: 10px solid black;
+				margin: 10px;
+				background: pink;
+			}
+			#div2{
+				width: 100px;
+				height: 100px;
+				padding: 10px;
+				border: 10px solid black;
+				margin: 10px;
+				background: pink;
+				display: none;
+			}
+		</style>
+		<script type="text/javascript" src="js/jquery-3.0.0.js" ></script>
+		<script type="text/javascript">
+			/*
+			 
+			 * get(),text(),outerWidth()
+			 * 
+			 * A.get()：将jQuery转成原生JS
+			 * 	 get():$('li').get().length==$('li').length
+			 *   第一个length是原生js中的length属性，第二个length为jQuery中的length属性
+			 *   aObj.get()无参数时，表示数组的所有元素
+			 * 	 aObj.get(1)有参数时，表示下标为1的数组元素
+			 * 	 注意：1.即使对象不是数组，get()里面也要有参数：$('#div').get(0).innerHTML="注意get参数问题"
+			 *        2.get()只有涉及到数组对象长度时，才可以不加参数，一般都要加参数
+			 *        3.get()只有涉及到数组对象长度时，直接可以用$('li').length代替更方便
+			 * 
+			 * B.outerWidth()
+			 *   首先注意原生js中offsetWidth：
+			 *      1.offsetWidth：width+padding+border  （padding，border均乘2）
+			 * 		2.当offsetWidth的对象display:none;此时对象的offsetWidth=0
+			 *   jQuery中的outerWidth()：
+			 * 		1.outerWidth()无参数时：width+padding+border  （padding，border均乘2）
+			 * 		2.outerWidth(true)有参数时：width+padding+border+margin  （padding，border，margin均乘2）
+			 * 		3.当outerWidth的对象display:none;此时对象的outerWidth=width+padding+border
+			 * 		结论：jQuery中的outerWidth()无论对象display是否为none，其值均是width+padding+border
+			 * 	
+			 * C.text():只接收文本，不接受标签
+			 *   html():文本、标签、空格均可识别
+			 * 	 html():
+			 * 		1.赋值和取值合一
+			 * 		2.赋值时，可以为一个数组一起赋值；
+			 * 		3.取值时，只能取出数组中首个元素的值
+			 * 
+			 *  text():
+			 * 		1.赋值和取值合一
+			 * 		2.赋值时，可以为一个数组一起赋值；
+			 * 		3.取值时，可以将一个数组中的所有文本一次性全部取出
+			 * 	
+			 *   html()，text()相同点:
+			 * 		1.赋值和取值合一
+			 * 		2.赋值时，可以为一个数组一起赋值；
+			 * 	 html(),text()不同点：
+			 * 		取值时，html()只能取出数组中首个元素的值
+			 * 				text()可以将一个数组中的所有文本一次性全部取出
+			 * 
+			 * */
+		</script>
+		<script type="text/javascript">
+			$(function(){
+				//get()无参
+				console.log('li的个数：'+$('li').get().length);     //4
+				console.log('li的个数：'+$('li').length);     //4 与上面代码等价
+				//get()有参
+				$('#div1').get(0).innerHTML="get()有参";
+				console.log('div1里面的内容：'+$('#div1').get(0).innerHTML);
+				
+				//offsetWidth
+				console.log('div1的offsetWidth：'+$('#div1').get(0).offsetWidth);  //100+10*2+10*2=140
+				console.log('div2的offsetWidth(display:none)：'+$('#div2').get(0).offsetWidth);  //100+10*2+10*2=140
+				
+				//outerWidth()
+				console.log('div1的outerWidth()：'+$('#div1').outerWidth());  //100+10*2+10*2=140
+				console.log('div1的outerWidth(true)：'+$('#div1').outerWidth(true));  //100+10*2+10*2=160
+				
+				console.log('div2的outerWidth()(display:none)：'+$('#div1').outerWidth());  //100+10*2+10*2=140
+				console.log('div2的outerWidth(true)(display:none)：'+$('#div2').outerWidth(true));  //100+10*2+10*2=160
+				
+				//text():只接收文本，不接受标签
+				//html():文本、标签、空格均可识别
+		
+				console.log("ul中的html():"+$('ul').html()) 
+				console.log("li中的html():"+$('li').html())   //li中的html():a  
+				console.log("li中的text():"+$('li').text())   //li中的text():abcd
+				$('li').html('HTML4');
+				//$('li').text('HTML5');
+				
+			})
+		</script>
+	</head>
+	<body>
+		<h1>看console.log</h1>
+		
+		<div id="div1">
+			div1
+		</div><br /><br />
+		<div id="div2">
+			div2
+		</div>
+		<ul>
+			<li>a</li>
+			<li>b</li>
+			<li>c</li>
+			<li>d</li>
+		</ul>
+		
+	</body>
+</html>

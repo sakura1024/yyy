@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			function register() {
+				// 获取表单对象  document.forms[0]
+				var userName = document.getElementById('name').value;
+				var pwd = document.getElementById('pwd').value;
+				var repwd = document.getElementById('repwd').value;
+				var aSex = document.getElementsByName('sex');
+				//验证 
+				if (userName == "" || userName == null || userName == 'null') {
+					alert('请输入用户名！');
+					return;
+				}
+				if ((pwd != "" || pwd != null || pwd != "null") && (repwd != "" || repwd != null || repwd != "null")) {
+					if (pwd != repwd) {
+						alert('密码不一致');
+						return;
+					}
+				} else {
+					alert('密码不能为空！');
+					return;
+				}
+				//判断性别
+				for (var i = 0; i < aSex.length; i++) {
+					if (aSex[i].checked == "checked") {
+						var sex = aSex[i].value;
+						return sex;
+					}
+				}
+				//创建节点
+				create(username, pwd, sex);
+			}
+			//创建节点
+			function create(username, pwd, sex) {
+				var table = document.getElementById('table');
+				//创建行
+				var tr = document.createElement('tr');
+				var td = document.createElement('td');
+				td.textContent = table.tBodies.rows.length + 1;
+				tr.appendChild(td);
+				var td = document.createElement('td');
+				td.textContent = username;
+				tr.appendChild(td);
+				var td = document.createElement('td');
+				td.textContent = sex;
+				tr.appendChild(td);
+				td.textContent = '<button>删除</button>';
+				tr.appendChild(td);
+			}
+		</script>
+	</head>
+
+	<body>
+		<form>
+
+			用户名:<input type="text" value="" id="name" /><br /><br /> 密&nbsp;码：
+			<input type="password" id="pwd" /><br /><br /> 确认密码：
+			<input type="password" id="repwd" /><br /><br /> 性别：
+			<input type="radio" name="sex" checked="" />男<input type="radio" name="sex" />女<br /><br />
+			<input type="submit" id="btn" name="" value="注册" onclick="register()" /><br />
+			<hr />
+		</form>
+		<table border="" cellspacing="" cellpadding="" id="table">
+		</table>
+	</body>
+
+</html>

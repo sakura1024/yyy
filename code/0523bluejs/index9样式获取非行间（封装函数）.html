@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.div1{
+				width: 100px;
+				height: 100px;
+				 background-color: pink;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload=function  () {
+				function getStyle (obj,name) {
+					if (obj.currentStyle) {
+						alert(obj.currentStyle[name]);
+					} else{
+						alert(getComputedStyle(obj,false)[name]);
+					}
+				}
+				var oDiv=document.getElementsByClassName('div1')[0];    //记得加下标
+				getStyle(oDiv,'background-color');     //获取背景色样式
+				//IE中只能获取单一样式 例如background-color  不能获取复合样式 例如background  但谷歌等高版本浏览器可以使用符合样式
+			}
+		</script>
+	</head>
+	<body>
+		<div class="div1">
+			
+		</div>
+	</body>
+</html>

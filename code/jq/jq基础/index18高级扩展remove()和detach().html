@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>remove()和detach()</title>
+		<style type="text/css">
+		div{
+			color: white;
+		}
+			#div1 {
+				width: 100px;
+				height: 100px;
+				background: pink;
+			}
+			
+			#div2 {
+				width: 100px;
+				height: 100px;
+				background: pink;
+			}
+			
+			#div3 {
+				width: 100px;
+				height: 100px;
+				background: pink;
+			}
+		</style>
+		<script type="text/javascript" src="js/jquery-3.0.0.js"></script>
+		<script type="text/javascript">
+			/*
+						 
+						 * remove()：删除的元素，其相应的事件和操作也被删除了
+						 * renmove()的返回值：就是被删除的元素对象  var oDiv=$('#div1').remove();
+						 * 
+						 * detach()和remove()一样，不同之处是：detach()保留了被删除其相应的事件和相应的操作行为
+						 * 
+						 * */
+		</script>
+		<script type="text/javascript">
+			$(function() {
+				$('#div1').click(function() {
+					alert('div1');
+				})
+				
+				$('#div2').click(function() {
+					alert('div2');
+				})
+				$('#btn1').click(function() {
+					//删除div1（remove()的返回值为被删除的元素）
+					oDiv1 = $('#div1').remove();
+				})
+
+				$('#btn2').click(function() {
+					//将div1放到body的末尾    此时新添加的div不再具有原来的点击事件
+					oDiv1.innerHTML="div1不再具有点击事件"
+					$('body').append(oDiv1);
+				})
+				
+				
+				$('#btn3').click(function() {
+					//删除div2（detach()的返回值为被删除的元素）
+					oDiv2 = $('#div2').detach();
+				})
+
+				$('#btn4').click(function() {
+					//将div2放到body的末尾    此时新添加的div具有原来的点击事件
+					oDiv2.innerHTML="div2仍具有点击事件"
+					$('body').append(oDiv2);
+				})
+
+			})
+		</script>
+	</head>
+
+	<body>
+		<input type="button" id="btn1" value="remove删除div1" />
+		<input type="button" id="btn2" value="将remove删除的div1添加到body的末尾" /><br /><br />
+		<input type="button" id="btn3" value="detach()删除div2" />
+		<input type="button" id="btn4" value="将detach删除的div2添加到body的末尾" />
+		<br /><br />
+		<div id="div1">
+			div1：此时的div1具有点击事件
+		</div><br />
+		<div id="div2">
+			div2
+		</div><br />
+		<div id="div3">
+			div3
+		</div><br />
+	</body>
+
+</html>

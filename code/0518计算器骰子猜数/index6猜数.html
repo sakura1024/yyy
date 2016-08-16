@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<!--<script type="text/javascript">
+			//法一
+			//猜一个数
+			var num = parseInt(prompt("请输入一个数字(0~50)"));
+			//系统产生随机数
+			var ran = parseInt(Math.random() * 50) + 1;
+			guess(num,ran);
+
+			function guess(num,ran) {
+				if (num == ran) {
+					alert("您太厉害了！竟然猜对了");
+				} else if (num < ran) {
+					var num = prompt("您猜小了,请重新输入", "");
+					guess(num,ran);
+				} else if (num > ran) {
+					var num = prompt("您猜大了，请重新输入", "");
+					guess(num,ran);
+				}
+			}
+		</script>-->
+		<script type="text/javascript">
+			window.onload = function() {
+				//系统产生随机数
+				var ran = parseInt(Math.random() * 50) + 1;
+				var oBtn = document.getElementById('btn');
+				oBtn.onclick = function guess() {
+					var oTxt1 = document.getElementById('txt1');
+					var num = parseInt(oTxt1.value);
+					if (num == ran) {
+						alert("您太厉害了！竟然猜对了");
+					} else if (num < ran) {
+						alert("您猜小了,请重新输入,您上次猜的值为："+num);
+					} else if (num > ran) {
+						alert("您猜大了，请重新输入，您上次猜的值为："+num);
+					}
+				}
+			}
+		</script>
+		<p>请输入您猜的数字(0~50)：</p>
+		<input type="text" name="txt1" id="txt1" value="" />
+		<input type="button" name="btn" id="btn" value="猜数" />
+
+	</body>
+
+</html>

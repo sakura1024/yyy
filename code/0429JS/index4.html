@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>只能输入数字的输入框</title>
+		<script type="text/javascript">
+			window.onload=function(){
+				var oTxt=document.getElementById('txt1');
+				oTxt.onkeydown=function(ev){
+					var oEvent=ev||event;
+					//如果键盘值为48~57  或者为 8 或者37 或者39  则返回按键值
+					if(oEvent.keyCode>=48&&oEvent.keyCode<=57||oEvent.keyCode==37||oEvent.keyCode==39||oEvent.keyCode==8){      //0:48   9:57  退格键：8   左键：37   右键：39
+						return oEvent.keyCode;   //返回按下的键的值
+					}else{
+						return false;   //否则阻止默认事件
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<h3>只能输入数字</h3>
+		<h4>原理：oEvent.keyCode来确定是否阻止默认事件</h4>
+		<h4>解决bug:键盘的左右键光标能移动--删除键也能使用</h4>
+		<input type="text" name="txt1" id="txt1" value="" />
+	</body>
+</html>

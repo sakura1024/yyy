@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>类似进度条</title>
+		<style type="text/css">
+			#div {
+				width: 1px;
+				height: 20px;
+				background: pink;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="div">
+			0%
+		</div>
+		<input type="button" id="btn" value="ran" />
+	</body>
+
+</html>
+<script type="text/javascript">
+	var oDiv = document.getElementById('div');
+	var oRan = document.getElementById('btn');
+	var oProgress = 0; //全局变量  进度条
+	/*
+	 * 
+	 * 法一
+	 * var timer=null;
+	oRan.onclick=function (){
+		timer=setInterval(function(){
+			if(oProgress<100){
+				oProgress++;
+			}
+		move();
+	},10);
+	}
+	function move(){
+		oDiv.style.width=oProgress+"px";
+		oDiv.innerHTML=oProgress+"%";
+	}*/
+
+	//法二
+	//动画函数兼容写法
+	window.requestAnimationFrame = window.requestAnimationFrame ||
+		window.webkitRequestAnimationFrame ||
+		window.mozRequestAnimationFrame ||
+		window.msRequestAnimationFrame;
+	//书写动画函数
+	function step() {
+		oProgress++;
+		oDiv.style.width = oProgress + "px";
+		oDiv.innerHTML = oProgress + "%";
+		//判定
+		if(oProgress < 100) {
+			window.requestAnimationFrame(step); //递归调用  保证达到百分之百，能够循环调用
+			//等到百分之百，停止动画
+		}
+	}
+	//执行函数
+	oRan.onclick = function() {
+		//点击开始  div盒子从出事状态执行动画
+		oDiv.style.width = 1 + "px"; //初始样式宽度为1px
+		oProgress = 0; //初始全局进度条变量为0
+		window.requestAnimationFrame(step); //调用动画方法
+
+	}
+</script>

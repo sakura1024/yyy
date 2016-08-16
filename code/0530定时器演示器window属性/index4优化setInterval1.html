@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#div1 {
+				width: 100px;
+				border: 1px solid black;
+			}
+		</style>
+		<script type="text/javascript">
+			var count = 0;
+			var timer = null;
+
+			function test() {
+				var oDiv = document.getElementById('div1');
+				count++;
+				oDiv.innerHTML = oDiv.innerHTML + count + "<br>";
+				timer = setTimeout(test, 1000);
+				//注意if的位置   位于timer上面时注意要用if..else 
+				//注意if的位置   位于timer下面的两种方法
+				//法一：clearTimeout(timer);
+				//法二：return; 
+				if (count==5) {
+					clearTimeout(timer);
+					//return;    //当count==5时，自动停止
+				}
+			}
+
+			function stop() {
+				clearTimeout(timer);
+			}
+		</script>
+	</head>
+
+	<body>
+		<button onclick="test()">打印</button>
+		<button onclick="stop()">停止打印</button><br /><br />
+		<div id="div1">
+
+		</div>
+
+	</body>
+
+</html>

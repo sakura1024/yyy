@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id="demo" width="600" height="600"></canvas>
+
+	</body>
+	<script type="text/javascript">
+		var oDemo = document.getElementById('demo');
+		oDemo.style.border = "1px solid #ccc"
+		//得到画布控制权
+		var ctx = oDemo.getContext('2d');
+		
+		ctx.fillStyle="rgba(255,0,0,1)";
+		ctx.shadowColor="green";
+		ctx.shadowBlur=5;
+		ctx.shadowOffsetX=5;
+		ctx.shadowOffsetY=5;
+		ctx.fillRect(100,100,200,100);
+		
+		
+		
+		
+		</script>
+		
+</html>

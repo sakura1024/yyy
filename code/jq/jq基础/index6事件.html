@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery-3.0.0.js" ></script>
+		<script type="text/javascript">
+			$(function(){
+				/*$('div').click(function(){
+					alert(123)
+				})*/
+				
+				
+				/*$('span').on('click mouseover',function(){
+					alert(123);
+					$('span').off();    //off()所在函数内的所有事件均只执行一次就结束
+				});*/
+				
+				
+				$('span').on('click mouseover',function(){
+					alert(123);
+					$('span').off('mouseover');    //off()所在函数内的mouseover事件只执行一次就结束
+					//此时，click事件  只要点击就执行
+				});
+				
+				
+				/*$('span').on({
+					'click':function(){
+						alert(1123);
+						$('span').off();  //off()点击事件进行一次之后 关闭点击事件
+					}
+				});*/
+				
+				
+				
+				/*
+				$('span').one({         //one()点击事件只执行一次
+					'click':function(){  
+						alert(1123);
+						
+					}
+				});
+				*/
+				
+				
+				//scrollTop()获取滚动距离
+				$(document).click(function(){
+					console.log($(window).scrollTop());
+					
+				})
+				
+			})
+		</script>
+	</head>
+	<body style="height: 2000px;">
+		<span id="div1">
+			soan
+		</span>
+	</body>
+</html>

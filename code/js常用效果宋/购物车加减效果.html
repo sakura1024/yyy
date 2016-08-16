@@ -1,0 +1,117 @@
+
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			table {
+				width: 800px;
+				border-collapse: collapse;
+			}
+			
+			td {
+				text-align: center;
+			}
+			
+			#title {
+				background-color: gainsboro;
+			}
+			
+			.oper {
+				width: 20px;
+				height: 20px;
+				text-align: center;
+				display: inline-block;
+				border: 1px solid #ccc;
+			}
+			
+			.showNumber {
+				display: inline-block;
+				width: 50px;
+				height: 20px;
+				border: 1px solid #ccc;
+			}
+		</style>
+	</head>
+
+	<body>
+		<script>
+		window.onload=function(){
+//			  alert(document.getElementsByClassName("oper").length);
+//根据类名class属性获取标签对象
+               var arrClassName= document.getElementsByClassName("oper");
+               var arrShow=document.getElementsByClassName("showNumber");//数组
+               var eachTotal = document.getElementsByClassName("eachTotal");
+              
+               for(i=0;i<arrClassName.length;i++)
+               {
+               	arrClassName[i].index = i;      //一般使用index表示索引  整型数字
+               	 if(i%2==0)    // 0 1  arrShow[0]
+               	 {
+               	 	//偶数   -
+               	 	arrClassName[i].onclick=function(){
+               	 		
+               	 		var eachNum = arrShow[parseInt(this.index/2)].innerHTML
+               	 		eachNum = parseInt(arrShow[parseInt(this.index/2)].innerHTML)-1;
+               	 		
+ 						var tdEle = document.querySelectorAll("tr>td");
+               	 		var price =parseFloat(tdEle[2].innerHTML) ; 
+               	 		 tdEle[4].innerHTML=(price*eachNum).toFixed(2);
+               	 		 
+               	 		if(arrShow[parseInt(this.index/2)].innerHTML<=1){
+               	 			arrShow[parseInt(this.index/2)].innerHTML=1;
+               	 		}
+               	 		
+               	 	}
+               	 	
+               	 }else{        // 2 3   arrshow[1]
+               	 	//奇数   +
+               	 	arrClassName[i].onclick=function(){
+               	 		arrShow[parseInt(this.index/2)].innerHTML=parseInt(arrShow[parseInt(this.index/2)].innerHTML)+1;
+               	 	}
+               	 }
+               }
+               
+			 }
+		</script>
+		<form action="" method="get">
+			<table>
+				<tr id="title">
+					<th><input type="checkbox" id="chooseAll" />全选</th>
+					<th>商品</th>
+					<th>单价(元)</th>
+					<th>数量</th>
+					<th>小计(元)</th>
+					<th>操作</th>
+				</tr>
+				<tr>
+					<td><input type="checkbox" name="chooseOne" />
+						<!--<img src="img/a2.jpeg" />-->
+					</td>
+					<td>曼秀雷敦唇膏</td>
+					<td>31.9</td>
+					<td>
+						<span class="oper">-</span><span class="showNumber">1</span><span class="oper">+</span>
+					</td>
+					<td class="eachTotal">31.9</td>
+					<td><a href="">删除</a></td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" name="chooseOne" />
+						<!--<img src="img/a2.jpeg" />-->
+					</td>
+					<td>曼秀雷敦唇膏</td>
+					<td>29.9</td>
+					<td>
+						<span class="oper">-</span><span class="showNumber">1</span><span class="oper">+</span>
+					</td>
+					<td class="eachTotal">29.9</td>
+					<td><a href="">删除</a></td>
+				</tr>
+			</table>
+		</form>
+	</body>
+
+</html>

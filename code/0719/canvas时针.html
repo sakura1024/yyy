@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+
+	<body>
+		<canvas id="demo" width="600" height="600">对不起，您的浏览器版本过低！</canvas>
+	</body>
+	<script type="text/javascript">
+		var odemo = document.getElementById('demo');
+		var ctx = odemo.getContext('2d');
+		odemo.style.border = "1px solid #ccc";
+		
+		var oDate=new Date();
+		var oHour=oDate.getHours();
+		var oMin=oDate.getMinutes();
+		var oSen=oDate.getSeconds();
+		
+		
+		
+		//画钟表上的分钟的小格
+		for(var i = 0; i < 60; i++) {
+			ctx.beginPath();
+			ctx.moveTo(200, 200);
+			ctx.arc(200, 200, 150, 6 * i * Math.PI / 180, 6 * (i + 1) * Math.PI / 180, false);
+			ctx.stroke();
+			ctx.closePath();
+		}
+		
+		//清除中间多余的线条
+		ctx.beginPath();
+		ctx.fillStyle = "white";
+		ctx.moveTo(200, 200);
+		ctx.arc(200, 200, 143, 0 * Math.PI / 180, 360 * Math.PI / 180, false);
+		ctx.fill();
+		ctx.closePath();
+		
+		//画钟表上刻钟的线
+		for(var i = 0; i < 12; i++) {
+			ctx.beginPath();
+			ctx.lineWidth=3;
+			ctx.moveTo(200, 200);
+			ctx.arc(200, 200, 150, 30 * i * Math.PI / 180, 30 * (i + 1) * Math.PI / 180, false);
+			ctx.stroke();
+			ctx.closePath();
+		}
+		
+		//清除中间多余的线
+		ctx.beginPath();
+		ctx.fillStyle = "white";
+		ctx.moveTo(200, 200);
+		ctx.arc(200, 200, 135, 0 * Math.PI / 180, 360 * Math.PI / 180, false);
+		ctx.fill();
+		ctx.closePath();
+		
+		//画钟表时针
+		ctx.beginPath();
+		ctx.lineWidth=5;
+		ctx.moveTo(200, 200);
+		ctx.arc(200, 200, 75, 0, 0, false);
+		ctx.stroke();
+		ctx.closePath();
+		
+		//画钟表分针
+		ctx.beginPath();
+		ctx.lineWidth=3;
+		ctx.moveTo(200, 200);
+		ctx.arc(200, 200, 105, 1, 1, false);
+		ctx.stroke();
+		ctx.closePath();
+		
+		//画钟表秒针
+		ctx.beginPath();
+		ctx.lineWidth=1;
+		ctx.moveTo(200, 200);
+		ctx.arc(200, 200, 143, 2, 2, false);
+		ctx.stroke();
+		ctx.closePath();
+	</script>
+
+</html>

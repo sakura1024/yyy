@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			td{
+				padding: 3px 5px;
+			}
+			#div{
+				/*width: 453px;
+				height: 81px;*/
+				position: absolute;
+				left: 600px;
+				top: 70px;
+				border: 1px solid #ccc;
+				display: none;
+			}
+			#div2{
+				width: 100px;
+				height: 50px;
+				border: 1px solid #ccc;
+				position: absolute;
+				left: 600px;
+				top: 20px;
+			}
+		</style>
+		<script type="text/javascript" src="js/index4AJAX封装.js" ></script>
+		<script type="text/javascript" src="js/封装的绑定事件.js" ></script>
+		<script type="text/javascript">
+			/**、
+			 * 获取title picpath url 将所有的图片和标题获取到 给标题添加超链接为url
+			 * 每个里面放一个收藏的按钮  点击收藏放到我的收藏里面，类似京东我的购物车  购物车的数量会有变化
+			 *但是别叫购物车，叫我的收藏
+			 *鼠标移上后下面显示所有购物车的东西
+			 */
+			var method="GET";
+			var url="data.json";
+			var async=true;
+			ajaxFn(method, url, async, secFn);
+			function secFn(text){
+				
+//				console.log(text)
+				//JSON返回来的字符串转换为对象
+				var tempObj=JSON.parse(text);
+				//将里面的addDatas赋值给aAddDatas
+				var aAddDatas=tempObj.addDatas.resultlist;
+				//console.log(aAddDatas.length);
+				//遍历数组aAddDatas 获取里面每个的title picpath url
+				for (var i = 0; i < aAddDatas.length; i++) {
+					var oTab=document.getElementsByTagName('table')[0];
+					//创建oTr
+					var oTr=document.createElement('tr');
+					
+					//创建td  放图片
+					var oTd=document.createElement('td');
+					var oImg=document.createElement('img');
+					oImg.style.width="70px";
+					oImg.style.height="70px";
+					
+					oImg.src=aAddDatas[i].picPath;
+					oTd.appendChild(oImg);
+					oTr.appendChild(oTd);
+					
+					//创建td  放a链接
+					var oTd=document.createElement('td');
+					var oA=document.createElement('a');
+					oA.innerHTML=aAddDatas[i].title;
+					oA.href=aAddDatas[i].url;
+					oA.target="_blank";
+					oTd.appendChild(oA);
+					oTr.appendChild(oTd);
+					
+					//创建td  放收藏按钮
+					var oTd=document.createElement('td');
+					oTd.innerHTML="<input type='button' value='收藏' />";
+					oTr.appendChild(oTd);
+					EventUtil1.bindHandler(oTd, "click", collectFn);
+					oTab.tBodies[0].appendChild(oTr);
+					
+				}
+				function collectFn(){
+					//oDiv=document.getElementById('div');
+					oDiv.style.display="block";
+					//将点击收藏按钮的宝贝放到该div中
+					var aOtrchildren=this.parentNode.children;
+					
+					for (var i = 0; i < aOtrchildren.length-1; i++) {
+						var oTr=document.createElement('tr');
+						oTr.style.display="none";
+						
+						var oTd=document.createElement('td');
+						oTd.innerHTML=aOtrchildren[i].innerHTML;
+						oTr.appendChild(oTd);
+						oDiv.appendChild(oTr);
+						
+					}
+					oDiv2.innerHTML="我的收藏"+(++n);
+					//aOtrchildren.length;
+					
+				}
+				var n=0;
+				var oDiv=document.getElementById('div');
+				var oDiv2=document.getElementById('div2');
+				EventUtil1.bindHandler(oDiv2, "mouseover", showGoods);
+				function showGoods(){
+					var aTr=oDiv.getElementsByTagName('tr');
+					for (var i = 0; i < aTr.length; i++) {
+						aTr[i].style.display="block";
+					}
+					//this.children.style.display="block";
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<table border="1" cellspacing="0" cellpadding="">
+			<tbody>
+			
+			</tbody>
+		</table>
+		<div id="div2">
+			
+		</div>
+		<div id="div">
+			
+		</div>
+		
+	</body>
+</html>

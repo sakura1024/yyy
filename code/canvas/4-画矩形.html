@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#demo{
+				border: 1px solid #ccc;
+			}
+		</style>
+	</head>
+	<body>
+				<canvas id="demo" width="600" height="800"></canvas>
+	</body>
+	<script type="text/javascript">
+		var oDemo=document.getElementById('demo');
+		//得到画布控制权
+		var ctx=oDemo.getContext('2d');
+		
+		
+		//法一
+		//画矩形（横坐标，纵坐标，宽度，高度）
+		ctx.rect(100,100,200,100);
+		ctx.strokeStyle="red";
+		ctx.stroke();
+		
+		
+		//法二
+		ctx.lineWidth=10;
+		ctx.strokeRect(300,300,100,50);
+		
+		
+		//法三  
+		ctx.rect(300,400,100,50);
+		ctx.fillStyle="yellow";
+//		ctx.stroke();
+		ctx.fill();
+		
+		//法四
+		ctx.fillRect(300,500,50,20);
+		
+		
+		//裁切矩形
+		ctx.clearRect(300,400,30,30)
+	</script>
+</html>

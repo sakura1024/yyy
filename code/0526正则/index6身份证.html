@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			//身份证号码 15或者18位 最后一位可以是xX  (注意是15或18位  不是15-18位)
+			var num = '1311821991092766';
+			var reg = new RegExp("^[1-9]([0-9]{14}|[0-9]{16}[0-9xX])$");
+			alert(reg.test(num));
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#parent{
+				position: relative;
+				width: 300px;
+				height: 300px;
+				background: pink;
+			}
+			#btn{
+				position: absolute;
+				width: 200px;
+				height: 200px;
+				background: white;
+				right: 0;
+				bottom: 0;
+			}
+			#zhezhao{
+				position: absolute;
+				width: 200px;
+				height: 200px;
+				background: black;
+				opacity: 0.6;
+				right: 0;
+				bottom: 0;
+				color: white;
+				display: none;
+			}
+			#map{
+				position: absolute;
+				width: 50px;
+				height: 50px;
+				background: red;
+				right: 0;
+				bottom: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="parent">
+			<div id="btn">
+				第三层白色按钮-1
+			</div>
+			<div id="zhezhao">
+				第二层黑色遮罩1
+			</div>
+			<div id="map">
+				第一层红色map层 2
+			</div>
+		</div>
+		<script type="text/javascript">
+			var obtn=document.getElementById('btn');
+			var zhe=document.getElementById('zhezhao');
+			var map1=document.getElementById('map');
+			obtn.onclick=function(){
+				obtn.style.zIndex="-1"
+				zhe.style.display="block";
+				zhe.style.zIndex="1";
+				map1.style.zIndex="2222";
+				map1.innerHTML="第一层红色map层 2新添加"
+			}
+		</script>
+	</body>
+</html>

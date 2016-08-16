@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<canvas id="demo" width="600" height="600"></canvas>
+
+	</body>
+	<script type="text/javascript">
+		var oDemo = document.getElementById('demo');
+		oDemo.style.border = "1px solid #ccc"
+		//得到画布控制权
+		var ctx = oDemo.getContext('2d');
+		
+		
+		//创建线性渐变
+		var obj=ctx.createLinearGradient(100,100,200,200);
+		
+		//添加渐变颜色
+		obj.addColorStop(0.3,"red");
+		obj.addColorStop(0.5,"pink");
+		obj.addColorStop(0.7,"plum");
+		obj.addColorStop(0.9,"#f40");
+		obj.addColorStop(1,"#ccc");
+		
+		//绘制
+		ctx.fillStyle=obj;
+		
+		ctx.fillRect(100,100,200,200)
+		
+		</script>
+</html>

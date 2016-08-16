@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>拖拽原理</title>
+		<style type="text/css">
+			#div1{
+				width: 200px;
+				height: 200px;
+				background: red;
+				position: absolute;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload=function(){
+				var oDiv=document.getElementById('div1');
+				var disX;
+				var disY;
+				document.onmousedown=function(ev){   //现有点击事件，才有鼠标移动事件，然后才有鼠标弹起事件
+					var oEvent=ev||event;
+					disX=oEvent.clientX-oDiv.offsetLeft;
+					disY=oEvent.clientY-oDiv.offsetTop;
+					document.onmousemove=function(ev){       //oDiv.onmousemove必须放在oDiv.onmousedown里面，否则效果不对--鼠标弹起之后不能继续点击实现原有效果
+					var oEvent=ev||event;
+					oDiv.style.left=oEvent.clientX-disX+'px';
+					oDiv.style.top=oEvent.clientY-disY+'px';
+					}
+					document.onmouseup=function(){               //oDiv.onmouseup事件无论是放在oDiv.onmousemove里面还是与oDiv.onmousemove评级，效果一样
+						document.onmousemove=null;  
+						document.onmouseup=null;
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<h4>各版本都兼容(完美解决bug)</h4>
+		<h5>上版本bug:当鼠标拖拽的较快时，光标会脱离div，div会停止移动</h5>
+		<h6>上版本bug原因：div比较小，鼠标移动过快时，会脱离div的范围，不在div上时，移动无效</h6>
+		<h6>解决bug方法：将鼠标按下，鼠标移动，鼠标弹起均加在</h6>
+		<div id="div1">
+			
+		</div>
+	</body>
+</html>

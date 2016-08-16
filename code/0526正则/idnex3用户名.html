@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			//假设用户名只能是数字 字母  下划线 用户名至少为6位  但是不能以数字开头 用户名至少为6位
+			//[a-zA-Z0-9_]   --->数字 字母  下划线
+			//开头^[a-zA-Z]  --->不能以数字开头
+			var str = '_a12343fdafafsf_';
+			//var reg = new RegExp("^[a-zA-Z_][a-zA-Z0-9_]{5}$", "g");  //长度为6
+			var reg = new RegExp("^[a-zA-Z_][a-zA-Z0-9_]{5,}$", "g");//长度至少为6
+			//var reg = new RegExp("^[a-zA-Z_][a-zA-Z0-9_]{5,11}$", "g"); //长度为6-12之间
+			alert(reg.test(str));
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			//定义一个数组，放五个随机整数 到数组中 随机数为1~10之间的随机数,并且五个随机数不能重复， 打印五个整数的累加和
+			var arr = new Array(5);
+			var sum = 0;
+			//为数组元素赋值 
+			for (var i = 0; i < arr.length; i++) {
+				//为元素赋值随机数
+				var flag=true;
+				arr[i] = parseInt(Math.random() * 5) + 1;
+				//当前产生的随机数和数组之前赋值的元素做比较  一旦相同 重新为当前数组元素产生随机数 并且进行判断
+				for (var j = 0; j < i; j++) {
+					if (arr[i] == arr[j]) {
+						flag=false;
+						i--;				//随机数与之前元素相同  数组i重新赋值
+						break;           //跳出内层循环
+					} 
+				}
+				if (flag) {
+					sum=sum+arr[i];
+				}
+			}
+			
+			document.write(arr + '<br />');
+			document.write(sum);
+		</script>
+	</body>
+
+</html>

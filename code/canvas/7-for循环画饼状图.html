@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#demo {
+				border: 1px solid #ccc;
+			}
+		</style>
+	</head>
+
+	<body>
+		<canvas id="demo" width="600" height="600"></canvas>
+	</body>
+	<script type="text/javascript">
+		var data = [{
+			"value": .4,
+			"color": "red",
+			"title": "应届生"
+
+		}, {
+			"value": .3,
+			"color": "green",
+			"title": "社会招生"
+		}, {
+			"value": .2,
+			"color": "yellow",
+			"title": "老学员推荐"
+		}, {
+			"value": .1,
+			"color": "blue",
+			"title": "公开课"
+		}];
+		var oDemo = document.getElementById('demo');
+		//得到画布控制权
+		var ctx = oDemo.getContext('2d');
+
+		var beginAngle = 0;
+		var endAngle = 0;
+
+		//圆心
+		var cenX = oDemo.width / 2;
+		var cenY = oDemo.height / 2;
+
+		for(var i = 0; i < data.length; i++) {
+			ctx.beginPath();
+			var odata = data[i];     //获取数组中的元素
+			beginAngle = endAngle;   //开始角度等于结束角度
+			endAngle = beginAngle + odata.value * 360;    //结束角度=开始角度+百分比*360
+			var color = odata.color;   //获取该部分的颜色
+			ctx.moveTo(cenX, cenY);    //起始点  即圆心
+			ctx.arc(cenX, cenY, 100, beginAngle * Math.PI / 180, endAngle * Math.PI / 180, false);//画圆
+			ctx.fillStyle = color;  //设置填充颜色
+			ctx.fill();           //填充
+		}
+	</script>
+
+</html>

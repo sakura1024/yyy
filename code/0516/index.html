@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			window.onload = function() {
+				var savings = prompt("请输入本金：");
+				document.write("每年的利率："+"<br />"+"<div>1:0.65 </div>"+"<div>2:0.73 </div>"+"<div>1:0.80 </div>"+"<div>1:1.18 </div>");
+				var year = parseInt(prompt("请输入存款年限："));    //如果不加parseInt的话  下面就case里面的value要改成"value"
+				var sum = 0;
+				switch (year) {
+					case 1:
+						console.log("hah");
+						sum = savings * (1 + 0.65 / 100);
+						document.write("总金额为：" + sum);
+						break;
+					case 2:
+						sum = savings * (1 + 0.73 / 100)^2;
+						document.write("总金额为：" + sum);
+						break;
+					case 3:
+						sum = savings * (1 + 0.80 / 100)^3;
+						document.write("总金额为：" + sum);
+						break;
+					case 4:
+						sum = savings * (1 + 0.95 / 100)^4;
+						document.write("总金额为：" + sum);
+						break;
+					case 5:
+						sum = savings * (1 + 1.18 / 100)^5;
+						document.write("总金额为：" + sum);
+						break;
+				}
+			}
+		</script>
+	</body>
+
+</html>

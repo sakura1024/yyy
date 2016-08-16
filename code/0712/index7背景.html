@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.div {
+				width: 150px;
+				height: 126px;
+				padding: 30px;
+				border: 10px dashed green;
+				background: yellow url(img/c1_r8_c57.jpg) no-repeat;
+				
+				/*
+				 * background-origin:背景色、图片从哪开始定位
+				 * background-clip：从哪开始绘制背景色或者背景图片
+				 * */
+				/*背景图片在在border底部*/
+				background-origin: border-box;
+				/*相对于谁来定位*/
+				/*background-origin: padding-box;*/
+				/*背景图片在在内容处*/
+				/*background-origin: content-box;*/
+				/*背景图在padding处*/
+				/*从哪开始绘制背景*/
+				/*background-clip: border-box;*/
+				background-clip: padding-box;
+				/*background-clip: content-box;*/
+				
+				
+				
+				 /*background-origin: border-box;
+				 background-origin: padding-box;
+				 background-origin: content-box;
+				 background-clip: border-box; 
+				 background-clip: padding-box; 
+				 background-clip: content-box; */
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="div">
+
+		</div>
+	</body>
+
+</html>

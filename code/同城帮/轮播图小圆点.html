@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			body {
+				font: 12px/1.5 "Microsoft YaHei", "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+				color: #5A5A5A;
+				padding: 0;
+				margin: 0;
+			}
+			
+			a {
+				color: #5A5A5A;
+				text-decoration: none;
+			}
+			
+			li {
+				float: left;
+				list-style: none;
+			}
+			
+			.banner {
+				width: 1200px;
+				height: 340px;
+				margin: 0 auto;
+				position: relative;
+				margin: 20px auto;
+			}
+			
+			.banner ul {
+				width: 4800px;
+				height: 340px;
+				position: absolute;
+				left: 0;
+			}
+			
+			.banner li {
+				width: 1200px;
+				height: 340px;
+			}
+			
+			.banner img {
+				width: 1200px;
+				height: 340px;
+			}
+			/*小圆点*/
+			
+			.cercile {
+				/*clear: both;*/
+				background: black;
+				width: 100px;
+				text-align: center;
+				height: 20px;
+				position: absolute;
+				bottom: -30px;
+			}
+			
+			.cercile span {
+				display: inline-block;
+				width: 20px;
+				height: 20px;
+				border-radius: 12px;
+				background: #97A6E5;
+			}
+		</style>
+		<script type="text/javascript">
+			var count = 1;
+			var timer = null;
+			window.onload = function() {
+				timer = setInterval(next, 1000);
+				var aCSpan = document.getElementById('cercile').children;
+				var oLbImg = document.getElementById('lbimg');
+				for (var i = 0; i < aCSpan.length; i++) {
+					aCSpan[i].index = i;
+					aCSpan[i].onclick = function() {
+						oLbImg.src = "img/" + (this.index + 1) + "png";
+
+						for (var j = 0; j < aCSpan.length; j++) {
+							aCSpan[j].style.background = "#97A6E5";
+						}
+						this.style.background = "#333";
+
+					}
+
+				}
+			}
+
+			function next() {
+				count++;
+				if (count == 5) {
+					count = 1;
+				}
+				changeSrc();
+				changeCirBgd();
+
+			}
+
+			function changeSrc() {
+				var oLbImg = document.getElementById('lbimg');
+				oLbImg.src = 'img/' + count + '.png';
+			}
+
+			function changeCirBgd() {
+				var aCSpan = document.getElementById('cercile').children;
+				for (var i = 0; i < aCSpan.length; i++) {
+					aCSpan[i].style.background = "#333333";
+				}
+				aCSpan[count - 1].style.background = "#97A6E5";
+			}
+		</script>
+	</head>
+
+	<body>
+		<div class="banner">
+			<ul id="lb">
+				<li><img src="img/1.png" id="lbimg" /></li>
+			</ul>
+			
+			<div id="cercile" class="cercile">
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+			</div>
+	</body>
+
+</html>

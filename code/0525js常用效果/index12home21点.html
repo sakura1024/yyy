@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body {
+				color: white;
+				font-weight: bold;
+				padding-top: 30px;
+			}
+			
+			div,
+			span {
+				border-radius: 10px;
+				text-align: center;
+			}
+			
+			#div {
+				width: 375px;
+				height: 150px;
+				margin: 0 auto;
+			}
+			
+			#div div {
+				width: 105px;
+				height: 150px;
+				margin-right: 30px;
+				background: plum;
+				float: left;
+				line-height: 150px;
+			}
+			
+			#div div:last-child {
+				margin-right: 0;
+			}
+			
+			#discurrent {
+				width: 200px;
+				height: 30px;
+				margin: 30px auto;
+				line-height: 30px;
+				background: lightgray;
+			}
+			
+			#span {
+				width: 490px;
+				height: 30px;
+				margin: 0 auto;
+			}
+			
+			span {
+				display: inline-block;
+				float: left;
+				width: 100px;
+				height: 30px;
+				line-height: 30px;
+				margin-right: 30px;
+				background: lightgray;
+			}
+			span:last-child{
+				margin-right: 0;
+			}
+			#end {
+				width: 150px;
+				height: 30px;
+				margin: 30px auto;
+				background: lightgray;
+			}
+		</style>
+		<script type="text/javascript">
+			/**
+											     * 扩展：
+													  完善扑克牌的游戏:(凭靠你的运气，赢得更多的金钱)
+													  鼠标点[发牌]按钮进行发牌，点击[增加赌注]按钮可增加赌注.将扑克信息显示到页面中
+													  其中:
+													  扑克中1-10点牌分别对应1-10点的数值，J、Q、K同样只能代表10点,大小王既能代表1点又能代表10点。
+													  见图片
+												 *
+												 *
+												 *
+											     *
+												 *
+												*
+												*/
+		</script>
+	</head>
+
+	<body>
+		<div id="div">
+			<div id="div1">
+				第一张牌
+			</div>
+			<div id="div2">
+				第二张牌
+			</div>
+			<div id="div3">
+				第三张牌
+			</div>
+		</div>
+		<div id="discurrent">
+			当前赌注：
+		</div>
+		<div id="span">
+			<span id="drawCard">
+			翻牌
+		</span>
+			<span id="addmoney">
+			增加赌注
+		</span>
+			<span id="addCard">
+			要牌
+		</span>
+			<span id="div4">
+			paly again
+		</span>
+		</div>
+		<div id="end">
+			要牌结束
+		</div>
+	</body>
+
+</html>

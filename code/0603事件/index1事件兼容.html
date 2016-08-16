@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>事件兼容</title>
+		<script type="text/javascript">
+			window.onload=function(){
+				document.onclick=function(ev){
+					var oEvent=ev||event;
+					alert(oEvent.clientX+","+oEvent.clientY);
+				}
+			}
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

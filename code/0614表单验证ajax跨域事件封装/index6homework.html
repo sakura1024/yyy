@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#div {
+				display: none;
+				width: 200px;
+				height: 542px;
+				border: 1px solid #ccc;
+				position: absolute;
+				top: 70px;
+				left: 100px;
+			}
+		</style>
+		<script src="js/index4AJAX封装.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/封装的绑定事件.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+		/*没有封装ajax时的代码
+			var xmlhttp;
+			if (window.XMLHttpRequest) {
+				xmlhttp = new XMLHttpRequest();
+			} else {
+				xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+			xmlhttp.open("GET", "car.json", true);
+			xmlhttp.send();
+			var tempObj = null;
+			var aListContents = null;
+			xmlhttp.onreadystatechange = function() {
+				if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+					//将接收到的json里的字符串文本赋值给tempText
+					var tempText = xmlhttp.responseText;
+					//将接收到的文本转为对象
+					tempObj = JSON.parse(tempText);
+					//将对象里面的数组赋值给aListContents
+					aListContents = tempObj.ListContents;
+					//点击按钮 添加字母
+					var oBtn = document.getElementById('btn');
+					EventUtil1.bindHandler(oBtn, "click", addLetter);
+				} else {}
+			}
+			*/
+			
+			var method = "GET";
+			var url = "car.json";
+			var asyc = true;
+			
+			
+			ajaxFn(method, url, asyc, secFn)
+			var tempObj = null;
+			var aListContents = null;
+			function secFn(text) {
+				if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+					//将接收到的json里的字符串文本赋值给tempText
+					var tempText = text;
+					//将接收到的文本转为对象
+					tempObj = JSON.parse(tempText);
+					//将对象里面的数组赋值给aListContents
+					aListContents = tempObj.ListContents;
+					//将GroupInfo数组对象赋值给aGroupInfo
+					//aGroupInfo = aListContents.GroupInfo;
+					//点击按钮 添加字母
+					var oBtn = document.getElementById('btn');
+					EventUtil1.bindHandler(oBtn, "click", addLetter);
+				} else {}
+			}
+			
+
+			function addLetter() {
+				//将每个数组元素里面的pinyin属性赋值给属性数组
+				for (var i = 0; i < aListContents.length; i++) {
+					//var aListContents[i].index=i;
+					var oTable = document.getElementById('tab');
+					oTable.style.marginTop = "20px";
+					var oTr = document.createElement('tr');
+					var oTd = document.createElement('td');
+					oTd.innerHTML = aListContents[i].PinYin;
+					oTd.style.border = "1px solid #ccc";
+					oTd.style.padding = "3px 6px";
+					oTd.style.cursor = "pointer";
+					oTr.appendChild(oTd);
+					oTable.tBodies[0].appendChild(oTr);
+					//绑定事件 btn click btnFunc
+					
+					EventUtil1.bindHandler(oTd, "click", oTdFunc);
+				}
+			}
+
+			function oTdFunc() {
+				var oDiv=document.getElementById('div');
+				oDiv.style.display="block";
+				oDiv.innerHTML="";
+				
+				//获取点击td的内容是哪个拼音字母
+				var tempOTdText = this.innerHTML;
+				//遍历json中的对象中的数组aListContents
+				for (var i = 0; i < aListContents.length; i++) {
+					//判断点击的字母和json里面的字母是否相等，相等的话找到该数组的GroupInfos
+					if ((aListContents[i].PinYin) == tempOTdText) {
+						//将GroupInfo数组对象赋值给aGroupInfo
+						var aGroupInfo = aListContents[i].GroupInfo;
+						//遍历数组对象aGroupInfo 找数组对象中MainBrandName并输出到div中
+						//var str="";
+						oDiv.innerHTML = "";
+						for (var j = 0; j < aGroupInfo.length; j++) {
+							oDiv.innerHTML = oDiv.innerHTML + aGroupInfo[j].MainBrandName + "<br />"
+						}
+					}
+				}
+			}
+		</script>
+	</head>
+
+	<body style="padding: 20px;">
+		<input type="button" name="btn" id="btn" value="加载数据" />
+		<table border="0" cellspacing="0" cellpadding="" id="tab">
+			<tbody></tbody>
+		</table>
+		<div id="div">
+			
+		</div>
+	</body>
+
+</html>

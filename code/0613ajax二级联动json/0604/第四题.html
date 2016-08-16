@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#top {
+				height: 30px;
+			}
+			
+			#top input {
+				float: left;
+				margin-right: 5px;
+			}
+			
+			table {
+				border: 1px solid #ccc;
+			}
+			
+			a {
+				text-decoration: none;
+				margin-right: 5px;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function() {
+				var oAdd = document.getElementById('add');
+				var oMod = document.getElementById('mod');
+				var oDel = document.getElementById('del');
+				oAdd.onclick = function() {
+					var oTable = document.getElementById('tab');
+					var oTrLength = oTable.tBodies[0].rows.length;
+					alert("要创建第" + (oTrLength + 1) + "行");
+				}
+				//上面的删除按钮
+				oDel.onclick = function() {
+					var oTable = document.getElementById('tab');
+					var count = 0;
+					for (var i = 0; i < oTable.tBodies[0].rows.length; i++) {
+						if (oTable.tBodies[0].rows[i].cells[0].children[0].checked == false) {
+							count++;
+							if (count == oTable.tBodies[0].rows.length) {
+								alert("请选中要删除的行！");
+							}
+						}else{
+							for (var i = 0; i < oTable.tBodies[0].rows.length; i++) {
+								
+								if (oTable.tBodies[0].rows[i].cells[0].children[0].checked == true) {
+									if(confirm("是否要删除选中的行")){
+										oTable.tBodies[0].removeChild(oTable.tBodies[0].rows[i]);
+									}
+								}
+								
+								
+							}
+						}
+					}
+				}
+				//每行中的删除按钮
+				var oTable = document.getElementById('tab');
+				
+					var oDelte=document.getElementsByName('del');
+					for (var i = 0; i < oDelte.length; i++) {
+						oDelte[i].onclick=function(){
+							var oTrr = this.parentNode.parentNode;
+							oTrr.parentNode.removeChild(oTrr);
+						}
+					}
+			}
+		</script>
+	</head>
+
+	<body>
+		<div id="top">
+			<input type="button" name="btn1" id="add" value="添加" />
+			<input type="button" name="btn1" id="mod" value="修改" />
+			<input type="button" name="btn1" id="del" value="删除" />
+		</div><br />
+		<table border="1" cellspacing="0" cellpadding="" id="tab">
+			<thead>
+				<tr>
+					<th><input type="checkbox" name="" id="" value="" /></th>
+					<th>编号</th>
+					<th>发布时间</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><input type="checkbox" name="" id="" value="" /></td>
+					<td>201358</td>
+					<td>2013-09-08 14:02</td>
+					<td><a href="#">查看</a><a href="#" name="del">删除</a></td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" name="" id="" value="" /></td>
+					<td>201359</td>
+					<td>2013-09-07 14:02</td>
+					<td><a href="#">查看</a><a href="#" name="del">删除</a></td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" name="" id="" value="" /></td>
+					<td>201359</td>
+					<td>2013-09-07 14:02</td>
+					<td><a href="#">查看</a><a href="#" name="del">删除</a></td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" name="" id="" value="" /></td>
+					<td>201359</td>
+					<td>2013-09-07 14:02</td>
+					<td><a href="#">查看</a><a href="#" name="del">删除</a></td>
+				</tr>
+			</tbody>
+		</table>
+	</body>
+
+</html>

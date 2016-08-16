@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var r=6781;
+			var qian=parseInt(r/1000);
+			var bai=parseInt(r/100%10);
+			var shi=parseInt(r/10%10);
+			var ge=parseInt(r%10);
+			var sum=qian+bai+shi+ge;
+			console.log(r);
+			console.log("千："+qian+" 百："+bai+" 十："+shi+" 个："+ge);
+			console.log("所有位数的和："+sum);
+			if (sum%2==0) {
+				console.log("你中奖了");
+			}
+			else{
+				console.log("sorry");
+			}
+		</script>
+	</body>
+</html>

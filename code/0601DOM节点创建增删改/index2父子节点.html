@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload = function() {
+				var p1 = document.querySelector('p');
+				alert(p1.parentNode.innerHTML);    //<p>段落标签</p>
+				var oUl = document.getElementById('ul');
+				var aLi = oUl.childNodes;
+				alert(aLi.length); //9   childNodes:不止包括标签节点li(4)  还包括5个空白节点
+				var oU2 = document.getElementById('u2');
+				var aLi2 = oU2.childNodes;
+				alert(aLi2.length);  //4   childNodes:不止包括标签节点li(4)  
+				var oU3 = document.getElementById('u3');
+				var aLi3 = oU3.childNodes;
+				alert(aLi3.length);  //5 childNodes:不止包括标签节点li(4)  还包括1个空白节点
+			}
+		</script>
+	</head>
+
+	<body>
+		<div id="div1">
+			<p>段落标签</p>
+
+		</div>
+		<ul id="ul">
+			1
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		<ul id="u2"><li></li><li></li><li></li><li></li></ul>
+		<ul id="u3"><li></li><li></li><li></li><li></li>
+		</ul>
+	</body>
+
+</html>

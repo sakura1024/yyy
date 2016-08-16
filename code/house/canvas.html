@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+	</head>
+
+	<body>
+		<canvas id="myCanvas"></canvas>
+	</body>
+
+</html>
+<script type="text/javascript">
+	new function() {
+		document.documentElement.style.fontSize = innerWidth / 6.4 + "px";
+		window.addEventListener("resize", function() {
+			document.documentElement.style.fontSize = innerWidth / 6.4 + "px";
+		}, false);
+	};
+	var c = document.getElementById("myCanvas");
+	c.style.width = '4.58rem';
+	c.style.height="2.51rem";
+	c.style.border="1px solid black";
+	var cxt = c.getContext("2d");
+
+	var w = 75;
+	var h = 50;
+	//划竖线
+	for(var i = 0; i < 6; i++) {
+		cxt.beginPath();
+		cxt.moveTo(w * i, 0)
+		cxt.lineTo(w * i, c.height);
+		cxt.lineWidth = 1;
+		cxt.stroke();
+		cxt.closePath();
+	}
+	//划横线
+	for(var i = 0; i < 4; i++) {
+		cxt.beginPath();
+		cxt.moveTo(0, h * i)
+		cxt.lineTo(c.width, h * i);
+		cxt.lineWidth = 1;
+		cxt.stroke();
+		cxt.closePath();
+	}
+
+	//
+	cxt.beginPath();
+	cxt.moveTo(37,-19.8);
+	cxt.lineTo(113,-8.1);
+	/*cxt.moveTo(3.7,-1.98)
+	cxt.lineTo(1.07,-.81);
+	cxt.lineTo(189,-73);
+	cxt.lineTo(268,-71);
+	cxt.lineTo(344,-66);
+	cxt.lineTo(419,-41);*/
+	cxt.strokeStyle="red";
+	cxt.stroke();
+	cxt.closePath();
+</script>

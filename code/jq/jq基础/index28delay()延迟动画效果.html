@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div {
+				width: 100px;
+				height: 100px;
+				background: pink;
+			}
+		</style>
+		<script type="text/javascript" src="js/jquery-3.0.0.js"></script>
+		<script type="text/javascript">
+		/*
+		 
+		 * delay(time):对被选元素的所有排队函数（仍未运行）设置延迟
+		 * 参数为延迟时间长度
+		 * */
+			$(function() {
+						$('#btn1').click(function() {
+							$('#div1').animate({
+								height: "300px"
+							}).delay(1000).animate({
+								width: "300px"
+							});
+						})
+					})
+		</script>
+	</head>
+
+	<body>
+		<input type="button" name="btn1" id="btn1" value="宽度在高度加载运动完毕1秒之后才开始运动" /><br />
+		<br /><br /><div id="div1">
+
+		</div>
+	</body>
+
+</html>

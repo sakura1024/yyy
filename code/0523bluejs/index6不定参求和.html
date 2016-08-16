@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>不定参求和</title>
+		<script type="text/javascript">
+			window.onload=function () {
+				function sum () {
+					var sum=0;
+					for (var i=0;i<arguments.length;i++) {
+						sum=sum+arguments[i];
+					}
+					return sum;
+				}
+				var a=sum(2,3,4);
+				alert(a);
+			}
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

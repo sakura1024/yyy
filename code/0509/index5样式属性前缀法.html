@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.div1{
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				+background-color: green;   /*只针对IE6，IE7*/
+				_background-color: yellow;  /*只针对IE6*/
+			}
+		</style>
+	</head>
+	<body>
+		<div class="div1">
+			高版本：红色
+			IE7：绿色
+			IE6：黄色
+		</div>
+	</body>
+</html>

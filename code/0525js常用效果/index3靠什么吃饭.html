@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>靠什么吃饭</title>
+		<script type="text/javascript">
+			window.onload = function() {
+				var oBtn=document.getElementById('btn');
+				oBtn.onclick=test;
+				function test() {
+					var oName = document.getElementById('name').value;
+					if (oName == "") {
+						oName.value = "请输入姓名"
+						return;
+					}
+					//开始验证
+					var sum = 0;
+					for (var i = 0; i < oName.length; i++) {
+						sum = sum + oName.charCodeAt(i);      //
+					}
+					//alert(sum);
+					var yu=sum%10;
+					//alert(yu);
+					var result='';
+					//求余数
+					switch (yu) {
+						case 1: result="颜值";
+						break;
+						case 2: result="大长腿";
+						break;
+						case 3:result="该死的温柔";
+						break;
+						case 4: result="微笑";
+						break;
+						case 5:result="帅";
+						break;
+						case 6: result="文武双全";
+						break;
+						case 7:result="风流倜傥";
+						break;
+						case 8:result="医术";
+						break;
+						case 9: result="技术";
+						break;
+						case 0:result="爹";
+						break;
+						default: break;
+					}
+					var oDiv=document.getElementById('result');
+					oDiv.innerHTML=result;
+				}
+				
+			}
+		</script>
+	</head>
+
+	<body>
+		<input type="text" name="name" id="name" value="" />
+		<br /><br /><br />
+		<input type="button" name="" id="btn" value="测试" />
+		<br /><br /><br />
+		<div id="result">
+
+		</div>
+	</body>
+
+</html>

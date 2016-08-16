@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<p>计数：<output id="result">0</output></p>
+		<input type="button" id="start" value="开始计数" />
+		<input type="button" id="end" value="结束计数" />
+	</body>
+
+</html>
+<script type="text/javascript">
+	var oStart = document.getElementById('start');
+	var oEnd = document.getElementById('end');
+	var oResult = document.getElementById('result');
+	var w;
+	if(typeof Worker != "undefined") {
+		alert("恭喜您，支持worker！")
+		oStart.onclick = function() {
+			if(typeof w == "undefined") {
+				w = new Worker("js/my.js");
+				//给w创建监听事件
+
+				w.onmessage = function(ev) {
+					oResult.innerHTML = ev.data;
+				}
+			}
+			//终止web worker监听事件
+			oEnd.onclick = function() {
+				w.terminate();
+			}
+		}
+	} else {
+		alert("抱歉，不支持worker！")
+	}
+</script>

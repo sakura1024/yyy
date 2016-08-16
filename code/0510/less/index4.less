@@ -1,0 +1,47 @@
+@width: 100px;
+@height:100px;
+@bgcolor:#f00;
+@color:#ff0;
+@textalign:center;
+@lineheight:100px;
+@float:left;
+@box-shadow: 0 0 10px blue;
+@margin: 5px;
+@fonsize:30px;
+@fontweight:700;
+div{
+    width: @width*2;
+    height: @height*2;
+    text-align: @textalign;
+    line-height: @lineheight;
+    color: @color;
+    background-color: @bgcolor;
+    float: @float;
+    box-shadow: 0 0 3px black;
+    margin: @margin;
+    &:hover{
+        box-shadow: @box-shadow;
+        font-size: @fonsize;
+        font-weight: @fontweight;
+        color: rgb(red(@bgcolor),green(@color/2),blue(@bgcolor));
+    }
+    
+}
+.div0{
+    background-color: @bgcolor;
+    color: @color;
+    line-height: 40px;
+}
+.div1{
+    background-color: lighten(@bgcolor,40%);
+}
+.div2{
+    background-color: darken(@bgcolor,40%);
+}
+.div3{
+    background-color: desaturate(@bgcolor,90%);  //降低饱和度
+    color: rgb(red(@color)/2,green(@color),blue(@color));   //提取RGB中的颜色赋值给字体
+}
+.div4{
+    background-color: fadeout(@bgcolor,50%);
+}

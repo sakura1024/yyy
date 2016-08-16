@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload = function() {
+				oUl = document.getElementById('ul');
+				for (var i = 0; i < oUl.children.length; i++) {
+					oUl.children[i].style.backgroundColor = "red";
+					//父节点.childNodes[i].style.color="red"   //只适用于IE5-8
+					//父节点.children[i].style.color = "red" //各版本都适用，已测兼容性问题
+				}
+			}
+		</script>
+	</head>
+
+	<body>
+		<ul id="ul">
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+		</ul>
+	</body>
+
+</html>

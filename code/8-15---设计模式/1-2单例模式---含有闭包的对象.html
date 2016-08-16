@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>单例模式</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		var mySingleton=function(){
+			//私有属性
+			var privateProperty="我是私有属性<br />";
+			var privateMethod=function(){
+				document.write("我是私有方法<br />");
+			}
+			//闭包
+			return {
+				//公有方法
+				publicMethod:function(){
+					document.write("我是公有方法<br />");
+					document.write("私有属性值获取："+privateProperty);
+					privateMethod();
+				},
+				publicProperty:"我是公有属性"
+			}
+		}
+		//单例模式
+		var obj=mySingleton();
+		//调用公有方法
+		obj.publicMethod();
+		//调用公有属性
+		alert(obj.publicProperty)
+		</script>
+	</body>
+</html>

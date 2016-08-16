@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+		
+		/*
+		 
+		 * 正常情况下，默认盒模型为content-box
+		 * 
+		 * 
+		 * */
+		*{
+			padding: 0;
+			margin: 0;
+		}
+			.div *{
+				float: left;
+				margin-left: 10px;
+				
+			}
+			img{
+			 	width: 316px;
+			 	height: 170px;
+			 }
+			.div1 img{
+				box-sizing: border-box;
+			}
+			.div2 img{
+				box-sizing: content-box;
+			}
+			img:hover{
+				border: 3px solid black;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="div">
+			<div class="div1">
+				<img src="img/1.jpg"/>
+			</div>
+			<div class="div2">
+				<img src="img/2.jpg"/>
+			</div>
+			<div class="div3">
+				<img src="img/3.jpg"/>
+			</div>
+		</div>
+	</body>
+</html>

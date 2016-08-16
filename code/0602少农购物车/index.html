@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			table {
+				width: 800px;
+				border-collapse: collapse;
+			}
+			
+			thead {
+				background-color: #ccc;
+				margin-bottom: 10px;
+			}
+			
+			td {
+				text-align: center;
+			}
+			
+			img {
+				margin-left: 10px;
+				vertical-align: middle;
+			}
+			
+			.oper {
+				width: 20px;
+				height: 20px;
+				text-align: center;
+				display: inline-block;
+				border: 1px solid #ccc;
+			}
+			
+			.showNumber {
+				width: 50px;
+				text-align: center;
+				height: 20px;
+				/*border: 1px solid #ccc;*/
+				border-left: none;
+				border-right: none;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function() {
+				//全选按钮
+				var oSelectAll = document.getElementById('selectAll');
+				//每个商品的选择按钮
+				var aSelectOne = document.getElementsByName('selectOne');
+				//加减按钮
+				var aOper = document.getElementsByClassName('oper');
+				//商品数量
+				var aCount = document.getElementsByClassName('showNumber')
+					//表格
+				var oTable = document.getElementById('tab');
+				var oSpan = document.getElementById('sum');
+				//				alert(oSpan)
+				//行
+				var aTr = oTable.tBodies[0].rows;
+				var aDel = document.getElementsByClassName('del');
+				//删除
+				for (var i = 0; i < aDel.length; i++) {
+					aDel[i].onclick = function() {
+						var oTr = this.parentNode.parentNode;
+						//						alert(oTr)
+						var oTbody = oTr.parentNode;
+						oTbody.removeChild(oTr);
+					}
+				}
+				//加减
+				for (var i = 0; i < aOper.length; i++) {
+					aOper[i].index = i;
+					if (i % 2 == 0) {
+						//减法
+						aOper[i].onclick = function() {
+							if (parseInt(aCount[this.index / 2].value) > 1) {
+								aCount[this.index / 2].value = parseInt(aCount[this.index / 2].value) - 1;
+								//小计
+								aTr[this.index / 2].cells[4].innerText = (parseFloat(aTr[this.index / 2].cells[2].innerText) * parseInt(aCount[this.index / 2].value)).toFixed(2);
+								//判断选框是否被选中，若选中改变总价的值
+								if (aTr[this.index / 2].cells[4].parentNode.children[0].children[0].checked)
+									oSpan.innerText = (parseFloat(oSpan.innerText) - parseFloat(aTr[this.index / 2].cells[4].parentNode.children[2].innerText)).toFixed(2);
+							}
+						}
+					} else { //加法
+						aOper[i].onclick = function() {
+							aCount[(this.index - 1) / 2].value = parseInt(aCount[(this.index - 1) / 2].value) + 1;
+							//小计
+							aTr[(this.index - 1) / 2].cells[4].innerText = (parseFloat(aTr[(this.index - 1) / 2].cells[2].innerText) * parseInt(aCount[(this.index - 1) / 2].value)).toFixed(2);
+							//							alert(aTr[(this.index - 1) / 2].cells[4].innerText)
+							//判断选框是否被选中，若选中改变总价的值
+							if (aTr[(this.index - 1) / 2].cells[4].parentNode.children[0].children[0].checked) {
+								oSpan.innerText = (parseFloat(aTr[(this.index - 1) / 2].cells[2].innerText) + parseFloat(oSpan.innerText)).toFixed(2);
+							}
+						}
+					}
+				}
+				//全选事件
+				oSelectAll.onclick = function() {
+						for (var i = 0; i < aSelectOne.length; i++) {
+							if (this.checked == true) {
+								if (aSelectOne[i].checked == false) {
+									aSelectOne[i].checked = true;
+									var oThead = this.parentNode.parentNode.parentNode;
+									if (oThead.nextElementSibling) {
+										var oTrNext = oThead.nextElementSibling;
+									} else {
+										var oTrNext = oThead.nextSibling;
+									}
+									var oTr = oTrNext.children;
+									var oTd = oTr[i].children
+									var price = parseFloat(oTd[4].innerText).toFixed(2);
+									oSpan.innerText = (parseFloat(price) + parseFloat(oSpan.innerText)).toFixed(2);
+									for (var j = 0; j < oTr.length; j++) {
+										oTr[j].style.backgroundColor = 'orange';
+									}
+								}
+							} else {
+								aSelectOne[i].checked = false;
+								var oThead = this.parentNode.parentNode.parentNode;
+								if (oThead.nextElementSibling) {
+									var oTrNext = oThead.nextElementSibling;
+								} else {
+									var oTrNext = oThead.nextSibling;
+								}
+								var oTr = oTrNext.children;
+								var oTd = oTr[i].children
+								var price = parseFloat(oTd[4].innerText);
+								oSpan.innerText = (parseFloat(oSpan.innerText) - parseFloat(price)).toFixed(2);
+								for (var j = 0; j < oTr.length; j++) {
+									oTr[j].style.backgroundColor = 'white';
+								}
+							}
+						}
+					}
+					//每个商品选择框
+				for (var i = 0; i < aSelectOne.length; i++) {
+					aSelectOne[i].onclick = function() {
+						var count = 0;
+						if (this.checked) {
+							//判断被选中的按钮的数量，如果全部被选中，则把全选按钮置为选中
+							for (var j = 0; j < aSelectOne.length; j++) {
+								if (aSelectOne[j].checked) {
+									count++;
+								}
+							}
+							if (count == aSelectOne.length) {
+								oSelectAll.checked = true;
+							}
+							//按钮被选中，改变行的背景颜色
+							var oTr = this.parentNode.parentNode;
+							oTr.style.backgroundColor = 'orange';
+							//将小计加到总价里
+							var oTd = oTr.children
+							var price = parseFloat(oTd[4].innerText);
+							oSpan.innerText = (parseFloat(oSpan.innerText) + parseFloat(price)).toFixed(2);
+						} else {
+							oSelectAll.checked = false;
+							var oTr = this.parentNode.parentNode;
+							oTr.style.backgroundColor = 'white';
+							//将小计从总价里减去
+							var oTd = oTr.children
+							var price = parseFloat(oTd[4].innerText);
+							oSpan.innerText = (parseFloat(oSpan.innerText) - parseFloat(price)).toFixed(2);
+						}
+					}
+				}
+			}
+		</script>
+	</head>
+
+	<body>
+		<table id="tab" border="1">
+			<thead>
+				<td><input type="checkbox" name="selectAll" id="selectAll" />全选</td>
+				<td>商品</td>
+				<td>单价</td>
+				<td>数量</td>
+				<td>小计(元)</td>
+				<td>操作</td>
+			</thead>
+			<tbody>
+				<tr>
+					<td><input type="checkbox" name="selectOne" id="selectOne" /><img src="img/1.jpg" /></td>
+					<td>极品书包</td>
+					<td>31.90</td>
+					<td><span class="oper">-</span><input type="text" class="showNumber" value="1" /><span class="oper">+</span></td>
+					<td>31.90</td>
+					<td><a href="javascript:;" class="del">删除</a></td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" name="selectOne" id="selectOne" /><img src="img/2.jpg" /></td>
+					<td>极品书包</td>
+					<td>29.90</td>
+					<td><span class="oper">-</span><input type="text" class="showNumber" value="1" /><span class="oper">+</span></td>
+					<td>29.90</td>
+					<td><a href="javascript:;" class="del">删除</a></td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td colspan="4"></td>
+					<td>总价:<span id="sum">
+						0
+					</span>元</td>
+					<td><a href="javascript:;">去结算</a></td>
+				</tr>
+			</tfoot>
+		</table>
+	</body>
+
+</html>

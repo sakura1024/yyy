@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var arr=[2,3,4,40,5,56,5,4,32,31,312,324];
+			//arr.sort();   //2,3,31,312,32,324,4,4,40,5,5,56
+			document.write("原数组："+arr+'<br />');
+			arr.sort(); //字符编码排序        //sort()改变了原有数组
+			document.write("字符编码排序后的数组："+arr+'<br />');
+			arr.reverse();      //reverse()改变了原有数组
+			document.write("翻转后的数组："+arr+'<br />');
+			arr.sort(sortNumber);  //sort(sortNumber)改变了原有数组
+			function sortNumber(a,b){      //升序的话  a-b  降序b-a
+				return a-b;
+			}
+			document.write("排序后的（升序）"+arr);
+		</script>
+	</body>
+</html>

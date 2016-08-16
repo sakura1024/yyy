@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#login {
+				width: 200px;
+				height: 200px;
+				border: 1px solid black;
+				position: absolute;
+			}
+			
+			#close {
+				position: absolute;
+				right: 0;
+				top: 0;
+				background: red;
+			}
+		</style>
+		<script type="text/javascript" src="js/jquery-3.0.0.js"></script>
+		<script type="text/javascript">
+			$(function() {
+
+				/*
+				//jq中创建div标签
+				var oDiv=$('<div>');
+				oDiv.html('新创建的div标签');
+				//将创建的div放入到body的末尾
+				$('body').append(oDiv);
+				*/
+
+				//btn点击之后创建登录表单div
+				$('#btn').click(function() {
+					var oDiv1 = $('<div>');
+					oDiv1.attr('id', 'login');
+
+					var oB = $('<b>');
+					oB.html('用户名：');
+					$(oDiv1).append(oB);
+
+					var oInput = $('<input type="text" id="text"/><br /><br />');
+					$(oDiv1).append(oInput);
+
+					var oB = $('<b>');
+					oB.html('密码：');
+					$(oDiv1).append(oB);
+
+					var oInput = $('<input type="password"  /><br />');
+					$(oDiv1).append(oInput);
+
+					var oDiv = $('<div>X</div>');
+					oDiv.attr('id', 'close');
+					$(oDiv1).append(oDiv);
+
+					$('body').append(oDiv1);
+					/* body没有height2000px时
+					//表单创建完毕之后为login div添加css样式  设置位置
+					oDiv1.css('left', $(window).width() / 2 - oDiv1.outerWidth() / 2); //单位可加可不加
+					oDiv1.css('top', $(window).height() / 2 - oDiv1.outerHeight() / 2); //单位可加可不加
+					*/
+					
+					//点击按钮后  div初始化放的位置
+					
+					oDiv1.css('left', $(window).width() / 2 - oDiv1.outerWidth() / 2); //单位可加可不加
+					oDiv1.css('top', $(window).height() / 2 - oDiv1.outerHeight() / 2); //单位可加可不加
+				
+					//body 高度为2000px时
+					$(window).on('scroll resize ', function() {
+						oDiv1.css('left', $(window).width() / 2 - oDiv1.outerWidth() / 2 + $(window).scrollLeft()); //单位可加可不加
+						oDiv1.css('top', $(window).height() / 2 - oDiv1.outerHeight() / 2 + $(window).scrollTop()); //单位可加可不加
+
+					});
+
+					//为关闭div添加关闭事件
+					$('#close').click(function() {
+						//$('#login').css('display', 'none');
+						$('#login').remove();  //remove()移除#login标签
+					})
+
+				})
+			})
+		</script>
+	</head>
+
+	<body style="height: 2000px;width: 2000px;">
+		<input type="button" id="btn" value="点击" /><br /><br />
+		<!--
+		<div id="login">
+			<br />
+			用户:
+			<input type="text" id="text" value="" /><br /><br />
+			密码：
+			<input type="password" name=""  /><br />
+			<div id="close">
+				X
+			</div>
+		</div>
+		-->
+	</body>
+
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>立体效果表格实现</title>
+		<style type="text/css">
+			tr {
+				text-align: center;
+			}
+			
+			table {
+				border: 3px solid #ccc;
+			}
+			
+			caption {
+				height: 30px;
+				background: yellow;
+				line-height: 30px;
+				font-weight: bold;
+				border: 3px solid #ccc;
+				border-top: 3px solid red;
+				border-bottom: 3px solid orange;
+			}
+			
+			th,td {
+				border: 2px solid white;
+				border-bottom-color:darkslategrey;
+				border-right-color: darkslategrey;
+			}
+			thead{
+				background: #cff;
+			}
+			tbody{
+				background: lightgray;
+			}
+			.ave{
+				background: gray;
+			}
+		</style>
+	</head>
+
+	<body>
+		<table>
+			<caption>成绩表</caption>
+			<tbody>
+				<thead>
+					<tr>
+						<th>姓名</th>
+						<th>HTML+CSS</th>
+						<th>JavaScript</th>
+						<th>JQuery</th>
+						<th>HTML5</th>
+						<th>项目</th>
+					</tr>
+				</thead>
+				<tr>
+					<th>连晓庄</th>
+					<td>90</td>
+					<td>122</td>
+					<td>122</td>
+					<td>90</td>
+					<td>90</td>
+				</tr>
+				<tr>
+					<th>卜小谢</th>
+					<td>80</td>
+					<td>89</td>
+					<td>65</td>
+					<td>76</td>
+					<td>76</td>
+				</tr>
+				<tr>
+					<th>老妈</th>
+					<td>87</td>
+					<td>78</td>
+					<td>98</td>
+					<td>65</td>
+					<td>65</td>
+				</tr>
+				<tr>
+					<th>张三</th>
+					<td>76</td>
+					<td></td>
+					<td>87</td>
+					<td>98</td>
+					<td>98</td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<th>平均分</th>
+					<td colspan="5" class="ave">76</td>
+				</tr>
+			</tfoot>
+		</table>
+	</body>
+
+</html>

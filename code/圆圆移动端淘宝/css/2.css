@@ -1,0 +1,269 @@
+a {
+	text-decoration: none;
+	color: #333;
+}
+
+li {
+	list-style: none;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	/*width: 3.2rem;*/
+	margin: 0 auto;
+	/*font-size: 0.14rem;*/
+	background: #F2EFF1;
+	transition: all 3s;
+}
+
+#top{
+	display: flex;
+	justify-content: space-around;
+	height: 0.6rem;
+	background: #E71319;
+	font-size: 0.21rem;
+	align-items: center;
+}
+#top ul{ 
+	display: flex;
+	justify-content: space-around;
+	width: 4.03rem;
+	border-left: 0.01rem solid #C1120F ;
+	border-right: 0.01rem solid #C1120F ;
+}
+#top ul li{
+	/*height: 0.6rem;
+    line-height: 0.6rem;
+    border-bottom: 0.02rem solid white;*/
+}
+#top .logo{
+	width: 1.33rem;
+	height: 0.4rem;
+}
+#top img:last-child{
+	width: 0.37rem;
+	height: 0.32rem;
+}
+#top a{
+	color: white;
+}
+#top ul li{
+	height: 0.56rem;
+    line-height: 0.56rem;
+}
+#top .active,#top ul li:hover{
+    border-bottom: 3px solid white;
+    }
+
+/*banner*/
+#banner{
+	margin-bottom: 0.1rem;
+	width: 100%;
+    height: 2.02rem;
+    overflow: hidden;
+    
+}
+#banner img{
+	width: 100%;
+	height: 2.02rem;
+}
+
+
+
+/*clothList*/
+#clothList{
+	display: flex;
+	justify-content: space-between;
+}
+#clothList img{
+	width: 1.55rem;
+	height: 1.69rem;
+}
+
+/*tenNews*/
+#tenNews{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0rem 0.2rem;
+	height: 0.56rem;
+	border-top: 0.01rem solid #E9E9E9;
+	border-bottom: 0.01rem solid #E9E9E9;
+	background: white;
+}
+#tenNews img{
+	height: 0.28rem;
+	width: 0.27rem;
+}
+#tenNews img:first-child{
+	width: 1.75rem;
+}
+
+/*newList*/
+#newList {
+	background: white;
+}
+#newList dl{
+	display: flex;
+	justify-content: space-between;
+	border-bottom: 0.01rem solid #E9E9E9;
+	margin: 0rem 0.2rem;
+	padding: 0.2rem 0rem;
+	height: 1.31rem;
+	
+}
+#newList img{
+	width: 2.02rem;
+	height: 1.31rem;
+}
+#newList dd{
+	width: 3.86rem;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	font-size: 0.2rem;
+}
+#newList dd a{
+	line-height: 150%;
+	font-family: -webkit-pictograph;;
+	color: dimgray;
+}
+#newList dd p{
+	font-weight: bold;
+	color: #F42D6F;
+}
+
+#newList dd  div{
+	display: flex;
+	justify-content: space-between;
+	font-size: 0.15rem;
+	color: #B1B1B1;
+}
+
+
+/*女装遮罩*/
+#hide{
+	width: 100%;
+	background: rgba(0,0,0,0.9);
+	height: 9.68rem;
+	display: none;
+	/*position: relative;*/
+	position: absolute;
+	top: 0.6rem;
+	z-index: 9;
+}
+#hide a{
+	color: white;
+}
+.list{
+	padding: 0.38rem 0.65rem;
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	align-content: space-between;
+	font-size: 0.26rem;
+}
+.list a{
+	padding: 0.2rem 0.35rem;
+	font-weight: bold;
+}
+
+#hide .col{
+	color: #E21921;
+}
+/*.bottom */
+.bottom {
+	display: flex;
+	padding: 0rem 0.3rem;
+	justify-content: space-between;
+	align-content: space-between;
+	flex-wrap: wrap;
+	height: 2.55rem;
+	
+}
+.bottom a{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 1.68rem;
+	height: 0.46rem;
+	border: 0.01rem solid #727071;
+	font-size: 0.24rem;
+	border-radius: 0.05rem;
+}
+/*footer*/
+.footer{
+	width: 100%;
+	position: fixed;
+	 bottom: 1.3rem;
+}
+.footer .inner{
+	display: flex;
+	justify-content: space-around;
+}
+
+.footer img{
+	width: 0.79rem;
+	height: 0.79rem;
+}
+
+/*back*/
+#back{
+	display: flex;
+	width: 92%;
+	
+	justify-content: space-between;
+	
+}
+#backTop,#my{
+	margin: 0rem 4%;
+	position: fixed;
+	bottom: 1.3rem;
+	z-index: 9;
+}
+#backTop{
+	right: 4%;
+}
+#backTop img,#my img{
+	width: 0.4rem;
+	height: 0.4rem;
+}
+#my,#backTop{
+	display: flex;
+	width: 0.78rem;
+	height: 0.78rem;
+	justify-content: center;
+	align-items: center;
+	border-radius: 0.39rem;
+}
+#my{
+	background: rgba(255,0,0,0.9);
+}
+#backTop{
+	background: rgba(0,0,0,0.7);
+}
+
+
+/*#footer*/
+#footer{
+	padding: 0rem 0.53rem;
+	background: white;
+	width: 100%;
+	position: fixed;
+	bottom: 0;
+}
+#footer .li1{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+#footer img{
+	width: 0.42rem;
+	height: 0.38rem;
+}

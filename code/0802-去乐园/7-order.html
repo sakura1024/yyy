@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" href="css/index.css" />
+		<title>提交订单</title>
+	</head>
+
+	<body>
+		<section id="myOrder">
+			<div class="content">
+				<h3>新都乐享30次卡</h3>
+				<p><span class="fl">数量</span><span class="fright"><i class="reduce">-</i><input type="number" id="num" value="1" /><i class="add">+</i></span></p>
+				<p><span class="fl">合计:</span><span class="fright">232.00</span></p>
+				<p><span class="fl">联系方式:</span><span class="fright"><input type="text" name="" id="tel" value="18031344561" /><img src="img/pen.png"/></span></p>
+				<p><span class="fl noborder">使用余额:</span><span class="fright">0.00 <em>√</em></span></p>
+			</div>
+
+		</section>
+		<div class="pay">
+			<span>实付款：<b>1700.00</b></span>
+			<a href="#">
+				<input type="button" id="btn2" value="立即支付" />
+			</a>
+		</div>
+		<!--<script type="text/javascript" src="js/main.js" ></script>-->
+	</body>
+	<script type="text/javascript">
+		new function() {
+			document.documentElement.style.fontSize = innerWidth / 3.2 + "px";
+			window.addEventListener("resize", function() {
+				document.documentElement.style.fontSize = innerWidth / 3.2 + "px";
+			}, false);
+		}
+		//加号
+		var oAdd = document.getElementsByClassName('add')[0];
+		//减号
+		var oReduce = document.getElementsByClassName('reduce')[0];
+		//单价
+		var oFight = document.getElementsByClassName('fright')[1];
+		//下面的实付款
+		var oPaySum = document.getElementsByClassName('pay')[0].children[0].children[0];
+		oPrice = parseFloat(oFight.innerText);
+		//数量
+		oNum=document.getElementById('num');
+		var oValue;
+		oAdd.onclick = function() {
+			oValue = parseInt(oNum.value);
+			console.log(oValue)
+			oNum.value = ++oValue;
+			//合计  单价*数量
+			oFight.innerText = oPrice * oNum.value;
+			oPaySum.innerText=oFight.innerText;
+		}
+		oReduce.onclick = function() {
+			oValue = parseInt(oNum.value)
+			if (oValue>=2) {
+				oNum.value = --oValue;
+			} 
+			//合计  单价*数量
+			oFight.innerText = oPrice * oNum.value;
+			oPaySum.innerText=oFight.innerText;
+		}
+	</script>
+
+</html>

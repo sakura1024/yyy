@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#div1{
+				width: 200px;
+				height: 200px;
+				background: red;
+				position: absolute;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload=function(){
+				document.onmousemove=function(ev){
+					var oEvent=ev||event;
+					var oDiv=document.getElementById('div1');
+					oDiv.style.left=oEvent.clientX+'px';
+					oDiv.style.top=oEvent.clientY+'px';
+				}
+				
+			}
+		</script>
+	</head>
+	<body>
+		<h4>鼠标跟随</h4>
+		<div id="div1">
+			
+		</div>
+	</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>shop</title>
+		<link rel="stylesheet" type="text/css" href="css/shop.css" />
+	</head>
+
+	<body>
+		<section id="shopLiSst">
+			<!--<a href="#">
+				<dl class="noborder">
+					<dt><img src="img/a5_r4_c2.jpg"/></dt>
+					<dd>
+						<h5>灵活多变 华林·时代广场A2户型鉴赏</h5>
+						<p><span>南充房产信息网</span><span>2016-08-05 16:03:20 </span></p>
+					</dd>
+				</dl>
+			</a>
+			<a href="#">
+				<dl>
+					<dt><img src="img/a5_r6_c2.jpg"/></dt>
+					<dd>
+						<h5>灵活多变 华林·时代广场A2户型鉴赏</h5>
+						<p><span>南充房产信息网</span><span>2016-08-05 16:03:20 </span></p>
+					</dd>
+				</dl>
+			</a>
+			<a href="#">
+				<dl>
+					<dt><img src="img/a5_r8_c3.jpg"/></dt>
+					<dd>
+						<h5>灵活多变 华林·时代广场A2户型鉴赏</h5>
+						<p><span>南充房产信息网</span><span>2016-08-05 16:03:20 </span></p>
+					</dd>
+				</dl>
+			</a>
+			<a href="#">
+				<dl>
+					<dt><img src="img/a5_r10_c3.jpg"/></dt>
+					<dd>
+						<h5>灵活多变 华林·时代广场A2户型鉴赏</h5>
+						<p><span>南充房产信息网</span><span>2016-08-05 16:03:20 </span></p>
+					</dd>
+				</dl>
+			</a>-->
+			
+		</section>
+	</body>
+
+</html>
+<script type="text/javascript">
+	new function() {
+		document.documentElement.style.fontSize = innerWidth / 6.4 + "px";
+		window.addEventListener("resize", function() {
+			document.documentElement.style.fontSize = innerWidth / 6.4 + "px";
+		}, false);
+	};
+</script>
+<script type="text/javascript">
+	var url = "data/1.json";
+	var xmlhttp;
+	if(window.XMLHttpRequest) { 
+		xmlhttp = new XMLHttpRequest();
+	} else { 
+		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	xmlhttp.open("GET", url, true);
+	xmlhttp.send();
+	xmlhttp.onreadystatechange = function() {
+		if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+			 console.log(xmlhttp.responseText);
+			 var aObj=JSON.parse(xmlhttp.responseText).rows;
+			 var oshopLiSst=document.getElementById('shopLiSst');
+			 oshopLiSst.innerHTML=' ';
+				for (var i = 0; i < aObj.length; i++) {
+					oshopLiSst.innerHTML+='<a href="#">\
+				<dl>\
+					<dt><img src="'+aObj[i].thumb+'"/></dt>\
+					<dd>\
+						<h5>'+aObj[i].title+'</h5>\
+						<p><span>'+aObj[i].source+'</span><span>'+aObj[i].update_time+'</span></p>\
+					</dd>\
+				</dl>\
+			</a>'
+				}
+		}
+	}
+</script>

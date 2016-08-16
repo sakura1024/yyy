@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>7.完善掷骰子游戏，每个人可以无限制的游戏，游戏结束的条件是充值金额输完了。</title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			var credit = prompt("请输入充值金额");
+			while (credit > 0 ) {
+				var Stake = prompt("欢迎来到游戏，请输入下注金额");
+				credit = credit - Stake;
+				var run = parseInt(Math.random() * 6) + 1;
+				var answer = prompt("请输入大或者小");
+				if ((run >= 1 && run <= 3) && answer == "大") {
+					credit = credit + Stake * 2;
+					document.write("恭喜您，您太了不起了，本局游戏胜出！总金额为：" + credit);
+				} else {
+					document.write("很遗憾，本局游戏失败！总金额为：" + credit);
+				}
+			}
+			document.write("很遗憾，充值金额输完了！游戏结束");
+		</script>
+	</body>
+
+</html>

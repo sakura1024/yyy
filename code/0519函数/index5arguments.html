@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			function test(){
+				test1("lily",18,"女");
+			}
+			function test1 (name,age,sex) {
+				//使用arguments对象
+				console.log("参数的个数："+arguments.length);//是arguments.length获取的是实参的个数   实际传入几个就是几
+				//arguments代表的是参数的集合
+				
+				console.log(arguments[3]); //undefined  如果i大于或等于参数的个数，显示undefined
+				//for in 遍历arguments数组
+				for (var i=0 in arguments) {
+					console.log(arguments[i]);
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<button onclick="test()">测试</button>
+	</body>
+</html>	

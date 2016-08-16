@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#demo{
+				border: 1px solid #ccc;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="demo" width="600" height="800"></canvas>
+	</body>
+	<script type="text/javascript">
+		var oDemo=document.getElementById('demo');
+		//得到画布控制权
+		var ctx=oDemo.getContext('2d');
+		
+		//开始划线
+		ctx.beginPath();//开始路径
+		ctx.moveTo(0,0);//设置起点
+		ctx.lineTo(100,100);//终点
+		ctx.lineTo(100,0);
+		ctx.lineTo(0,0);
+		
+		ctx.strokeStyle="red";  //设置线的颜色
+		ctx.stroke();//瞄点
+		
+		ctx.fillStyle="yellow";
+		ctx.fill();
+		
+		ctx.closePath();//闭合
+		
+		
+		//画个Z
+		ctx.beginPath();
+		
+		ctx.moveTo(300,10);
+		ctx.lineTo(500,10);
+		ctx.lineTo(300,100);
+		ctx.lineTo(500,100);
+		ctx.lineWidth="4"   //没有单位
+		ctx.stroke();
+		ctx.closePath();
+		
+		
+		//画个网格
+		var w=30;
+		var h=30;
+		//画竖线
+		for (var i = 1; i < oDemo.width; i++) {
+			ctx.beginPath();
+			ctx.moveTo(w*i,200);
+			ctx.lineTo(w*i,800);
+			ctx.strokeStyle="black";
+			ctx.lineWidth=1;
+			ctx.stroke();
+			ctx.closePath();
+		}
+		//划横线
+		for(var j=0;j<oDemo.height;j++){
+			ctx.beginPath();
+			ctx.moveTo(0,h*j+200);
+			ctx.lineTo(oDemo.width,h*j+200);
+			ctx.stroke();
+			ctx.closePath();
+		}
+	</script>
+</html>

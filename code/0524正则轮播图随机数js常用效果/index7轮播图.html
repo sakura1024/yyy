@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>图片改变</title>
+		<style>
+			/*图片的大小是700px 220px*/
+			
+			#wrap {
+				width: 700px;
+				height: 220px;
+				position: relative;
+				overflow: hidden;
+			}
+			
+			#slider {
+				position: absolute;
+				top: 0px;
+				left: 0px;
+			}
+			
+			img {
+				float: left;
+				border: none;
+			}
+		</style>
+		<script type="text/javascript">
+			var pics = ["1.jpg", "2.jpg", "3.jpg", "4.jpg"];
+			var count=0;
+
+			function init() {
+				//				//给每个img标签设置src属性
+				//				var secondImg = document.getElementById("second");
+				//				secondImg.src = "img/" + pics[1];
+				//				var thirdImg = document.getElementById("third");
+				//				secondImg.src = "img/" + pics[2];
+				//				var forthImg = document.getElementById("forth");
+				//				secondImg.src = "img/" + pics[3];
+				//				var fifthImg = document.getElementById("fifth");
+				//				secondImg.src = "img/" + pics[4];
+				//给每个img标签设置src属性
+				//表示获取document中img标签对象，返回的是img的数组形式
+				var arrImg = document.getElementsByTagName("img");
+				//              alert(arrImg.length);
+				for (i = 0; i < arrImg.length; i++) {
+					arrImg.index = i; //相当于给每个图片贴标签，同图片的索引值
+					arrImg[i].src = "img/" + pics[i];
+				}
+			}
+			function getStyle(obj,name){
+				if (obj.currentStyle) {
+					return obj.currentStyle[name];
+				} else{
+					return getComputedStyle(obj,false)[name];
+				}
+			}
+			function getNext() {
+				var oSlider = document.getElementById('slider');
+				var imgTop=getStyle(oSlider,'top');
+				count++;
+				if (count==4) {
+					count=0;
+					oSlider.style.top='0px';
+				}else{
+					oSlider.style.top=imgTop-220+'px';	
+				}
+				
+			}
+
+			function getPrev() {
+				var oSlider = document.getElementById('slider');
+				var imgTop=getStyle(oSlider,'top');
+				count++;
+				if (count==4) {
+					count=0;
+					oSlider.style.top='0px';
+				}else{
+					oSlider.style.top=imgTop+'220px';	
+				}
+				
+			}
+		</script>
+	</head>
+
+	<body onload="init()">
+		<div id="wrap">
+			<div id="slider">
+				<a href="#"><img src="img/1.jpg" /></a>
+				<a href="#"><img id="second" /></a>
+				<a href="#"><img id="third" /></a>
+				<a href="#"><img id="forth" /></a>
+			</div>
+		</div>
+		<br />
+		<button id="next" onclick="getNext()">下一张</button>
+		<button id="prev" onclick="getPrev()">上一张</button>
+	</body>
+
+</html>

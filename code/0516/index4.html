@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.box {
+				width: 560px;
+				height: 112px;
+				background: black;
+			}
+			
+			.small,
+			img {
+				float: left;
+				width: 100px;
+				height: 100px;
+				background: white;
+				border: 1px solid red;
+				margin: 5px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="box">
+			<script type="text/javascript">
+				for (var i = 1; i <= 4; i++) {
+					//					document.write("<div class='small'>box" + i + "</div>")
+					document.write("<div class='small'><img src='img/" + i + ".jpg'/></div>")
+				}
+			</script>
+			
+				
+			 
+		</div>
+	</body>
+
+</html>

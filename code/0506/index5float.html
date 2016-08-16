@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>浮动案例</title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			a{
+				text-decoration: none;
+				color: #444;
+			}
+			body{
+				margin: 20px;
+			}
+			.fl{
+				float: left;
+			}
+			
+			li{
+				list-style: none;
+			}
+			.d1{
+				width: 530px;
+				height: 97px;
+				padding-bottom: 5px;
+				border-bottom: 1px dashed #D1D1D1;
+			}
+			.d1_left{
+				width: 85px;
+				height: 97px;
+			}
+			.d1_left img{
+				padding: 6px;
+				border: 1px solid #D9D9D9;
+				border-radius: 8px;
+			}
+			.d1_center{
+				padding-left: 24px;
+				margin-right: 10px;
+			}
+			.d1_center .fir{
+				display: inline-block;
+				font-size: 12px;
+				font-weight: bold;
+				color: #FC5C00;
+				margin-top: 8px;
+			}
+			.d1_center ul li{
+				font-size: 11px;
+				line-height: 19px;
+			}
+			.d1_center ul li a{
+				display: inline-block;
+				padding-right: 14px;
+			}
+			.d1_center li span{
+				padding-left: 14px;
+				border-left: 1px solid black;
+			}
+			button{
+				width: 61px;
+				height: 23px;
+				font-size: 11px;
+				padding: 4px 2px;
+				background: #BAAE1C;
+				border: 0 none;
+				border: 1px solid #BAAE1C;
+				border-radius: 5px;
+				color: white;
+			}
+		</style>
+		
+	</head>
+		
+	<body>
+		<div class="d1">
+			<div class="d1_left fl">
+				<img src="img/002.jpg" />
+			</div>
+			<div class="d1_center fl">
+				<img src="img/icon.jpg" /><span class="fir">福利水果</span>
+				<ul>
+					<li><a href="#">大兴黄金梨福利装</a> <span><a href="#">小台民芒果</a></span></li>
+					<li><a href="#">大兴黄金梨福利装</a> <span><a href="#">小台民芒果</a></span></li>
+					<li><a href="#">大兴黄金梨福利装</a> <span><a href="#">小台民芒果</a></span></li>
+				</ul>
+			</div>
+			<div class="d1_right fl">
+				<button>网上订购</button>
+				<button>查看更多</button>
+			</div>
+		</div>
+	</body>
+
+</html>

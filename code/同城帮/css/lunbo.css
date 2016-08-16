@@ -1,0 +1,45 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font: 12px/1.5 "Microsoft YaHei", "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+	color: #5A5A5A;
+	padding: 0;
+	margin: 0;
+	background: #F7F7F7;
+}
+
+a {
+	color: #5A5A5A;
+	text-decoration: none;
+}
+
+li {
+	float: left;
+	list-style: none;
+}
+
+#banner {
+	height: 340px;
+	margin-top: 20px;
+	
+}
+
+.banner {
+	width: 600px;
+	height: 340px;
+	margin: 0 auto;
+	border: 1px solid black;
+	position: relative;
+}
+.banner ul{
+	width: 2400px;
+	position: absolute;
+}
+.banner img{
+	width: 600px;
+	height: 340px;
+}
+

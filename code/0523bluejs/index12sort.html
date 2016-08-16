@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>sort()改变了原有数组</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			window.onload=function(){
+				var arr=[32,23,54,67,87,98,112,10];
+				document.write('原数组：'+arr+'<br />')
+				arr.sort(sortNum);  //按数值大小排序
+				//arr.sort(); //按字符编码排序
+				document.write('排序后：'+arr)
+			}
+			function sortNum(n1,n2){
+				return n1-n2;
+			}
+		</script>
+	</body>
+</html>

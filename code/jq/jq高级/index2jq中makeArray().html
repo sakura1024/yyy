@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../jq基础/js/jquery-3.0.0.js" ></script>
+		<script type="text/javascript">
+		/*
+		 
+		 * ---------------$.makeArray(ODiv)---------------------
+		 * 注释：转换一个类似数组的对象成为真正的JavaScript数组。
+		 * oDiv:类数组---->和数组一样具有length属性、[]，但是不具有数组特有的方法（比如：push(),pop()）
+		 * 
+		 * 
+		 * 
+		 * 一般来说，无论是在jQuery和JavaScript中很多方法都返回类似数组的对象。
+		 * 举例来说，jQuery的代理函数$()返回一个jQuery对象具有许多的数组的属性。（length， []数组访问运算符等），
+		 * 但和数组并不完全一样，缺少一些对数组的内置方法（如.pop()和.reverse()）。
+			请注意，转换后，任何有特殊功能的对象（如在我们的例子中jQuery方法）将不再存在。现在的对象是一个普通的数组。
+		 * 
+		 * */
+			window.onload=function(){
+				
+				//ex1：将一个 HTMLElements 集合转换成对应的数组。
+				var oDiv=document.getElementsByTagName('div');  //类数组
+				var arr=$.makeArray(oDiv);                //将类数组转换为真正的数组
+				arr.reverse();                            //数组自身进行了反转
+				$(arr).appendTo('body');                //5  4  3  2  1并且覆盖了原有div
+				console.log(arr);                        // [div, div, div, div, div]
+				
+				
+				
+				//ex2：将一个 jQuery 对象转换成一个数组。
+				var obj = $('li');
+    			var arr = $.makeArray(obj);
+    			arr.reverse();  
+    			$(arr).appendTo('body');   
+			}
+		</script>
+	</head>
+	<body>
+		<div >1</div>
+		<div >2</div>
+		<div >3</div>
+		<div >4</div>
+		<div >5</div>
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+		</ul>
+	</body>
+</html>

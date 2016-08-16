@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+		
+		//练习2：点击文件上传按钮  弹出一个对话框  显示文件的名字（从全部路径中只拿到后面图片的名字） 
+ 			//类型只接收： jpg,png,bmp,gif
+			////E:\自己练习\0511\img\ad2.jpg
+			window.onload = function() {
+				var oTxt = document.getElementById('txt');
+				var oLoad=document.getElementById('load');
+				oLoad.onclick=load;
+				oTxt.onblur=load;
+				function load() {
+					//获取图片名称
+					var oTxt = document.getElementById('txt').value;
+					var StartIndex = oTxt.lastIndexOf('\\')
+						//类型支持png jpg bmp gif
+					var oImg1 = (oTxt.substring(StartIndex + 1)).toLowerCase();
+					//alert(oImg)   ad2.jpg
+					//获取图片后缀
+					var SIndex=oImg1.lastIndexOf('\.');
+					var oImg=oImg1.substring(SIndex+1);
+					if (oImg == "png" || oImg == 'jpg' || oImg == 'bmp' || oImg == 'gif') {
+						alert("图片上传成功");
+					} else {
+						alert("图片类型错误，图片上传失败")
+					}
+				}
+			}
+		</script>
+	</head>
+
+	<body>
+		<input type="text" name="txt" id="txt" value="" />
+		<button id="load">上传图片</button>
+	</body>
+
+</html>

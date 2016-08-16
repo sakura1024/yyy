@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#div1 {
+				width: 100px;
+				height: 100px;
+				border: 1px solid pink;
+			}
+		</style>
+		<script type="text/javascript">
+			//打开子窗口
+			window.open("index10window.opener子窗口.html.html","我是子窗口",'width=300px,height=600px,left=150px');
+			//用于接收子窗口的值
+			function getValue(v) {
+				var oDiv = document.getElementById('div1');
+				//子窗口的传递过来的值v赋值给div
+				oDiv.innerHTML=v;
+			}
+		</script>
+	</head>
+
+	<body>
+		<div id="div1">
+
+		</div>
+	</body>
+
+</html>

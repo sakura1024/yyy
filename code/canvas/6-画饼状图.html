@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#demo {
+				border: 1px solid #ccc;
+			}
+		</style>
+	</head>
+
+	<body>
+		<canvas id="demo" width="600" height="600"></canvas>
+	</body>
+	<script type="text/javascript">
+	
+	 var data = [
+    				{
+    					"value": .4,
+    					"color": "red",
+    					"title": "应届生"
+    	
+    				},
+    				{
+    					"value": .3,
+    					"color": "green",
+    					"title": "社会招生"
+    				},
+    				{
+    					"value": .2,
+    					"color": "yellow",
+    					"title": "老学员推荐"
+    				},
+    				{
+    					"value": .1,
+    					"color": "blue",
+    					"title": "公开课"
+    				}]; 
+		var oDemo = document.getElementById('demo');
+		//得到画布控制权
+		var ctx = oDemo.getContext('2d');
+		
+		
+		var beginAngle=0;
+		var endAngle=0;
+		
+		//圆心
+		var cenX=oDemo.width/2;
+		var cenY=oDemo.height/2;
+		
+		
+		//第一部分
+		ctx.beginPath();
+		var data1=data[0];  //获取data数组中放的第一个元素
+		endAngle=data1.value*360;
+		var color=data1.color;
+		ctx.moveTo(cenX,cenY);
+		ctx.arc(cenX,cenY,100,0,endAngle*Math.PI/180,false);
+		ctx.fillStyle=color;
+		ctx.fill();
+		
+		//第二部分
+		ctx.beginPath();
+		var data2=data[1]; 
+		beginAngle=endAngle;
+		endAngle=beginAngle+data2.value*360;
+		var color=data2.color;
+		ctx.moveTo(cenX,cenY);
+		ctx.arc(cenX,cenY,100,beginAngle*Math.PI/180,endAngle*Math.PI/180,false);
+		ctx.fillStyle=color;
+		ctx.fill();
+		
+		//第三部分
+		ctx.beginPath();
+		var data3=data[2]; 
+		beginAngle=endAngle;
+		endAngle=beginAngle+data3.value*360;
+		var color=data3.color;
+		ctx.moveTo(cenX,cenY);
+		ctx.arc(cenX,cenY,100,beginAngle*Math.PI/180,endAngle*Math.PI/180,false);
+		ctx.fillStyle=color;
+		ctx.fill();
+		
+		//第三部分
+		ctx.beginPath();
+		var data4=data[2]; 
+		beginAngle=endAngle;
+		endAngle=beginAngle+data4.value*360;
+		var color=data4.color;
+		ctx.moveTo(cenX,cenY);
+		ctx.arc(cenX,cenY,100,beginAngle*Math.PI/180,endAngle*Math.PI/180,false);
+		ctx.fillStyle=color;
+		ctx.fill();
+		
+	</script>
+
+</html>

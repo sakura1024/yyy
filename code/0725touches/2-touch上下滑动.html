@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.outer{
+				width: 90%;
+				height: 500px;
+				background: black;
+				margin: auto;
+				overflow: hidden;
+			}
+			.inner{
+				width: 80%;
+				height: 800px;
+				background: #f40;
+				margin: auto;
+				position: relative;
+				top: 0;
+			}
+		</style>
+	</head>
+	<body>
+			<div class="outer">
+				<div class="inner">
+					<ul>
+						<li>今天还在下雨吗</li>
+						<li>今天还在下雨吗</li>
+						<li>今天还在下雨吗</li>
+						<li>今天还在下雨吗</li>
+						<li>今天还在下雨吗</li>
+						<li>今天还在下雨吗</li>
+						<li>今天还在下雨吗</li>
+						<li>今天还在下雨吗</li>
+						<li>今天还在下雨吗</li>
+						<li>今天还在下雨吗</li>
+						<li>今天还在下雨吗</li>
+						<li>今天还在下雨吗</li>
+						<li>今天还在下雨吗</li>
+						<li>今天还在下雨吗</li>
+						<li>今天还在下雨吗</li>
+						<li>今天还在下雨吗</li>
+						<li>今天还在下雨吗</li>
+						<li>今天还在下雨吗</li>
+						<li>今天还在下雨吗</li>
+						<li>今天还在下雨吗</li>
+						<li>今天还在下雨吗</li>
+						<li>今天还在下雨吗</li>
+						<li>今天还在下雨吗</li>
+						<li>今天还在下雨吗</li>
+						<li>今天还在下雨吗</li>
+						<li>今天还在下雨吗</li>
+						<li>今天还在下雨吗</li>
+						<li>今天还在下雨吗</li>
+						<li>今天还在下雨吗</li>
+						<li>今天还在下雨吗</li>
+						<li>今天还在下雨吗</li>
+						<li>今天还在下雨吗</li>
+						<li>今天还在下雨吗</li>
+						<li>今天还在下雨吗</li>
+						<li>今天还在下雨吗</li>
+						<li>今天还在下雨吗</li>
+						<li>今天还在下雨吗</li>
+						<li>今天还在下雨吗</li>
+						<li>今天还在下雨吗</li>
+						<li>今天还在下雨吗</li>
+						<li>今天还在下雨吗</li>
+						<li>今天还在下雨吗</li>
+						<li>今天还在下雨吗</li>
+						<li>今天还在下雨吗</li>
+						<li>今天还在下雨吗</li>
+						<li>今天还在下雨吗</li>
+						<li>今天还在下雨吗</li>
+						<li>今天还在下雨吗</li>
+						<li>今天还在下雨吗</li>
+						<li>今天还在下雨吗</li>
+						<li>今天还在下雨吗</li>
+						<li>今天还在下雨吗</li>
+						<li>今天还在下雨吗</li>
+					</ul>
+				</div>
+			</div>
+	</body>
+</html>
+<script type="text/javascript">
+	//获取元素
+	var oUter=document.getElementsByClassName('outer')[0];
+	var oInner=document.getElementsByClassName('inner')[0];
+	
+	//监听事件
+	oUter.addEventListener('touchstart',touchStart);
+	oUter.addEventListener('touchmove',touchMove);
+	oUter.addEventListener('touchend',touchEnd);
+	
+	
+	//全局变量的设置
+	var startY;   //记录初始点的y值坐标
+	var y;  //全局设置移动的高度
+	var topY=0;  //初始时inner距离顶部的值
+	//执行函数
+	//touchStart
+	function touchStart(e){
+		//获取触摸的第一个触摸点
+		var touch=e.touches[0];
+		startY=touch.pageY;   //得到当前触摸点在整个页面的Y坐标
+	}
+	
+	function touchMove(e){
+		//touchmoves事件中系统默认行为 滚动，进行阻止
+		e.preventDefault();
+		//获取当前第一个触摸点
+		var touch=e.touches[0];
+		y=touch.pageY-startY;  //此时获得上下移动的高度值
+		oInner.style.top=topY+y+"px";
+	}
+	
+	function touchEnd(e){
+		//触摸结束，inner盒子可以定位到移动结束触摸点的位置
+		topY=parseInt(oInner.style.top);
+	}
+</script>

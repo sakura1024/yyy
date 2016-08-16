@@ -1,0 +1,193 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+body {
+	font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
+	color: #333;
+}
+section{
+	display: flex;
+	font-size: 10px;
+	box-sizing: border-box;
+}
+a{
+	text-decoration: none;
+	color: #333;
+	
+}
+li{
+	list-style: none;
+}
+dl{
+	padding: 0;
+	margin: 0;
+}
+em{
+	font-style: normal;
+}
+.space{
+	background: #F8F8F8;
+	height: 0.25rem;
+	border-bottom: 1px solid #E7E7E7;
+	border-top: 1px solid #E7E7E7;
+}
+/*vipTop*/
+#vipTop{
+	height: 0.77rem;
+	background: #F6F6F6;
+}
+#vipTop h5{
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0rem 0.28rem;
+	font-size: 0.25rem;
+	font-weight: normal;
+}
+#vipTop .backBefore{
+	width: 0.34rem;
+	height: 0.37rem;
+}
+#vipTop .headIcon{
+	width: 0.37rem;
+	height: 0.37rem;
+}
+
+
+
+/*photoWall*/
+#photoWall{
+	width: 100%;
+	height: 2.55rem;
+	padding: 0.67rem 0 0.24rem;
+	background: url(../img/vip_r2_c1.jpg) no-repeat;
+	background-size: 6.4rem 2.56rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	font-size: 0.23rem;
+	
+}
+#photoWall img{
+	width: 1.04rem;
+	height: 1.1rem;
+	border: 1px solid #CCC;
+    border-radius: 50%;
+}
+
+/*money*/
+#money{
+	height: 1.14rem;
+	padding: 0.29rem 0.7rem 0.29rem 1.1rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	color: #7E7E7E;
+}
+#money a{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+#money span:nth-child(odd){
+	color: #C80718;
+}
+/*infoMy*/
+.infoMy{
+	padding: 0rem 0.15rem;
+	flex-direction: column;
+}
+.infoMy a{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 0.83rem;
+	
+}
+.infoMy a+a{
+	border-top: 1px solid #e9e9e9;
+}
+.infoMy .tit{
+	display: flex;
+    align-items: center;
+    font-size: 0.26rem;
+}
+.infoMy .ad{
+	display: flex;
+	align-items: center;
+	color: #AAA;
+}
+.infoMy .img{
+	width: 0.45rem;
+	height: 0.45rem;
+	vertical-align: middle;
+	margin-right: 0.17rem;
+	
+}
+.infoMy .img2{
+	width: 0.12rem;
+	height: 0.19rem;
+	margin-left: 0.17rem;
+}
+/*infoPublish*/
+#infoPublish{
+	
+}
+/*infoPrivacy*/
+#infoPrivacy{
+	
+}
+/*infoExit.*/
+#infoExit{
+	
+}
+
+/*footer*/
+#footer{
+	height: 1.4rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	
+}
+#footer div{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	height: 0.7rem;
+}
+#footer a{
+	width: 2.13rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: #83868f;
+	font-size: 0.22rem;
+}
+#footer a+a{
+	border-left: 1px solid #eee;
+}
+#footer p{
+	width: 100%;
+	height: 0.7rem;
+	border-top: 1px solid #eee;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: #cccfd8;
+}
+	
+/*backTop*/
+#backTop {
+	position: fixed;
+	bottom: 1.26rem;
+	right: 0.2rem;
+}
+#backTop img{
+	width: 0.84rem;
+	height: 0.84rem;
+}	

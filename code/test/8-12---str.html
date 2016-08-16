@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			var str = "<tr><td>{$id}</td><td>{$id}_{$name}</td></tr>"
+			var a = str.replace(/{\$id}/g, 10).replace(/{\$name}/g, "Tony");
+			console.log(a);
+		</script>
+	</body>
+
+</html>

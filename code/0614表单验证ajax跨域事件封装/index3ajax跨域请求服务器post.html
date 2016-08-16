@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			/*
+						 * 
+							用户名后台已有admin 小明,如输入admin 小明，则span中显示fail
+							若你输入的用户名还没有人注册,显示success
+							密码后台正则  输入的必须是8位以上的字母数字 输入正确时，span中显示success ，反之显示fail
+						 * */
+		</script>
+	</head>
+
+	<body>
+		<form action="" enctype="application/x-www-form-urlencoded">
+			用户名：<input type="text" id="name" onblur="checkName()" /><span id="nameSpan"></span>
+			<br /><br /> 
+			密&nbsp;码：<input type="password" id="password" onblur="checkPassWord()" /><span id="pass"></span><br /><br />
+			<input type="submit" name="btn" id="btn" value="注册" />
+		</form>
+		<script type="text/javascript">
+			var xmlhttp;
+
+			function link() {
+				if (window.XMLHttpRequest) { // code for IE7+, Firefox, Chrome, Opera, Safari
+					xmlhttp = new XMLHttpRequest();
+				} else { // code for IE6, IE5
+					xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+				}
+			}
+
+			function checkName() {
+				var oName = document.getElementById('name').value;
+				link();
+				var url = "http://10.0.161.235:8080/MyAjaxProject/RegisterServlet?timeStamp=" + new Date().getTime();
+				xmlhttp.open("POST", url, true);
+				//如果需要像 HTML 表单那样 POST 数据，请使用 setRequestHeader() 来添加 HTTP 头。然后在 send() 方法中规定您希望发送的数据：
+				xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+				xmlhttp.send("username=" + oName);
+				xmlhttp.onreadystatechange = function() {
+					if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+						//接收相应回来的数据
+						var result = xmlhttp.responseText;
+						var oNameSpan = document.getElementById('nameSpan');
+						oNameSpan.innerHTML = result;
+					}
+				}
+			}
+
+			function checkPassWord() {
+				var oPass = document.getElementById('password').value;
+				//link();
+				var url = "http://10.0.161.235:8080/MyAjaxProject/PwdCheckServlet?timeStamp=" + new Date().getTime();
+				xmlhttp.open("POST", url, true);
+				//如果需要像 HTML 表单那样 POST 数据，请使用 setRequestHeader() 来添加 HTTP 头。然后在 send() 方法中规定您希望发送的数据：
+				xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+				xmlhttp.send("pwd=" + oPass);
+				xmlhttp.onreadystatechange = function() {
+					if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+						//接收相应回来的数据
+						var result = xmlhttp.responseText;
+						var oPassSpan = document.getElementById('pass');
+						oPassSpan.innerHTML = result;
+					}
+				}
+			}
+		</script>
+	</body>
+
+</html>

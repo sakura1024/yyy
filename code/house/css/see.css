@@ -1,0 +1,100 @@
+h1,h2,h3,h4,h5,h6,p{
+	margin: 0;
+	line-height: 1;
+}
+#banner .circle{
+	margin-bottom: -10px;
+}
+#banner .circle li{
+	width: 8px;
+	height: 8px;
+}
+#banner .circle li:active{
+	width: 10px;
+	height: 10px;
+}
+/*info*/
+#info{
+	background: #F8F8F8;
+	padding: 0.15rem 0rem 0.17rem;
+}
+.info{
+	margin: 0 0.18rem;
+	border: 1px solid #eee;
+	background: white;
+	padding: 0rem 0.27rem;
+	padding-top: 0.24rem;
+}
+.info h3{
+	height: 0.68rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-size: 0.38rem;
+}
+.info h3 a{
+	font-size: 0.20rem;
+	color: #888;
+}
+.info h3 a span{
+	color: #e43;
+}
+
+.info h4{
+	height: 0.46rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-size: 0.30rem;
+	color: #d91819;
+}
+.info>.time{
+	height: 0.8rem;
+	font-size: 0.2rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	color: #888;
+}
+.info img{
+	width: 5.5rem;
+	height: 1.8rem;
+	margin: 0.23rem 0rem;
+}
+.info .title p{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.info .title .name{
+	height: 0.5rem;
+	color: #565c67;
+	
+}
+.info .title .name span{
+	color: #d91819;
+}
+
+.info .title .path{
+	height: 1.14rem;
+	font-size: 0.2rem;
+	color: #b3b6be;
+	padding: 0rem 0.18rem;
+}
+.info .title .path .active{
+	color: #f66;
+	border: 1px solid #f66;
+	}
+.info .title .path span{
+	width: 2.24rem;
+	height: 0.6rem;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	border: 1px solid #e3e7ed;
+}
+
+
+
+
+

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>下注</title>
+		<style type="text/css">
+			div {
+				float: left;
+				width: 200px;
+				height: 100px;
+				background: pink;
+				margin-right: 10px;
+				padding: 10px;
+				color: white;
+				font-weight: bold;
+				border-radius: 5px;
+			}
+			
+			#other {
+				background: black;
+				color: white;
+				font-weight: bold;
+			}
+			
+			input {
+				width: 100px;
+				height: 30px;
+				line-height: 30px;
+				text-align: center;
+				background: lightgrey;
+				font-weight: bold;
+				color: white;
+				border: 0 none;
+				border-radius: 3px;
+				opacity: 0.8;
+				float: left;
+				margin-right: 30px;
+			}
+			
+			input:hover {
+				opacity: 1;
+				box-shadow: 1px 1px 3px black;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function() {
+					//完善掷骰子游戏，每个人可以无限制的游戏，游戏结束的条件是充值金额输完了。
+					alert("欢迎进入21点游戏！");
+					var oSumMoney = document.getElementById('sumMoney');
+					var oPayMoney = document.getElementById('payMoney');
+					var sumMoney = parseInt(prompt("请输入充值金额", "100"));
+					credit();
+					oSumMoney.innerHTML = "目前总金额：" + sumMoney; //
+					//输入下注金额
+					var payMoney = parseInt(prompt("请输入下注金额：", "100"));
+					oPayMoney.innerHTML = "本次的下注金额:" + payMoney;
+					sumMoney = sumMoney - payMoney;
+					oSumMoney.innerHTML = "目前总金额：" + sumMoney;
+					var oYes = document.getElementById('yes');
+					var oNo = document.getElementById('no');
+					var oNext = document.getElementById('next');
+					var oLast = document.getElementById('last');
+					var oMydiv = document.getElementById('my');
+					var oOtherdiv = document.getElementById('other');
+					var myCurrent = 0; //自己当前点数
+					var otherCurrent = 0; //敌人当前点数
+					//自己的总点数显示在文本中
+					oMydiv.innerHTML = "自己现在总点数为：" + myCurrent;
+					//敌人的总点数显示在文本中
+					oOtherdiv.innerHTML = "敌人现在总点数为：" + otherCurrent;
+					oYes.onclick = function() {
+						//产生自己的随机数
+						var myRan = parseInt(Math.random() * 10) + 1;
+						//自己的随机数=自己上次的随机数+本次的随机数
+						myCurrent = myCurrent + myRan;
+						//产生敌人的随机数
+						var otherRan = parseInt(Math.random() * 10) + 1;
+						//敌人的随机数=敌人上次的随机数+敌人本次的随机数
+						otherCurrent = otherCurrent + otherRan;
+						//自己的随机数和自己的总点数显示在文本中
+						oMydiv.innerHTML = "本次产生的随机数：" + myRan + "<br/>现在总点数为：" + myCurrent;
+						//判断自己是否爆点 爆点的话  提示自己爆点  同时判断敌人是否爆点  如果敌人也爆点  则两人打平 否则自己输
+						if (myCurrent > 21 && otherCurrent > 21) {
+							oOtherdiv.innerHTML = "本次产生的随机数：" + otherRan + "<br/>现在总点数为：" + otherCurrent;
+							sumMoney = parseInt(sumMoney) + parseInt(payMoney);
+							oSumMoney.innerHTML = "目前总金额：" + sumMoney;
+							alert("您和敌人均爆点，打为平手，下注金额不扣点，也无奖励");
+						} else if (myCurrent > 21 && otherCurrent <= 21) {
+							oOtherdiv.innerHTML = "本次产生的随机数：" + otherRan + "<br/>现在总点数为：" + otherCurrent;
+							oSumMoney.innerHTML = "目前总金额：" + sumMoney;
+							alert("您爆点了，游戏失败，下注金额扣点" + "\n敌人的点数为：" + otherCurrent);
+						}
+						//判断是否为21点胜出
+						if (myCurrent == 21 && otherCurrent == 21) {
+							oOtherdiv.innerHTML = "本次产生的随机数：" + otherRan + "<br/>现在总点数为：" + otherCurrent;
+							sumMoney = parseInt(sumMoney) + parseInt(payMoney)
+							oSumMoney.innerHTML = "目前总金额：" + sumMoney;
+							alert("您和敌人同时为21点，打平，下注金额不扣点，也无奖励");
+						} else if (myCurrent == 21 && otherCurrent != 21) {
+							oOtherdiv.innerHTML = "本次产生的随机数：" + otherRan + "<br/>现在总点数为：" + otherCurrent;
+							sumMoney = parseInt(sumMoney) + parseInt(payMoney) * 2;
+							oSumMoney.innerHTML = "目前总金额：" + sumMoney;
+							alert("您的点数为21点，胜出，奖励下注金额；" + "\n敌人的点数：" + otherCurrent + "\n敌人扣掉下注金额");
+						}
+					}
+					oNo.onclick = function() {
+							//敌人的总点数显示在文本中
+							oOtherdiv.innerHTML = "现在总点数为：" + otherCurrent;
+							//判断敌人的点数是否爆点
+							if (otherCurrent > 21) {
+								sumMoney = parseInt(sumMoney) + parseInt(payMoney) * 2;
+								oSumMoney.innerHTML = "目前总金额：" + sumMoney;
+								alert("敌人爆点，您本次游戏胜利！" + "敌人的点数：" + otherCurrent + "敌人扣掉下注金额");
+								//自己点数大于敌人点数  胜出
+							} else if (myCurrent > otherCurrent) {
+								sumMoney = parseInt(sumMoney) + parseInt(payMoney) * 2;
+								oSumMoney.innerHTML = "目前总金额：" + sumMoney;
+								alert("您的点数为：" + myCurrent + "\n敌人的点数为：" + otherCurrent + "\n您胜出！奖金加倍");
+							} else if (myCurrent < otherCurrent) {
+								oSumMoney.innerHTML = "目前总金额：" + sumMoney;
+								alert("您的点数为：" + myCurrent + "\n敌人的点数为：" + otherCurrent + "\n您失败！扣掉下注金额");
+							} else if (myCurrent == therCurrent) {
+								sumMoney = parseInt(sumMoney) + parseInt(payMoney);
+								oSumMoney.innerHTML = "目前总金额：" + sumMoney;
+								alert("您的点数为：" + myCurrent + "\n敌人的点数为：" + otherCurrent + "\n双方打平，无奖励无惩罚");
+							}
+						}
+						//开始下一局
+					oNext.onclick = function() {
+							end(); //调用点数清空函数
+							//输入下注金额
+							payMoney = parseInt(prompt("请输入下注金额：", "100"));
+							oPayMoney.innerHTML = "本次的下注金额:" + payMoney;
+							if (payMoney > sumMoney) {
+								var need = prompt("金额已经不足，是否需要充值", "是");
+								if (need == "是") {
+									sumMoney = parseInt(prompt("请输入充值金额", "100"));
+									oSumMoney.innerHTML = "目前总金额：" + sumMoney;
+								} else {
+									alert("退出游戏！");
+								}
+							}
+							sumMoney = sumMoney - payMoney;
+							oSumMoney.innerHTML = "目前总金额：" + sumMoney;
+						}
+						//游戏结束
+					oLast.onclick = function() {
+							alert("游戏退出")
+						}
+						//开始下一局时  上局游戏缓存点数清空
+					function end() {
+						myCurrent = 0;
+						otherCurrent = 0;
+						payMoney = 0;
+						//自己的总点数显示在文本中
+						oMydiv.innerHTML = "自己现在总点数为：" + myCurrent;
+						//敌人的总点数显示在文本中
+						oOtherdiv.innerHTML = "敌人现在总点数为：" + otherCurrent;
+						//下注金额清空
+						oPayMoney.innerHTML = "本次的下注金额:" + payMoney;
+					}
+				}
+				//判断充值金额是否满足条件
+			function credit() {
+				if (sumMoney < 100) {
+					var go = prompt("不好意充值金额最少为100哦，是否要继续充值玩耍？", "是");
+					if (go == "是") {
+						sumMoney = parseInt(prompt("请输入充值金额", "100"));
+						credit();
+					} else {
+						alert("退出游戏！");
+					}
+				} else {
+					alert("祝您玩得愉快");
+				}
+			}
+		</script>
+	</head>
+
+	<body style="padding: 50px; margin: 0 auto;">
+		<h1>bug:开始下一局的时候，不提示下注</h1>
+		<input type="button" id="yes" value="要牌" />
+		<input type="button" id="no" value="结束要牌" />
+		<input type="button" id="next" value="开始下一局" />
+		<input type="button" id="last" value="结束游戏" /><br /><br /><br />
+
+		<div id="my">
+			自己的点数：
+		</div>
+		<div id="other">
+			敌人的点数：
+		</div><br /><br /><br /><br /><br /><br /><br /><br />
+
+		<div id="payMoney">
+			本次的下注金额：
+		</div>
+		<div id="sumMoney">
+			目前总金额：
+		</div>
+	</body>
+
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script type="text/javascript">
+			var count=0;
+			setInterval(wait,1000);
+			setInterval(date,1000)
+			//停留时间函数
+			function wait(){
+				var oWait=document.getElementById('wait');
+				count++;
+				var wHour=Tosix(parseInt(count/3600));
+				var wMin=Tosix(parseInt(count/60));
+				var wSec=Tosix(count);
+				oWait.innerHTML=wHour+"小时"+wMin+"分"+wSec+"秒";
+			}
+			//60进制
+			function Tosix (time) {
+				if (time>60) {
+					time=time%60;
+				}
+				return time;
+			}
+			//一位变两位
+			function Todou (time) {
+				if(time<10){
+					time="0"+time;
+				}
+				return time+'';
+			}
+			//获取系统时间函数
+			function date() {
+				var date = new Date();
+				var year = date.getFullYear();
+				var month = date.getMonth() + 1;
+				var day = date.getDate();
+				var hour = Todou(date.getHours());
+				var min = Todou(date.getMinutes());
+				var sec = Todou(date.getSeconds());
+				var oCurtime = document.getElementById('time'); 
+				//要把日期时间放在一个div里面 
+			oCurtime.innerHTML=year + '-' + month + '-' + day + ' '  + hour + ':' + min + ':' + sec;
+			}
+			//获取字符文本函数
+			function word () {
+				
+				
+			}
+			function execute () {
+				var oTXT=document.getElementById('txt').value;
+				var oWord=document.getElementById('word');
+				var oCode=document.getElementById('code');
+				var str='';
+				oWord.innerHTML="\""+oTXT+"\", ";
+				for (var i=0;i<oTXT.length;i++) {
+					//现将获得到的编码依次放到一个字符串中  用空格空开
+					str=str+oTXT.charCodeAt(i)+" ";
+				}
+				oCode.innerHTML=str;
+				
+			}
+		</script>
+	</head>
+	<body>
+		<span>系统当前时间：</span><span id="time"></span><br /><br />
+		<span>当前页面已停留时间：</span><span id="wait"></span><br /><br />
+		<span>请输入字符</span><input type="text" id="txt" value="" /><button id="btn" onclick="execute()" onblur="execute()">执行</button><br /><br />
+		您输入的字符是<span id="word"></span>它的ASCII码为<span id="code"></span>
+	</body>
+</html>

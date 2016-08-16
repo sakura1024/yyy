@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>hover</title>
+		<style type="text/css">
+			#div1{
+				width: 100px;
+				height: 100px;
+				background: yellow;
+			}
+			#div2{
+				width: 100px;
+				height: 100px;
+				background: yellow;
+				display: none;
+			}
+			#div3{
+				width: 100px;
+				height: 100px;
+				background: red;
+			}
+			#div4{
+				width: 100px;
+				height: 100px;
+				background: pink;
+			}
+			#div5{
+				width: 100px;
+				height: 100px;
+				background: red;
+			}
+		</style>
+		<script type="text/javascript" src="js/jquery-3.0.0.js" ></script>
+		<script type="text/javascript">
+			/*
+			 
+			 *obj.hover(fn1,fn2)   两个参数分别对应mouseover和mouseup两个事件时发生的操作
+			 * 
+			 * 1.show hide：是对象大小的渐变效果
+			 *obj.show(time)   obj显示  参数可有可无   有参数时：代表obj在参数值得大小内完成显示（有个大小的渐变效果，从无到有）
+			 *obj.hide(time)   与obj.show(time)作用相反
+			 * time的值越大，渐变效果越慢
+			 * 
+			 * 2.fadeIn,fadeOut：是对象透明度的渐变效果(即淡入淡出)
+			 * obj.fadeIn(time)   obj透明度从0到1     参数可有可无   有参数时：代表obj在参数值得大小内完成透明度的渐变效果，从无到有）
+			 * obj.fadeOut(time)   与obj.fadeIn(time)相反
+			 * 
+			 * 3.slideUp,slideDown对象的向上缩进和向下伸展
+			 * obj.slideUp(time);   time时间内完成向上缩进
+			 * obj.slideDown(time);   time时间内完成向下伸展
+			 * 
+			 * 4.obj.fadeTo(1000,0.1)  对象的淡入淡出 （可指定范围）   参数：时间段  透明度的范围（1-->0.1）
+			 *   obj.fadeTo(1000,1)  对象的淡入淡出 （可指定范围）   参数：时间段  透明度的范围（0.1-->1）
+			 * */
+			$(function(){
+				//对象的显示与隐藏
+				$('#div1').hover(function(){
+					$('#div2').show(1000);
+					$(this).css('background-color','red').html('圆圆爱郑少农').css('color','pink');
+				},function(){
+					$('#div2').hide(1000);
+					$(this).css('background-color','pink').html('逗你玩呢').css('color','red');
+				})
+				
+				//对象的淡入淡出
+				$('#div3').hover(function(){
+					$(this).fadeOut(1000);
+				},function(){
+					$(this).fadeIn(1000);
+				})
+				
+				//对象的向上缩进和向下伸展
+				$('#div4').hover(function(){
+					$(this).slideUp(1000);
+				},function(){
+					$(this).slideDown(1000);
+				})
+				
+				//对象的淡入淡出（可以指定范围）
+				$('#div5').hover(function(){
+					$(this).fadeTo(1000,0.1)
+				},function(){
+					$(this).fadeTo(1000,1);
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<div id="div1">
+			div1
+		</div><br />
+		<div id="div2">
+			对象的显示与隐藏
+		</div><br />
+		<div id="div3">
+			div3对象的淡入淡出
+		</div><br />
+		<div id="div4">
+			div4对象的向上缩进和向下伸展
+		</div><br />
+		<div id="div5">
+			
+		</div>
+	</body>
+</html>

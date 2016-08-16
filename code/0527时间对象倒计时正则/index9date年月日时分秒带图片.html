@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				height: 80px;
+				font-size: 80px;
+				line-height: 80px;
+			}
+		</style>
+		<script type="text/javascript">
+			function todouble (time) {
+				if (time<10) {
+					time="0"+time;
+				}else{
+					time=""+time;
+				}
+				return time;
+			}
+			function date() {
+				var date = new Date();
+				var year = date.getFullYear()+"";
+				var month = todouble(date.getMonth() + 1);
+				var day = date.getDate()+"";
+				var week = date.getDay();
+				var hour = todouble(date.getHours());
+				var min = todouble(date.getMinutes());
+				var sec = todouble(date.getSeconds());
+				var week1 = "";
+				switch (week) {
+					case 0:
+						week1 = "星期日"
+						break;
+					case 1:
+						week1 = "星期一";
+						break;
+					case 2:
+						week1 = "星期二";
+						break;
+					case 3:
+						week1 = "星期三";
+						break;
+					case 4:
+						week1 = "星期四";
+						break;
+					case 5:
+						week1 = "星期五";
+						break;
+					case 6:
+						week1 = "星期六";
+						break;
+					default:
+						break;
+				}
+				
+				var oDiv = document.getElementById('div1'); 
+				var aImg=oDiv.getElementsByTagName('img');
+				var str=year+month+day+hour+min+sec; //153256
+				//每调用一次函数  所有图片都要重新配置一次
+				for (var i=0;i<aImg.length;i++) {
+					aImg[i].src="img/images/"+str.charAt(i)+".png";
+				}
+				//要把日期时间放在一个div里面 
+			//oDiv.innerHTML=year + '-' + month + '-' + day + ' ' + week1 + ' ' + hour + ':' + min + ':' + sec;
+			}
+			
+			setInterval(date, 1000);
+		</script>
+	</head>
+
+	<body>
+		<div id="div1">
+			<img src=""/>
+			<img src=""/>
+			<img src=""/>
+			<img src=""/>-
+			<img src=""/>
+			<img src=""/>-
+			<img src=""/>
+			<img src=""/>
+			<img src=""/>
+			<img src=""/>:
+			<img src=""/>
+			<img src=""/>:
+			<img src=""/>
+			<img src=""/>
+		</div>
+	</body>
+
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload=function(){
+				var oDiv=document.getElementById('div1');
+				function css(){
+					if (arguments.length==2) {                         //获取样式
+						 //return arguments[0].style.arguments[1];//点 不好用
+						return arguments[0].style[arguments[1]];
+					} else{                                            //设置样式
+						arguments[0].style[arguments[1]]=arguments[2];
+					}
+				}
+				alert(css(oDiv,'width'));
+				css(oDiv,'backgroundColor','plum');
+				
+			}
+		</script>
+	</head>
+	<body>
+		<div id="div1" style="width: 100px;height: 100px;background-color: pink;">
+			
+		</div>
+	</body>
+</html>

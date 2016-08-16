@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			var count=0;
+			var timer=null;
+			function test(){
+				document.write(count+++"<br />");
+				if (count==5) {
+					clearTimeout(timer);
+				} 
+				//有bug实现不了清除
+				timer=setTimeout(test,1000);
+			}
+//			function stop(){
+//				clearTimeout(timer);
+//			}
+		</script>
+	</head>
+	<body>
+		<button onclick="test()">打印</button>
+		<button onclick="stop()">停止打印</button>
+		
+	</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>带返回值的函数</title>
+		<style type="text/css">
+			div {
+				width: 200px;
+				height: 100px;
+				background: pink;
+				margin-top: 10px;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function() {
+				//获取下载按钮
+				var oLoad = document.getElementById('load');
+				//获取div
+				var oDiv = document.getElementById('div');
+				oLoad.onclick = download;
+				function download() {
+					//获取wifi的值
+					var oWifi = document.getElementById('wifi').value;
+					//判断网络情况
+					if (oWifi=="on") {                                         //网络开着的时候，在div里提示网络良好
+						oDiv.innerHTML="网络顺畅，下载成功";
+					} else{														//网络没有打开的时候，在div里提示网络良好
+						oDiv.innerHTML="网络暂时无法连接，请查看网络设置";
+					}
+				}
+			}
+		</script>
+	</head>
+
+	<body>
+		wifi:
+		<select id="wifi">
+			<option value="on">开</option>
+			<option value="off">关</option>
+		</select> 
+		<input type="button" id="load" value="下载" />
+		<div id="div">
+
+		</div>
+	</body>
+
+</html>

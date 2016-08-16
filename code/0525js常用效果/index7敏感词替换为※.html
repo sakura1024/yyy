@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			function replaceWord(){
+				var oTxt=document.getElementById('txt').value;
+				//  /内容/ 正则表达式的写法 如果结合g，则表示全局替换，如果不添加 则只替换第一次出现的内容
+				oTxt=oTxt.replace(/(法轮功|藏独|台独)/g,'***');   //g是全局替换   |表示或
+				//设置内容到textarea
+				document.getElementById('txt').value=oTxt;
+			}
+		</script>
+	</head>
+	<body>
+		<textarea id="txt" rows="8" cols="50"></textarea>
+		<br /><br /><br /><br />
+		<button  onclick="replaceWord()">替换</button>
+	
+	</body>
+</html>

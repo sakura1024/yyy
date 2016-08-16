@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+function fun(x){
+	return function(y){
+		console.log(x+y);  //子函数内部可以使用父函数的参数
+	}
+}
+var obj=fun(4);  //传值給x 执行一次fun（x）函数，返回函数体  相当于obj=function(){console.log(4)}
+obj(3);  //传值給y
+obj();  //此时y=undefined  4+undefined=NaN
+</script>

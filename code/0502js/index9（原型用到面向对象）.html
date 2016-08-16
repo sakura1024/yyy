@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>工厂方式</title>
+		<script type="text/javascript">
+			function CreatePerson(name,qq){                      //构造函数 ：加属性
+				this.name=name;                                   
+				this.qq=qq; 
+			}
+			
+			CreatePerson.prototype.showName=function(){          //原型：加方法
+				alert('我的姓名：'+this.name);
+			}
+			CreatePerson.prototype.showQQ=function(){
+				alert('我的QQ：'+this.qq);
+			}
+			
+			var obj1=new CreatePerson('blue','11311543277');           //调用构造函数  创建个人信息对象
+			obj1.showName();                                        //对用对象方法：显示对象姓名
+			var obj2=new CreatePerson('yuanyuan','11317893277');
+			obj2.showQQ();
+            alert(obj1.showName==obj2.showName)               //用原型后  两个showName方法相同  为true
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
+

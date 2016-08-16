@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			span {
+				margin-left: 5px;
+				color: red;
+			}
+			
+		</style>
+		<script type="text/javascript">
+			//			试题三:
+			//表单注册验证，一个表单四个控件属性，分别是用户名，密码，密码确认,邮箱,手机号码,身份证号码。要求当点击提交时
+			//    a:用户名只能是数字，下划线，字母且不能为空,否则给出提示且不能提交    
+			//    b:校验密码（自己给出条件去校验）
+			//    c:校验邮箱(邮箱中必须有@和.)
+			//    d:其中手机必须是150，158，138，136开头的11位手机号码
+			//    e:身份证号码15纯数字，18位最后一位可以是x或X
+			// 当点击提交时，要求首先不能为空，符合正则要求。
+			//  如果不符合正则要求则 在各个文本框的后面给出提示
+			window.onload = function() {
+				var oBtn = document.getElementById('btn');
+				oBtn.onclick = function() {
+					name1();
+					pas1();
+					pas2();
+					email();
+					tel();
+					id1();
+				}
+			}
+
+			function name1() {
+				var str = document.getElementById('name');
+				var reg = /^[a-zA-Z_][a-zA-Z0-9_]{5,}$/g;
+				var oSpan = document.getElementById('name1');
+				//				var error1 = "请输入有效的用户名";
+				if (str.value == "") {
+					str.style.backgroundColor = "#F5F3F3";
+					str.style.border = "2px solid ##ccc";
+					oSpan.innerHTML = "用户名不能为空";
+				} else {
+					if (reg.test(str.value) == false) {
+						str.style.backgroundColor = "#F5F3F3";
+						str.style.border = "2px solid ##ccc";
+						oSpan.innerHTML = "请输入有效的用户名";
+					} else {
+						str.style.backgroundColor = "";
+						str.style.border = "";
+						oSpan.innerHTML = "√";
+						oSpan.style.color = "green";
+						oSpan.style.fontWeight = "bold";
+					}
+				}
+				//common(str, reg, oSpan, error1);
+			}
+
+			function pas1() {
+				var str = document.getElementById('pass');
+				var reg = /^\w{6,18}$/g;
+				var oSpan = document.getElementById('pass1');
+				var error1 = "请输入有效的密码";
+				if (str.value == "") {
+					str.style.backgroundColor = "#F5F3F3";
+					str.style.border = "2px solid ##ccc";
+					oSpan.innerHTML = "密码不能为空";
+				} else {
+					if (reg.test(str.value) == "" && reg.test(str.value) == false) {
+						str.style.backgroundColor = "#F5F3F3";
+						str.style.border = "2px solid ##ccc";
+						oSpan.innerHTML = error1;
+					} else {
+						str.style.backgroundColor = "";
+						str.style.border = "";
+						oSpan.innerHTML = "√";
+						oSpan.style.color = "green";
+						oSpan.style.fontWeight = "bold";
+					}
+				}
+//				common(str, reg, oSpan, error1);
+			}
+
+			function pas2() {
+				var str1 = document.getElementById('pass');
+				var str = document.getElementById('password');
+				var oSpan = document.getElementById('password1');
+				if (str.value == "") {
+					str.style.backgroundColor = "#F5F3F3";
+					str.style.border = "2px solid ##ccc";
+					oSpan.innerHTML = "密码不能为空";
+				} else {
+					if (str.value !== str1.value) {
+						str.style.backgroundColor = "#F5F3F3";
+						str.style.border = "2px solid ##ccc";
+						document.getElementById('password1').innerHTML = "两次密码不一致";
+					} else {
+						str.style.backgroundColor = "";
+						str.style.border = "";
+						var oPass1 = document.getElementById('password1')
+						oPass1.innerHTML = "√";
+						oPass1.style.color = "green";
+						oPass1.style.fontWeight = "bold";
+					}
+				}
+			}
+
+			function email() {
+				var str = document.getElementById('email');
+				var reg = /^\w+@\w+.com$/g;
+				var oSpan = document.getElementById('email1');
+				var error1 = "请输入有效的邮箱"
+				common(str, reg, oSpan, error1);
+			}
+
+			function tel() {
+				var str = document.getElementById('tel');
+				var reg = /^[150|158|138|136]\d{8}$/g;
+				var oSpan = document.getElementById('tel1');
+				var error1 = "请输入有效的手机号"
+				common(str, reg, oSpan, error1);
+			}
+
+			function id1() {
+				var str = document.getElementById('id');
+				var reg = /^[1-9]([0-9]{14}|[0-9]{16}[0-9xX])$/g;
+				var oSpan = document.getElementById('id1');
+				var error1 = "请输入有效的身份证号"
+				common(str, reg, oSpan, error1);
+			}
+
+			function common(str, reg, oSpan, error1) {
+				if (reg.test(str.value) == "" && reg.test(str.value) == false) {
+					str.style.backgroundColor = "#F5F3F3";
+					str.style.border = "2px solid ##ccc";
+					oSpan.innerHTML = error1;
+				} else {
+					str.style.backgroundColor = "";
+					str.style.border = "";
+					oSpan.innerHTML = "√";
+					oSpan.style.color = "green";
+					oSpan.style.fontWeight = "bold";
+				}
+			}
+		</script>
+	</head>
+
+	<body>
+		<p>用户名：</p>
+		<input type="text" name="" id="name" value="" onblur="name1()" /><span id="name1"></span>
+		<p>密码:</p>
+		<input type="password" name="" id="pass" onblur="pas1()"  /><span id="pass1"></span>
+		<p>确认密码:</p>
+		<input type="password" name="" id="password" onblur="pas2()"  /><span id="password1"></span>
+		<p>邮箱：</p>
+		<input type="email" name="" id="email" value="" onblur="email()"  /><span id="email1"></span>
+		<p>手机号码：</p>
+		<input type="text" name="" id="tel" value="" onblur="tel()"  /><span id="tel1"></span>
+		<p>身份证号码：</p>
+		<input type="text" name="" id="id" value="" onblur="id1()"  /><span id="id1"></span><br /><br />
+		<input type="submit" id="btn" value="提交" />
+	</body>
+
+</html>

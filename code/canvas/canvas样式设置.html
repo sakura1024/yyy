@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			/*#demo{
+				border: 1px solid #ccc;
+			}*/
+		</style>
+	</head>
+	<body>
+		<!--canvas中如果想改变默认的狂傲，设置宽高不能在样式里面设置-->
+		<!--<canvas id="demo" width="600" height="600">对不起，您的浏览器版本过低！</canvas>-->
+		
+		
+		<!--法二:js设置宽高-->
+		<canvas id="demo" ></canvas>
+	</body>
+</html>
+<script type="text/javascript">
+	var oDemo=document.getElementById('demo');
+	//设置宽高，清除当前画布里的所有内容
+	oDemo.width=600;
+	oDemo.height=600;
+	oDemo.style.border="1px solid #ccc"
+	
+</script>

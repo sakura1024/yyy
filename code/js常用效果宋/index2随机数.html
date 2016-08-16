@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//定义一个数组，放五个随机整数 到数组中 随机数为1~100之间的随机数 打印五个整数的累加和
+			var arr=new Array(5);
+			var sum=0;
+			for (var i=0;i<arr.length;i++) {
+				arr[i]=parseInt(Math.random()*100+1);
+				document.write(arr[i]+" ")
+				sum=sum+arr[i];
+			}
+			document.write(sum);
+			
+		</script>
+	</body>
+</html>

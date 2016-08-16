@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>Ajax跨域</title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			var xmlhttp;
+			if (window.XMLHttpRequest) { // code for IE7+, Firefox, Chrome, Opera, Safari
+				xmlhttp = new XMLHttpRequest();
+			} else { // code for IE6, IE5
+				xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+			xmlhttp.open("GET", "http://10.0.161.235:8080/MyAjaxProject/MyTestServlet", true);
+			xmlhttp.send();
+			var obj;
+			xmlhttp.onreadystatechange = function() {
+				if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+					//接收相应回来的数据
+					var jsonString = xmlhttp.responseText;
+					//console.log(jsonString);
+					//字符串转为对象
+					var jsonObj = JSON.parse(jsonString);
+					//将获取到的books数组对象放到abook中
+					var aBook = jsonObj.books;
+					var oTable = document.createElement('table');
+					var oTbody = document.createElement('tbody');
+					for (var i = 0; i < aBook.length; i++) {
+						var oTr = document.createElement('tr');
+						var oTd = document.createElement('td');
+						//注意图片的获取方式（aBook[i].image里面放的是图片的链接，即图片的src）
+						var oImage = document.createElement('img');
+						oImage.src = aBook[i].image;
+						oImage.style.width = "40px";
+						oImage.style.height = "40px";
+						oImage.title = aBook[i].name + " " + aBook[i].price + " " + aBook[i].author;
+						oTd.appendChild(oImage);
+						oTr.appendChild(oTd);
+						var oTd = document.createElement('td');
+						oTd.innerHTML = aBook[i].name;
+						oTr.appendChild(oTd);
+						var oTd = document.createElement('td');
+						oTd.innerHTML = aBook[i].price;
+						oTr.appendChild(oTd);
+						var oTd = document.createElement('td');
+						oTd.innerHTML = aBook[i].author;
+						oTr.appendChild(oTd);
+						oTbody.appendChild(oTr);
+					}
+					oTable.appendChild(oTbody);
+					var oBody = document.getElementsByTagName('body')[0];
+					oBody.appendChild(oTable);
+					var aTd = document.getElementsByTagName('td');
+					for (var i = 0; i < aTd.length; i++) {
+						aTd.index = i;
+						aTd[i].onclick = function() {
+							var str = "";
+							this.style.cursor = "pointer";
+							aaTd = this.parentNode.children;
+							for (var j = 0; j < aaTd.length; j++) {
+								str = str + aaTd[j].innerHTML + " ";
+							}
+							//创建一个div
+							var oDiv = document.createElement('div');
+							oDiv.style.border = "1px solid #ccc";
+							oDiv.style.marginTop = "20px";
+							oDiv.style.display = "none";
+							oDiv.innerHTML = str;
+							oDiv.style.display = "block";
+							oBody.appendChild(oDiv);
+						}
+					}
+				}
+			}
+		</script>
+	</body>
+
+</html>

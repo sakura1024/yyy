@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>闭包</title>
+	</head>
+	<body>
+	
+	</body>
+<script type="text/javascript">
+function out(){
+	var a=0;
+	return function (){
+		a++;
+		alert(a);
+	}
+}
+var obj=out(); //执行一次outer函数 此时a=0   返回inner函数体
+obj();  //调用一次inner函数，弹出1
+obj();  //调用一次inner函数，弹出2
+var obj1=out(); //执行一次outer函数  此时a=0   返回inner函数体
+obj1();  //调用一次inner函数，弹出1
+obj1(); //调用一次inner函数，弹出2
+</script>
+</html>

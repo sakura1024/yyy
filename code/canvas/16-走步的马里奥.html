@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<canvas id="demo" width="600" height="600"></canvas>
+	</body>
+	<script type="text/javascript">
+		var oDemo = document.getElementById('demo');
+		oDemo.style.border = "1px solid #ccc";
+		//得到画布控制权
+		var ctx = oDemo.getContext('2d');
+		var oImg = new Image();
+		oImg.src = "img/mario.png";
+
+		var i = 0;
+
+		function move() {
+			ctx.clearRect(0, 0, 600, 600);
+			if(i == 0) {
+				//9个参数，分别代表图片对象，裁剪图片起始位置，裁剪图片的宽高，裁剪图片放在画布中的起始位置，裁剪图片在画布中所占的宽高
+				ctx.drawImage(oImg, 0, 0, 37, 47, 100, 100, 37, 47);
+
+			}
+
+			if(i == 1) {
+				//9个参数，分别代表图片对象，裁剪图片起始位置，裁剪图片的宽高，裁剪图片放在画布中的起始位置，裁剪图片在画布中所占的宽高
+				ctx.drawImage(oImg, 37, 0, 37, 47, 100, 100, 37, 47);
+
+			}
+			if(i == 2) {
+				//9个参数，分别代表图片对象，裁剪图片起始位置，裁剪图片的宽高，裁剪图片放在画布中的起始位置，裁剪图片在画布中所占的宽高
+				ctx.drawImage(oImg, 74, 0, 37, 47, 100, 100, 37, 47);
+
+			}
+			i++;
+			i = i > 2 ? 0 : i;
+		}
+
+		oImg.onload = function() {
+			var timer = setInterval(move, 300);
+		}
+	</script>
+
+</html>

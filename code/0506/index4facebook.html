@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>facebook</title>
+		<style type="text/css">
+		p{
+			margin: 0;
+		}
+			.div1{
+				width: 272px;
+				height: 297px;
+				background: #EDCAA5;
+				overflow: hidden;
+				margin: 0 auto;
+			}
+			.div2{
+				width: 240px;
+				height: 262px;
+				background: #3B6BB2;
+				margin-top: 28px;
+				margin-left: 13px;
+				border: 1px solid #20293A;
+				border-radius: 8px;
+				overflow: hidden;
+			}
+			h3{
+				color: white;
+				margin-left: 79px;
+			}
+			.input{
+				display: inline-block;
+				height: 35px;
+				width: 187px;
+				background: #203349;
+				margin: 0 auto;
+				margin-left: 20px;
+				margin-bottom: 20px;
+				border: 0;
+				border: 1px solid #203349;
+				border-radius:5px ;
+				padding-left: 12px;
+				color: #BBBFBE;
+			}
+			.btn{
+				width: 199px;
+				background: #BDD5F6;
+				color: #2D4973;
+				font-weight: bold;
+				
+			}
+			input:last-child{
+				margin-bottom: 20px;
+			}
+			p{
+				text-align: center;
+			}
+			p a{
+				color: white;
+				text-decoration: none;
+			}
+		}
+		</style>
+		<script type="text/javascript">
+			window.onload=function(){
+				var oTxt=document.getElementById('txt1');
+				var oPass=document.getElementById('pass');
+				var oLogin=document.getElementById('login');
+				oTxt.onfocus=function(){
+					this.value="";
+				}
+				oPass.onfocus=function(){
+					this.placeholder="";
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div class="div1">
+			<div class="div2">
+				<h3>Facebook</h3>
+				<input type="text" name="" id="txt1" value="Email Address" class="input" />
+				<input type="password" name="" id="pass" value="" placeholder="Password" class="input"/>
+				<input type="button" name="" id="login" value="Login"  class="input btn"/>
+				<p><a href="#">Forget password?</a></p>
+			</div>
+		</div>
+	</body>
+</html>

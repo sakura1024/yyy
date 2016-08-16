@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/main.css"/>
+		<style type="text/css">
+			*{
+				margin: 0;
+			}
+			li{
+				float: left;
+				list-style: none;
+			}
+			#sort {
+				position: relative;
+				width: 888px;
+				height: 42px;
+			}
+			
+			#map {
+				
+				width: 890px;
+				height: 456px;
+				
+			}
+			
+			#zhezhao {
+				position: absolute;
+				display: none;
+				background: black;
+				opacity: 0.6;
+			}
+			
+			
+			
+			/*地图map里面的子集*/
+			#highmap{
+				position: absolute;
+				left: 229px;
+				top: 43px;
+				width: 890px;
+				height: 552px;
+				display: none;
+			}
+			#highmap h4{
+				width: 888px;
+				height: 28px;
+				line-height: 30px;
+				border: 1px solid #e1e1e1;
+				background: #fbfbfb;
+			}
+			#close {
+				position: absolute;
+				width: 28px;
+				height: 28px;
+				color: #C2C2C2;
+				font-size:15px;
+				text-align: center;
+				line-height: 28px;
+				right: 0px;
+				top: 0px;
+				border: 0 none;
+				background: #fbfbfb;
+			}
+			
+		</style>
+		<script type="text/javascript" src="http://webapi.amap.com/maps?v=1.3&key=4d55dbc35a5ad544d296511ea4cbf413"></script>
+	</head>
+
+	<body>
+		<div class="add-name">
+			<ul id="sort">
+				<li class="default"><a href="#">默认排序</a></li>
+				<li id="turnover"><a href="#">按成交量</a></li>
+				<li><a href="#">按人气</a></li>
+				<li class="prev"><input type="checkbox" name="" id="" class="fl" checked="checked"><span class="fl">先行赔付</span></li>
+
+				<li class="fr" id="btn"><span>地图模式</span></li>
+				<div id="zhezhao">
+					
+				</div>
+				<div id="highmap">
+					<h4>地图模式</h4>
+					<div id="map">
+						
+					</div>
+					<!--关闭按钮-->
+					<input type="button" name="close" id="close" value="X" />
+					<div class="repair-bottom">
+						<ul>
+							<li><a href="#" class="active">1</a></li>
+							<li><a href="#">2</a></li>
+							<li><a href="#">3</a></li>
+							<li><a href="#">4</a></li>
+							<li><a href="#">5</a></li>
+							<li><a href="#">6</a></li>
+							<li><a href="#">7</a></li>
+							<li><a href="#">8</a></li>
+							<li><a href="#">9</a></li>
+							<li><a href="#">10</a></li>
+							<li><a href="#" class="a-last">下一页&gt;&gt;</a></li>
+						</ul>
+						
+					</div>
+				</div>
+
+			</ul>
+		</div>
+		
+		<!--地图上的按钮-->
+
+		<script type="text/javascript">
+			//			var map = new AMap.Map('container');
+			var btn = document.getElementById('btn');
+			var zhe = document.getElementById('zhezhao');
+			var highmap=document.getElementById('highmap');
+			var clientWidth = document.documentElement.clientWidth + "px";
+			var clientHeight = document.documentElement.clientHeight + "px";
+			var close = document.getElementById('close');
+
+			//地图模式
+			btn.onclick = function() {
+				btn.style.zIndex = "-1";
+				//遮罩层出来
+				zhe.style.display = "block";
+				zhe.style.zIndex = "1";
+				zhe.style.width = clientWidth;
+				zhe.style.height = clientHeight;
+				zhe.style.left = "-8px";
+				zhe.style.top = "-16px";
+
+				var oHighmap = document.getElementById('highmap');
+				oHighmap.style.display = "block"
+				oHighmap.style.zIndex = "222";
+
+				showMap();
+			}
+			close.onclick = hidden;
+			//关闭按钮
+			function hidden() {
+				//关闭遮罩层 关闭地图
+				document.getElementById('highmap').style.display = "none";
+				zhe.style.display = "none";
+
+			}
+
+			function showMap() {
+				var map = new AMap.Map('map', {
+					zoom: 10,
+					center: [116.39, 39.9]
+				});
+				var marker = new AMap.Marker({
+					position: [116.490983, 39.989628],
+					map: map
+				});
+				var marker1 = new AMap.Marker({
+					position: [116.500984, 39.989628],
+					map: map
+				});
+				var marker2 = new AMap.Marker({
+					position: [116.510986, 39.989628],
+					map: map
+				});
+				var infowindow = new AMap.InfoWindow({
+					content: '<h3>高德地图</h1><div>高德是中国领先的数字地图内容、导航和位置服务解决方案提供商。</div>',
+					offset: new AMap.Pixel(0, -30),
+					size: new AMap.Size(230, 0)
+				});
+				var infowindow1 = new AMap.InfoWindow({
+					content: '<h3>高德地图</h1><div>mark1高德是中国领先的数字地图内容、导航和位置服务解决方案提供商。</div>',
+					offset: new AMap.Pixel(0, -30),
+					size: new AMap.Size(230, 0)
+				});
+				var infowindow2 = new AMap.InfoWindow({
+					content: '<h3>高德地图</h1><div>mark2高德是中国领先的数字地图内容、导航和位置服务解决方案提供商。</div>',
+					offset: new AMap.Pixel(0, -30),
+					size: new AMap.Size(230, 0)
+				});
+				//						infowindow.open(map,new AMap.LngLat(116.480983, 39.989628));
+				var clickHandle = AMap.event.addListener(marker, 'click', function() {
+
+					infowindow.open(map, marker.getPosition());
+				})
+				var clickHandle1 = AMap.event.addListener(marker1, 'click', function() {
+					infowindow1.open(map, marker1.getPosition())
+						//				
+				})
+				var clickHandle2 = AMap.event.addListener(marker2, 'click', function() {
+					infowindow2.open(map, marker2.getPosition())
+						//				
+				})
+				AMap.plugin(['AMap.ToolBar', 'AMap.Scale'], function() {
+					var toolBar = new AMap.ToolBar();
+					var scale = new AMap.Scale();
+					map.addControl(toolBar);
+					map.addControl(scale);
+				})
+			}
+		</script>
+	</body>
+
+</html>

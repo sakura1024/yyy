@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			#div {
+				background: url(img/1.jpg);
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function() {
+				var oDiv = document.getElementById('div');
+				var height=getStyle(oDiv);
+				alert(height);
+			}
+
+			function getStyle(obj) {
+				if (obj.currentStyle) {
+					return obj.currentStyle.backgroundPositionY;
+				} else {
+					return getComputedStyle(obj, false).backgroundPositionY;
+				}
+			}
+		</script>
+	</head>
+
+	<body>
+		<div id="div">
+		</div>
+	</body>
+
+</html>

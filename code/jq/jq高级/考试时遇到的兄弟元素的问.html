@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery-3.0.0.js" ></script>
+		<script type="text/javascript">
+			$(function(){
+				//$('a').nextAll().css('color','red');   //a下面的的兄弟元素
+				//$('a').siblings().css('color','red'); 		//a所有的兄弟元素
+				//$('a').next().css('color','red'); 		//a后面紧跟的兄弟元素
+				//$('a').find('h1').css('color','red'); 		//a中子元素中h1标签  没有哦
+				//$('a').siblings().eq(0).css('color','red');   //a所有的兄弟元素中下标为0的那个元素
+				/*
+				 * 
+				 * *******************注意********************************
+				 * $('td').get(0).css('color','red')
+				 *会报错，因为css函数是jQuery特有的样式函数
+				 * $('td').get(0)但其中的get()函数是将jQuery对象转换成原生js对象，
+				 * 所以此时只能使用$('td').get(0).style.color="red";
+				 * 
+				 */
+				$('td').get(2).style.color="red";
+			
+			})
+		</script>
+	</head>
+	<body>
+		<p>111</p>
+		<a>a</a>
+		<b>b</b>
+		<h1>h1</h1>
+		<h1>h1</h1>
+		<h2>h2</h2>
+		<table border="" cellspacing="" cellpadding="">
+			<tr>
+				<td>1</td>
+				<td>2</td>
+				<td>3</td>
+				<td>4</td>
+			</tr>
+		</table>
+	</body>
+</html>

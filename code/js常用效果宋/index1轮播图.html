@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>轮播图</title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			#wrap {
+				position: relative;
+				width: 900px;
+				height: 220px;
+				margin: 0 auto;
+				overflow: hidden;
+			}
+			
+			#slider {
+				position: absolute;
+				top: 0;
+				left: 20px;
+			}
+			
+			img {
+				width: 700px;
+				height: 220px;
+				border: 0 none;
+				float: left;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function() {
+				var oSlider = document.getElementById('slider');
+				var count = 0;
+				var oPrev=document.getElementById('prev');
+				var oNext=document.getElementById('next');
+				var oImg = document.getElementsByTagName('img');
+				oPrev.onclick=prev;
+				oNext.onclick=next;
+				//为每个图片设置src
+				for (var i = 0; i < oImg.length; i++) {
+					oImg[i].src = 'img/' + (i + 1) + '.jpg';
+				}
+				//上一张函数
+				function prev() {
+				count--;
+				if (count == -1) {
+					count = 3;
+				}
+				oSlider.style.top = count * (-220) + 'px';
+			}
+			//下一张函数
+			function next() {
+				count++;
+				if (count == 4) {
+					count = 0;
+				}
+				oSlider.style.top = count * (-220) + 'px';
+			}
+			}
+
+			
+		</script>
+	</head>
+
+	<body style="padding-top: 20px;">
+		<div id="wrap">
+			<div id="slider">
+				<a href="#"><img src="img/1.jpg" /></a>
+				<a href="#"><img src="" /></a>
+				<a href="#"><img src="" /></a>
+				<a href="#"><img src="" /></a>
+			</div>
+		</div>
+		<button id="prev">上一张</button>
+		<button id="next">下一张</button>
+	</body>
+
+</html>

@@ -1,0 +1,319 @@
+.con1 {
+	width: 950px;
+	margin: 0 auto;
+}
+
+.color {
+	color: #09f;
+}
+
+.red {
+	color: red;
+	text-decoration: underline;
+}
+
+
+/*header*/
+
+.zindex img {
+	margin-top: 16px;
+	margin-left: 41px;
+}
+
+
+/*order*/
+
+.order {
+	height: 30px;
+	margin-top: 10px;
+	background: url(../img/order.png) no-repeat;
+}
+
+.orderspan {
+	margin-bottom: 18px;
+}
+
+.orderspan span {
+	display: inline-block;
+	width: 237px;
+	height: 20px;
+	line-height: 20px;
+	text-align: center;
+	color: #999;
+}
+
+.orderspan .orange {
+	color: #FF9000;
+}
+
+.sure {
+	height: 28px;
+	line-height: 28px;
+}
+
+table {
+	border-collapse: collapse;
+	background: #F9F9F9;
+	height: 408px;
+	border: 1px solid #D9DCDA;
+}
+
+tr{
+	border: 0 none;
+}
+th,
+td {
+	border: 0 none;
+}
+
+.trr{
+	background: white;
+}
+
+.tr1 img {
+	width: 72px;
+	height: 72px;
+	margin: 10px;
+}
+
+.tr0 th {
+	/*height: 35px;
+	line-height: 35px;*/
+	padding: 9px 43px;
+	border-bottom: 4px solid #BBEEAE;
+	/*border: 1px solid #009900;*/
+	margin-right: 2px;
+}
+
+.tr0 th,
+.tr1 {
+	font-weight: 400;
+	color: #666;
+}
+.tr1{
+	border-bottom: 1px dashed #E4E4E4;
+}
+
+.tr1 p {
+	margin-top: 10px;
+	line-height: 25px;
+	/*font-size: 14px*/
+}
+
+.p2 {
+	margin-top: 57px;
+}
+
+.p2 s,
+.p2 i {
+	display: inline-block;
+	width: 18px;
+	height: 18px;
+}
+
+.tr1 i {
+	background: url(../img/xuebi11.png) no-repeat;
+}
+
+.tr1 s {
+	background: url(../img/xuebi11.png) no-repeat -47px -108px;
+}
+
+.price1 {
+	padding-left: 30px;
+}
+
+.storeAdd{
+	display: none;
+}
+
+.price2 {
+	padding-left: 50px;
+	color: #FF6600;
+}
+
+.price2 b {
+	font-size: 16px;
+}
+
+.price2 p {
+	background: #FFF5E1;
+	border: 1px solid #FFE5B9;
+	color: #F60;
+	width: 87px;
+	height: 19px;
+	text-align: center;
+	line-height: 19px;
+	margin-left: -13px;
+}
+
+.price3 {
+	margin-left: 90px;
+	margin-bottom: 10px;
+	border: 1px solid #999;
+}
+
+
+.number{
+	position: relative;
+}
+#noZero{
+	clear: both;
+	display: none;
+	padding-left: 20px;
+	width: 100px;
+	height: 40px;
+	color: red;
+	background: url(../img/noZero.png) no-repeat left top;
+	    position: absolute;
+    top: 58px;
+}
+
+.number img {
+	width: 20px;
+	height: 20px;
+	cursor: pointer;
+}
+
+.inNum {
+	width: 51px;
+	height: 25px;
+	border: 0 none;
+	border-radius: 3px;
+	background: url(../img/in1.png);
+	margin-top: -3px;
+	margin-left: 5px;
+	margin-right: 5px;
+	text-align: center;
+}
+
+.phonenum {
+	padding-left: 70px;
+	height: 35px;
+	line-height: 35px;
+	margin-top: 5px;
+}
+
+small {
+	color: red;
+}
+
+.phonenum input {
+	width: 410px;
+	height: 30px;
+	line-height: 30px;
+	text-indent: 10px;
+	margin-top: 5px;
+	border: 1px solid #CCCCCC;
+}
+
+.phonenum p {
+	height: 30px;
+	line-height: 30px;
+	margin-bottom: 26px;
+	color: #999999;
+	padding-left: 92px;
+}
+
+.phone1{
+	visibility: hidden;
+	color: red;
+	margin-left: 10px;
+
+}
+.pay {
+	
+	padding-left: 94px;
+	height: 65px;
+	line-height: 30px;
+	margin-bottom: 22px;
+}
+
+.pay li {
+	position: relative;
+	width: 208px;
+	height: 60px;
+	
+	margin-right: 22px;
+}
+.pay li b{
+	font-size: 14px;
+	color: #666666;
+}
+.pay .sel{
+	border: 2px solid #2FAF14;
+	background: #EDFFE8;
+}
+.pay .unsel{
+	background: #F9F9F9;
+	border: 1px solid #CECECE;
+}
+.pay .li2{
+	width: 208px;
+	height: 60px;
+	text-align: center;
+	line-height: 60px;
+	margin-top: 1px;
+	
+}
+
+.dl1 b {
+	margin-top: 11px;
+	margin-left: 8px;
+	margin-right: 15px;
+	margin-bottom: 10px;
+}
+.pay i{
+	position: absolute;
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	right: -2px;
+    bottom: -2px;
+	background: url(../xia.png) no-repeat;
+	visibility: visible;
+}
+
+.dl1 img{
+	margin-right: 7px;
+}
+.lan{
+	color: #2FAF14;
+}
+.a60{
+	margin-left: 8px;
+	margin-top: -5px;
+}
+
+
+.li2 i{
+	visibility: hidden;
+}
+.fs16{
+	
+}
+.danxuan{
+	visibility: visible;
+	height: 55px;
+	margin-bottom: 15px;
+	padding-left: 158px;
+}
+.sub{
+	padding-left: 158px;
+	padding-bottom: 15px;
+}
+.submit{
+	width: 167px;
+	height: 44px;
+	background: url(../img/submit.png);
+	
+	
+}
+.shenngming{
+	margin-top: 15px;
+	margin-left: 17px;
+}
+.foot1{
+	margin-top: 20px;
+}
+

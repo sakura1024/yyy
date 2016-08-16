@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>原生js创建轮播图</title>
+		<style type="text/css">
+			body,div,ul,li,a,img{
+				margin: 0;
+				padding: 0;
+			}
+			ul{
+				width: 1600px;
+				height: 200px;
+			}
+			li{
+				float: left;
+				list-style: none;
+				
+			}
+			img{
+				width: 400px;
+				height: 200px;
+			}
+			a{
+				text-decoration: none;
+			}
+			#wrapper{
+				position:relative;
+				width: 400px;
+				height: 200px;
+				margin: 20px auto;
+				/*overflow: hidden*/
+			}
+		</style>
+	</head>
+	<body>
+		<div id="wrapper">
+			<div class="banner">
+				<ul class="imglist">
+					<li><a href="#"><img src="img/101.jpg" alt="" /></a></li>
+					<li><a href="#"><img src="img/102.jpg" alt="" /></a></li>
+					<li><a href="#"><img src="img/103.jpg" alt="" /></a></li>
+					<li><a href="#"><img src="img/104.jpg" alt="" /></a></li>
+				</ul>
+			</div>
+		</div>
+	</body>
+</html>

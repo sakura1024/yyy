@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>二级联动</title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			var arrProvince = {
+				provinces: [{
+					name: "北京",
+					code: 100,
+					cities: [{
+						cityName: "昌平区",
+						cityCode: 101
+					}, {
+						cityName: "海淀区",
+						cityCode: 102
+					}, {
+						cityName: "朝阳区",
+						cityCode: 103
+					}, {
+						cityName: "东城区",
+						cityCode: 104
+					}, {
+						cityName: "西城区",
+						cityCode: 105
+					}]
+				}, {
+					name: "河北",
+					code: 101,
+					cities: [{
+						cityName: "石家庄区",
+						cityCode: 101
+					}, {
+						cityName: "邯郸",
+						cityCode: 102
+					}, {
+						cityName: "张家口",
+						cityCode: 103
+					}, {
+						cityName: "邢台",
+						cityCode: 104
+					}, {
+						cityName: "保定",
+						cityCode: 105
+					}]
+				}, {
+					name: "河南",
+					code: 102,
+					cities: [{
+						cityName: "郑州",
+						cityCode: 101
+					}, {
+						cityName: "洛阳",
+						cityCode: 102
+					}, {
+						cityName: "开封",
+						cityCode: 103
+					}, {
+						cityName: "驻马店",
+						cityCode: 104
+					}, {
+						cityName: "信阳",
+						cityCode: 105
+					}]
+				}]
+			}
+			
+			//假设数据从服务器获取  
+			//省对象 城市对象
+			//先把省份放在第一个select标签
+			window.onload=function(){
+				//读取所有省的名字
+				var aProvince=arrProvince.provinces;
+				//获取省的下拉列表对象
+				var oProvince=document.getElementById('province');
+				for (var i=0;i<aProvince.length;i++) {
+					var tempPro=aProvince[i];
+					//创建option节点
+					var oOption=document.createElement('option');
+					oOption.innerHTML=tempPro.name;
+					//添加到select
+					oProvince.appendChild(oOption);
+				}
+			}
+			//定义onchange事件
+			function changeCity(obj){
+				//alert(obj.value)
+				var oCity=document.getElementById('city');
+				var aProvince=arrProvince.provinces;
+				//清除上一次选中内容
+				while(oCity.options.length){
+					oCity.removeChild(oCity.lastChild);
+				}
+				for (var i=0;i<aProvince.length;i++) {
+					//获取省的名字
+					var proName=aProvince[i].name;
+					//获取当前省的名字
+					var SelsectName=obj.value;
+					//两者比较
+					if(SelsectName==proName){
+						//取出所有该省下的城市
+						var aCity=aProvince[i].cities;
+						//循环
+						for (var i = 0; i < aCity.length; i++) {
+							var oPtion=document.createElement('option');
+							oPtion.innerHTML=aCity[i].cityName;
+							//添加到select
+							oCity.appendChild(oPtion);
+							
+							
+						}
+					}
+				}
+			}
+			
+			
+		</script>
+		<select id="province" onchange="changeCity(this)">
+			<option value="0">请选择</option>
+		</select>
+		<select id="city">
+			<option value="0">请选择</option>
+		</select>
+	</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 200px;
+				height: 200px;
+				margin: 20px;
+				border: 1px solid red;
+			}
+		</style>
+	</head>
+	<body>
+		<img src="img/ui-bg_diagonals-thick_18_b81900_40x40.png" id="img"/>
+		<div id="new">
+			
+		</div>
+	</body>
+	<script type="text/javascript">
+		window.onload=function(){
+			var old=document.getElementById('img');
+			var new1=document.getElementById('new');
+			
+			old.ondragstart=function(e){
+				var e=window.event||e;
+				e.dataTransfer.setData("text",e.target.id);    
+			}
+			new1.ondragover=function(e){
+				var e=window.event||e;
+				e.preventDefault();
+			}
+			new1.ondrop=function(e){
+				e.target.appendChild(document.getElementById(e.dataTransfer.getData("text")));
+			}
+			
+		}
+	</script>
+</html>

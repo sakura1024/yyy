@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css" />
+		<link rel="stylesheet" href="css/index.css" />
+		<title></title>
+	</head>
+	<body>
+		<!--我的账户-->
+		<section id="myCount">
+			<div class="remaining">
+				<p>余额：</p>
+				<p class="">
+					<strong>0.00</strong><sub>元</sub></p>
+				<p>可转出余额: <span>0</span>元<span class="fr">申请转出</span></p>
+				<p>可用乐币：<span>0</span></p>
+			</div>
+			<!--收支明细选项卡-->
+			<!-- Nav tabs -->
+			<ul class="nav nav-tabs ul" role="tablist">
+				<li role="presentation" class="active">
+					<a href="#income" aria-controls="income" role="tab" data-toggle="tab">收支明细</a>
+				</li>
+				<li role="presentation">
+					<a href="#outcome" aria-controls="outcome" role="tab" data-toggle="tab">申请记录</a>
+				</li>
+			</ul>
+
+			<!-- Tab panes -->
+			<div class="tab-content">
+				<div role="tabpanel" class="tab-pane active" id="income">
+					<p>没有数据</p>
+				</div>
+				<div role="tabpane2" class="tab-pane" id="outcome">
+					<table border="0" >
+						<tr><th>申请时间</th><th>申请金额（¥）</th><th>状态</th></tr>
+						<tr class="tr"><td colspan="3">没有数据</td></tr>
+					</table>
+				</div>
+			</div>
+
+		</section>
+
+	</body>
+		<script type="text/javascript" src="lib/jquery-3.0.0.js"></script>
+	<script type="text/javascript" src="lib/bootstrap/js/bootstrap.js" ></script>
+	<script type="text/javascript" src="js/main.js"></script>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<video controls="controls" width="500" height="400" id="video">
+			<source src="mov_bbb.mp4" ></source>
+		</video>
+		<div>
+			<input type="button" name="fullScreen" id="fullScreen" value="全屏" onclick="show()"/>
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+	var oVideo=document.getElementById('video');
+	function show(){
+		oVideo.load();      //加载
+		oVideo.play();		//播放
+		/*//全屏
+		oVideo.webkitRequestFullScreen();     //兼容谷歌和Safari
+		oVideo.mozRequestFullScreen();     //兼容谷火狐
+		oVideo.msRequestFullScreen();     //兼容ie
+		oVideo.oRequestFullScreen();     //兼容欧朋*/
+		fullScreen(oVideo);
+		function fullScreen(ele){
+			if (ele.requestFullscreen) {
+				ele.requestFullscreen()
+			} else if(ele.webkitRequestFullScreen){
+				ele.webkitRequestFullScreen();
+			}else if (ele.mozRequestFullScreen) {
+				ele.mozRequestFullScreen();
+			} else if(ele.msRequestFullscreen){
+				ele.msRequestFullscreen();
+			}else{
+				ele.oRequestFullscreen();
+			}
+		}
+	}
+</script>

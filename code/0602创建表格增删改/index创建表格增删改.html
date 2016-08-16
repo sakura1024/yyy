@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			
+			td {
+				width: 100px;
+				border: 1px solid #ccc;
+				padding: 1px;
+				text-align: center;
+			}
+			
+			input {
+				background: white;
+				border: 0 none;
+				height: 20px;
+				margin: 0;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function() {
+				var oTable = document.getElementsByTagName('table')[0];
+				//创建表头
+				var oThead = document.createElement('thead');
+				var td = document.createElement('td');
+				td.innerHTML = "用户信息填写";
+				oThead.appendChild(td);
+				var td = document.createElement('td');
+				td.innerHTML = "姓名";
+				oThead.appendChild(td);
+				var td = document.createElement('td');
+				td.innerHTML = "年龄";
+				oThead.appendChild(td);
+				var td = document.createElement('td');
+				td.innerHTML = "性别";
+				oThead.appendChild(td);
+				var td = document.createElement('td');
+				td.innerHTML = "班级";
+				oThead.appendChild(td);
+				var td = document.createElement('td');
+				td.innerHTML = "操作";
+				oThead.appendChild(td);
+				oTable.appendChild(oThead);
+				//创建tbody
+				var oTbody = document.createElement('tbody');
+				//创建tbody里的tr
+				for (var i = 1; i <= 5; i++) {
+					var oTr = document.createElement('tr');
+					var td = document.createElement('td');
+					td.innerHTML = i;
+					oTr.appendChild(td);
+					var td = document.createElement('td');
+					var oInput = document.createElement('input');
+					oInput.type = "text";
+					oInput.innerHTML = "";
+					oInput.disabled = "disabled";
+					oInput.style.background = "#E8E8E8";
+					td.appendChild(oInput);
+					oTr.appendChild(td);
+					var td = document.createElement('td');
+					var oInput = document.createElement('input');
+					oInput.type = "text";
+					oInput.innerHTML = "";
+					oInput.disabled = "disabled";
+					oInput.style.background = "#E8E8E8";
+					td.appendChild(oInput);
+					oTr.appendChild(td);
+					var td = document.createElement('td');
+					var oInput = document.createElement('input');
+					oInput.type = "text";
+					oInput.innerHTML = "";
+					oInput.disabled = "disabled";
+					oInput.style.background = "#E8E8E8";
+					td.appendChild(oInput);
+					oTr.appendChild(td);
+					var td = document.createElement('td');
+					var oInput = document.createElement('input');
+					oInput.type = "text";
+					oInput.innerHTML = "";
+					oInput.disabled = "disabled";
+					oInput.style.background = "#E8E8E8";
+					td.appendChild(oInput);
+					oTr.appendChild(td);
+					var td = document.createElement('td');
+					td.innerHTML = "<button class='btn'>修改</button><button class='del'>删除</button>";
+					oTr.appendChild(td);
+					oTbody.appendChild(oTr);
+				}
+				oTable.appendChild(oTbody);
+				//遍历tr  进行修改和删除
+				for (var i = 0; i < oTable.tBodies[0].rows.length; i++) {
+					var oBtnModify = document.getElementsByClassName('btn')[i];
+					var oBtnDel = document.getElementsByClassName('del')[i];
+					//oTable.tBodies[0].rows[i].cells[6].children[0].onclick=function(){
+					oBtnModify.onclick = function() {
+						if (this.innerHTML == "修改") {
+							var oTrr = this.parentNode.parentNode;
+							for (var j = 1; j < oTrr.children.length - 1; j++) {
+								oTrr.cells[j].children[0].disabled = false;
+								oTrr.cells[j].children[0].style.backgroundColor = "white";
+							}
+							this.innerHTML = "保存";
+						} else {
+							var oTrr = this.parentNode.parentNode;
+							for (var j = 1; j < oTrr.children.length - 1; j++) {
+								oTrr.cells[j].children[0].disabled = true;
+								oTrr.cells[j].children[0].style.backgroundColor = "#E8E8E8";
+							}
+							this.innerHTML = "修改";
+						}
+					}
+					oBtnDel.onclick=function(){
+						var oTrr = this.parentNode.parentNode;
+						oTrr.parentNode.removeChild(oTrr);
+					}
+					
+				}
+			}
+		</script>
+	</head>
+
+	<body>
+		<table border="0" cellspacing="0" cellpadding="">
+		</table>
+		</table>
+	</body>
+
+</html>

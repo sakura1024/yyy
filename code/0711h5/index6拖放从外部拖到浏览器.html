@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>一个一个的上传拖拽</title>
+		<style type="text/css">
+			#new{
+				width: 200px;
+				height: 200px;
+				margin: 20px;
+				border: 1px solid red;
+			}
+		</style>
+	</head>
+	<body>
+		<ul id="new">
+			
+		</ul>
+		
+	</body>
+	<script type="text/javascript">
+		window.onload=function(){
+			var new1=document.getElementById('new');
+			var e=window.event||e;
+			new1.ondragover=function(e){
+				
+				e.preventDefault();
+			}
+			new1.ondrop=function(e){
+//				e.target.appendChild(document.getElementById(e.dataTransfer.getData("text")));
+				var fs=e.dataTransfer.files;
+//				alert(fs.length);
+//				alert(fs[0].type);
+				var fd=new FileReader();
+				fd.readAsDataURL(fs[0]);
+				fd.onload=function(){
+//					alert(this.result);\n
+					var oLi=document.createElement('li');
+					var oImg=document.createElement('img');
+					oImg.src=this.result;
+					oLi.appendChild(oImg);
+					new1.appendChild(oLi);
+				}
+				e.preventDefault();//阻止默认跳转事件
+			}
+			
+		}
+	</script>
+</html>

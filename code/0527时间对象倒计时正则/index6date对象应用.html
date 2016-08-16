@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#datetime {
+				width: 200px;
+				height: 30px;
+				border: 1px solid black;
+			}
+		</style>
+		
+
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			//window对象方法：alert prompt  setInterval
+				function showTime() {
+					var date = new Date();
+					var datetime = date.toDateString();
+					var oDiv = document.getElementById('datetime');
+					oDiv.innerHTML = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+				}
+				// setInterval(函数，时间)
+				setInterval(showTime, 1000); //window对象的方法  
+			
+		</script>
+		
+		<div id="datetime">
+
+		</div>
+		<br /><br />
+	</body>
+
+</html>

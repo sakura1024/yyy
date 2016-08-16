@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var b1=true;
+			var b2=false;
+			console.log(b1&b2==true);  //0
+			console.log(b1&&b2==true);  //false
+			console.log((b1&&b2)==true);  //false
+			console.log(b1&b2); //0
+			//闰年：能被4整除且不能被100整除 或者能被400整除
+			var year=2016;
+			if((year%4==0&&year%100!=0)||(year%400==0))
+			{
+				console.log("是闰年");
+			}else{
+				console.log("不是闰年");
+			}
+		</script>
+	</body>
+</html>

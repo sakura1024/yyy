@@ -1,0 +1,117 @@
+/*reset*/
+*{
+	margin: 0;
+	padding: 0;
+}
+.container{
+	width: 1000px;
+	margin: 0 auto;
+}
+body{
+	width: 1325px;
+	margin: 0 auto;
+}
+.fl{
+	float: left;
+}
+.fr{
+	float: right;
+}
+li{
+	list-style: none;
+	float: left;
+}
+a{
+	text-decoration: none;
+	color: #666666;
+}
+/*top*/
+.top{
+	height: 38px;
+	background: yellow;
+}
+.top-l ul li{
+	font-size: 12px;
+	height: 12px;
+	line-height: 38px;
+	padding-left: 8px;
+}
+.header{
+	height: 86px;
+	background: red;
+	margin-bottom: 27px;
+}
+.header ul li{
+	float: left;
+	width: 133px;
+	height: 86px;
+	background: pink;
+	margin-left: 8px;
+}
+/*consult*/
+.consult{
+	height: 35px;
+	background: blue;
+}
+.consult img{
+	width: 127px;
+	height: 26px;
+}
+.consult .se{
+	width: 215px;
+	height: 24px;
+	border: 0 none;
+	border: 1px solid #B2B2B2;
+}
+.consult select{
+	margin-right: 5px;
+	height: 26px;
+	border: 0 none;
+	border: 1px solid #B2B2B2; 
+}
+/*nav*/
+.nav{
+	height: 40px;
+	background: #0F2851;
+}
+.nav .nav-tit{
+	height: 40px;
+}
+.nav .nav-tit li{
+	line-height: 40px;
+	padding: 0 16px 0 17px;
+	border-left: 1px solid #304972;
+	border-right: 1px solid #031334;
+	font-size: 14px;
+}
+.nav .nav-tit li a{
+	color: #FFFFFF;
+}
+.nav .nav-tit li:hover a{
+	color: #CCB867;
+}
+.nav-down{
+	font-size: 13px;
+	height: 13px;
+}
+.nav-down li{
+	margin: 6px 0px;
+	padding: 0 8px;
+	border-right: 1px solid #E0E0E0;
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>jq链式操作法</title>
+		<script type="text/javascript" src="js/jquery-3.0.0.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				/*
+				var oDiv=$('#div1');
+				oDiv.html('div');
+				oDiv.css('background','red');
+				oDiv.click(function(){
+					alert(123);
+				});
+				*/
+				$('#div1').html('div').css('background', 'red').click(function() {
+					alert(123);
+				});
+			})
+		</script>
+	</head>
+
+	<body>
+		<div id="div1">
+		</div>
+	</body>
+
+</html>

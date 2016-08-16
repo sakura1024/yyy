@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			//形如：020-12345678或0312-1234567
+			function focu() {
+				var oTxt=document.getElementById('txt');
+				oTxt.style.color='blue';
+			}
+			function check(){
+				var oTxt=document.getElementById('txt');
+				var reg=/^[\d]{3}-[\d]{8}$|^[\d]{4}-[\d]{7}$/g;
+				var oTip=document.getElementById('tip');
+				if (reg.test(oTxt.value)) {
+					oTip.innerHTML="√";
+					oTip.style.color="green";
+					oTip.style.fontWeight="bold";
+					
+				} else{
+					oTip.innerHTML="请输入正确的固话格式，形如：020-12345678或0312-1234567";
+					oTip.style.color="red";
+					oTip.style.fontWeight="bold";
+				}
+				oTxt.style.color='black';
+			}
+		</script>
+	</head>
+	<body>
+	<input type="text" name="txt" id="txt" value="" onblur="check()" onfocus="focu()"/><span id="tip"></span><br /><br />
+	<input type="button" id="btn" value="测试" onclick="check()"/>
+	</body>
+</html>

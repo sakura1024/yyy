@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			function CreatePerson(name,qq){                      //构造函数 ：构造一个对象
+				var obj=new Object();                            //创建对象
+				obj.name=name;                                   //定义对象的name属性
+				obj.qq=qq;                                       //定义对象的qq属性
+				obj.showName=function(){                         //定义对象的方法：显示对象的姓名
+					alert('我的姓名：'+this.name);
+				}
+				obj.showQQ=function(){                            //定义对象的方法：显示对象的qq
+					alert('我的QQ：'+this.qq);
+				}
+				return obj;
+			}
+//			var obj1=CreatePerson('blue','11311543277');           //调用构造函数  创建个人信息对象
+//			obj1.showName();                                        //对用对象方法：显示对象姓名
+//			obj1.showQQ();                                          //调用对象方法：显示对象qq
+//			var obj2=CreatePerson('yuanyuan','11317893277');
+//			obj2.showName();
+//			obj2.showQQ();
+//			var obj3=CreatePerson('zsn','113213277');
+//			obj3.showName();
+//			obj3.showQQ();
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

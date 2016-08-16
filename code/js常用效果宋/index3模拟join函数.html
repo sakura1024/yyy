@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//模拟join函数
+			var arr=new Array(5);
+			for (var i=0;i<arr.length;i++) {
+				arr[i]=parseInt(Math.random()*100+1);
+			}
+			document.write("原函数：");
+			document.write(arr);
+			document.write("<br />")
+			var str="";
+			for (var i=0;i<arr.length-1;i++) {
+				str=str+arr[i]+'-';
+			}
+			
+			str=str+arr[i];
+			document.write("模拟join函数：");
+			document.write(str);
+		</script>
+	</body>
+</html>

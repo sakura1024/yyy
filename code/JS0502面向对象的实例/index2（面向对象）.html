@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>面向对象的选项卡</title>
+		<style type="text/css">
+			div {
+				width: 200px;
+				height: 200px;
+				border: 1px solid pink;
+				position: absolute;
+				top: 100px;
+				left: 0;
+				display: none;
+			}
+			
+			.active {
+				background: yellow;
+			}
+		</style>
+		<script type="text/javascript">
+			var aBtn = null;                                                 //改为全局变量
+			var aDiv = null;
+			
+			window.onload = function() {                                     //构造函数里定义属性
+				 aBtn = document.getElementsByTagName('input');
+				 aDiv = document.getElementsByTagName('div');
+				for (var i = 0; i < aBtn.length; i++) {
+					aBtn[i].index = i;
+					aBtn[i].onclick = fnClick;
+				}
+			}
+
+			function fnClick() {                                            //原型里定义方法
+				for (var i = 0; i < aDiv.length; i++) {
+					aBtn[i].className = '';
+					aDiv[i].style.display = 'none';
+				}
+				aDiv[this.index].style.display = 'block';
+				this.className = 'active';
+			}
+		</script>
+	</head>
+
+	<body>
+		<h6>面向过程的----->面向对象的:1、去掉嵌套函数</h6>
+		<input type="button" name="btn1" id="btn1" value="教育" class="active" />
+		<input type="button" name="btn1" id="btn2" value="培训" />
+		<input type="button" name="btn1" id="btn3" value="出国" />
+		<input type="button" name="btn1" id="btn3" value="留学" />
+		<div id="div1">
+			111
+		</div>
+		<div id="div2">
+			222
+		</div>
+		<div id="div3">
+			333
+		</div>
+		<div id="div4">
+			444
+		</div>
+	</body>
+
+</html>

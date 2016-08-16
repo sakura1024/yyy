@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery-3.0.0.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				var url = "http://localhost:9270/yyy";
+				$('button').click(function(e) { //注意参数的使用位置
+					var name=$('input:first').val();
+					var href=$('input:last').val();
+					var obj={
+						"name":name,    
+						"href":href     
+					}
+					console.log(JSON.stringify(obj))    //{"name":"1","href":"2"}
+					console.log($("form").serialize());  //name=1&href=2
+					//下面的语句可以成功将数据提交并显示在后台表格里
+					$.post(url,$("form").serialize(),function(){
+						alert("success");
+					})
+					/*
+					 * $.post(url) 
+					 * 这样提交是错误的error：400，因为自己后台写的两个数据都为required，（后天有给改为了不是required）
+					 * 所以post参数里面必须要有向后台传递的数据
+					 * 且不能为空
+					 * 下面这种写法是正确的，可以成功向后台提交数据
+					 * $.post(url,$("form").serialize(),function(){
+						console.log("success");
+						});
+					 * 
+					 * console.log($("form").serialize());  //name=fdsaf&href=fadsfasfas
+					 * 
+					 * 
+					 * button:自带提交到后台的默认事件  当不阻止默认事件时，点击按钮会自动提交数据，不需要post手动提交数据
+					 * 当阻止默认事件时，则需要手动post提交数据，且当数据要求为required时，post参数里面必须有url和data
+					 * 
+					 * 
+					 * $("form").serialize()  ---->
+					 * */
+					
+					/*$.post(url,$("form").serialize(),function(){
+						console.log("success");
+					});*/
+					//$.post(url)
+					e.preventDefault(); //button具有默认事件，所以应该取消它的默认事件
+				})
+
+			})
+		</script>
+	</head>
+
+	<body>
+		<h1>index4和index5一起操作</h1>
+		<form action="" >
+			名称：<br />
+			<input name="name" id="btn1" value="" /><br />
+			<!-- name必须要与后台的name一致-->
+			密码：<br />
+			<input name="href" id="btn2" value="" /><br />
+			<!-- name必须要与后台的name一致-->
+			<button>提交</button>
+		</form>
+	</body>
+
+</html>

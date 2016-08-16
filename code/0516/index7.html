@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>打印三行两列的表格</title>
+		<style type="text/css">
+		table{
+			border: 3px solid pink;
+			border-collapse: collapse;  /*设置没有间距的*/
+			margin: 0 auto;
+		}
+			td{
+				width: 100px;
+				height: 50px;
+				line-height: 50px;
+				border: 3px solid lightgray;
+				border-right: 3px solid dimgray;
+				border-bottom: 3px solid dimgray;
+				text-align: center;
+				background: lightpink;
+				color: white;
+				font-weight: bold;
+			}
+		</style>
+	</head>
+	<body>
+		<script type="text/javascript">
+		document.write("<table>");
+			for (var j = 0; j < 3; j++) {
+				for (var i = 0; i < 2; i++) {
+					document.write("<td>第"+(j+1)+"行  第"+(i+1)+"列</td>");
+				}
+				document.write("<tr></tr>")
+			} 
+			document.write("</table>")
+		</script>
+	</body>
+
+</html>

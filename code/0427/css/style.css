@@ -1,0 +1,138 @@
+img,body,ul,li{
+	margin: 0;
+	padding: 0;
+}
+a{
+	text-decoration: none;
+}
+body{
+	background: #F7F7F7;
+}
+.container{
+	width: 980px;
+	margin: 0 auto;
+}
+.fl{
+	float: left;
+}
+.fr{
+	float: right;
+}
+.logo{
+	width: 989px;
+	height: 127px;
+	margin: 0 auto;
+}
+/*导航*/
+.nav{
+	height: 40px;
+	margin-bottom: 14px;
+	/*background: #2077BA;*/
+	background: url(../img/011.png) repeat;
+}
+.nav ul li{
+	list-style: none;
+	float: left;
+	line-height: 40px;
+	width: 10.5%;
+	border-right: 1px solid #1D6BA8;
+	border-left:1px solid #348CD0 ;
+	text-align: center;
+}
+.nav ul li:last-child{
+	border-right: 0;
+}
+.nav ul li a{
+	color: white;
+}
+/*广告横幅*/
+.banner{
+	height: 395px;
+	position: relative;
+	margin-bottom: 14px;
+}
+.btn{
+	display: inline-block;
+	width: 204px;
+	height: 51px;
+	background: url(../img/btn.png);
+	position: absolute;
+	top:285px;
+	left: 40px;
+	text-indent: -20000px;
+}
+/*主体*/
+.main{
+	height: 235px;
+	margin-bottom: 14px;
+}
+.box-fl{
+	width: 31%;
+	height: 233px;
+	border: 1px solid #EAEAEA;
+	margin-right: 2.15%;
+	background: #FFFFFF;
+}
+.main div:first-child{
+	margin-left: 1%;
+}
+.main div:last-child{
+	margin-right: 1%;
+}
+.main-nav{
+	/*width: 100%;*/
+	height: 25px;
+	margin-top: 17px;
+	padding-left: 17px;
+}
+.main-nav span{
+	display: inline-block;
+	width: 25px;
+	height: 25px;
+}
+.main-nav .icon0{
+	background: url(../img/sprite.fw.png) no-repeat;
+}
+.main-nav .icon1{
+	background: url(../img/sprite.fw.png) -27px 0px no-repeat;
+}
+.main-nav .icon2{
+	background: url(../img/sprite.fw.png) -50px 0px no-repeat;
+}
+.box-fl ul{
+	padding-left: 50px;
+}
+.box-fl li{
+	line-height: 20px;
+}
+.box-fl ul a{
+	color: #808080;
+	font-size: 12px;
+}
+.box-fl .more{
+	width: 76px;
+	height: 25px;
+	background: #2385CF;
+	text-align: center;
+	margin-left: 215px;
+}
+.box-fl .more a{
+	line-height: 25px;
+	font-size: 12px;
+	color: white;
+}
+/*footer*/
+.footer{
+	margin-top: 12px;
+	height: 135px;
+	background: #F7F7F7;
+	border-top:1px solid #EAEAEA;
+	text-align: center;
+}
+.footer p{
+	font-size: 11px;
+	color: #999999;
+}
+.footer p:first-child{
+	margin-top: 35px;
+}

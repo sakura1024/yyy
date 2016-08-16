@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/angular.js" ></script>
+		<script type="text/javascript">
+			angular.module('app',[])
+//			.value('realname','zhangsan')
+			.
+			.controller('div2Ctrl',function($scope,realname){
+				$scope.realname=realname;
+			})
+		</script>
+	</head>
+	<body ng-app="app">
+		<div ng-controller="div2Ctrl">
+			<input type="text" ng-model="realname"/>
+			<h4 >{{realname}}</h4>
+		</div>
+		
+	</body>
+</html>

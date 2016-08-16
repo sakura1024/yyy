@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload = function() {
+				var oBtn = document.getElementById('btn');
+				oBtn.onclick=function add() {
+					var oTxt1 = document.getElementById('txt1');
+					var oTxt2 = document.getElementById('txt2');
+					var oTxt3 = document.getElementById('txt3');
+					var n1 = parseInt(oTxt1.value);
+					var n2 = parseInt(oTxt2.value);
+					var sum=n1+n2;
+					oTxt3.value=sum;
+					
+				};
+				
+				
+			}
+		</script>
+	</head>
+
+	<body>
+		<!--
+			求和
+			输入第一个数：
+			输入第二个数：
+			输入运算符
+			输出按钮 进行点击事件 计算求和
+		-->
+		<input type="text" value="" placeholder="请输入第一数值" id="txt1" />
+		<select name="" id="sel">
+			<option value="">+</option>
+			<option value="">-</option>
+			<option value="">*</option>
+			<option value="">/</option>
+		</select>
+		<input type="text" value="" placeholder="请输入第二个数值" id="txt2" />
+		<button id="btn">=</button>
+		<input type="text" value="" placeholder="输出答案" id="txt3" />
+	</body>
+
+</html>

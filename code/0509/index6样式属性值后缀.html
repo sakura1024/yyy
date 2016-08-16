@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.div1{
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				background-color: yellow\9;         /* IE6-10*/
+				background-color: blue\9\0;           /*IE9-10*/
+				background-color: green\0;				/*IE8-10*/
+			}
+		</style>
+	</head>
+	<body>
+		<div class="div1">
+			高版本红<br />
+			IE6-7:蓝色<br />
+			IE8-710:绿色<br />
+		</div>
+	</body>
+</html>

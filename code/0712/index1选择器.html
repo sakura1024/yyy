@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>css3属性选择器</title>
+		<style type="text/css">
+		
+			body{
+				background: #ccc;
+			}
+			
+			
+			/*
+			 
+			 * body *：body里面的所有子元素
+			 * 
+			 * */
+			body *{   
+				border: 1px solid black;
+			}
+			/*
+			 
+			 * not要结合通配符*来使用
+			 * */
+			body *:not(ul){
+				border: 0 none;
+			}
+			/**/
+			
+			a[href*="www"] {
+				color: red;
+			}
+			
+			a[class^='b'] {
+				background: yellow;
+			}
+			
+			a[class$='d'] {
+				font-weight: bold;
+				font-size: 30px;
+			}
+			
+			/********************************************伪类选择器****************************/
+			/*首行*/
+			
+			p:first-line {
+				color: plum;
+			}
+			/*首字母*/
+			
+			p:first-letter {
+				color: red;
+				font-size: 30px;
+				font-weight: bold;
+			}
+			p:before{
+				content: "sart";
+			}
+			p:after{
+				content: "end";
+				color: green;
+				font-weight: bold;
+				background: pink;
+			}
+			/*寻找第一个li*/
+			li:first-child{
+				color: red;
+			}
+			/*寻找最后一个li*/
+			li:last-child{
+				color: yellow;
+			}
+			
+			/*下标从1开始*/ 
+			/*正数第2个孩子*/
+			li:nth-child(2){
+				background: pink;
+			}
+			
+			/*下标从1开始*/
+			/*倒数第二个孩子*/
+			li:nth-last-child(2){
+				background: red;
+			}
+			/*选中奇数行*/
+			/*
+			 * 选中偶数行
+			 * li:nth-child(even)
+			 * */
+			li:nth-child(odd){
+				font-weight: bold;
+				font-size: 30px;
+			}
+			
+			
+			/*ui选择器
+			 
+			 * 三者之间的顺序（必须）：hover focus active
+			 * 
+			 * */    
+			/*鼠标悬停*/
+			input[type="text"]:hover{
+				background: pink;
+			}
+			
+			/*获取光标后*/
+			input[type="text"]:focus{
+				background: plum;
+			}
+			
+			/*鼠标在里面点击着不放开*/
+			input[type="text"]:active{
+				background: blue;
+			}
+			
+		</style>
+	</head>
+
+	<body>
+		<a href="www.bai.com">京东</a>
+		<a href="www.bai.htm" class="abc">百度</a>
+		<a href="www.bai.html">淘宝</a>
+		<a href="www.bai.cn" class="bc">腾讯</a>
+		<a href="www.bai.org" class="bd">新浪</a>
+		<p>辽宁工程技术大学辽宁工程技术大学辽宁工程技术大学辽宁工程技术大学辽宁工程技术大学辽宁工程技术大学辽宁工程技术大学辽宁工程技术大学辽宁工程技术大学辽宁工程技术大学</p>
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+		</ul>
+		<form action="#" method="post">
+			<input type="text" name="" id="" value="" />
+			<input type="password" name="" />
+			<input type="submit" value=""/>
+		</form>
+	
+	</body>
+
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html manifest="cache.manifest">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body{
+				background: #e43930;
+			}
+		</style>
+		<!--正常页面开发之后，在处理离线缓存问题-->
+		<!--在html中添加一个manifest属性，该属性指向一个文件（清单）
+			清单文件中，包含所要缓存的文件
+			该清单文件为文本文件即可，为了标注显而易见，我给他的后缀名为manifest
+			
+		-->
+	</head>
+	<body>
+		<img src="img/a1_r11_c11.jpg"/>
+		<div >
+			今天别再下大雨了!
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+	document.write("<h1>哈哈晴天吧</h1>")
+</script>

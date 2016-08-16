@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>输入年，再输入月份，判断1月到当前月份底的总的天数，里面月的条件判断使用switch</title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			var year = prompt("请输入年份：");
+			var month = prompt("请输入月份：");
+			var day = 0;
+			if ((year % 400 == 0) || (year % 4 == 0 && year % 100 != 0)) {
+				day2 = 29;
+			} else {
+				day2 = 28;
+			}
+			switch (month) {
+				case "2":
+					day = parseInt(31 + day2);
+					document.write("1月到当前"+month+"月份底的总的天数" + day + "天");
+					break;
+				case "3":
+					day = parseInt(31 + day2 + 31);
+					document.write("1月到当前"+month+"月份底的总的天数" + day + "天");
+					break;
+				case "4":
+					day = parseInt(31 + day2 + 31 + 30);
+					document.write("1月到当前"+month+"月份底的总的天数" + day + "天");
+					break;
+				case "5":
+					day = parseInt(31 + day2 + 31 + 30 + 31);
+					document.write("1月到当前"+month+"月份底的总的天数" + day + "天");
+					break;
+				case "6":
+					day = parseInt(31 + day2 + 31 + 30 + 31 + 30);
+					document.write("1月到当前"+month+"月份底的总的天数" + day + "天");
+					break;
+				case "7":
+					day = parseInt(31 + day2 + 31 + 30 + 31 + 30 + 31);
+					document.write("1月到当前"+month+"月份底的总的天数" + day + "天");
+					break;
+				case "8":
+					day = parseInt(31 + day2 + 31 + 30 + 31 + 30 + 31 + 31);
+					document.write("1月到当前"+month+"月份底的总的天数" + day + "天");
+					break;
+				case "9":
+					day = parseInt(31 + day2 + 31 + 30 + 31 + 30 + 31 + 31 + 30);
+					document.write("1月到当前"+month+"月份底的总的天数" + day + "天");
+					break;
+				case "10":
+					day = parseInt(31 + day2 + 31 + 30 + 31 + 30 + 31 + 31 + 30 + 31);
+					document.write("1月到当前"+month+"月份底的总的天数" + day + "天");
+					break;
+				case "11":
+					day = parseInt(31 + day2 + 31 + 30 + 31 + 30 + 31 + 31 + 30 + 31 + 30);
+					document.write("1月到当前"+month+"月份底的总的天数" + day + "天");
+					break;
+				case "12":
+					day = parseInt(31 + day2 + 31 + 30 + 31 + 30 + 31 + 31 + 30 + 31 + 30 + 31);
+					document.write("1月到当前"+month+"月份底的总的天数" + day + "天");
+					break;
+			}
+		</script>
+	</body>
+
+</html>

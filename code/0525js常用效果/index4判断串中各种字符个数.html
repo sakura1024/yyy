@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>给定一个字符串 判断串中 大写字母 小写字母 数字 特殊符号 的分别的个数</title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			//给定一个字符串  判断串中  大写字母 小写字母  数字 特殊符号 的分别的个数
+			var lowNum=0;
+			var upNum=0;
+			var num=0;
+			var other=0;
+			var str = "a4bAB7C*&^%";
+			for (var i = 0; i < str.length; i++) {
+				if (str.charAt(i)>='a'&&str.charAt(i)<='z') {
+					 lowNum++;
+				} else if(str.charAt(i)>='A'&&str.charAt(i)<='Z'){
+					upNum++;
+				}else if(str.charAt(i)>='0'&&str.charAt(i)<='9'){
+					num++;
+				}else{
+					other++;
+				}
+			}
+			document.write('原字符串：'+str+'<br />');
+			document.write("小写字母："+lowNum+",大写字母："+upNum+',数字：'+num+',其他字符：'+other);
+		</script>
+	</body>
+
+</html>

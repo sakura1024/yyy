@@ -1,0 +1,140 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>表单验证</title>
+<link rel="stylesheet" type="text/css" href="css/css.css">
+<script src="form.js"></script>
+</head>
+
+<body onload="show()">
+<div><img src="images/r2_c2.jpg" width="720" height="58" /></div>
+<div class="content">
+<form action="" method="post" enctype="multipart/form-data" name="myform" onsubmit="return checkForm()">
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td width="22%" height="70" align="right">用户名：</td>
+      <td height="50" colspan="2"><p>
+        <input name="username" type="text" class="in2" id="username" value="请输入用户名" onfocus="ch(this)"/>
+        <span>要求点击时文字消失、再次输入时文字是黑色</span>
+        <p>3-20个字符，允许中文、英文字母、数字和符号_ - 。</p></td>
+    </tr>
+    <tr>
+      <td height="50" align="right">邮件地址：</td>
+      <td height="50" colspan="2"><input name="email" type="text" class="in1" id="email" />
+        <span>合法的邮件地址</span></td>
+    </tr>
+    <tr>
+      <td height="50" align="right">密码：</td>
+      <td height="50" colspan="2"><input name="pw1" type="password" class="in1" id="pw1" /> 
+        <span>由数字字母下划线组成3到16位</span></td>
+    </tr>
+    <tr>
+      <td height="50" align="right">确认密码：</td>
+      <td height="50" colspan="2"><input name="pw2" type="password" class="in1" id="pw2" />
+        <span>和密码一致</span></td>
+    </tr>
+    <tr>
+      <td height="50" align="right">身份证号码：</td>
+      <td height="50" colspan="2"><input name="code" type="text" class="in1" id="code" />
+        <span>15位或18位的身份证号码</span></td>
+    </tr>
+    <tr>
+      <td height="50" align="right">固定电话：</td>
+      <td height="50" colspan="2"><input name="phone" type="text" class="in1" id="phone" />
+        <span>形如:020-12345678或0312-1234567</span></td>
+    </tr>
+    <tr>
+      <td height="50" align="right">手机号：</td>
+      <td height="50" colspan="2"><input name="tel" type="text" class="in1" id="tel" />
+        <span>13或15或18开头的手机号</span></td>
+    </tr>
+    <tr>
+      <td height="50" align="right">QQ号码：</td>
+      <td height="50" colspan="2"><input name="qq" type="text" class="in1" id="qq" />
+        <span>10000以上的QQ号</span></td>
+    </tr>
+    <tr>
+      <td height="50" align="right">来自：</td>
+      <td height="50" colspan="2"><select name="pro" id="pro" onchange="addCity(this.value)">
+        <option value="0">请选择</option>
+      </select>
+      省
+      <select name="city" id="city">
+        <option value="">请选择</option>
+      </select>
+      市 <span>做出二级联动效果必选一项</span></td>
+    </tr>
+    <tr>
+      <td height="50" align="right">性别：</td>
+      <td height="50" colspan="2"><input type="radio" name="sex" id="radio" value="man" />
+        男
+        <input type="radio" name="sex" id="radio2" value="woman" />
+        女
+        <input type="radio" name="sex" id="radio3" value="mi" />
+        保密 <span>必选一项</span></td>
+    </tr>
+    <tr>
+      <td height="50" align="right">爱好：</td>
+      <td height="50" colspan="2"><input type="checkbox" name="like" id="like"  value="net"/>
+        上网
+          <input type="checkbox" name="like" id="like" />
+        听音乐
+        <input type="checkbox" name="like" id="like" />
+        打羽毛球
+        <input type="checkbox" name="like" id="like" />
+        学习
+        <input type="checkbox" name="like" id="like" />
+        踢足球 <span>至少选3项</span></td>
+    </tr>
+    <tr>
+      <td height="50" align="right">行业：</td>
+      <td height="50" colspan="2"><select name="hang" id="hang">
+        <option value="">请选择</option>
+        <option value="1">老师</option>
+        <option value="2">计算机</option>
+        <option value="3">金融</option>
+        <option value="4">经理</option>
+        <option value="5">工程师</option>
+      </select>
+        <span>必选一项</span></td>
+    </tr>
+    <tr>
+      <td height="50" align="right">出生日期：</td>
+      <td height="50" colspan="2"><input name="date" type="text" class="in1" id="date" />
+        <span>形如:2012-12-21</span></td>
+    </tr>
+    <tr>
+      <td height="50" align="right">上传头像：</td>
+      <td height="50" colspan="2"><input name="file" type="file" class="in1" id="file" /><span>要求上传的图片格式为jpg格式</span></td>
+    </tr>
+    <tr>
+      <td height="50" align="right">个人主页：</td>
+      <td height="60" colspan="2"><input onfocus="ch(this)" name="single" type="text" class="in2" id="single" value="http://bwie.com"/>
+        <span>形如:http://xxx.yyy.com.cn(x和y部任意个，x部分可以省略,但y部分不能省)点击文字消失，再输入文字变成黑色</span></td>
+    </tr>
+    <tr>
+      <td height="40" align="right">自我介绍：</td>
+      <td width="49%" height="40" valign="middle"><textarea name="intro" id="intro" cols="45" rows="5"></textarea></td>
+      <td width="29%" valign="middle"><span>要求输入50到200个字</span></td>
+    </tr>
+    <tr>
+      <td height="50" align="right">验证码：</td>
+      <td height="50" colspan="2"><input name="yan" type="text" class="in3" id="yan" size="15" /> 
+        <strong id="c">RLKYXX</strong><span>要求六位大写字母与页面显示内容一致</span></td>
+    </tr>
+    <tr>
+      <td height="40" align="right">&nbsp;</td>
+      <td height="40" colspan="2"><input type="checkbox" checked="checked" name="checkbox" id="checkbox" />
+        我已阅读并同意条款</td>
+    </tr>
+	<tr>
+      <td height="40" align="right">&nbsp;</td>
+      <td height="60" colspan="2"><input type="submit" value="" class="bg"/></td>
+    </tr>
+  </table>
+  </form>
+</div>
+<div><img src="images/r4_c3.JPG" width="720" height="91" /></div>
+</body>
+</html>

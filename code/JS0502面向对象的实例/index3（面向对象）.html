@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>面向对象的选项卡</title>
+		<style type="text/css">
+			div {
+				width: 200px;
+				height: 200px;
+				border: 1px solid pink;
+				position: absolute;
+				top: 100px;
+				left: 0;
+				display: none;
+			}
+			
+			.active {
+				background: yellow;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload=function(){
+				new tabSwitch();
+			}
+			function tabSwitch() {                                     //构造函数里定义属性
+				var _this=this;
+				 this.aBtn = document.getElementsByTagName('input');
+				 this.aDiv = document.getElementsByTagName('div');
+				for (var i = 0; i < this.aBtn.length; i++) {
+					this.aBtn[i].index = i;
+//					this.aBtn[i].onclick = this.fnClick;                  //this是window种的this
+					this.aBtn[i].onclick = function(){
+						//this.fnClick();                               //此时的this是this.aBtn[i]     但是想要的this是window种的this
+						 _this.fnClick();
+					};
+				}
+			}
+
+			tabSwitch.prototype.fnClick=function() {  //原型里定义方法
+				//console.log(this);      //this：是input元素的
+				for (var i = 0; i < this.aDiv.length; i++) {
+					this.aBtn[i].className = '';
+					this.aDiv[i].style.display = 'none';
+				}
+				this.aDiv[this.index].style.display = 'block';
+				this.className = 'active';
+			}
+		</script>
+	</head>
+
+	<body>
+		<h6>面向过程的----->面向对象的:2、去掉window.onload</h6>
+		<input type="button" name="btn1" id="btn1" value="教育" class="active" />
+		<input type="button" name="btn1" id="btn2" value="培训" />
+		<input type="button" name="btn1" id="btn3" value="出国" />
+		<input type="button" name="btn1" id="btn3" value="留学" />
+		<div id="div1">
+			111
+		</div>
+		<div id="div2">
+			222
+		</div>
+		<div id="div3">
+			333
+		</div>
+		<div id="div4">
+			444
+		</div>
+	</body>
+
+</html>
